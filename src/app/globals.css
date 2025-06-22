@@ -1,26 +1,377 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary-50: #e6f0ff;
+  --color-primary-100: #cce0ff;
+  --color-primary-200: #99c2ff;
+  --color-primary-300: #66a3ff;
+  --color-primary-400: #3385ff;
+  --color-primary-500: #0d6efd;
+  --color-primary-600: #0b5bd1;
+  --color-primary-700: #0947a5;
+  --color-primary-800: #073479;
+  --color-primary-900: #05214d;
+  --color-primary-950: #031327;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  color: #0f172a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f172a;
+    color: white;
+  }
+}
+
+/* Floating particles animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Navigation animations */
+@keyframes slideDownFade {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.6),
+      0 0 30px rgba(99, 102, 241, 0.4);
+  }
+}
+
+@keyframes navLinkSlide {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-hide {
+  animation: slideUpFade 0.3s ease-in-out forwards;
+}
+
+.nav-show {
+  animation: slideDownFade 0.3s ease-in-out forwards;
+}
+
+.logo-glow {
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+.nav-link-animate {
+  animation: navLinkSlide 0.5s ease-out forwards;
+}
+
+/* Backdrop blur enhancement */
+.nav-blur-enhanced {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .nav-blur-enhanced {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Optimized card animations */
+.project-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.project-card:hover {
+  transform: translateZ(0) translateY(-4px);
+}
+
+/* Smooth scrolling with better performance */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for better performance */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.container-max {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Creative but performant animations for ProjectsSection */
+
+/* Staggered card entrance with smooth effect */
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Magnetic hover effect */
+@keyframes magneticPull {
+  0% {
+    transform: translateZ(0) translateY(0) scale(1);
+  }
+  100% {
+    transform: translateZ(0) translateY(-8px) scale(1.02);
+  }
+}
+
+/* Tech tag cascade animation */
+@keyframes tagCascade {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.8);
+  }
+  60% {
+    transform: translateX(5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Shimmer effect for project images */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Pulse glow effect */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px rgba(13, 110, 253, 0.1);
+  }
+}
+
+/* Floating particles effect */
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px) rotate(270deg);
+    opacity: 0.9;
+  }
+}
+
+/* Button ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Class definitions for performance-optimized animations */
+.card-entrance {
+  animation: cardEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) basic;
+}
+
+.magnetic-hover:hover {
+  animation: magneticPull 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.tech-tag-cascade {
+  animation: tagCascade 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.pulse-glow:hover {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.floating-particle {
+  animation: floatParticle 4s ease-in-out infinite;
+}
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Advanced project card styles */
+.project-card-advanced {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-advanced::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(13, 110, 253, 0.1),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card-advanced:hover::before {
+  opacity: 1;
+}
+
+/* Staggered animation delays for better visual flow */
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-600 {
+  animation-delay: 600ms;
 }
