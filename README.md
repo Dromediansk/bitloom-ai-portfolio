@@ -26,6 +26,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 
 ### Technical Features
 
+- **Dark Mode Support** - Seamless theme switching with light, dark, and system modes
 - **Responsive Design** - Mobile-first, accessible across all devices
 - **SEO Optimized** - Meta tags, sitemap, and structured data
 - **Performance First** - Optimized images, lazy loading, and fast loading times
@@ -38,6 +39,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 - **[Next.js 15](https://nextjs.org/)** - React framework with App Router
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[next-themes](https://github.com/pacocoursey/next-themes)** - Perfect dark mode support
 - **[React 19](https://react.dev/)** - Latest React features
 - **Modern Tooling** - ESLint, PostCSS, Turbopack
 
@@ -54,7 +56,8 @@ src/
 │   ├── references/        # Client testimonials
 │   └── services/          # Service offerings
 ├── components/            # Reusable UI components
-│   ├── Navigation.tsx     # Main navigation
+│   ├── Navigation.tsx     # Main navigation with theme toggle
+│   ├── ThemeToggle.tsx    # Dark mode theme switcher
 │   ├── Button.tsx         # Button components
 │   └── projects/          # Project-specific components
 ├── sections/              # Page sections
@@ -65,6 +68,8 @@ src/
     ├── config.ts          # App configuration
     ├── utils.ts           # Utility functions
     └── hooks.ts           # Custom React hooks
+├── providers/             # React context providers
+│   └── ThemeProvider.tsx  # Dark mode theme provider
 ```
 
 ## 🚦 Getting Started
@@ -110,7 +115,8 @@ src/
 The website follows a **clean, minimalist, and professional** design approach:
 
 - **Modern Sophistication** - Contemporary design with enterprise appeal
-- **Excellent Contrast** - High readability and business credibility
+- **Dark Mode Excellence** - Seamless theme switching with system preference support
+- **Excellent Contrast** - High readability and business credibility in both themes
 - **Responsive Typography** - Clear headings and professional font choices
 - **Brand Voice** - Confident, expert, and solution-focused messaging
 

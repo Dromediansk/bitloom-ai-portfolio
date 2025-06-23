@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import NavigationLink from "./NavigationLink";
+import ThemeToggle from "./ThemeToggle";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -54,48 +55,54 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 animate-fade-in-right">
-            {navigationLinks.map((link) => (
-              <NavigationLink
-                key={link.href}
-                href={link.href}
-                isExternal={link.isExternal}
-                className={link.icon ? "flex items-center gap-1" : ""}
-              >
-                {link.label}
-                {link.icon}
-              </NavigationLink>
-            ))}
+            <div className="flex items-center space-x-8">
+              {navigationLinks.map((link) => (
+                <NavigationLink
+                  key={link.href}
+                  href={link.href}
+                  isExternal={link.isExternal}
+                  className={link.icon ? "flex items-center gap-1" : ""}
+                >
+                  {link.label}
+                  {link.icon}
+                </NavigationLink>
+              ))}
+            </div>
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Toggle mobile menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Mobile Menu Button and Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle mobile menu"
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

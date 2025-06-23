@@ -176,7 +176,7 @@ const ContactSection = () => {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/bitloom"
+                  href="https://github.com/Dromediansk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
@@ -194,7 +194,7 @@ const ContactSection = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com/company/bitloom"
+                  href="https://linkedin.com/in/miroslavpillar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
@@ -249,6 +249,7 @@ const ContactSection = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    autoFocus
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     placeholder="Your full name"
