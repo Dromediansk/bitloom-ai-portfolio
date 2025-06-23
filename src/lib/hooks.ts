@@ -37,3 +37,48 @@ export function useIntersectionObserver(
 
   return { elementRef, isIntersecting, hasIntersected };
 }
+
+// Hook to detect scroll direction for navigation animation
+export function useScrollDirection(threshold = 10) {
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(
+    null
+  );
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const difference = scrollY - lastScrollY.current;
+
+      if (Math.abs(difference) > threshold) {
+        const newDirection = difference > 0 ? "down" : "up";
+        setScrollDirection(newDirection);
+
+        // Hide navigation when scrolling down (except at top)
+        // Show navigation when scrolling up or at top
+        setIsVisible(newDirection === "up" || scrollY < 100);
+
+        lastScrollY.current = scrollY;
+      }
+
+      ticking.current = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking.current) {
+        requestAnimationFrame(updateScrollDirection);
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [threshold]);
+
+  return { scrollDirection, isVisible };
+}

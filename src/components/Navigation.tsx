@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavigationLink from "./NavigationLink";
 import ThemeToggle from "./ThemeToggle";
+import { useScrollDirection } from "@/lib/hooks";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -36,13 +37,18 @@ const navigationLinks = [
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isVisible } = useScrollDirection();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-transform duration-600 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container-max px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
