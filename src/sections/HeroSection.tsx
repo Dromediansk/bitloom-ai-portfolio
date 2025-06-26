@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components";
+import { useIntersectionObserver } from "@/lib/hooks";
 
 const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const { elementRef, hasIntersected } = useIntersectionObserver({
+    threshold: 0.2,
+    rootMargin: "0px",
+  });
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      ref={elementRef}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Floating background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary-200/20 dark:bg-primary-500/10 rounded-full animate-float"></div>
@@ -34,7 +36,9 @@ const HeroSection = () => {
           {/* Company tagline */}
           <p
             className={`text-lg md:text-xl text-primary-600 dark:text-primary-400 font-medium mb-4 transition-all duration-1000 ${
-              isVisible ? "animate-fade-in-down" : "opacity-0 translate-y-4"
+              hasIntersected
+                ? "animate-fade-in-down"
+                : "opacity-0 translate-y-4"
             }`}
           >
             Premium Software Development
@@ -43,7 +47,7 @@ const HeroSection = () => {
           {/* Company name with gradient text effect */}
           <h1
             className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
-              isVisible ? "animate-scale-in" : "opacity-0 scale-50"
+              hasIntersected ? "animate-scale-in" : "opacity-0 scale-50"
             }`}
           >
             Bitloom
@@ -52,7 +56,7 @@ const HeroSection = () => {
           {/* Company mission */}
           <h2
             className={`text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-8 transition-all duration-1000 delay-500 ${
-              isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-4"
+              hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-4"
             }`}
           >
             <span className="inline-block">
@@ -63,7 +67,7 @@ const HeroSection = () => {
           {/* Company description */}
           <p
             className={`text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-700 ${
-              isVisible ? "animate-fade-in" : "opacity-0"
+              hasIntersected ? "animate-fade-in" : "opacity-0"
             }`}
           >
             We specialize in delivering high-quality, scalable web solutions
@@ -75,7 +79,7 @@ const HeroSection = () => {
           {/* CTA Buttons with hover animations */}
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-1000 ${
-              isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-4"
+              hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-4"
             }`}
           >
             <ButtonLink
@@ -101,7 +105,7 @@ const HeroSection = () => {
           {/* Scroll Indicator with enhanced animation */}
           <div
             className={`mt-16 transition-all duration-1000 delay-1200 ${
-              isVisible ? "animate-bounce-in" : "opacity-0 scale-50"
+              hasIntersected ? "animate-bounce-in" : "opacity-0 scale-50"
             }`}
           >
             <button
