@@ -24,11 +24,24 @@ const services = [
       "End-to-end development of robust web applications using cutting-edge technologies and best practices.",
     features: [
       "Frontend & Backend",
-      "Database design",
+      "AI integration",
       "API development",
       "Cloud deployment",
     ],
     icon: "⚡",
+  },
+  {
+    id: "mobile-development",
+    title: "Modern Mobile Development",
+    description:
+      "Cross-platform mobile applications built with modern frameworks, delivering native performance and seamless user experiences.",
+    features: [
+      "React Native",
+      "Cross-platform solutions",
+      "Native performance",
+      "App store deployment",
+    ],
+    icon: "📱",
   },
   {
     id: "technical-consulting",
@@ -42,19 +55,6 @@ const services = [
       "Team mentoring",
     ],
     icon: "🎯",
-  },
-  {
-    id: "quality-assurance",
-    title: "Quality Assurance & Optimization",
-    description:
-      "Comprehensive testing and optimization to ensure your applications perform flawlessly at scale.",
-    features: [
-      "Code review",
-      "Performance testing",
-      "Security audit",
-      "Continuous improvement",
-    ],
-    icon: "🔍",
   },
 ];
 
@@ -114,12 +114,14 @@ const ServicesSection = () => {
               }`}
               style={{ animationDelay: `${300 + index * 100}ms` }}
             >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              <div className="flex items-center mb-4">
+                <div className="text-4xl mr-4 group-hover:scale-110 group-hover:rotate-24 transition-all duration-300 ease-out">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {service.title}
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {service.title}
-              </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 {service.description}
               </p>

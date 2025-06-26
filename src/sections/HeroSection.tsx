@@ -74,7 +74,7 @@ const HeroSection = () => {
             }`}
           >
             We specialize in delivering high-quality, scalable web solutions
-            that drive business growth. Founded by Miroslav, Bitloom transforms
+            that drive business growth. Founded by Miroslav Pillár, Bitloom transforms
             ideas into powerful digital products through expert craftsmanship,
             transparent communication, and strategic thinking.
           </p>

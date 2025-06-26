@@ -1,35 +1,52 @@
 import type { Project } from "./types";
 
-// Sample project data - replace with actual client projects
 export const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform Modernization",
+    title: "AI Crew Image Content Analysis",
     description:
-      "Complete redesign and modernization of a legacy e-commerce platform for a growing retail company. Implemented modern architecture, improved performance by 60%, and enhanced user experience resulting in 40% higher conversion rates.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com/example",
-    imageUrl: "/images/project-1.jpg",
+      "AI-powered analysis system for restaurant management interfaces using CrewAI. Leverages multiple AI agents to analyze images, suggest UI/UX improvements, and generate user stories.",
+    technologies: [
+      "Prompt Engineering",
+      "Python",
+      "Artificial Intelligence (AI)",
+      "CrewAI",
+      "GPT-4",
+    ],
+    codeUrl: "https://github.com/Dromediansk/ai-crew-image-content-analysis",
+    imageUrl: "/images/projects/project_1.jpg",
   },
   {
     id: 2,
-    title: "SaaS Management Dashboard",
+    title: "Next Notes - Daily Tasks",
     description:
-      "Enterprise-grade management dashboard for a B2B SaaS company. Features real-time analytics, team collaboration tools, and advanced reporting. Reduced operational overhead by 50% and improved team productivity.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com/example",
-    imageUrl: "/images/project-2.jpg",
+      "Embrace the power of daily affirmations and self-reflection with the intuitive note taking app. Capture moments of inspiration, motivation, and personal development to help you become the best version of yourself.",
+    technologies: [
+      "Next.js",
+      "Typescript",
+      "OAuth 2.0",
+      "Prisma ORM",
+      "Tailwind",
+      "PostgreSQL",
+    ],
+    demoUrl: "https://next-notes-henna.vercel.app/",
+    codeUrl: "https://github.com/Dromediansk/next-notes",
+    imageUrl: "/images/projects/project_2.png",
   },
   {
     id: 3,
-    title: "Healthcare Analytics Platform",
+    title: "Portfolio with 3D graphics",
     description:
-      "Comprehensive healthcare analytics platform with beautiful data visualizations and real-time monitoring capabilities. Streamlined clinical workflows and improved patient outcome tracking for healthcare providers.",
-    technologies: ["Vue.js", "Chart.js", "FastAPI", "PostgreSQL", "Docker"],
-    demoUrl: "https://example.com",
-    codeUrl: "https://github.com/example",
-    imageUrl: "/images/project-3.jpg",
+      "Showcase your work with a stunning portfolio featuring 3D graphics and animations. Built with modern web technologies to provide an immersive user experience.",
+    technologies: [
+      "Three.js",
+      "React Three Fiber",
+      "React.js",
+      "Typescript",
+      "Tailwind CSS",
+    ],
+    demoUrl: "https://r3f01-portfolio.netlify.app",
+    codeUrl: "https://github.com/Dromediansk/r3f-portfolio",
+    imageUrl: "/images/projects/project_3.png",
   },
 ];

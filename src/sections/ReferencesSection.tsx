@@ -16,35 +16,19 @@ interface Reference {
 const references: Reference[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "Tech Solutions Inc.",
+    name: "Andy Swan",
+    role: "Head of Software Engineering",
+    company: "Aptitude Global",
     testimonial:
-      "Bitloom transformed our outdated e-commerce platform into a modern, scalable solution that increased our conversion rates by 40%. Their product-oriented approach and attention to user experience made all the difference. The team delivered ahead of schedule and exceeded every expectation.",
+      "I worked with Miro on a project aimed at standardising enterprise approach to application development. His approach to development and QA, alongside his pragmatic view of reusability, stand above people with significantly more experience. On top of typical development tasks utilising JS, TS, HTML, CSS and AWS, he was actively involved in technical architecture processes where his input was valuable. I was sorry to see him move on from that project and the opening he left was difficult to fill. I would recommend Miro wholeheartedly and hope to work with him again in the future.",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "CTO",
-    company: "Digital Innovations",
+    name: "Jacob Ellis",
+    role: "Team Lead",
+    company: "Cognitive Creators",
     testimonial:
-      "Working with Bitloom was exceptional. They brought strategic thinking to our technical challenges and delivered a robust web application that scaled seamlessly with our growth. Their expertise in modern technologies and clean architecture principles saved us months of development time.",
-  },
-  {
-    id: 3,
-    name: "Emma Davis",
-    role: "Design Director",
-    company: "Creative Agency Pro",
-    testimonial:
-      "Bitloom has an incredible ability to transform complex designs into flawless, responsive web experiences. Their attention to detail and understanding of both technical and aesthetic requirements resulted in a website that perfectly represents our brand and performs beautifully.",
-  },
-  {
-    id: 4,
-    name: "Alex Rodriguez",
-    role: "Startup Founder",
-    company: "InnovateLabs",
-    testimonial:
-      "As a startup, we needed a development partner who could move fast without compromising quality. Bitloom delivered our MVP on time and within budget, while providing valuable strategic insights that shaped our product roadmap. Their business acumen combined with technical excellence is rare.",
+      "Working alongside Miro on a high profile US Pharma project has been an excellent experience. He stands out as a top-tier developer, with exceptional skills in TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless, and PostgreSQL. Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with. His ability to merge high-level technical skills with real-world applications has been instrumental in driving our project forward. Miro’s insights have been invaluable, contributing significantly to both my work and the project as a whole. Though his departure leaves big shoes to fill, his future team is incredibly lucky to have him. Wishing Miro all the best in his new endeavors – his impact here will be remembered.",
   },
 ];
 

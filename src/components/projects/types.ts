@@ -5,5 +5,5 @@ export interface Project {
   technologies: string[];
   demoUrl?: string;
   codeUrl?: string;
-  imageUrl: string;
+  imageUrl?: string;
 }

@@ -69,8 +69,8 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - Core service offerings:
   - Product-oriented web development
   - Full-stack application development
+  - Modern mobile development
   - Technical consulting and strategy
-  - Quality assurance and optimization
 - Service descriptions with benefits
 - Process overview (discovery, design, development, delivery)
 
