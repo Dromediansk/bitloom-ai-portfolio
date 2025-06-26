@@ -2,6 +2,7 @@
 
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { ProcessContainer } from "@/components/process";
 
 const services = [
   {
@@ -55,36 +56,6 @@ const services = [
       "Team mentoring",
     ],
     icon: "🎯",
-  },
-];
-
-const processes = [
-  {
-    id: "1",
-    step: "01",
-    title: "Discovery",
-    description:
-      "Understanding your business goals, requirements, and target audience.",
-  },
-  {
-    id: "2",
-    step: "02",
-    title: "Design",
-    description:
-      "Creating user-centered designs and technical architecture plans.",
-  },
-  {
-    id: "3",
-    step: "03",
-    title: "Development",
-    description:
-      "Building robust, scalable solutions using modern technologies.",
-  },
-  {
-    id: "4",
-    step: "04",
-    title: "Delivery",
-    description: "Testing, deployment, and ongoing support for your success.",
   },
 ];
 
@@ -145,52 +116,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Process Section */}
-        <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-gray-700">
-          <div className="text-center mb-12">
-            <h2
-              className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-all duration-1000 ${
-                hasIntersected
-                  ? "animate-fade-in-down"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              Our Process
-            </h2>
-            <p
-              className={`text-lg text-gray-600 dark:text-gray-400 transition-all duration-1000 delay-200 ${
-                hasIntersected
-                  ? "animate-fade-in-up"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              A proven methodology that ensures successful project delivery
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processes.map((process, index) => (
-              <div
-                key={process.id}
-                className={`text-center group transition-all duration-1000 ${
-                  hasIntersected
-                    ? "animate-fade-in-up"
-                    : "opacity-0 translate-y-8"
-                }`}
-                style={{ animationDelay: `${500 + index * 100}ms` }}
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full text-2xl font-bold mb-4 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white dark:group-hover:bg-primary-500 transition-all duration-300">
-                  {process.step}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {process.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {process.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProcessContainer />
 
         {/* CTA Section */}
         <div

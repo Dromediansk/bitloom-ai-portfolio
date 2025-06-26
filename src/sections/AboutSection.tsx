@@ -3,27 +3,7 @@
 import Image from "next/image";
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
-
-const reasons = [
-  {
-    id: 1,
-    title: "Product Mindset",
-    description:
-      "We think like product owners, ensuring every feature adds real value to your business.",
-  },
-  {
-    id: 2,
-    title: "Quality Focus",
-    description:
-      "Rigorous testing and code review processes ensure reliable, maintainable solutions.",
-  },
-  {
-    id: 3,
-    title: "Growth Partnership",
-    description:
-      "We&apos;re invested in your success and provide ongoing support as you scale.",
-  },
-];
+import { ReasonContainer } from "@/components/about/ReasonContainer";
 
 const values = [
   { id: 1, name: "Transparent Communication" },
@@ -250,38 +230,7 @@ const AboutSection = () => {
           </div>
 
           {/* Why Choose Bitloom */}
-          <div className="text-center mt-20">
-            <h2
-              className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 transition-all duration-1000 delay-1000 ${
-                hasIntersected
-                  ? "animate-fade-in-down"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              Why Choose Bitloom?
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {reasons.map((reason, index) => (
-                <div
-                  key={reason.id}
-                  className={`bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg transition-all duration-1000 delay-${
-                    1100 + index * 100
-                  } hover:shadow-xl hover:-translate-y-2 ${
-                    hasIntersected
-                      ? "animate-fade-in-up"
-                      : "opacity-0 translate-y-8"
-                  }`}
-                >
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                    {reason.title}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {reason.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ReasonContainer />
 
           {/* CTA */}
           <div

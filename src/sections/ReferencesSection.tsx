@@ -2,6 +2,7 @@
 
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { getStaggeredDelay } from "@/lib/utils";
 
 interface Reference {
   id: number;
@@ -32,9 +33,23 @@ const references: Reference[] = [
   },
 ];
 
-const ReferenceCard = ({ reference }: { reference: Reference }) => {
+const ReferenceCard = ({
+  reference,
+  isVisible,
+  delayClass,
+}: {
+  reference: Reference;
+  isVisible: boolean;
+  delayClass: string;
+}) => {
   return (
-    <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+    <div
+      className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 ${
+        isVisible
+          ? `animate-fade-in-up ${delayClass}`
+          : "opacity-0 translate-y-8"
+      }`}
+    >
       {/* Quote Icon */}
       <div className="text-primary-500 mb-4">
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -90,8 +105,13 @@ const ReferencesSection = () => {
 
         {/* References Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {references.map((reference) => (
-            <ReferenceCard key={reference.id} reference={reference} />
+          {references.map((reference, index) => (
+            <ReferenceCard
+              key={reference.id}
+              reference={reference}
+              isVisible={hasIntersected}
+              delayClass={getStaggeredDelay(index)}
+            />
           ))}
         </div>
 
