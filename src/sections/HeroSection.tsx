@@ -42,16 +42,9 @@ const HeroSection = () => {
 
           {/* Company name with gradient text effect */}
           <h1
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-blue-500 via-primary-600 to-blue-700 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
               isVisible ? "animate-scale-in" : "opacity-0 scale-50"
             }`}
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #0d6efd, #0b5bd1, #0947a5)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
           >
             Bitloom
           </h1>
@@ -74,9 +67,9 @@ const HeroSection = () => {
             }`}
           >
             We specialize in delivering high-quality, scalable web solutions
-            that drive business growth. Founded by Miroslav Pillár, Bitloom transforms
-            ideas into powerful digital products through expert craftsmanship,
-            transparent communication, and strategic thinking.
+            that drive business growth. Founded by Miroslav Pillár, Bitloom
+            transforms ideas into powerful digital products through expert
+            craftsmanship, transparent communication, and strategic thinking.
           </p>
 
           {/* CTA Buttons with hover animations */}

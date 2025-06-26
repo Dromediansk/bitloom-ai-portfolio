@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 
@@ -181,8 +182,15 @@ const AboutSection = () => {
                     : "opacity-0 translate-x-8"
                 }`}
               >
-                <div className="w-48 h-48 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center shadow-xl">
-                  <span className="text-white text-6xl font-bold">M</span>
+                <div className="w-48 h-48 rounded-full overflow-hidden shadow-xl ring-4 ring-primary-200 dark:ring-primary-800">
+                  <Image
+                    src="/images/about/avatar.png"
+                    alt="Miroslav - Founder of Bitloom"
+                    width={192}
+                    height={192}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    priority
+                  />
                 </div>
               </div>
             </div>
