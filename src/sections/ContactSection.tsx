@@ -294,57 +294,6 @@ const ContactSection = () => {
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="projectType"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Project Type *
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  >
-                    <option value="">Select project type</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="web-application">Web Application</option>
-                    <option value="consulting">Technical Consulting</option>
-                    <option value="modernization">Legacy Modernization</option>
-                    <option value="maintenance">Maintenance & Support</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="budget"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Budget Range
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="under-10k">Under $10,000</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="over-100k">Over $100,000</option>
-                    <option value="discuss">Let&apos;s discuss</option>
-                  </select>
-                </div>
-              </div>
-
               <div>
                 <label
                   htmlFor="message"
