@@ -15,12 +15,12 @@ const ProjectsSection = () => {
   return (
     <section
       ref={elementRef}
-      className="min-h-screen pt-24 relative overflow-hidden"
+      className="min-h-screen section-padding relative overflow-hidden"
     >
       {/* Animated background elements */}
       <BackgroundElements />
 
-      <div className="container-max section-padding relative">
+      <div className="container-max relative">
         {/* Header */}
         <ProjectsHeader isVisible={hasIntersected} />
 

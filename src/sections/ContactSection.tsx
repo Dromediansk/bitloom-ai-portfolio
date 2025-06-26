@@ -56,8 +56,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section ref={elementRef} className="min-h-screen pt-24">
-      <div className="container-max section-padding">
+    <section ref={elementRef} className="min-h-screen section-padding">
+      <div className="container-max">
         {/* Header */}
         <SectionTitle
           title="Start Your Project"

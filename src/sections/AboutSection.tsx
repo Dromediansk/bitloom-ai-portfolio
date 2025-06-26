@@ -50,7 +50,7 @@ const AboutSection = () => {
     <section
       ref={elementRef}
       id="about"
-      className="pt-24 pb-20 relative overflow-hidden"
+      className="min-h-screen section-padding"
     >
       <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">

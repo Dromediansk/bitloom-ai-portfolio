@@ -92,7 +92,11 @@ const ServicesSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
 
   return (
-    <section ref={elementRef} id="services" className="pt-24 pb-20">
+    <section
+      ref={elementRef}
+      id="services"
+      className="min-h-screen section-padding"
+    >
       <div className="container-max px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <SectionTitle
