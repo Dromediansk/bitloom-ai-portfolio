@@ -22,7 +22,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 - **Projects** - Featured client work and case studies
 - **About** - Company story and founder Miroslav's background
 - **References** - Client testimonials and success stories
-- **Contact** - Professional inquiry form and business details
+- **Contact** - Professional inquiry form with Mailtrap email integration
 
 ### Technical Features
 
@@ -40,6 +40,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[next-themes](https://github.com/pacocoursey/next-themes)** - Perfect dark mode support
+- **[Mailtrap](https://mailtrap.io/)** - Professional email delivery service
 - **[React 19](https://react.dev/)** - Latest React features
 - **Modern Tooling** - ESLint, PostCSS, Turbopack
 
@@ -94,13 +95,32 @@ src/
    npm install
    ```
 
-3. **Run the development server**
+3. **Set up environment variables**
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Edit `.env.local` and add your Mailtrap API token:
+
+   ```bash
+   MAILTRAP_API_TOKEN=your_mailtrap_api_token_here
+   ```
+
+   To get your Mailtrap API token:
+
+   - Sign up at [mailtrap.io](https://mailtrap.io)
+   - Go to **API Tokens** in your dashboard
+   - Create a new token with **Send Email** permission
+   - Copy the token to your `.env.local` file
+
+4. **Run the development server**
 
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
+5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
 
 ### Available Scripts

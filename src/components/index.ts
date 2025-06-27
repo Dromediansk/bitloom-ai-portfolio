@@ -6,3 +6,6 @@ export { default as ThemeToggle } from "./ThemeToggle";
 
 // Project components
 export * from "./projects";
+
+// Contact components
+export * from "./contact";
