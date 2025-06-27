@@ -3,59 +3,46 @@
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ProcessContainer } from "@/components/process";
+import { getStaggeredDelay } from "@/lib/utils";
 
 const services = [
   {
-    id: "product-web-development",
-    title: "Product-Oriented Web Development",
+    id: "modern-web-craft",
+    title: "Modern Web Craft",
     description:
-      "We build web applications with a product mindset, focusing on user experience, scalability, and business goals.",
+      "We craft exceptional web experiences through the art of full-stack development. From responsive websites to complex web applications, every digital touchpoint is built with precision, performance, and user experience at its core.",
     features: [
-      "User-centered design",
-      "Scalable architecture",
+      "Full-stack web applications",
+      "Responsive website design",
+      "Modern frameworks & architecture",
       "Performance optimization",
-      "Modern frameworks",
     ],
-    icon: "🚀",
+    icon: "🌐",
   },
   {
-    id: "fullstack-development",
-    title: "Full-Stack Application Development",
+    id: "mobile-mastery",
+    title: "Mobile Mastery",
     description:
-      "End-to-end development of robust web applications using cutting-edge technologies and best practices.",
+      "From concept to app store, we craft mobile applications that feel native on every platform. Our cross-platform expertise ensures your users get a seamless experience, whether they're on iOS or Android.",
     features: [
-      "Frontend & Backend",
-      "AI integration",
-      "API development",
-      "Cloud deployment",
-    ],
-    icon: "⚡",
-  },
-  {
-    id: "mobile-development",
-    title: "Modern Mobile Development",
-    description:
-      "Cross-platform mobile applications built with modern frameworks, delivering native performance and seamless user experiences.",
-    features: [
-      "React Native",
-      "Cross-platform solutions",
-      "Native performance",
-      "App store deployment",
+      "Cross-platform excellence",
+      "Native performance & feel",
+      "App store optimization",
+      "User-centric design",
     ],
     icon: "📱",
   },
   {
     id: "technical-consulting",
-    title: "Technical Consulting & Strategy",
+    title: "Technical Consulting",
     description:
-      "Strategic guidance to help businesses make informed technology decisions and optimize their development processes.",
+      "Navigate complex technical challenges with strategic consulting services. We help businesses make informed technology decisions and build scalable solutions that align with your goals.",
     features: [
       "Technology assessment",
       "Architecture planning",
-      "Process optimization",
       "Team mentoring",
     ],
-    icon: "🎯",
+    icon: "🧭",
   },
 ];
 
@@ -78,41 +65,43 @@ const ServicesSection = () => {
         />
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${
-                hasIntersected
-                  ? "animate-fade-in-up"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ animationDelay: `${300 + index * 100}ms` }}
-            >
-              <div className="flex items-center mb-4">
-                <div className="text-4xl mr-4 group-hover:scale-110 group-hover:rotate-24 transition-all duration-300 ease-out">
-                  {service.icon}
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-20">
+          {services.map((service, index) => {
+            const delayClass = getStaggeredDelay(index);
+            return (
+              <div
+                key={service.id}
+                className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${delayClass} ${
+                  hasIntersected
+                    ? "animate-fade-in-up"
+                    : "opacity-0 translate-y-8"
+                }`}
+              >
+                <div className="flex items-center mb-4">
+                  <div className="text-4xl mr-4 group-hover:scale-110 group-hover:rotate-24 transition-all duration-300 ease-out">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {service.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {service.title}
-                </h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className="flex items-center text-gray-700 dark:text-gray-300"
+                    >
+                      <span className="text-primary-500 mr-2">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li
-                    key={featureIndex}
-                    className="flex items-center text-gray-700 dark:text-gray-300"
-                  >
-                    <span className="text-primary-500 mr-2">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Process Section */}

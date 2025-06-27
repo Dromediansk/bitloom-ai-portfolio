@@ -1,6 +1,6 @@
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a premium software development company founded by Miroslav. Bitloom specializes in product-oriented web development with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a Software Craftsmanship company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 
@@ -67,10 +67,9 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 ### Services Section
 
 - Core service offerings:
-  - Product-oriented web development
-  - Full-stack application development
-  - Modern mobile development
-  - Technical consulting and strategy
+  - **Modern Web Craft** - Crafting exceptional web experiences through full-stack development and modern architecture
+  - **Mobile Mastery** - Crafting seamless cross-platform mobile applications that feel native on every device
+  - **Technical consulting** - Strategic guidance to help businesses make informed technology decisions and optimize their development processes.
 - Service descriptions with benefits
 - Process overview (discovery, design, development, delivery)
 

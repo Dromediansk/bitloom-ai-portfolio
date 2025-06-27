@@ -10,17 +10,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bitloom - Premium Software Development Company",
+  title: "Bitloom - Software Craftsmanship Company",
   description:
-    "Bitloom specializes in product-oriented web development with high-quality, scalable solutions that drive business growth. Founded by Miroslav.",
+    "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth. Founded by Miroslav.",
   keywords: [
     "software development",
     "web development",
-    "product-oriented",
+    "mobile development",
+    "technical consulting",
     "scalable solutions",
     "Next.js",
     "TypeScript",
-    "consulting",
+    "React Native",
   ],
   authors: [{ name: "Bitloom" }],
   creator: "Bitloom",
@@ -28,16 +29,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://bitloom.com",
-    title: "Bitloom - Premium Software Development Company",
+    title: "Bitloom - Software Craftsmanship Company",
     description:
-      "Bitloom specializes in product-oriented web development with high-quality, scalable solutions that drive business growth.",
+      "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth.",
     siteName: "Bitloom",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitloom - Premium Software Development Company",
+    title: "Bitloom - Software Craftsmanship Company",
     description:
-      "Premium software development company specializing in product-oriented web solutions.",
+      "Software Craftsmanship company specializing in web development, mobile development, and technical consulting.",
   },
 };
 

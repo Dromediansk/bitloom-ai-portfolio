@@ -87,7 +87,7 @@ const ContactForm = () => {
             : "opacity-0 translate-y-4"
         }`}
       >
-        Business Inquiry Form
+        Contact Us
       </h2>
       <form
         onSubmit={handleSubmit}
@@ -103,7 +103,7 @@ const ContactForm = () => {
               htmlFor="name"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
-              Contact Name *
+              Your Name *
             </label>
             <input
               type="text"
@@ -123,7 +123,7 @@ const ContactForm = () => {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
-              Email Address *
+              Email *
             </label>
             <input
               type="email"
@@ -143,7 +143,7 @@ const ContactForm = () => {
             htmlFor="company"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Company Name
+            Company
           </label>
           <input
             type="text"

@@ -17,7 +17,7 @@ const ContactInfo = () => {
         }`}
       >
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-          Let&apos;s Build Something Great
+          Let&apos;s Start Building Together
         </h2>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
           Whether you&apos;re a startup with a bold vision or an established

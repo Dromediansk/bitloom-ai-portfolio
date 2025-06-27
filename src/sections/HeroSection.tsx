@@ -41,7 +41,7 @@ const HeroSection = () => {
                 : "opacity-0 translate-y-4"
             }`}
           >
-            Premium Software Development
+            Software Craftsmanship
           </p>
 
           {/* Company name with gradient text effect */}
@@ -60,7 +60,7 @@ const HeroSection = () => {
             }`}
           >
             <span className="inline-block">
-              Product-Oriented Web Development Excellence
+              Software Craftsmanship Excellence
             </span>
           </h2>
 
@@ -70,10 +70,11 @@ const HeroSection = () => {
               hasIntersected ? "animate-fade-in" : "opacity-0"
             }`}
           >
-            We specialize in delivering high-quality, scalable web solutions
-            that drive business growth. Founded by Miroslav Pillár, Bitloom
-            transforms ideas into powerful digital products through expert
-            craftsmanship, transparent communication, and strategic thinking.
+            We specialize in web development, mobile development, and technical
+            consulting that drive business growth. Founded by Miroslav Pillár,
+            Bitloom transforms ideas into powerful digital solutions through
+            expert craftsmanship, transparent communication, and strategic
+            thinking.
           </p>
 
           {/* CTA Buttons with hover animations */}
