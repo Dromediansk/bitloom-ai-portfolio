@@ -60,7 +60,7 @@ const HeroSection = () => {
             }`}
           >
             <span className="inline-block">
-              Software Craftsmanship Excellence
+              Transforming Ideas into Digital Reality
             </span>
           </h2>
 
