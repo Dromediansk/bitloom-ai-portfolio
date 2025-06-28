@@ -46,7 +46,6 @@ const ContactForm = () => {
     });
   };
 
-  // Check if all required fields are filled
   const isFormValid =
     formData.name.trim() && formData.email.trim() && formData.message.trim();
 

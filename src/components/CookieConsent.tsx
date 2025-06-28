@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "./Button";
 
 const CookieConsent = () => {
@@ -51,7 +52,14 @@ const CookieConsent = () => {
           </p>
           <p className="text-xs text-gray-300 mt-1">
             You can change your preferences at any time in your browser
-            settings.
+            settings. Learn more in our{" "}
+            <Link
+              href="/privacy"
+              className="text-blue-400 hover:text-blue-300 underline"
+            >
+              Privacy Policy
+            </Link>
+            .
           </p>
         </div>
         <div className="flex gap-3 flex-shrink-0">
