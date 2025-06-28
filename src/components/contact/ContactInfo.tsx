@@ -102,9 +102,6 @@ const ContactInfo = () => {
             <p className="text-gray-600 dark:text-gray-300">
               Based in Kosice, Slovakia
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Remote-first company, serving clients worldwide
-            </p>
           </div>
         </div>
 

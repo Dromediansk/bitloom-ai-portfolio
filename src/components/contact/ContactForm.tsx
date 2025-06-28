@@ -46,6 +46,10 @@ const ContactForm = () => {
     });
   };
 
+  // Check if all required fields are filled
+  const isFormValid =
+    formData.name.trim() && formData.email.trim() && formData.message.trim();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -178,12 +182,12 @@ const ContactForm = () => {
         {/* Submit Button */}
         <Button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isFormValid}
           variant="primary"
           size="lg"
           className="w-full"
         >
-          {isSubmitting ? "Sending..." : "Send Business Inquiry"}
+          {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
 
         {/* Status Messages */}
