@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+import "./globals.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -61,6 +63,7 @@ export default function RootLayout({
             </div>
           </main>
         </ThemeProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>
     </html>
   );
