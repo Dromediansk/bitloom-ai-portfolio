@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
-const inter = Inter({
+const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
+  fallback: ["sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className={quicksand.className} suppressHydrationWarning>
       <body className="antialiased">
         <ThemeProvider>
           <main>
