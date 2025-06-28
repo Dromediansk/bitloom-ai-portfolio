@@ -5,24 +5,6 @@ import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ReasonContainer } from "@/components/about/ReasonContainer";
 
-const values = [
-  { id: 1, name: "Transparent Communication" },
-  { id: 2, name: "Remote-First Cooperation" },
-  { id: 3, name: "Open-Mindedness" },
-  { id: 4, name: "Quality Excellence" },
-  { id: 5, name: "Product Mindset" },
-  { id: 6, name: "Technical Excellence" },
-];
-
-const expertise = [
-  { id: 1, name: "Product Strategy" },
-  { id: 2, name: "Full-Stack Development" },
-  { id: 3, name: "Cloud Architecture" },
-  { id: 4, name: "Performance Optimization" },
-  { id: 5, name: "User Experience" },
-  { id: 6, name: "Technical Leadership" },
-];
-
 const AboutSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
 
@@ -141,8 +123,11 @@ const AboutSection = () => {
                   Meet Our Founder
                 </h2>
                 <h3 className="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-4">
-                  Miroslav - Founder & Digital Craftsman
+                  Miroslav Pillár - Founder & Digital Craftsman
                 </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  Based in Kosice, Slovakia
+                </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   With years of experience in software development and a passion
                   for creating products that matter, Miroslav founded Bitloom to
@@ -172,59 +157,6 @@ const AboutSection = () => {
                     priority
                   />
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Values and Expertise */}
-          <div className="grid md:grid-cols-2 gap-12">
-            <div
-              className={`transition-all duration-1000 delay-800 ${
-                hasIntersected
-                  ? "animate-fade-in-up"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Values
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {values.map((value, index) => (
-                  <span
-                    key={value.id}
-                    className={`px-4 py-3 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-xl text-sm font-medium text-center transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg ${
-                      hasIntersected ? "animate-bounce-in" : "opacity-0"
-                    }`}
-                    style={{ animationDelay: `${1000 + index * 100}ms` }}
-                  >
-                    {value.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className={`transition-all duration-1000 delay-900 ${
-                hasIntersected
-                  ? "animate-fade-in-up"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Expertise
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {expertise.map((skill, index) => (
-                  <span
-                    key={skill.id}
-                    className={`px-4 py-3 bg-gray-100 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-xl text-sm font-medium text-center transform hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg ${
-                      hasIntersected ? "animate-bounce-in" : "opacity-0"
-                    }`}
-                    style={{ animationDelay: `${1100 + index * 100}ms` }}
-                  >
-                    {skill.name}
-                  </span>
-                ))}
               </div>
             </div>
           </div>

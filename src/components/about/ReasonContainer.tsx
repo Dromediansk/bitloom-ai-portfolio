@@ -19,7 +19,7 @@ const reasons = [
     id: 3,
     title: "Growth Partnership",
     description:
-      "We&apos;re invested in your success and provide ongoing support as you scale.",
+      "We are invested in your success and provide ongoing support as you scale.",
   },
 ];
 

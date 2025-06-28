@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: 1,
     title: "AI Crew Image Content Analysis",
     description:
-      "AI-powered analysis system for restaurant management interfaces using CrewAI. Leverages multiple AI agents to analyze images, suggest UI/UX improvements, and generate user stories.",
+      "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights, with results saved in a Markdown report.",
     technologies: [
       "Prompt Engineering",
       "Python",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     id: 3,
     title: "Portfolio with 3D graphics",
     description:
-      "Showcase your work with a stunning portfolio featuring 3D graphics and animations. Built with modern web technologies to provide an immersive user experience.",
+      "Showcasing work with a stunning portfolio featuring 3D graphics and animations. Built with React Three Fiber and modern web technologies to provide an immersive user experience.",
     technologies: [
       "Three.js",
       "React Three Fiber",

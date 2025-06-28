@@ -33,17 +33,6 @@ const HeroSection = () => {
 
       <div className="container-max section-padding text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Company tagline */}
-          <p
-            className={`text-lg md:text-xl text-primary-600 dark:text-primary-400 font-medium mb-4 transition-all duration-1000 ${
-              hasIntersected
-                ? "animate-fade-in-down"
-                : "opacity-0 translate-y-4"
-            }`}
-          >
-            Software Craftsmanship
-          </p>
-
           {/* Company name with gradient text effect */}
           <h1
             className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
@@ -60,7 +49,7 @@ const HeroSection = () => {
             }`}
           >
             <span className="inline-block">
-              Transforming Ideas into Digital Reality
+              Crafting Digital Solutions from Bold Ideas
             </span>
           </h2>
 

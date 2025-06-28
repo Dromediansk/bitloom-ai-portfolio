@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import NavigationLink from "./NavigationLink";
 import ThemeToggle from "./ThemeToggle";
@@ -54,9 +55,16 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 transform hover:scale-105 animate-fade-in-left"
+            className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-105 animate-fade-in-left"
           >
-            Bitloom
+            <Image
+              src="/logo_pure.svg"
+              alt="Bitloom Logo"
+              width={200}
+              height={60}
+              className="h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

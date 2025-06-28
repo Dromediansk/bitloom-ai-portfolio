@@ -38,6 +38,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 ## Company Values & Details
 
 - **Core Values**: Transparent communication, remote-first cooperation, and open-mindedness
+- **Location**: Based in Kosice, Slovakia (serving clients globally)
 - **Contact Email**: info@bitloom.sk
 - **Company Blog**: blog.bitloom.sk (external link in navigation)
 - **Approach**: Growth-oriented with emphasis on collaboration and transparency
