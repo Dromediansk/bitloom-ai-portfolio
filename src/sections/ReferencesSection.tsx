@@ -44,7 +44,7 @@ const ReferenceCard = ({
 }) => {
   return (
     <div
-      className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 ${
+      className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 ${
         isVisible
           ? `animate-fade-in-up ${delayClass}`
           : "opacity-0 translate-y-8"

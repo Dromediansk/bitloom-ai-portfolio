@@ -55,7 +55,7 @@ const ServicesSection = () => {
       id="services"
       className="min-h-screen section-padding"
     >
-      <div className="container-max px-4 sm:px-6 lg:px-8">
+      <div className="container-max sm:px-6 lg:px-8">
         {/* Header */}
         <SectionTitle
           title="Our Services"
@@ -71,7 +71,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.id}
-                className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${delayClass} ${
+                className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${delayClass} ${
                   hasIntersected
                     ? "animate-fade-in-up"
                     : "opacity-0 translate-y-8"
