@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -63,7 +64,8 @@ export default function RootLayout({
             </div>
           </main>
         </ThemeProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
+        <CookieConsent />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!}  />
       </body>
     </html>
   );
