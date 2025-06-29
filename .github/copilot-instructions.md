@@ -43,6 +43,13 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **Company Blog**: blog.bitloom.sk (external link in navigation)
 - **Approach**: Growth-oriented with emphasis on collaboration and transparency
 
+### Founder & Leadership
+
+- **Founder**: Miroslav - Self-taught professional developer with 6 years of experience
+- **Industry Focus**: Specialized experience in healthcare and financial sector projects where precision, security, and reliability are essential
+- **Market Advantage**: Experience in high-stakes industries has shaped his approach to building dependable software solutions
+- **Professional Journey**: Demonstrates commitment to continuous learning and mastery of modern technologies
+
 ### Technical Expertise
 
 Bitloom's core technical expertise includes:

@@ -129,15 +129,25 @@ const AboutSection = () => {
                   Based in Kosice, Slovakia
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  With years of experience in software development and a passion
-                  for creating products that matter, Miroslav founded Bitloom to
-                  help businesses harness the power of modern web technologies.
+                  As a self-taught professional developer with 6 years of
+                  hands-on experience, Miroslav brings a unique perspective to
+                  software development. His journey demonstrates the power of
+                  dedication, continuous learning, and practical problem-solving
+                  in mastering modern technologies.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  Throughout his career, Miroslav has focused on projects within
+                  healthcare and financial sectors , industries where precision,
+                  security, and reliability aren&apos;t just nice-to-have
+                  features—they&apos;re absolutely essential. This experience
+                  has shaped his approach to building software that businesses
+                  can truly depend on.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  His expertise spans full-stack development, cloud
-                  architecture, and product strategy, ensuring that every
-                  project benefits from both technical excellence and business
-                  acumen.
+                  This specialized industry knowledge, combined with expertise
+                  in full-stack development and modern technologies, ensures
+                  that every Bitloom project benefits from both technical
+                  excellence and real-world business understanding.
                 </p>
               </div>
               <div
