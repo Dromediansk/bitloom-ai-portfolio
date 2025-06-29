@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
-import { ReasonContainer } from "@/components/about/ReasonContainer";
+import { ReasonContainer, TechStack } from "@/components/about";
 
 const AboutSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
@@ -160,6 +160,9 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
+
+          {/* Technical Expertise */}
+          <TechStack isVisible={hasIntersected} />
 
           {/* Why Choose Bitloom */}
           <ReasonContainer />

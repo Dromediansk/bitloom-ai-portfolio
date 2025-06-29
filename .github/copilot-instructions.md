@@ -43,6 +43,19 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **Company Blog**: blog.bitloom.sk (external link in navigation)
 - **Approach**: Growth-oriented with emphasis on collaboration and transparency
 
+### Technical Expertise
+
+Bitloom's core technical expertise includes:
+
+- **React.js** - Modern frontend development with component-based architecture
+- **Next.js** - Full-stack React framework for production-ready applications
+- **TypeScript** - Type-safe development for robust, maintainable applications
+- **Node.js** - Server-side JavaScript for scalable backend solutions
+- **Python** - Versatile programming for web applications, APIs, and automation
+- **PostgreSQL** - Powerful, open-source relational database system
+- **React Native** - Cross-platform mobile app development
+- **Expo** - Streamlined React Native development and deployment platform
+
 ## Accessibility (a11y)
 
 - Use **semantic HTML** wherever possible (`<main>`, `<section>`, `<article>`)
