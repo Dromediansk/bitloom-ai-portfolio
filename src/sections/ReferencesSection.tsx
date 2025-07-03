@@ -33,6 +33,12 @@ const references: Reference[] = [
   },
 ];
 
+const stats = [
+  { value: "10+", label: "Projects Completed" },
+  { value: "6+", label: "Years Experience" },
+  { value: "100%", label: "Client Satisfaction" },
+];
+
 const ReferenceCard = ({
   reference,
   isVisible,
@@ -112,6 +118,20 @@ const ReferencesSection = () => {
               isVisible={hasIntersected}
               delayClass={getStaggeredDelay(index)}
             />
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mb-16 justify-items-center max-w-3xl mx-auto">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center p-4">
+              <div className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                {stat.value}
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">
+                {stat.label}
+              </div>
+            </div>
           ))}
         </div>
 
