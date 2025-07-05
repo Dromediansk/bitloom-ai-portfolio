@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
@@ -10,11 +10,9 @@ const LanguageSwitcher = () => {
   const locale = useLocale();
 
   const switchLanguage = (newLocale: string) => {
-    // Remove current locale from pathname
-    const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
-    // Construct new path with new locale
-    const newPath = `/${newLocale}${pathWithoutLocale}`;
-    router.push(newPath);
+    // Use router.replace to update URL without adding to browser history
+    // The next-intl router will handle locale switching properly
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (
