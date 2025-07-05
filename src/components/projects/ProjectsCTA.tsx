@@ -1,23 +1,25 @@
 import { memo } from "react";
 import { ButtonLink } from "@/components";
+import { useTranslations } from "next-intl";
 
 export const ProjectsCTA = memo(() => {
+  const t = useTranslations("projects.cta");
+
   return (
     <div className="text-center mt-16">
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Ready to Transform Your Ideas?
+          {t("title")}
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          Let&apos;s discuss how Bitloom can bring your vision to life with
-          innovative technology and strategic expertise.
+          {t("description")}
         </p>
         <ButtonLink
           href="/contact"
           variant="primary"
           className="hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 group"
         >
-          <span>Start Your Project</span>
+          <span>{t("startProject")}</span>
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
             fill="none"

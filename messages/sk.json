@@ -1,0 +1,487 @@
+{
+  "navigation": {
+    "home": "Domov",
+    "services": "Služby",
+    "projects": "Projekty",
+    "about": "O nás",
+    "references": "Referencie",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "toggleMenu": "Prepnúť mobilné menu"
+  },
+  "hero": {
+    "companyName": "Bitloom",
+    "tagline": "Vytváranie digitálnych riešení z odvážnych nápadov",
+    "description": "Špecializujeme sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo, ktoré poháňajú rast podnikania. Spoločnosť Bitloom založil Miroslav Pillár, pričom premieňa nápady na výkonné digitálne riešenia prostredníctvom odborných znalostí, transparentnej komunikácie a strategického myslenia.",
+    "exploreServices": "Preskúmať služby",
+    "startProject": "Začať projekt",
+    "scrollToExplore": "Posúvajte pre preskúmanie",
+    "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
+  },
+  "services": {
+    "title": "Naše služby",
+    "subtitle": "Komplexné riešenia vývoja softvéru navrhnuté na posun vášho podnikania vpred",
+    "modernWebCraft": {
+      "title": "Moderné webové inžinierstvo",
+      "description": "Vytvárame výnimočné webové zážitky prostredníctvom umenia full-stack vývoja. Od responzívnych webových stránok po komplexné webové aplikácie, každá digitálna stopa je postavená s presnosťou, výkonom a používateľskou skúsenosťou.",
+      "features": [
+        "Full-stack webové aplikácie",
+        "Responzívny dizajn webových stránok",
+        "Moderné frameworky a architektúra",
+        "Optimalizácia výkonu"
+      ]
+    },
+    "mobileMastery": {
+      "title": "Mobilné majstrovstvo",
+      "description": "Od konceptu po nasadenie vytvárame mobilné aplikácie, ktoré sú profesionálne na každej platforme. Naša multiplatformová expertíza zabezpečuje, že vaši používatelia získajú bezproblémovú skúsenosť, či už sú na iOS alebo Androide.",
+      "features": [
+        "Multiplatformová dokonalosť",
+        "Natívny výkon a pocit",
+        "Optimalizácia pre app store",
+        "Dizajn zameraný na používateľa"
+      ]
+    },
+    "technicalConsulting": {
+      "title": "Technické poradenstvo",
+      "description": "Poskytujeme podporu pre komplexné technické výzvy so strategickými poradenskými službami. Pomáhame podnikom robiť informované technologické rozhodnutia a budovať škálovateľné riešenia, ktoré sú v súlade s vašimi cieľmi.",
+      "features": [
+        "Hodnotenie technológií",
+        "Plánovanie architektúry",
+        "Mentoring tímov"
+      ]
+    },
+    "cta": {
+      "title": "Pripravený začať váš projekt?",
+      "description": "Poďme prediskutovať, ako vám Bitloom môže pomôcť premeniť vaše nápady na kvalitné digitálne riešenia.",
+      "startProject": "Začať projekt",
+      "viewOurWork": "Pozrieť našu prácu"
+    }
+  },
+  "process": {
+    "title": "Náš proces",
+    "subtitle": "Overená metodológia, ktorá zabezpečuje úspešné dodanie projektu",
+    "discovery": {
+      "step": "01",
+      "title": "Objavenie",
+      "description": "Pochopenie vašich obchodných cieľov, požiadaviek a cieľovej skupiny."
+    },
+    "design": {
+      "step": "02",
+      "title": "Dizajn",
+      "description": "Vytváranie dizajnov zameraných na používateľa a plánov technickej architektúry."
+    },
+    "development": {
+      "step": "03",
+      "title": "Vývoj",
+      "description": "Budovanie robustných, škálovateľných riešení pomocou moderných technológií."
+    },
+    "delivery": {
+      "step": "04",
+      "title": "Dodanie",
+      "description": "Testovanie, nasadenie a priebežná podpora pre váš úspech."
+    }
+  },
+  "projects": {
+    "title": "Vybrané projekty",
+    "subtitle": "Objavte naše portfólio úspešných projektov. Každé riešenie demonštruje náš záväzok poskytovať výnimočné výsledky prostredníctvom inovatívnych technológií a strategického myslenia.",
+    "actions": {
+      "viewProject": "Zobraziť projekt",
+      "caseStudy": "Prípadová štúdia"
+    },
+    "cta": {
+      "title": "Pripravení transformovať vaše nápady?",
+      "description": "Poďme prediskutovať, ako vám Bitloom môže oživiť vašu víziu s inovatívnymi technológiami a strategickou expertízou.",
+      "startProject": "Začať váš projekt"
+    },
+    "items": [
+      {
+        "title": "AI Crew analýza obsahu obrázkov",
+        "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované používateľské príbehy. Poháňané GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové poznatky, s výsledkami uloženými v Markdown správe."
+      },
+      {
+        "title": "Next Notes - Denné úlohy",
+        "description": "Objavte silu denných afirmácií a sebareflexie s intuitívnou aplikáciou na zapisovanie poznámok. Zachyťte momenty inšpirácie, motivácie a osobného rozvoja, aby ste sa stali najlepšou verziou seba."
+      },
+      {
+        "title": "Portfólio s 3D grafikou",
+        "description": "Prezentácia práce s ohromujúcim portfóliom s 3D grafikou a animáciami. Postavené s React Three Fiber a modernými webovými technológiami na poskytnutie pohlcujúcej používateľskej skúsenosti."
+      }
+    ]
+  },
+  "about": {
+    "title": "O spoločnosti Bitloom",
+    "subtitle": "Založené s víziou poskytovať výnimočné softvérové riešenia, ktoré poháňajú rast podnikania",
+    "ourStory": {
+      "title": "Náš príbeh",
+      "description1": "Bitloom založil Miroslav s jasnou misiou: premostiť priepasť medzi inovatívnymi technológiami a zmysluplnými obchodnými výsledkami. Veríme, že skvelý softvér nie je len o kóde – je o porozumení vašmu podnikaniu, vašim používateľom a vašim cieľom.",
+      "description2": "Náš produktovo orientovaný prístup zabezpečuje, že každé riešenie, ktoré budujeme, je navrhnuté na škálovanie, výkon a poskytovanie merateľnej hodnoty vašej organizácii. Prijímame rastovo orientované hodnoty, ktoré riadia všetko, čo robíme."
+    },
+    "coreValues": {
+      "title": "Naše základné hodnoty",
+      "transparentCommunication": {
+        "title": "Transparentná komunikácia",
+        "description": "Jasný, úprimný dialóg pri každom kroku"
+      },
+      "remoteFirstCooperation": {
+        "title": "Remote-first spolupráca",
+        "description": "Bezproblémová spolupráca naprieč hranicami"
+      },
+      "openMindedness": {
+        "title": "Otvorenosť mysle",
+        "description": "Prijímanie nových nápadov a prístupov"
+      }
+    },
+    "founder": {
+      "title": "Spoznajte nášho zakladateľa",
+      "name": "Miroslav Pillár - Zakladateľ a digitálny inžinier",
+      "location": "Sídli v Košiciach, Slovensko",
+      "description1": "Ako profesionálny vývojár a samouk s 6 rokmi praktických skúseností, Miroslav prináša jedinečný pohľad na vývoj softvéru. Jeho cesta demonštruje silu odhodlania, kontinuálneho učenia a praktického riešenia problémov pri zvládaní moderných technológií.",
+      "description2": "Počas svojej kariéry sa Miroslav zameral na projekty v sektoroch zdravotníctva a financií - priemyselných odvetviach, kde presnosť, bezpečnosť a spoľahlivosť nie sú len príjemnými funkciami - sú absolútne nevyhnutné. Táto skúsenosť formovala jeho prístup k budovaniu softvéru, na ktorý sa podniky môžu skutočne spoľahnúť.",
+      "description3": "Tieto špecializované znalosti v kombinácii s expertízou vo full-stack vývoji a moderných technológiách zabezpečujú, že každý Bitloom projekt má prospech z technickej kvality aj z reálneho obchodného porozumenia."
+    },
+    "techStack": {
+      "title": "Naša technická expertíza",
+      "description": "Špecializujeme sa na moderné technológie, ktoré nám umožňujú budovať škálovateľné, výkonné a udržateľné riešenia pre vaše obchodné potreby.",
+      "technologies": {
+        "reactjs": "Moderný frontend vývoj s komponentovou architektúrou",
+        "nextjs": "Full-stack React framework pre produkčne pripravené aplikácie",
+        "typescript": "Typovo bezpečný vývoj pre robustné, udržateľné aplikácie",
+        "nodejs": "Server-side JavaScript pre škálovateľné backend riešenia",
+        "python": "Všestranné programovanie pre webové aplikácie, API a automatizáciu",
+        "postgresql": "Výkonný, open-source relačný databázový systém",
+        "reactNative": "Multiplatformový vývoj mobilných aplikácií",
+        "expo": "Zjednodušený vývoj a nasadenie React Native platforma"
+      }
+    },
+    "whyChoose": {
+      "title": "Prečo si vybrať Bitloom?",
+      "productMindset": {
+        "title": "Produktové myslenie",
+        "description": "Myslíme ako vlastníci produktov, zabezpečujúc, že každá funkcia pridáva skutočnú hodnotu vášmu podnikaniu."
+      },
+      "qualityFocus": {
+        "title": "Zameranie na kvalitu",
+        "description": "Prísne procesy testovania a kontroly kódu zabezpečujú spoľahlivé, udržateľné riešenia."
+      },
+      "growthPartnership": {
+        "title": "Rastové partnerstvo",
+        "description": "Sme investovaní do vášho úspechu a poskytujeme priebežnú podporu pri škálovaní."
+      }
+    },
+    "cta": "Začať váš projekt"
+  },
+  "references": {
+    "title": "Klientske recenzie a referencie",
+    "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci so mnou.",
+    "at": "v",
+    "stats": {
+      "projectsCompleted": "Dokončené projekty",
+      "yearsExperience": "Rokov skúseností",
+      "clientSatisfaction": "Spokojnosť klientov"
+    },
+    "testimonials": [
+      {
+        "name": "Andy Swan",
+        "role": "Vedúci softvérového inžinierstva",
+        "company": "Aptitude Global",
+        "testimonial": "Pracoval som s Mirom na projekte zameranom na štandardizáciu podnikového prístupu k vývoju aplikácií. Jeho prístup k vývoju a QA, spolu s jeho pragmatickým pohľadom na opakovateľnosť, prevyšuje ľudí s výrazne väčšími skúsenosťami. Okrem typických vývojárskych úloh využívajúcich JS, TS, HTML, CSS a AWS sa aktívne podieľal na procesoch technickej architektúry, kde bol jeho príspevok cenný. Bolo mi ľúto vidieť ho odísť z tohto projektu a pozíciu, ktorú zanechal, bolo ťažké obsadiť. Odporúčam Mira celým srdcom a dúfam, že s ním budem v budúcnosti opäť pracovať."
+      },
+      {
+        "name": "Jacob Ellis",
+        "role": "Vedúci tímu",
+        "company": "Cognitive Creators",
+        "testimonial": "Práca s Mirom na významnom americkom farmaceutickom projekte bola vynikajúcou skúsenosťou. Vyčnieva ako špičkový vývojár s výnimočnými zručnosťami v TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless a PostgreSQL. Mirove technické schopnosti ho zaraďujú do najvyšších kategórií vývojárov, s ktorými som mal to potešenie pracovať. Jeho schopnosť spojiť vysokoúrovňové technické zručnosti s reálnymi aplikáciami bola kľúčová pre posun nášho projektu vpred. Mirove poznatky boli neoceniteľné, významne prispievajúc k mojej práci aj k projektu ako celku. Hoci jeho odchod zanecháva veľké topánky na vyplnenie, jeho budúci tím má neuveriteľné šťastie, že ho má. Želám Mirovi všetko najlepšie v jeho nových počinaniach – jeho vplyv tu bude zapamätaný."
+      }
+    ],
+    "cta": {
+      "title": "Pripravený začať váš projekt?",
+      "description": "Poďme prediskutovať, ako vám môžem pomôcť oživiť vaše nápady.",
+      "startConversation": "Začať konverzáciu"
+    }
+  },
+  "contact": {
+    "title": "Začať váš projekt",
+    "subtitle": "Pripravený premeniť vaše nápady na kvalitné digitálne riešenia? Poďme prediskutovať váš projekt.",
+    "info": {
+      "title": "Začnime spoločne budovať",
+      "description": "Máte odvážnu víziu? Alebo nadišiel čas vylepšiť, ako sa ukazujete v online svete? Bitloom je tu, aby vám pomohol premeniť vaše nápady na elegantné, škálovateľné riešenia. Poďme spoločne vybudovať niečo úžasné."
+    },
+    "methods": {
+      "email": {
+        "title": "E-mail",
+        "value": "info@bitloom.sk"
+      },
+      "location": {
+        "title": "Lokalita",
+        "value": "Sídli v Košiciach, Slovensko"
+      },
+      "responseTime": {
+        "title": "Čas odpovede",
+        "value": "Zvyčajne do 24 hodín"
+      }
+    },
+    "social": {
+      "title": "Spojte sa so zakladateľom Bitloom"
+    },
+    "form": {
+      "title": "Kontaktujte nás",
+      "yourName": "Vaše meno",
+      "email": "E-mail",
+      "company": "Spoločnosť",
+      "projectDetails": "Detaily projektu",
+      "required": "*",
+      "placeholders": {
+        "name": "Vaše celé meno",
+        "email": "vas.email@spolocnost.sk",
+        "company": "Vaša spoločnosť alebo organizácia",
+        "message": "Prosím opíšte požiadavky vášho projektu, ciele a časový rámec..."
+      },
+      "sendMessage": "Odoslať správu",
+      "sending": "Odosielam...",
+      "success": "Ďakujeme za vašu obchodnú otázku! Preskúmame detaily vášho projektu a ozveme sa vám do 24 hodín na prediskutovanie ďalších krokov.",
+      "error": "Prepáčte, pri odosielaní vašej otázky došlo k chybe. Prosím skúste to znovu alebo nás kontaktujte priamo na info@bitloom.sk."
+    }
+  },
+  "footer": {
+    "description": "Spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne.",
+    "quickLinks": {
+      "title": "Rýchle odkazy",
+      "services": "Služby",
+      "projects": "Projekty",
+      "about": "O nás",
+      "contact": "Kontakt",
+      "privacyPolicy": "Zásady ochrany osobných údajov"
+    },
+    "contactInfo": {
+      "title": "Kontakt",
+      "email": "E-mail:",
+      "location": "Lokalita:",
+      "locationValue": "Košice, Slovensko"
+    },
+    "copyright": "© {year} Bitloom s.r.o. Všetky práva vyhradené."
+  },
+  "metadata": {
+    "title": "Bitloom - Spoločnosť softvérového inžinierstva",
+    "description": "Bitloom sa špecializuje na webový vývoj, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania. Zakladateľom je Miroslav Pillár.",
+    "keywords": [
+      "vývoj softvéru",
+      "webový vývoj",
+      "mobilný vývoj",
+      "technické poradenstvo",
+      "škálovateľné riešenia",
+      "Next.js",
+      "TypeScript",
+      "React Native"
+    ],
+    "openGraph": {
+      "title": "Bitloom - Spoločnosť softvérového inžinierstva",
+      "description": "Bitloom sa špecializuje na webový vývoj, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania."
+    },
+    "twitter": {
+      "title": "Bitloom - Spoločnosť softvérového inžinierstva",
+      "description": "Spoločnosť softvérového inžinierstva špecializujúca sa na webový vývoj, mobilný vývoj a technické poradenstvo."
+    }
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobných údajov",
+    "effectiveDate": "Dátum účinnosti:",
+    "lastUpdated": "Posledná aktualizácia:",
+    "date": "28. jún 2025",
+    "sections": {
+      "introduction": {
+        "title": "Úvod",
+        "content": {
+          "paragraph1": "Vitajte v Bitloom s.r.o. (\"my\", \"naša\" alebo \"nás\"). Sme spoločnosť softvérového inžinierstva so sídlom v Košiciach na Slovensku, špecializujúca sa na webový vývoj, mobilný vývoj a technické poradenstvo. Zaviazali sme sa chrániť vaše osobné údaje a vaše právo na súkromie.",
+          "paragraph2": "Tieto zásady ochrany osobných údajov vysvetľujú, ako zhromažďujeme, používame, zverejňujeme a chránime vaše informácie, keď navštívite naše webové stránky bitloom.sk a blog.bitloom.sk, používate naše služby alebo nás kontaktujete pre obchodné dotazy."
+        }
+      },
+      "informationCollection": {
+        "title": "Informácie, ktoré zhromažďujeme",
+        "directInfo": {
+          "title": "Informácie, ktoré poskytujete priamo",
+          "intro": "Keď nás kontaktujete prostredníctvom formulárov na našej webovej stránke, zhromažďujeme:",
+          "items": [
+            "Kontaktné informácie: Meno, e-mailová adresa",
+            "Obchodné informácie: Názov spoločnosti, detaily projektu",
+            "Obsah komunikácie: Správy, požiadavky na projekt, ciele a informácie o časovom harmonograme"
+          ]
+        },
+        "consentInfo": {
+          "title": "Informácie zhromažďované s vaším súhlasom",
+          "intro": "Iba keď prijmete cookies prostredníctvom nášho súhlasného bannera, zhromažďujeme:",
+          "items": [
+            "Analytické údaje: Zobrazenia stránok, trvanie relácie, miera odchodu, informácie o zariadení",
+            "Technické informácie: IP adresa, typ prehliadača, operačný systém, odkazujúce URL",
+            "Vzorce používania: Navštívené stránky, čas strávený na stránkach, interakcia s prvkami webovej stránky",
+            "Údaje o výkone: Časy načítania stránky, hĺbka posúvania, interakcie s formulármi"
+          ],
+          "important": "Ak odmietnete cookies, nezhromažďujeme žiadne z týchto analytických údajov. Používajú sa iba nevyhnutné cookies pre funkčnosť webovej stránky.",
+          "importantLabel": "Dôležité:"
+        },
+        "cookies": {
+          "title": "Cookies a sledovacie technológie",
+          "intro": "Používame rôzne typy cookies na základe vášho súhlasu:",
+          "items": [
+            "Nevyhnutné cookies: Vždy aktívne - Požadované pre funkčnosť webovej stránky, bezpečnosť a preferencie súhlasu",
+            "Analytické cookies: Iba s vaším súhlasom - Google Analytics na analýzu výkonu webovej stránky",
+            "Preferenčné cookies: Zapamätajú si vaše nastavenia (téma, jazykové preferencie, voľba súhlasu s cookies)"
+          ],
+          "choice": "Môžete prijať alebo odmietnuť cookies pri prvej návšteve našej webovej stránky. Svoju voľbu môžete kedykoľvek zmeniť v nastaveniach prehliadača.",
+          "choiceLabel": "Vaša voľba:"
+        }
+      },
+      "howWeUse": {
+        "title": "Ako používame vaše informácie",
+        "intro": "Vaše informácie používame na nasledujúce obchodné účely:",
+        "items": [
+          "Obchodná komunikácia: Odpoveď na dotazy, poskytovanie cenových ponúk na projekty, diskusia o technických požiadavkách",
+          "Dodávanie služieb: Riadenie projektov, poskytovanie technického poradenstva a dodávanie vývojových služieb",
+          "Zlepšovanie webovej stránky: Analýza výkonu webovej stránky, pochopenie správania používateľov, optimalizácia používateľského zážitku",
+          "Marketing: Zdieľanie relevantného obsahu, prípadových štúdií a aktualizácií služieb (so súhlasom)",
+          "Právne dodržiavanie: Plnenie právnych povinností, riešenie sporov, presadzovanie dohôd",
+          "Bezpečnosť: Ochrana pred podvodmi, neoprávneným prístupom a bezpečnostnými zraniteľnosťami"
+        ]
+      },
+      "googleAnalytics": {
+        "title": "Google Analytics (na základe súhlasu)",
+        "intro": "Iba keď prijmete cookies, používame Google Analytics 4 (GA4) na analýzu návštevnosti webovej stránky a zlepšovanie našich služieb. Google Analytics zhromažďuje anonymné údaje o používaní vrátane:",
+        "items": [
+          "Navštívené stránky a čas strávený na každej stránke",
+          "Geografická poloha (úroveň krajiny/mesta)",
+          "Informácie o zariadení a prehliadači",
+          "Zdroje návštevnosti a referenčné informácie",
+          "Interakcie používateľov a metriky zapojenia"
+        ],
+        "control": "Môžete odmietnuť analytické sledovanie prostredníctvom nášho bannera súhlasu s cookies. Ak odmietne, žiadne analytické údaje sa nezhromažďujú. Môžete sa tiež neskôr odhlásiť inštaláciou doplnku prehliadača na odhlásenie z Google Analytics.",
+        "controlLabel": "Vaša kontrola:",
+        "noConsent": "Ak odmietnete cookies, Google Analytics je úplne vypnuté a žiadne údaje o používaní sa o vašej návšteve nezhromažďujú.",
+        "noConsentLabel": "Žiadny súhlas = žiadne sledovanie:"
+      },
+      "informationSharing": {
+        "title": "Zdieľanie a zverejňovanie informácií",
+        "intro": "Nepredávame, nevymieňame ani neprenajímame vaše osobné údaje. Informácie môžeme zdieľať v nasledujúcich obmedzených prípadoch:",
+        "items": [
+          "Poskytovatelia služieb: Dôveryhodné služby tretích strán (poskytovatelia e-mailov, analytika, hosting) pod prísnymi dohodami o dôvernosti",
+          "Právne požiadavky: Keď to vyžaduje zákon, súdny príkaz alebo na ochranu našich právnych práv",
+          "Obchodné prevody: V súvislosti s fúziou, akvizíciou alebo predajom obchodného majetku (s predchádzajúcim upozornením)",
+          "Súhlas: Keď výslovne súhlasíte so zdieľaním na konkrétne účely"
+        ]
+      },
+      "dataSecurity": {
+        "title": "Bezpečnosť údajov",
+        "intro": "Implementujeme priemyselné štandardné bezpečnostné opatrenia na ochranu vašich informácií:",
+        "items": [
+          "Šifrovanie: SSL/TLS šifrovanie pre prenos údajov",
+          "Kontroly prístupu: Obmedzený prístup k osobným informáciám na základe potreby vedieť",
+          "Bezpečné úložisko: Chránené servery a databázy s pravidelnými bezpečnostnými aktualizáciami",
+          "Pravidelné monitorovanie: Nepretržité monitorovanie bezpečnostných zraniteľností"
+        ],
+        "disclaimer": "Hoci sa snažíme chrániť vaše informácie, žiadna metóda elektronického prenosu alebo úložiska nie je 100% bezpečná. Nemôžeme zaručiť absolútnu bezpečnosť, ale zaväzujeme sa promptne riešiť akékoľvek bezpečnostné incidenty."
+      },
+      "yourRights": {
+        "title": "Vaše práva na súkromie (GDPR)",
+        "intro": "Pod všeobecným nariadením o ochrane údajov (GDPR) máte nasledujúce práva:",
+        "items": [
+          "Právo na prístup: Požiadať o kópie svojich osobných údajov",
+          "Právo na opravu: Požiadať o opravu nepresných informácií",
+          "Právo na výmaz: Požiadať o vymazanie svojich osobných údajov",
+          "Právo na obmedzenie spracovania: Požiadať o obmedzenie spôsobu spracovania vašich informácií",
+          "Právo na prenosnosť údajov: Požiadať o prenos vašich informácií k inému poskytovateľovi služieb",
+          "Právo namietať: Namietať proti spracovaniu na základe oprávnených záujmov",
+          "Právo odvolať súhlas: Odvolať súhlas pre marketingovú komunikáciu"
+        ],
+        "contact": "Na uplatnenie týchto práv nás kontaktujte na info@bitloom.sk. Odpovieme do 30 dní od prijatia vašej žiadosti."
+      },
+      "cookieManagement": {
+        "title": "Správa cookies a súhlas",
+        "intro": "Máte plnú kontrolu nad súhlasom s cookies a môžete spravovať svoje preferencie prostredníctvom:",
+        "items": [
+          "Banner súhlasu s cookies: Prijať alebo odmietnuť cookies pri prvej návšteve našej webovej stránky",
+          "Nastavenia prehliadača: Nakonfigurovať prehliadač na blokovanie alebo vymazanie cookies (toto prepíše vašu voľbu súhlasu)",
+          "Nástroje tretích strán: Používať nástroje na ochranu súkromia a rozšírenia prehliadača"
+        ],
+        "choices": {
+          "title": "Čo sa stane, keď si vyberiete:",
+          "accept": "Prijať cookies: Google Analytics je povolené, aby sme mohli zlepšovať našu webovú stránku",
+          "decline": "Odmietnuť cookies: Používajú sa iba nevyhnutné funkčné cookies, žiadne analytické sledovanie"
+        },
+        "note": "Deaktivácia nevyhnutných cookies môže obmedziť funkčnosť webovej stránky a používateľský zážitok. Analytické cookies sú voliteľné.",
+        "noteLabel": "Poznámka:"
+      },
+      "dataRetention": {
+        "title": "Uchovávanie údajov",
+        "intro": "Vaše informácie uchovávame počas nasledujúcich období:",
+        "items": [
+          "Kontaktné dotazy: 3 roky od poslednej komunikácie",
+          "Projektová komunikácia: 5 rokov po dokončení projektu",
+          "Analytické údaje: 26 mesiacov (predvolené Google Analytics) - iba ak bol udelený súhlas",
+          "Preferencie súhlasu s cookies: 12 mesiacov od poslednej návštevy",
+          "Nevyhnutné cookies: Na základe relácie alebo do zatvorenia prehliadača"
+        ],
+        "deletion": "Vaše informácie vymažeme alebo anonymizujeme, keď už nebudú potrebné na oprávnené obchodné účely."
+      },
+      "internationalTransfers": {
+        "title": "Medzinárodné prenosy údajov",
+        "intro": "Vaše informácie môžu byť prenesené a spracované v krajinách mimo Európskeho hospodárskeho priestoru (EHP), vrátane Spojených štátov (Google Analytics). Zabezpečujeme primerané záruky:",
+        "items": [
+          "Google Analytics: Pokryté certifikáciou Google's EU-US Data Privacy Framework",
+          "Zmluvné ochrany: Štandardné zmluvné doložky pre prenosy údajov",
+          "Rozhodnutia o primeranosti: Prenosy do krajín s primeranými úrovňami ochrany údajov"
+        ]
+      },
+      "childrensPrivacy": {
+        "title": "Súkromie detí",
+        "content": "Naša webová stránka a služby nie sú určené pre deti mladšie ako 16 rokov. Vedome nezhromažďujeme osobné údaje od detí mladších ako 16 rokov. Ak sa dozvedieme, že sme zhromaždili informácie od dieťaťa mladšieho ako 16 rokov, podnikneme kroky na promptné vymazanie takýchto informácií."
+      },
+      "changes": {
+        "title": "Zmeny týchto zásad ochrany osobných údajov",
+        "intro": "Môžeme tieto zásady ochrany osobných údajov pravidelne aktualizovať, aby odrážali zmeny v našich postupoch, technológiách alebo právnych požiadavkách. O významných zmenách vás budeme informovať:",
+        "items": [
+          "Zverejnením aktualizovaných zásad na našej webovej stránke",
+          "Aktualizáciou dátumu \"Posledná aktualizácia\"",
+          "Zaslaním e-mailových upozornení pre podstatné zmeny (ak je to možné)"
+        ],
+        "acceptance": "Vaše pokračujúce používanie našej webovej stránky po zmenách predstavuje prijatie aktualizovaných zásad ochrany osobných údajov."
+      },
+      "contact": {
+        "title": "Kontaktujte nás",
+        "intro": "Ak máte otázky ohľadom týchto zásad ochrany osobných údajov alebo našich postupov pri nakládaní s údajmi, kontaktujte nás:",
+        "legal": {
+          "title": "Právne informácie",
+          "company": "Bitloom s.r.o.",
+          "businessId": "IČO: 56397631",
+          "taxId": "DIČ: 2122301907",
+          "vatId": "IČ DPH: SK2122301907"
+        },
+        "details": {
+          "title": "Kontaktné údaje",
+          "email": "E-mail: info@bitloom.sk",
+          "location": "Miesto: Košice, Slovensko",
+          "website": "Webová stránka: bitloom.sk"
+        },
+        "gdprNote": "Pre žiadosti týkajúce sa GDPR alebo obavy týkajúce sa ochrany údajov, použite v predmete e-mailu \"Žiadosť o súkromie\" na zabezpečenie promptného vybavenia."
+      },
+      "compliance": {
+        "statement": "Tieto zásady ochrany osobných údajov sú navrhnuté tak, aby boli v súlade s EU všeobecným nariadením o ochrane údajov (GDPR), slovenskými zákonmi o ochrane údajov a medzinárodnými najlepšími postupmi ochrany súkromia. Zaviazali sme sa k transparentnej komunikácii, spolupráci na diaľku a otvorenosti vo všetkých našich postupoch pri nakládaní s údajmi.",
+        "registration": "Registrácia spoločnosti: Bitloom s.r.o. je spoločnosť s ručením obmedzeným registrovaná na Slovensku s IČO 56397631, DIČ 2122301907 a IČ DPH SK2122301907."
+      }
+    }
+  },
+  "common": {
+    "readMore": "Čítať viac",
+    "learnMore": "Dozvedieť sa viac",
+    "getStarted": "Začať",
+    "contactUs": "Kontaktujte nás",
+    "viewAll": "Zobraziť všetko"
+  },
+  "cookieConsent": {
+    "title": "Rešpektujeme vaše súkromie.",
+    "description": "Táto webová stránka používa cookies na analýzu návštevnosti a optimalizáciu vášho zážitku. Zhromažďujeme iba anonymné údaje o používaní na zlepšenie našich služieb.",
+    "preferences": "Svoje preferencie môžete kedykoľvek zmeniť v nastaveniach prehliadača. Viac sa dozviete v našich",
+    "privacyPolicy": "Zásadách ochrany osobných údajov",
+    "accept": "Prijať",
+    "decline": "Odmietnuť",
+    "acceptAriaLabel": "Prijať cookies",
+    "declineAriaLabel": "Odmietnuť cookies"
+  }
+}

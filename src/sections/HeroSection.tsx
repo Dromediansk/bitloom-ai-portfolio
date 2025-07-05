@@ -2,12 +2,14 @@
 
 import { ButtonLink } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { useTranslations } from "next-intl";
 
 const HeroSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver({
     threshold: 0.2,
     rootMargin: "0px",
   });
+  const t = useTranslations("hero");
 
   return (
     <section
@@ -39,7 +41,7 @@ const HeroSection = () => {
               hasIntersected ? "animate-scale-in" : "opacity-0 scale-50"
             }`}
           >
-            Bitloom
+            {t("companyName")}
           </h1>
 
           {/* Company mission */}
@@ -48,9 +50,7 @@ const HeroSection = () => {
               hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="inline-block">
-              Crafting Digital Solutions from Bold Ideas
-            </span>
+            <span className="inline-block">{t("tagline")}</span>
           </h2>
 
           {/* Company description */}
@@ -59,11 +59,7 @@ const HeroSection = () => {
               hasIntersected ? "animate-fade-in" : "opacity-0"
             }`}
           >
-            We specialize in web development, mobile development, and technical
-            consulting that drive business growth. Founded by Miroslav Pillár,
-            Bitloom transforms ideas into powerful digital solutions through
-            expert craftsmanship, transparent communication, and strategic
-            thinking.
+            {t("description")}
           </p>
 
           {/* CTA Buttons with hover animations */}
@@ -79,7 +75,7 @@ const HeroSection = () => {
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg hover:animate-glow transition-all duration-300 group"
             >
               <span className="group-hover:animate-pulse">
-                Explore Services
+                {t("exploreServices")}
               </span>
             </ButtonLink>
             <ButtonLink
@@ -88,7 +84,7 @@ const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg transition-all duration-300 hover:rotate-1"
             >
-              Start a Project
+              {t("startProject")}
             </ButtonLink>
           </div>
 
@@ -105,13 +101,13 @@ const HeroSection = () => {
                 });
               }}
               className="cursor-pointer hover:opacity-70 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg p-2 group"
-              aria-label="Scroll to services section"
+              aria-label={t("scrollToServicesAriaLabel")}
             >
               <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full mx-auto group-hover:border-primary-500 transition-colors duration-300 animate-pulse-slow">
                 <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mx-auto mt-2 group-hover:bg-primary-500 transition-colors duration-300 animate-bounce"></div>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 group-hover:text-primary-500 transition-colors duration-300">
-                Scroll to explore
+                {t("scrollToExplore")}
               </p>
             </button>
           </div>

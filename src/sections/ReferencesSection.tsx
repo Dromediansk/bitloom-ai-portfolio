@@ -3,6 +3,7 @@
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { getStaggeredDelay } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface Reference {
   id: number;
@@ -13,32 +14,6 @@ interface Reference {
   avatar?: string;
 }
 
-// Sample references data - replace with actual testimonials
-const references: Reference[] = [
-  {
-    id: 1,
-    name: "Andy Swan",
-    role: "Head of Software Engineering",
-    company: "Aptitude Global",
-    testimonial:
-      "I worked with Miro on a project aimed at standardising enterprise approach to application development. His approach to development and QA, alongside his pragmatic view of reusability, stand above people with significantly more experience. On top of typical development tasks utilising JS, TS, HTML, CSS and AWS, he was actively involved in technical architecture processes where his input was valuable. I was sorry to see him move on from that project and the opening he left was difficult to fill. I would recommend Miro wholeheartedly and hope to work with him again in the future.",
-  },
-  {
-    id: 2,
-    name: "Jacob Ellis",
-    role: "Team Lead",
-    company: "Cognitive Creators",
-    testimonial:
-      "Working alongside Miro on a high profile US Pharma project has been an excellent experience. He stands out as a top-tier developer, with exceptional skills in TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless, and PostgreSQL. Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with. His ability to merge high-level technical skills with real-world applications has been instrumental in driving our project forward. Miro’s insights have been invaluable, contributing significantly to both my work and the project as a whole. Though his departure leaves big shoes to fill, his future team is incredibly lucky to have him. Wishing Miro all the best in his new endeavors – his impact here will be remembered.",
-  },
-];
-
-const stats = [
-  { value: "10+", label: "Projects Completed" },
-  { value: "6+", label: "Years Experience" },
-  { value: "100%", label: "Client Satisfaction" },
-];
-
 const ReferenceCard = ({
   reference,
   isVisible,
@@ -48,6 +23,8 @@ const ReferenceCard = ({
   isVisible: boolean;
   delayClass: string;
 }) => {
+  const t = useTranslations("references");
+
   return (
     <div
       className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 ${
@@ -87,7 +64,7 @@ const ReferenceCard = ({
             {reference.name}
           </div>
           <div className="text-gray-600 dark:text-gray-400">
-            {reference.role} at {reference.company}
+            {reference.role} {t("at")} {reference.company}
           </div>
         </div>
       </div>
@@ -97,14 +74,39 @@ const ReferenceCard = ({
 
 const ReferencesSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
+  const t = useTranslations("references");
+
+  // Sample references data - replace with actual testimonials
+  const references: Reference[] = [
+    {
+      id: 1,
+      name: t("testimonials.0.name"),
+      role: t("testimonials.0.role"),
+      company: t("testimonials.0.company"),
+      testimonial: t("testimonials.0.testimonial"),
+    },
+    {
+      id: 2,
+      name: t("testimonials.1.name"),
+      role: t("testimonials.1.role"),
+      company: t("testimonials.1.company"),
+      testimonial: t("testimonials.1.testimonial"),
+    },
+  ];
+
+  const stats = [
+    { value: "10+", label: t("stats.projectsCompleted") },
+    { value: "6+", label: t("stats.yearsExperience") },
+    { value: "100%", label: t("stats.clientSatisfaction") },
+  ];
 
   return (
     <section ref={elementRef} className="min-h-screen section-padding">
       <div className="container-max">
         {/* Header */}
         <SectionTitle
-          title="Client Reviews & References"
-          subtitle="Here's what clients and colleagues have to say about working with me."
+          title={t("title")}
+          subtitle={t("subtitle")}
           animated={true}
           isVisible={hasIntersected}
         />
@@ -138,13 +140,13 @@ const ReferencesSection = () => {
         {/* CTA Section */}
         <div className="text-center bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Start Your Project?
+            {t("cta.title")}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Let&apos;s discuss how I can help bring your ideas to life.
+            {t("cta.description")}
           </p>
           <ButtonLink href="/contact" variant="primary">
-            Start a Conversation
+            {t("cta.startConversation")}
           </ButtonLink>
         </div>
       </div>

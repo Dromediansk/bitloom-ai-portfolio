@@ -4,50 +4,49 @@ import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ProcessContainer } from "@/components/process";
 import { getStaggeredDelay } from "@/lib/utils";
-
-const services = [
-  {
-    id: "modern-web-craft",
-    title: "Modern Web Craft",
-    description:
-      "We craft exceptional web experiences through the art of full-stack development. From responsive websites to complex web applications, every digital touchpoint is built with precision, performance, and user experience at its core.",
-    features: [
-      "Full-stack web applications",
-      "Responsive website design",
-      "Modern frameworks & architecture",
-      "Performance optimization",
-    ],
-    icon: "🌐",
-  },
-  {
-    id: "mobile-mastery",
-    title: "Mobile Mastery",
-    description:
-      "From concept to app store, we craft mobile applications that feel native on every platform. Our cross-platform expertise ensures your users get a seamless experience, whether they're on iOS or Android.",
-    features: [
-      "Cross-platform excellence",
-      "Native performance & feel",
-      "App store optimization",
-      "User-centric design",
-    ],
-    icon: "📱",
-  },
-  {
-    id: "technical-consulting",
-    title: "Technical Consulting",
-    description:
-      "Navigate complex technical challenges with strategic consulting services. We help businesses make informed technology decisions and build scalable solutions that align with your goals.",
-    features: [
-      "Technology assessment",
-      "Architecture planning",
-      "Team mentoring",
-    ],
-    icon: "🧭",
-  },
-];
+import { useTranslations } from "next-intl";
 
 const ServicesSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
+  const t = useTranslations("services");
+
+  const services = [
+    {
+      id: "modern-web-craft",
+      title: t("modernWebCraft.title"),
+      description: t("modernWebCraft.description"),
+      features: [
+        t("modernWebCraft.features.0"),
+        t("modernWebCraft.features.1"),
+        t("modernWebCraft.features.2"),
+        t("modernWebCraft.features.3"),
+      ],
+      icon: "🌐",
+    },
+    {
+      id: "mobile-mastery",
+      title: t("mobileMastery.title"),
+      description: t("mobileMastery.description"),
+      features: [
+        t("mobileMastery.features.0"),
+        t("mobileMastery.features.1"),
+        t("mobileMastery.features.2"),
+        t("mobileMastery.features.3"),
+      ],
+      icon: "📱",
+    },
+    {
+      id: "technical-consulting",
+      title: t("technicalConsulting.title"),
+      description: t("technicalConsulting.description"),
+      features: [
+        t("technicalConsulting.features.0"),
+        t("technicalConsulting.features.1"),
+        t("technicalConsulting.features.2"),
+      ],
+      icon: "🧭",
+    },
+  ];
 
   return (
     <section
@@ -58,8 +57,8 @@ const ServicesSection = () => {
       <div className="container-max sm:px-6 lg:px-8">
         {/* Header */}
         <SectionTitle
-          title="Our Services"
-          subtitle="Comprehensive software development solutions designed to drive your business forward"
+          title={t("title")}
+          subtitle={t("subtitle")}
           animated={true}
           isVisible={hasIntersected}
         />
@@ -114,11 +113,10 @@ const ServicesSection = () => {
           }`}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Start Your Project?
+            {t("cta.title")}
           </h3>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss how Bitloom can help transform your ideas into
-            powerful digital solutions.
+            {t("cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ButtonLink
@@ -127,7 +125,7 @@ const ServicesSection = () => {
               size="lg"
               className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
             >
-              Start a Project
+              {t("cta.startProject")}
             </ButtonLink>
             <ButtonLink
               href="/projects"
@@ -135,7 +133,7 @@ const ServicesSection = () => {
               size="lg"
               className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
             >
-              View Our Work
+              {t("cta.viewOurWork")}
             </ButtonLink>
           </div>
         </div>

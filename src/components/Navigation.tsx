@@ -3,42 +3,45 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import NavigationLink from "./NavigationLink";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { useScrollDirection } from "@/lib/hooks";
-
-const navigationLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/references", label: "References" },
-  { href: "/contact", label: "Contact" },
-  {
-    href: "https://blog.bitloom.sk",
-    label: "Blog",
-    isExternal: true,
-    icon: (
-      <svg
-        className="w-3 h-3"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-        />
-      </svg>
-    ),
-  },
-];
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isVisible } = useScrollDirection();
+  const t = useTranslations("navigation");
+
+  const navigationLinks = [
+    { href: "/", label: t("home") },
+    { href: "/services", label: t("services") },
+    { href: "/projects", label: t("projects") },
+    { href: "/about", label: t("about") },
+    { href: "/references", label: t("references") },
+    { href: "/contact", label: t("contact") },
+    {
+      href: "https://blog.bitloom.sk",
+      label: t("blog"),
+      isExternal: true,
+      icon: (
+        <svg
+          className="w-3 h-3"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      ),
+    },
+  ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -82,16 +85,20 @@ const Navigation = () => {
                 </NavigationLink>
               ))}
             </div>
-            <ThemeToggle />
+            <div className="flex items-center space-x-4">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button and Theme Toggle */}
           <div className="md:hidden flex items-center space-x-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle mobile menu"
+              aria-label={t("toggleMenu")}
             >
               <svg
                 className="w-6 h-6"

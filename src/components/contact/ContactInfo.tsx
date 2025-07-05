@@ -1,8 +1,13 @@
+"use client";
+
 import { useIntersectionObserver } from "@/lib/hooks";
+import { useTranslations } from "next-intl";
 import SocialLinks from "../SocialLinks";
 
 const ContactInfo = () => {
   const { hasIntersected, elementRef } = useIntersectionObserver();
+  const t = useTranslations("contact");
+
   return (
     <div
       className={`space-y-8 py-8 transition-all duration-1000 ${
@@ -18,14 +23,10 @@ const ContactInfo = () => {
         }`}
       >
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-          Let&apos;s Start Building Together
+          {t("info.title")}
         </h2>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-          Whether you&apos;re a startup with a bold vision or an established
-          company looking to modernize your digital presence, Bitloom is here to
-          help. We specialize in turning complex business requirements into
-          elegant, scalable solutions through transparent communication and
-          remote-first collaboration.
+          {t("info.description")}
         </p>
       </div>
 
@@ -61,9 +62,11 @@ const ContactInfo = () => {
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-white">
-              Email
+              {t("methods.email.title")}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">info@bitloom.sk</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              {t("methods.email.value")}
+            </p>
           </div>
         </div>
 
@@ -97,10 +100,10 @@ const ContactInfo = () => {
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-white">
-              Location
+              {t("methods.location.title")}
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Based in Kosice, Slovakia
+              {t("methods.location.value")}
             </p>
           </div>
         </div>
@@ -129,10 +132,10 @@ const ContactInfo = () => {
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-white">
-              Response Time
+              {t("methods.responseTime.title")}
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Usually within 24 hours
+              {t("methods.responseTime.value")}
             </p>
           </div>
         </div>
@@ -147,12 +150,12 @@ const ContactInfo = () => {
         }`}
       >
         <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-          Connect With Bitloom Founder
+          {t("social.title")}
         </h3>
         <SocialLinks
-          className={`${
-            hasIntersected ? "opacity-100 scale-100" : "opacity-0 scale-75"
-          }`}
+          iconSize="lg"
+          showLabels={false}
+          className="justify-start"
         />
       </div>
     </div>

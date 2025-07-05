@@ -4,9 +4,11 @@ import Image from "next/image";
 import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ReasonContainer, TechStack } from "@/components/about";
+import { useTranslations } from "next-intl";
 
 const AboutSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
+  const t = useTranslations("about");
 
   return (
     <section
@@ -17,8 +19,8 @@ const AboutSection = () => {
       <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <SectionTitle
-            title="About Bitloom"
-            subtitle="Founded with a vision to deliver exceptional software solutions that drive business growth"
+            title={t("title")}
+            subtitle={t("subtitle")}
             animated={true}
             isVisible={hasIntersected}
           />
@@ -33,24 +35,17 @@ const AboutSection = () => {
               }`}
             >
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Story
+                {t("ourStory.title")}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Bitloom was founded by Miroslav with a clear mission: to bridge
-                the gap between innovative technology and meaningful business
-                outcomes. We believe that great software is not just about code
-                – it&apos;s about understanding your business, your users, and
-                your goals.
+                {t("ourStory.description1")}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Our product-oriented approach ensures that every solution we
-                build is designed to scale, perform, and deliver measurable
-                value to your organization. We embrace growth-oriented values
-                that guide everything we do.
+                {t("ourStory.description2")}
               </p>
               <div className="bg-primary-50 dark:bg-primary-900/20 rounded-xl p-6 mb-8">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                  Our Core Values
+                  {t("coreValues.title")}
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
                   <div className="flex items-center gap-3">
@@ -58,8 +53,10 @@ const AboutSection = () => {
                       🔍
                     </span>
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Transparent Communication</strong> - Clear, honest
-                      dialogue at every step
+                      <strong>
+                        {t("coreValues.transparentCommunication.title")}
+                      </strong>{" "}
+                      - {t("coreValues.transparentCommunication.description")}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
@@ -67,8 +64,10 @@ const AboutSection = () => {
                       🌍
                     </span>
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Remote-First Cooperation</strong> - Seamless
-                      collaboration across borders
+                      <strong>
+                        {t("coreValues.remoteFirstCooperation.title")}
+                      </strong>{" "}
+                      - {t("coreValues.remoteFirstCooperation.description")}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
@@ -76,8 +75,8 @@ const AboutSection = () => {
                       💡
                     </span>
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Open-Mindedness</strong> - Embracing new ideas and
-                      approaches
+                      <strong>{t("coreValues.openMindedness.title")}</strong> -{" "}
+                      {t("coreValues.openMindedness.description")}
                     </span>
                   </div>
                 </div>
@@ -120,34 +119,22 @@ const AboutSection = () => {
                 }`}
               >
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                  Meet Our Founder
+                  {t("founder.title")}
                 </h2>
                 <h3 className="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-4">
-                  Miroslav Pillár - Founder & Digital Craftsman
+                  {t("founder.name")}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  Based in Kosice, Slovakia
+                  {t("founder.location")}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  As a self-taught professional developer with 6 years of
-                  hands-on experience, Miroslav brings a unique perspective to
-                  software development. His journey demonstrates the power of
-                  dedication, continuous learning, and practical problem-solving
-                  in mastering modern technologies.
+                  {t("founder.description1")}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  Throughout his career, Miroslav has focused on projects within
-                  healthcare and financial sectors , industries where precision,
-                  security, and reliability aren&apos;t just nice-to-have
-                  features—they&apos;re absolutely essential. This experience
-                  has shaped his approach to building software that businesses
-                  can truly depend on.
+                  {t("founder.description2")}
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  This specialized industry knowledge, combined with expertise
-                  in full-stack development and modern technologies, ensures
-                  that every Bitloom project benefits from both technical
-                  excellence and real-world business understanding.
+                  {t("founder.description3")}
                 </p>
               </div>
               <div
@@ -189,7 +176,7 @@ const AboutSection = () => {
               size="lg"
               className="transform hover:scale-105 hover:shadow-xl transition-all duration-300"
             >
-              Start Your Project
+              {t("cta")}
             </ButtonLink>
           </div>
         </div>

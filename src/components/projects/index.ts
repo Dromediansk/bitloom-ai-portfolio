@@ -8,5 +8,5 @@ export { ProjectsCTA } from "./ProjectsCTA";
 export { BackgroundElements } from "../BackgroundElements";
 
 // Data and types
-export { projects } from "./data";
+export { getProjects } from "./data";
 export type { Project } from "./types";

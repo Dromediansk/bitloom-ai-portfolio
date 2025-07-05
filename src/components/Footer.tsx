@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
+  const tNav = useTranslations("navigation");
 
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
@@ -24,16 +29,14 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              Software Craftsmanship company specializing in web development,
-              mobile development, and technical consulting. Based in Kosice,
-              Slovakia, serving clients globally.
+              {t("description")}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-              Quick Links
+              {t("quickLinks.title")}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -41,7 +44,7 @@ const Footer = () => {
                   href="/services"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  Services
+                  {tNav("services")}
                 </Link>
               </li>
               <li>
@@ -49,7 +52,7 @@ const Footer = () => {
                   href="/projects"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  Projects
+                  {tNav("projects")}
                 </Link>
               </li>
               <li>
@@ -57,7 +60,7 @@ const Footer = () => {
                   href="/about"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  About
+                  {tNav("about")}
                 </Link>
               </li>
               <li>
@@ -65,7 +68,7 @@ const Footer = () => {
                   href="/contact"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  Contact
+                  {tNav("contact")}
                 </Link>
               </li>
               <li>
@@ -73,7 +76,7 @@ const Footer = () => {
                   href="/privacy"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
-                  Privacy Policy
+                  {t("quickLinks.privacyPolicy")}
                 </Link>
               </li>
             </ul>
@@ -82,11 +85,11 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-              Contact
+              {t("contactInfo.title")}
             </h3>
             <ul className="space-y-2">
               <li className="text-gray-600 dark:text-gray-400">
-                <span className="font-medium">Email:</span>
+                <span className="font-medium">{t("contactInfo.email")}</span>
                 <br />
                 <a
                   href="mailto:info@bitloom.sk"
@@ -96,9 +99,9 @@ const Footer = () => {
                 </a>
               </li>
               <li className="text-gray-600 dark:text-gray-400">
-                <span className="font-medium">Location:</span>
+                <span className="font-medium">{t("contactInfo.location")}</span>
                 <br />
-                Kosice, Slovakia
+                {t("contactInfo.locationValue")}
               </li>
             </ul>
           </div>
@@ -109,7 +112,7 @@ const Footer = () => {
           <SocialLinks className="mb-4 sm:mb-0" />
 
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            © {currentYear} Bitloom. All rights reserved.
+            {t("copyright", { year: currentYear })}
           </p>
         </div>
       </div>

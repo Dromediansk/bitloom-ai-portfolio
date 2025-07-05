@@ -1,6 +1,6 @@
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a Software Craftsmanship company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a Software Engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 
@@ -8,6 +8,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **TypeScript**
 - **Tailwind CSS**
 - **@next/font** or custom fonts for typography
+- **next-intl** (for internationalization - English and Slovak)
 - **Framer Motion** (optional, for subtle animations)
 
 ## Project Structure Guidelines
@@ -18,14 +19,29 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 /lib # Utilities (SEO config, email utils, etc.)
 /public # Static assets (images, icons, etc.)
 /styles # Tailwind config, global styles
+/messages # i18n translation files (en.json, sk.json)
+/i18n # Internationalization configuration (routing, middleware)
+
+## Internationalization (i18n)
+
+- **Supported Languages**: English (default) and Slovak
+- **URL Structure**: `/en/page` and `/sk/page` with automatic locale detection
+- **Translation Files**:
+  - `messages/en.json` - English translations
+  - `messages/sk.json` - Slovak translations
+- **Components**: All user-facing text uses `useTranslations()` hook from next-intl
+- **Language Switcher**: Available in navigation for seamless language switching
+- **Middleware**: Automatic locale detection and routing via `src/middleware.ts`
 
 ## Pages / Routes
 
-- `/` → Company Intro (hero section with company mission and values)
-- `/services` → Service offerings (web development, consulting, product strategy)
-- `/projects` → Featured client work and case studies
-- `/about` → Company story, team, and founder Miroslav's background
-- `/contact` → Contact form and business inquiry details
+- `/` or `/en` → Company Intro (hero section with company mission and values)
+- `/sk` → Slovak version of homepage
+- `/en/services` or `/sk/services` → Service offerings (web development, consulting, product strategy)
+- `/en/projects` or `/sk/projects` → Featured client work and case studies
+- `/en/about` or `/sk/about` → Company story, team, and founder Miroslav's background
+- `/en/contact` or `/sk/contact` → Contact form and business inquiry details
+- `/en/references` or `/sk/references` → Client testimonials and success stories
 - `blog.bitloom.sk` → External blog link (opens in new tab)
 
 ## Style Guide
@@ -130,6 +146,29 @@ Bitloom's core technical expertise includes:
 - Business links (LinkedIn, GitHub for technical credibility)
 - Privacy policy and terms (if needed)
 - Copyright and company registration details
+- Language switcher for easy locale switching
+
+## i18n Implementation Guidelines
+
+### Translation Structure
+
+- All user-facing text is stored in JSON files under `/messages/`
+- Hierarchical structure: `navigation.home`, `services.title`, `contact.form.email`
+- Use descriptive keys that reflect content purpose, not just location
+
+### Component Implementation
+
+- Use `"use client"` directive for components using `useTranslations()`
+- Import: `import { useTranslations } from "next-intl"`
+- Usage: `const t = useTranslations("sectionName"); t("keyName")`
+- Nest translation keys logically by component/section
+
+### Adding New Content
+
+- Add translations to both `en.json` and `sk.json` files
+- Maintain consistent key structure across both languages
+- Use professional, business-appropriate tone for both languages
+- Slovak translations should sound natural, not machine-translated
 
 ## Optional Enhancements
 

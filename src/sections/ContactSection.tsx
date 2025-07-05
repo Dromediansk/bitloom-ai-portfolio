@@ -3,17 +3,19 @@
 import { SectionTitle } from "@/components";
 import { ContactForm, ContactInfo } from "@/components/contact";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { useTranslations } from "next-intl";
 
 const ContactSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
+  const t = useTranslations("contact");
 
   return (
     <section ref={elementRef} className="min-h-screen section-padding">
       <div className="container-max">
         {/* Header */}
         <SectionTitle
-          title="Start Your Project"
-          subtitle="Ready to transform your ideas into powerful digital solutions? Let's discuss your project."
+          title={t("title")}
+          subtitle={t("subtitle")}
           animated={true}
           isVisible={hasIntersected}
         />

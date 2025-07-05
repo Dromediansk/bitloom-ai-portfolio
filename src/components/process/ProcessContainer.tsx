@@ -1,13 +1,41 @@
 import { memo } from "react";
 import { ProcessCard } from "./ProcessCard";
-import { processes } from "./data";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { useTranslations } from "next-intl";
 
 export const ProcessContainer = memo(() => {
   const { elementRef, hasIntersected } = useIntersectionObserver({
     threshold: 0.1,
     rootMargin: "50px",
   });
+  const t = useTranslations("process");
+
+  const processes = [
+    {
+      id: "1",
+      step: t("discovery.step"),
+      title: t("discovery.title"),
+      description: t("discovery.description"),
+    },
+    {
+      id: "2",
+      step: t("design.step"),
+      title: t("design.title"),
+      description: t("design.description"),
+    },
+    {
+      id: "3",
+      step: t("development.step"),
+      title: t("development.title"),
+      description: t("development.description"),
+    },
+    {
+      id: "4",
+      step: t("delivery.step"),
+      title: t("delivery.title"),
+      description: t("delivery.description"),
+    },
+  ];
 
   return (
     <div
@@ -20,14 +48,14 @@ export const ProcessContainer = memo(() => {
             hasIntersected ? "animate-fade-in-down" : "opacity-0 translate-y-8"
           }`}
         >
-          Our Process
+          {t("title")}
         </h2>
         <p
           className={`text-lg text-gray-600 dark:text-gray-400 transition-all duration-1000 delay-200 ${
             hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-8"
           }`}
         >
-          A proven methodology that ensures successful project delivery
+          {t("subtitle")}
         </p>
       </div>
 

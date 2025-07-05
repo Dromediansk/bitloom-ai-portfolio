@@ -75,7 +75,7 @@ const generateEmailTemplate = (data: ContactFormData): string => {
       <div class="container">
         <div class="header">
           <h1>🚀 New Business Inquiry</h1>
-          <p>Software Craftsmanship Inquiry</p>
+          <p>Software Engineering Inquiry</p>
         </div>
         
         <div class="content">

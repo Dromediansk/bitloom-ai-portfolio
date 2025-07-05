@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { ButtonLink } from "@/components";
+import { useTranslations } from "next-intl";
 
 interface ProjectActionsProps {
   demoUrl?: string;
@@ -8,6 +9,8 @@ interface ProjectActionsProps {
 
 export const ProjectActions = memo(
   ({ demoUrl, codeUrl }: ProjectActionsProps) => {
+    const t = useTranslations("projects");
+
     return (
       <div className="flex gap-3">
         {demoUrl && (
@@ -18,7 +21,7 @@ export const ProjectActions = memo(
             variant="primary"
             className="flex-1 text-center hover:scale-105 transition-all duration-300"
           >
-            View Project
+            {t("actions.viewProject")}
           </ButtonLink>
         )}
         {codeUrl && (
@@ -29,7 +32,7 @@ export const ProjectActions = memo(
             variant="secondary"
             className="flex-1 text-center hover:scale-105 transition-all duration-300"
           >
-            Case Study
+            {t("actions.caseStudy")}
           </ButtonLink>
         )}
       </div>

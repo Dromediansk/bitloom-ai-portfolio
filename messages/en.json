@@ -1,0 +1,487 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "references": "References",
+    "contact": "Contact",
+    "blog": "Blog",
+    "toggleMenu": "Toggle mobile menu"
+  },
+  "hero": {
+    "companyName": "Bitloom",
+    "tagline": "Crafting Digital Solutions from Bold Ideas",
+    "description": "We specialize in web development, mobile development, and technical consulting that drive business growth. Founded by Miroslav Pillár, Bitloom transforms ideas into powerful digital solutions through expert craftsmanship, transparent communication, and strategic thinking.",
+    "exploreServices": "Explore Services",
+    "startProject": "Start a Project",
+    "scrollToExplore": "Scroll to explore",
+    "scrollToServicesAriaLabel": "Scroll to services section"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive software development solutions designed to drive your business forward",
+    "modernWebCraft": {
+      "title": "Modern Web Craft",
+      "description": "We craft exceptional web experiences through the art of full-stack development. From responsive websites to complex web applications, every digital trace is built with precision, performance, and user experience.",
+      "features": [
+        "Full-stack web applications",
+        "Responsive website design",
+        "Modern frameworks & architecture",
+        "Performance optimization"
+      ]
+    },
+    "mobileMastery": {
+      "title": "Mobile Mastery",
+      "description": "From concept to deployment, we craft mobile applications that are professional on every platform. Our cross-platform expertise ensures your users get a seamless experience, whether they're on iOS or Android.",
+      "features": [
+        "Cross-platform excellence",
+        "Native performance & feel",
+        "App store optimization",
+        "User-centric design"
+      ]
+    },
+    "technicalConsulting": {
+      "title": "Technical Consulting",
+      "description": "We provide support for complex technical challenges with strategic consulting services. We help businesses make informed technology decisions and build scalable solutions that align with your goals.",
+      "features": [
+        "Technology assessment",
+        "Architecture planning",
+        "Team mentoring"
+      ]
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how Bitloom can help transform your ideas into powerful digital solutions.",
+      "startProject": "Start a Project",
+      "viewOurWork": "View Our Work"
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "A proven methodology that ensures successful project delivery",
+    "discovery": {
+      "step": "01",
+      "title": "Discovery",
+      "description": "Understanding your business goals, requirements, and target audience."
+    },
+    "design": {
+      "step": "02",
+      "title": "Design",
+      "description": "Creating user-centered designs and technical architecture plans."
+    },
+    "development": {
+      "step": "03",
+      "title": "Development",
+      "description": "Building robust, scalable solutions using modern technologies."
+    },
+    "delivery": {
+      "step": "04",
+      "title": "Delivery",
+      "description": "Testing, deployment, and ongoing support for your success."
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Discover our portfolio of successful projects. Each solution demonstrates our commitment to delivering exceptional results through innovative technology and strategic thinking.",
+    "actions": {
+      "viewProject": "View Project",
+      "caseStudy": "Case Study"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Ideas?",
+      "description": "Let's discuss how Bitloom can bring your vision to life with innovative technology and strategic expertise.",
+      "startProject": "Start Your Project"
+    },
+    "items": [
+      {
+        "title": "AI Crew Image Content Analysis",
+        "description": "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights, with results saved in a Markdown report."
+      },
+      {
+        "title": "Next Notes - Daily Tasks",
+        "description": "Discover the power of daily affirmations and self-reflection with the intuitive note taking app. Capture moments of inspiration, motivation, and personal development to help you become the best version of yourself."
+      },
+      {
+        "title": "Portfolio with 3D graphics",
+        "description": "Showcasing work with a stunning portfolio featuring 3D graphics and animations. Built with React Three Fiber and modern web technologies to provide an immersive user experience."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Bitloom company",
+    "subtitle": "Founded with a vision to deliver exceptional software solutions that drive business growth",
+    "ourStory": {
+      "title": "Our Story",
+      "description1": "Bitloom was founded by Miroslav with a clear mission: to bridge the gap between innovative technology and meaningful business outcomes. We believe that great software is not just about code – it's about understanding your business, your users, and your goals.",
+      "description2": "Our product-oriented approach ensures that every solution we build is designed to scale, perform, and deliver measurable value to your organization. We embrace growth-oriented values that guide everything we do."
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "transparentCommunication": {
+        "title": "Transparent Communication",
+        "description": "Clear, honest dialogue at every step"
+      },
+      "remoteFirstCooperation": {
+        "title": "Remote-First Cooperation",
+        "description": "Seamless collaboration across borders"
+      },
+      "openMindedness": {
+        "title": "Open-Mindedness",
+        "description": "Embracing new ideas and approaches"
+      }
+    },
+    "founder": {
+      "title": "Meet Our Founder",
+      "name": "Miroslav Pillár - Founder & Digital Craftsman",
+      "location": "Based in Kosice, Slovakia",
+      "description1": "As a self-taught professional developer with 6 years of hands-on experience, Miroslav brings a unique perspective to software development. His journey demonstrates the power of dedication, continuous learning, and practical problem-solving in mastering modern technologies.",
+      "description2": "Throughout his career, Miroslav has focused on projects within healthcare and financial sectors - industries where precision, security, and reliability aren't just nice-to-have features—they're absolutely essential. This experience has shaped his approach to building software that businesses can truly depend on.",
+      "description3": "This specialized knowledge, combined with expertise in full-stack development and modern technologies, ensures that every Bitloom project benefits from both technical excellence and real-world business understanding."
+    },
+    "techStack": {
+      "title": "Our Technical Expertise",
+      "description": "We specialize in modern technologies that enable us to build scalable, performant, and maintainable solutions for your business needs.",
+      "technologies": {
+        "reactjs": "Modern frontend development with component-based architecture",
+        "nextjs": "Full-stack React framework for production-ready applications",
+        "typescript": "Type-safe development for robust, maintainable applications",
+        "nodejs": "Server-side JavaScript for scalable backend solutions",
+        "python": "Versatile programming for web applications, APIs, and automation",
+        "postgresql": "Powerful, open-source relational database system",
+        "reactNative": "Cross-platform mobile app development",
+        "expo": "Streamlined React Native development and deployment platform"
+      }
+    },
+    "whyChoose": {
+      "title": "Why Choose Bitloom?",
+      "productMindset": {
+        "title": "Product Mindset",
+        "description": "We think like product owners, ensuring every feature adds real value to your business."
+      },
+      "qualityFocus": {
+        "title": "Quality Focus",
+        "description": "Rigorous testing and code review processes ensure reliable, maintainable solutions."
+      },
+      "growthPartnership": {
+        "title": "Growth Partnership",
+        "description": "We are invested in your success and provide ongoing support as you scale."
+      }
+    },
+    "cta": "Start Your Project"
+  },
+  "references": {
+    "title": "Client Reviews & References",
+    "subtitle": "Here's what clients and colleagues have to say about working with me.",
+    "at": "at",
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "yearsExperience": "Years Experience",
+      "clientSatisfaction": "Client Satisfaction"
+    },
+    "testimonials": [
+      {
+        "name": "Andy Swan",
+        "role": "Head of Software Engineering",
+        "company": "Aptitude Global",
+        "testimonial": "I worked with Miro on a project aimed at standardising enterprise approach to application development. His approach to development and QA, alongside his pragmatic view of reusability, stand above people with significantly more experience. On top of typical development tasks utilising JS, TS, HTML, CSS and AWS, he was actively involved in technical architecture processes where his input was valuable. I was sorry to see him move on from that project and the opening he left was difficult to fill. I would recommend Miro wholeheartedly and hope to work with him again in the future."
+      },
+      {
+        "name": "Jacob Ellis",
+        "role": "Team Lead",
+        "company": "Cognitive Creators",
+        "testimonial": "Working alongside Miro on a high profile US Pharma project has been an excellent experience. He stands out as a top-tier developer, with exceptional skills in TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless, and PostgreSQL. Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with. His ability to merge high-level technical skills with real-world applications has been instrumental in driving our project forward. Miro's insights have been invaluable, contributing significantly to both my work and the project as a whole. Though his departure leaves big shoes to fill, his future team is incredibly lucky to have him. Wishing Miro all the best in his new endeavors – his impact here will be remembered."
+      }
+    ],
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how I can help bring your ideas to life.",
+      "startConversation": "Start a Conversation"
+    }
+  },
+  "contact": {
+    "title": "Start Your Project",
+    "subtitle": "Ready to transform your ideas into powerful digital solutions? Let's discuss your project.",
+    "info": {
+      "title": "Let's Start Building Together",
+      "description": "Got a bold vision? Or the time has come to upgrade how you show up online? Bitloom is here to help turn your ideas into elegant, scalable solutions. Let's work together to build something amazing."
+    },
+    "methods": {
+      "email": {
+        "title": "Email",
+        "value": "info@bitloom.sk"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Based in Kosice, Slovakia"
+      },
+      "responseTime": {
+        "title": "Response Time",
+        "value": "Usually within 24 hours"
+      }
+    },
+    "social": {
+      "title": "Connect With Bitloom Founder"
+    },
+    "form": {
+      "title": "Contact Us",
+      "yourName": "Your Name",
+      "email": "Email",
+      "company": "Company",
+      "projectDetails": "Project Details",
+      "required": "*",
+      "placeholders": {
+        "name": "Your full name",
+        "email": "your.email@company.com",
+        "company": "Your company or organization",
+        "message": "Please describe your project requirements, goals, and timeline..."
+      },
+      "sendMessage": "Send Message",
+      "sending": "Sending...",
+      "success": "Thank you for your business inquiry! We'll review your project details and get back to you within 24 hours to discuss next steps.",
+      "error": "Sorry, there was an error sending your inquiry. Please try again or contact us directly at info@bitloom.sk."
+    }
+  },
+  "footer": {
+    "description": "Software Engineering company specializing in web development, mobile development, and technical consulting. Based in Kosice, Slovakia, supporting clients globally.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "services": "Services",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "contactInfo": {
+      "title": "Contact",
+      "email": "Email:",
+      "location": "Location:",
+      "locationValue": "Kosice, Slovakia"
+    },
+    "copyright": "© {year} Bitloom s.r.o. All rights reserved."
+  },
+  "metadata": {
+    "title": "Bitloom - Software Engineering Company",
+    "description": "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth. Founded by Miroslav Pillár.",
+    "keywords": [
+      "software development",
+      "web development",
+      "mobile development",
+      "technical consulting",
+      "scalable solutions",
+      "Next.js",
+      "TypeScript",
+      "React Native"
+    ],
+    "openGraph": {
+      "title": "Bitloom - Software Engineering Company",
+      "description": "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth."
+    },
+    "twitter": {
+      "title": "Bitloom - Software Engineering Company",
+      "description": "Software Engineering company specializing in web development, mobile development, and technical consulting."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "effectiveDate": "Effective Date:",
+    "lastUpdated": "Last Updated:",
+    "date": "June 28, 2025",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": {
+          "paragraph1": "Welcome to Bitloom s.r.o. (\"we,\" \"our,\" or \"us\"). We are a Software Engineering company based in Košice, Slovakia, specializing in web development, mobile development, and technical consulting. We are committed to protecting your personal information and your right to privacy.",
+          "paragraph2": "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bitloom.sk and blog.bitloom.sk, use our services, or contact us for business inquiries."
+        }
+      },
+      "informationCollection": {
+        "title": "Information We Collect",
+        "directInfo": {
+          "title": "Information You Provide Directly",
+          "intro": "When you contact us through our website forms, we collect:",
+          "items": [
+            "Contact Information: Name, email address",
+            "Business Information: Company name, project details",
+            "Communication Content: Messages, project requirements, goals, and timeline information"
+          ]
+        },
+        "consentInfo": {
+          "title": "Information Collected with Your Consent",
+          "intro": "Only when you accept cookies through our consent banner, we collect:",
+          "items": [
+            "Analytics Data: Page views, session duration, bounce rate, device information",
+            "Technical Information: IP address, browser type, operating system, referring URLs",
+            "Usage Patterns: Pages visited, time spent on pages, interaction with website elements",
+            "Performance Data: Page load times, scroll depth, form interactions"
+          ],
+          "important": "If you decline cookies, we do not collect any of this analytics data. Only essential website functionality cookies are used.",
+          "importantLabel": "Important:"
+        },
+        "cookies": {
+          "title": "Cookies and Tracking Technologies",
+          "intro": "We use different types of cookies based on your consent:",
+          "items": [
+            "Essential Cookies: Always active - Required for website functionality, security, and consent preferences",
+            "Analytics Cookies: Only with your consent - Google Analytics for website performance analysis",
+            "Preference Cookies: Remember your settings (theme, language preferences, cookie consent choice)"
+          ],
+          "choice": "You can accept or decline cookies when you first visit our website. You can change your choice at any time through your browser settings.",
+          "choiceLabel": "Your Choice:"
+        }
+      },
+      "howWeUse": {
+        "title": "How We Use Your Information",
+        "intro": "We use your information for the following business purposes:",
+        "items": [
+          "Business Communications: Responding to inquiries, providing project quotes, discussing technical requirements",
+          "Service Delivery: Managing projects, providing technical consulting, and delivering development services",
+          "Website Improvement: Analyzing website performance, understanding user behavior, optimizing user experience",
+          "Marketing: Sharing relevant content, case studies, and service updates (with consent)",
+          "Legal Compliance: Meeting legal obligations, resolving disputes, enforcing agreements",
+          "Security: Protecting against fraud, unauthorized access, and security vulnerabilities"
+        ]
+      },
+      "googleAnalytics": {
+        "title": "Google Analytics (Consent-Based)",
+        "intro": "Only when you accept cookies, we use Google Analytics 4 (GA4) to analyze website traffic and improve our services. Google Analytics collects anonymous usage data including:",
+        "items": [
+          "Pages visited and time spent on each page",
+          "Geographic location (country/city level)",
+          "Device and browser information",
+          "Traffic sources and referral information",
+          "User interactions and engagement metrics"
+        ],
+        "control": "You can decline analytics tracking through our cookie consent banner. If you decline, no analytics data is collected. You can also opt-out later by installing the Google Analytics opt-out browser add-on.",
+        "controlLabel": "Your Control:",
+        "noConsent": "If you decline cookies, Google Analytics is completely disabled and no usage data is collected about your visit.",
+        "noConsentLabel": "No Consent = No Tracking:"
+      },
+      "informationSharing": {
+        "title": "Information Sharing and Disclosure",
+        "intro": "We do not sell, trade, or rent your personal information. We may share information in the following limited circumstances:",
+        "items": [
+          "Service Providers: Trusted third-party services (email providers, analytics, hosting) under strict confidentiality agreements",
+          "Legal Requirements: When required by law, court order, or to protect our legal rights",
+          "Business Transfers: In connection with merger, acquisition, or sale of business assets (with prior notice)",
+          "Consent: When you explicitly consent to sharing for specific purposes"
+        ]
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "intro": "We implement industry-standard security measures to protect your information:",
+        "items": [
+          "Encryption: SSL/TLS encryption for data transmission",
+          "Access Controls: Limited access to personal information on need-to-know basis",
+          "Secure Storage: Protected servers and databases with regular security updates",
+          "Regular Monitoring: Continuous monitoring for security vulnerabilities"
+        ],
+        "disclaimer": "While we strive to protect your information, no method of electronic transmission or storage is 100% secure. We cannot guarantee absolute security but commit to promptly addressing any security incidents."
+      },
+      "yourRights": {
+        "title": "Your Privacy Rights (GDPR)",
+        "intro": "Under the General Data Protection Regulation (GDPR), you have the following rights:",
+        "items": [
+          "Right to Access: Request copies of your personal information",
+          "Right to Rectification: Request correction of inaccurate information",
+          "Right to Erasure: Request deletion of your personal information",
+          "Right to Restrict Processing: Request limitation of how we process your information",
+          "Right to Data Portability: Request transfer of your information to another service",
+          "Right to Object: Object to processing based on legitimate interests",
+          "Right to Withdraw Consent: Withdraw consent for marketing communications"
+        ],
+        "contact": "To exercise these rights, contact us at info@bitloom.sk. We will respond within 30 days of receiving your request."
+      },
+      "cookieManagement": {
+        "title": "Cookie Management and Consent",
+        "intro": "You have full control over cookie consent and can manage your preferences through:",
+        "items": [
+          "Cookie Consent Banner: Accept or decline cookies when you first visit our website",
+          "Browser Settings: Configure your browser to block or delete cookies (this will override your consent choice)",
+          "Third-party Tools: Use privacy tools and browser extensions"
+        ],
+        "choices": {
+          "title": "What happens when you choose:",
+          "accept": "Accept Cookies: Google Analytics is enabled to help us improve our website",
+          "decline": "Decline Cookies: Only essential functionality cookies are used, no analytics tracking"
+        },
+        "note": "Disabling essential cookies may limit website functionality and user experience. Analytics cookies are optional.",
+        "noteLabel": "Note:"
+      },
+      "dataRetention": {
+        "title": "Data Retention",
+        "intro": "We retain your information for the following periods:",
+        "items": [
+          "Contact Inquiries: 3 years from last communication",
+          "Project Communications: 5 years after project completion",
+          "Analytics Data: 26 months (Google Analytics default) - only if consent was given",
+          "Cookie Consent Preferences: 12 months from last visit",
+          "Essential Cookies: Session-based or until browser closure"
+        ],
+        "deletion": "We will delete or anonymize your information when it's no longer needed for legitimate business purposes."
+      },
+      "internationalTransfers": {
+        "title": "International Data Transfers",
+        "intro": "Your information may be transferred to and processed in countries outside the European Economic Area (EEA), including the United States (Google Analytics). We ensure appropriate safeguards are in place:",
+        "items": [
+          "Google Analytics: Covered by Google's EU-US Data Privacy Framework certification",
+          "Contractual protections: Standard contractual clauses for data transfers",
+          "Adequacy decisions: Transfers to countries with adequate data protection levels"
+        ]
+      },
+      "childrensPrivacy": {
+        "title": "Children's Privacy",
+        "content": "Our website and services are not directed to children under 16 years of age. We do not knowingly collect personal information from children under 16. If we become aware that we have collected information from a child under 16, we will take steps to delete such information promptly."
+      },
+      "changes": {
+        "title": "Changes to This Privacy Policy",
+        "intro": "We may update this Privacy Policy periodically to reflect changes in our practices, technology, or legal requirements. We will notify you of significant changes by:",
+        "items": [
+          "Posting the updated policy on our website",
+          "Updating the \"Last Updated\" date",
+          "Sending email notifications for material changes (if applicable)"
+        ],
+        "acceptance": "Your continued use of our website after changes constitutes acceptance of the updated Privacy Policy."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "intro": "If you have questions about this Privacy Policy or our data practices, please contact us:",
+        "legal": {
+          "title": "Legal Information",
+          "company": "Bitloom s.r.o.",
+          "businessId": "Business ID: 56397631",
+          "taxId": "Tax ID: 2122301907",
+          "vatId": "VAT ID: SK2122301907"
+        },
+        "details": {
+          "title": "Contact Details",
+          "email": "Email: info@bitloom.sk",
+          "location": "Location: Košice, Slovakia",
+          "website": "Website: bitloom.sk"
+        },
+        "gdprNote": "For GDPR-related requests or data protection concerns, please use the subject line \"Privacy Request\" in your email to ensure prompt handling."
+      },
+      "compliance": {
+        "statement": "This Privacy Policy is designed to comply with the EU General Data Protection Regulation (GDPR), Slovak data protection laws, and international privacy best practices. We are committed to transparent communication, remote-first cooperation, and open-mindedness in all our data practices.",
+        "registration": "Company Registration: Bitloom s.r.o. is a limited liability company registered in Slovakia with Business ID 56397631, Tax ID 2122301907, and VAT ID SK2122301907."
+      }
+    }
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All"
+  },
+  "cookieConsent": {
+    "title": "We respect your privacy.",
+    "description": "This website uses cookies to analyze traffic and optimize your experience. We only collect anonymous usage data to improve our services.",
+    "preferences": "You can change your preferences at any time in your browser settings. Learn more in our",
+    "privacyPolicy": "Privacy Policy",
+    "accept": "Accept",
+    "decline": "Decline",
+    "acceptAriaLabel": "Accept cookies",
+    "declineAriaLabel": "Decline cookies"
+  }
+}

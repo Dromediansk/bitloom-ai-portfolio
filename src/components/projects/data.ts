@@ -1,11 +1,10 @@
 import type { Project } from "./types";
 
-export const projects: Project[] = [
+export const getProjects = (t: (key: string) => string): Project[] => [
   {
     id: 1,
-    title: "AI Crew Image Content Analysis",
-    description:
-      "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights, with results saved in a Markdown report.",
+    title: t("items.0.title"),
+    description: t("items.0.description"),
     technologies: [
       "Prompt Engineering",
       "Python",
@@ -18,9 +17,8 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Next Notes - Daily Tasks",
-    description:
-      "Embrace the power of daily affirmations and self-reflection with the intuitive note taking app. Capture moments of inspiration, motivation, and personal development to help you become the best version of yourself.",
+    title: t("items.1.title"),
+    description: t("items.1.description"),
     technologies: [
       "Next.js",
       "Typescript",
@@ -35,9 +33,8 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Portfolio with 3D graphics",
-    description:
-      "Showcasing work with a stunning portfolio featuring 3D graphics and animations. Built with React Three Fiber and modern web technologies to provide an immersive user experience.",
+    title: t("items.2.title"),
+    description: t("items.2.description"),
     technologies: [
       "Three.js",
       "React Three Fiber",

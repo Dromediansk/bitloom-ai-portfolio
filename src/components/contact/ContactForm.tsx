@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { Button } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
+import { useTranslations } from "next-intl";
 
 interface ContactFormData {
   name: string;
@@ -13,6 +14,7 @@ interface ContactFormData {
 
 const ContactForm = () => {
   const { hasIntersected, elementRef } = useIntersectionObserver();
+  const t = useTranslations("contact.form");
 
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -90,7 +92,7 @@ const ContactForm = () => {
             : "opacity-0 translate-y-4"
         }`}
       >
-        Contact Us
+        {t("title")}
       </h2>
       <form
         onSubmit={handleSubmit}
@@ -106,7 +108,7 @@ const ContactForm = () => {
               htmlFor="name"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
-              Your Name *
+              {t("yourName")} {t("required")}
             </label>
             <input
               type="text"
@@ -114,10 +116,9 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              autoFocus
               required
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Your full name"
+              placeholder={t("placeholders.name")}
             />
           </div>
 
@@ -126,7 +127,7 @@ const ContactForm = () => {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
-              Email *
+              {t("email")} {t("required")}
             </label>
             <input
               type="email"
@@ -136,7 +137,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="your.email@company.com"
+              placeholder={t("placeholders.email")}
             />
           </div>
         </div>
@@ -146,7 +147,7 @@ const ContactForm = () => {
             htmlFor="company"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Company
+            {t("company")}
           </label>
           <input
             type="text"
@@ -155,7 +156,7 @@ const ContactForm = () => {
             value={formData.company}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-            placeholder="Your company or organization"
+            placeholder={t("placeholders.company")}
           />
         </div>
 
@@ -164,7 +165,7 @@ const ContactForm = () => {
             htmlFor="message"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            Project Details *
+            {t("projectDetails")} {t("required")}
           </label>
           <textarea
             id="message"
@@ -174,7 +175,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
-            placeholder="Please describe your project requirements, goals, and timeline..."
+            placeholder={t("placeholders.message")}
           />
         </div>
 
@@ -186,21 +187,19 @@ const ContactForm = () => {
           size="lg"
           className="w-full"
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? t("sending") : t("sendMessage")}
         </Button>
 
         {/* Status Messages */}
         {submitStatus === "success" && (
           <div className="p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg">
-            Thank you for your business inquiry! We&apos;ll review your project
-            details and get back to you within 24 hours to discuss next steps.
+            {t("success")}
           </div>
         )}
 
         {submitStatus === "error" && (
           <div className="p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg">
-            Sorry, there was an error sending your inquiry. Please try again or
-            contact us directly at info@bitloom.sk.
+            {t("error")}
           </div>
         )}
       </form>

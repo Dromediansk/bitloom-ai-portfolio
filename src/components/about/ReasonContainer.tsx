@@ -1,33 +1,32 @@
 import { useIntersectionObserver } from "@/lib/hooks";
 import { getStaggeredDelay } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import React from "react";
-
-const reasons = [
-  {
-    id: 1,
-    title: "Product Mindset",
-    description:
-      "We think like product owners, ensuring every feature adds real value to your business.",
-  },
-  {
-    id: 2,
-    title: "Quality Focus",
-    description:
-      "Rigorous testing and code review processes ensure reliable, maintainable solutions.",
-  },
-  {
-    id: 3,
-    title: "Growth Partnership",
-    description:
-      "We are invested in your success and provide ongoing support as you scale.",
-  },
-];
 
 export const ReasonContainer = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver({
     threshold: 0.1,
     rootMargin: "50px",
   });
+  const t = useTranslations("about.whyChoose");
+
+  const reasons = [
+    {
+      id: 1,
+      title: t("productMindset.title"),
+      description: t("productMindset.description"),
+    },
+    {
+      id: 2,
+      title: t("qualityFocus.title"),
+      description: t("qualityFocus.description"),
+    },
+    {
+      id: 3,
+      title: t("growthPartnership.title"),
+      description: t("growthPartnership.description"),
+    },
+  ];
 
   return (
     <div
@@ -39,7 +38,7 @@ export const ReasonContainer = () => {
           hasIntersected ? "animate-fade-in-down" : "opacity-0 translate-y-8"
         }`}
       >
-        Why Choose Bitloom?
+        {t("title")}
       </h2>
       <div className="grid md:grid-cols-3 gap-8">
         {reasons.map((reason, index) => {

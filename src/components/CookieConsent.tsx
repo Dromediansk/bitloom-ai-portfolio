@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Button } from "./Button";
 
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
+  const t = useTranslations("cookieConsent");
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -45,19 +47,16 @@ const CookieConsent = () => {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm leading-relaxed">
-            <span className="font-semibold">We respect your privacy.</span> This
-            website uses cookies to analyze traffic and optimize your
-            experience. We only collect anonymous usage data to improve our
-            services.
+            <span className="font-semibold">{t("title")}</span>{" "}
+            {t("description")}
           </p>
           <p className="text-xs text-gray-300 mt-1">
-            You can change your preferences at any time in your browser
-            settings. Learn more in our{" "}
+            {t("preferences")}{" "}
             <Link
               href="/privacy"
               className="text-blue-400 hover:text-blue-300 underline"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             .
           </p>
@@ -67,17 +66,17 @@ const CookieConsent = () => {
             onClick={declineCookies}
             variant="secondary"
             size="sm"
-            aria-label="Decline cookies"
+            aria-label={t("declineAriaLabel")}
           >
-            Decline
+            {t("decline")}
           </Button>
           <Button
             onClick={acceptCookies}
             variant="primary"
             size="sm"
-            aria-label="Accept cookies"
+            aria-label={t("acceptAriaLabel")}
           >
-            Accept
+            {t("accept")}
           </Button>
         </div>
       </div>

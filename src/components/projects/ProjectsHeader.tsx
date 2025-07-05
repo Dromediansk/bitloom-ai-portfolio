@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { SectionTitle } from "../SectionTitle";
+import { useTranslations } from "next-intl";
 
 interface ProjectsHeaderProps {
   isVisible?: boolean;
@@ -7,10 +8,12 @@ interface ProjectsHeaderProps {
 
 export const ProjectsHeader = memo<ProjectsHeaderProps>(
   ({ isVisible = true }) => {
+    const t = useTranslations("projects");
+
     return (
       <SectionTitle
-        title="Featured Projects"
-        subtitle="Discover our portfolio of successful client projects. Each solution demonstrates our commitment to delivering exceptional results through innovative technology and strategic thinking."
+        title={t("title")}
+        subtitle={t("subtitle")}
         animated={true}
         isVisible={isVisible}
       />
