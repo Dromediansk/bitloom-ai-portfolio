@@ -25,10 +25,10 @@ export const SectionTitle = memo<SectionTitleProps>(
       : "text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4";
 
     const subtitleClasses = animated
-      ? `text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed transition-all duration-1000 delay-200 ${
+      ? `text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl mx-auto transition-all duration-1000 delay-200 ${
           isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
         }`
-      : "text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed";
+      : "text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto leading-relaxed";
 
     const containerClasses = animated
       ? `text-center max-w-4xl mx-auto mb-16 ${className}`
