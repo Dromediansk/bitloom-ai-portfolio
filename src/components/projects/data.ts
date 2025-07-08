@@ -57,4 +57,5 @@ export const getProjects = (t: (key: string) => string): Project[] =>
     title: t(`items.${index}.title`),
     description: t(`items.${index}.description`),
     imageUrl: `/images/projects/project_${index + 1}.png`,
+    codeUrl: `https://github.com/Dromediansk/${project.githubRepo}`,
   }));
