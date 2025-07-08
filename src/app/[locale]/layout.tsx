@@ -36,14 +36,13 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "sk" ? "sk_SK" : "en_US",
       url: "https://bitloom.sk",
-      title: t("openGraph.title"),
-      description: t("openGraph.description"),
+      title: t("title"),
+      description: t("description"),
       siteName: "bitloom.sk",
     },
     twitter: {
-      card: "summary_large_image",
-      title: t("twitter.title"),
-      description: t("twitter.description"),
+      title: t("title"),
+      description: t("description"),
     },
   };
 }

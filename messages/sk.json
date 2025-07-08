@@ -247,7 +247,7 @@
     }
   },
   "footer": {
-    "description": "Spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne.",
+    "description": "Produktovo orientovaná spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne.",
     "quickLinks": {
       "title": "Rýchle odkazy",
       "services": "Služby",
@@ -265,26 +265,21 @@
     "copyright": "© {year} Bitloom s.r.o. Všetky práva vyhradené."
   },
   "metadata": {
-    "title": "Bitloom - Spoločnosť softvérového inžinierstva",
-    "description": "Bitloom sa špecializuje na webový vývoj, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania. Zakladateľom je Miroslav Pillár.",
+    "title": "Bitloom - Vytváranie digitálnych riešení",
+    "description": "Špecializujeme sa na vývoj webu, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania. Zakladateľom je Miroslav Pillár.",
     "keywords": [
       "vývoj softvéru",
-      "webový vývoj",
+      "vývoj webu",
+      "UX dizajn",
+      "frontend vývoj",
+      "full-stack vývoj",
       "mobilný vývoj",
       "technické poradenstvo",
       "škálovateľné riešenia",
       "Next.js",
       "TypeScript",
       "React Native"
-    ],
-    "openGraph": {
-      "title": "Bitloom - Spoločnosť softvérového inžinierstva",
-      "description": "Bitloom sa špecializuje na webový vývoj, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania."
-    },
-    "twitter": {
-      "title": "Bitloom - Spoločnosť softvérového inžinierstva",
-      "description": "Spoločnosť softvérového inžinierstva špecializujúca sa na webový vývoj, mobilný vývoj a technické poradenstvo."
-    }
+    ]
   },
   "privacy": {
     "title": "Zásady ochrany osobných údajov",

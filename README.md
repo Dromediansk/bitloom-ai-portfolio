@@ -1,6 +1,6 @@
 # Bitloom Portfolio Website
 
-A modern, professional company website for **Bitloom** - a Software Engineering company specializing in web development, mobile development, and technical consulting with high-quality, scalable solutions.
+A modern, professional company website for **Bitloom** - a product-oriented software engineering company specializing in web development, mobile development, and technical consulting with high-quality, scalable solutions.
 
 ## 🤖 AI-Powered Development
 

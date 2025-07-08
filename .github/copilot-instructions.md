@@ -1,6 +1,6 @@
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a Software Engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 

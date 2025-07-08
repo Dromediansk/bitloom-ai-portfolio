@@ -247,7 +247,7 @@
     }
   },
   "footer": {
-    "description": "Software Engineering company specializing in web development, mobile development, and technical consulting. Based in Kosice, Slovakia, supporting clients globally.",
+    "description": "Product-oriented software engineering company specializing in web development, mobile development, and technical consulting. Based in Kosice, Slovakia, supporting clients globally.",
     "quickLinks": {
       "title": "Quick Links",
       "services": "Services",
@@ -265,26 +265,21 @@
     "copyright": "© {year} Bitloom s.r.o. All rights reserved."
   },
   "metadata": {
-    "title": "Bitloom - Software Engineering Company",
-    "description": "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth. Founded by Miroslav Pillár.",
+    "title": "Bitloom - Crafting Digital Solutions",
+    "description": "Bitloom specializes in web & mobile development, and technical consulting with high-quality, scalable solutions that drive business growth. Founded by Miroslav Pillár.",
     "keywords": [
       "software development",
       "web development",
+      "UX design",
+      "frontend development",
+      "full-stack development",
       "mobile development",
       "technical consulting",
       "scalable solutions",
       "Next.js",
       "TypeScript",
       "React Native"
-    ],
-    "openGraph": {
-      "title": "Bitloom - Software Engineering Company",
-      "description": "Bitloom specializes in web development, mobile development, and technical consulting with high-quality, scalable solutions that drive business growth."
-    },
-    "twitter": {
-      "title": "Bitloom - Software Engineering Company",
-      "description": "Software Engineering company specializing in web development, mobile development, and technical consulting."
-    }
+    ]
   },
   "privacy": {
     "title": "Privacy Policy",
