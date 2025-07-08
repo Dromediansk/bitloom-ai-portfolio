@@ -32,7 +32,7 @@ export const ProjectActions = memo(
             variant="secondary"
             className="flex-1 text-center hover:scale-105 transition-all duration-300"
           >
-            {t("actions.caseStudy")}
+            {t("actions.sourceCode")}
           </ButtonLink>
         )}
       </div>

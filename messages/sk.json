@@ -86,7 +86,7 @@
     "subtitle": "Objavte naše portfólio úspešných projektov. Každé riešenie demonštruje náš záväzok poskytovať výnimočné výsledky prostredníctvom inovatívnych technológií a strategického myslenia.",
     "actions": {
       "viewProject": "Zobraziť projekt",
-      "caseStudy": "Prípadová štúdia"
+      "sourceCode": "Zdrojový kód"
     },
     "cta": {
       "title": "Pripravení transformovať vaše nápady?",
@@ -97,6 +97,10 @@
       {
         "title": "AI Crew analýza obsahu obrázkov",
         "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované používateľské príbehy. Poháňané GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové poznatky, s výsledkami uloženými v Markdown správe."
+      },
+      {
+        "title": "Mindtaker - Denník myšlienok poháňaný AI",
+        "description": "React Native mobilná aplikácia, ktorá pomáha používateľom zachytiť a organizovať denné myšlienky s poznatkami poháňanými AI. Obsahuje organizáciu založenú na kalendári, bezpečnú autentifikáciu a inteligentné rozširovanie a sumarizáciu myšlienok."
       },
       {
         "title": "Next Notes - Denné úlohy",
