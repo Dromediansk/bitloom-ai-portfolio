@@ -1,10 +1,8 @@
 import type { Project } from "./types";
 
-export const getProjects = (t: (key: string) => string): Project[] => [
+const projectsData = [
   {
     id: 1,
-    title: t("items.0.title"),
-    description: t("items.0.description"),
     technologies: [
       "Prompt Engineering",
       "Python",
@@ -12,13 +10,10 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       "CrewAI",
       "GPT-4",
     ],
-    codeUrl: "https://github.com/Dromediansk/ai-crew-image-content-analysis",
-    imageUrl: "/images/projects/project_1.jpg",
+    githubRepo: "ai-crew-image-content-analysis",
   },
   {
     id: 2,
-    title: t("items.1.title"),
-    description: t("items.1.description"),
     technologies: [
       "React Native",
       "Expo",
@@ -27,13 +22,10 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       "Supabase",
       "Fast API",
     ],
-    codeUrl: "https://github.com/Dromediansk/mindtaker-rn",
-    imageUrl: "/images/projects/project_2.png",
+    githubRepo: "mindtaker-rn",
   },
   {
     id: 3,
-    title: t("items.2.title"),
-    description: t("items.2.description"),
     technologies: [
       "Next.js",
       "Typescript",
@@ -42,14 +34,11 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       "Tailwind",
       "PostgreSQL",
     ],
+    githubRepo: "next-notes",
     demoUrl: "https://next-notes-henna.vercel.app/",
-    codeUrl: "https://github.com/Dromediansk/next-notes",
-    imageUrl: "/images/projects/project_3.png",
   },
   {
     id: 4,
-    title: t("items.3.title"),
-    description: t("items.3.description"),
     technologies: [
       "Three.js",
       "React Three Fiber",
@@ -57,8 +46,15 @@ export const getProjects = (t: (key: string) => string): Project[] => [
       "Typescript",
       "Tailwind CSS",
     ],
+    githubRepo: "r3f-portfolio",
     demoUrl: "https://r3f01-portfolio.netlify.app",
-    codeUrl: "https://github.com/Dromediansk/r3f-portfolio",
-    imageUrl: "/images/projects/project_4.png",
   },
 ];
+
+export const getProjects = (t: (key: string) => string): Project[] =>
+  projectsData.map((project, index) => ({
+    ...project,
+    title: t(`items.${index}.title`),
+    description: t(`items.${index}.description`),
+    imageUrl: `/images/projects/project_${index + 1}.png`,
+  }));
