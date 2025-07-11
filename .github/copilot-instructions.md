@@ -9,7 +9,6 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **Tailwind CSS**
 - **@next/font** or custom fonts for typography
 - **next-intl** (for internationalization - English and Slovak)
-- **Framer Motion** (optional, for subtle animations)
 
 ## Project Structure Guidelines
 
@@ -18,7 +17,6 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 /sections # Page sections (Intro, Projects, References, Contact)
 /lib # Utilities (SEO config, email utils, etc.)
 /public # Static assets (images, icons, etc.)
-/styles # Tailwind config, global styles
 /messages # i18n translation files (en.json, sk.json)
 /i18n # Internationalization configuration (routing, middleware)
 
@@ -72,12 +70,12 @@ Bitloom's core technical expertise includes:
 
 - **React.js** - Modern frontend development with component-based architecture
 - **Next.js** - Full-stack React framework for production-ready applications
+- **React Native** - Cross-platform mobile app development
+- **Expo** - Streamlined React Native development and deployment platform
 - **TypeScript** - Type-safe development for robust, maintainable applications
 - **Node.js** - Server-side JavaScript for scalable backend solutions
 - **Python** - Versatile programming for web applications, APIs, and automation
 - **PostgreSQL** - Powerful, open-source relational database system
-- **React Native** - Cross-platform mobile app development
-- **Expo** - Streamlined React Native development and deployment platform
 
 ## Accessibility (a11y)
 

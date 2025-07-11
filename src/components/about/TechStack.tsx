@@ -24,6 +24,20 @@ const TechStack = ({ isVisible = true }: TechStackProps) => {
       keepOriginalInDark: false,
     },
     {
+      name: "React Native",
+      description: t("technologies.reactNative"),
+      iconPath: "/icons/ReactNative.svg",
+      bgColor: "bg-cyan-100 dark:bg-cyan-900/30",
+      keepOriginalInDark: true,
+    },
+    {
+      name: "Expo",
+      description: t("technologies.expo"),
+      iconPath: "/icons/Expo.svg",
+      bgColor: "bg-purple-100 dark:bg-purple-900/30",
+      keepOriginalInDark: false,
+    },
+    {
       name: "TypeScript",
       description: t("technologies.typescript"),
       iconPath: "/icons/Typescript.svg",
@@ -50,20 +64,6 @@ const TechStack = ({ isVisible = true }: TechStackProps) => {
       iconPath: "/icons/Postgres.svg",
       bgColor: "bg-indigo-100 dark:bg-indigo-900/30",
       keepOriginalInDark: true,
-    },
-    {
-      name: "React Native",
-      description: t("technologies.reactNative"),
-      iconPath: "/icons/ReactNative.svg",
-      bgColor: "bg-cyan-100 dark:bg-cyan-900/30",
-      keepOriginalInDark: true,
-    },
-    {
-      name: "Expo",
-      description: t("technologies.expo"),
-      iconPath: "/icons/Expo.svg",
-      bgColor: "bg-purple-100 dark:bg-purple-900/30",
-      keepOriginalInDark: false,
     },
   ];
 
