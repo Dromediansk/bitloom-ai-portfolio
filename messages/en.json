@@ -11,8 +11,8 @@
   },
   "hero": {
     "companyName": "Bitloom",
-    "tagline": "Crafting Digital Solutions from Bold Ideas",
-    "description": "We specialize in web development, mobile development, and technical consulting that drive business growth. Founded by Miroslav Pillár, Bitloom transforms ideas into powerful digital solutions through expert craftsmanship, transparent communication, and strategic thinking.",
+    "tagline": "Digital Solutions from Bold Ideas",
+    "description": "Web, mobile apps and consulting tailored to your specific needs.",
     "exploreServices": "Explore Services",
     "startProject": "Start a Project",
     "scrollToExplore": "Scroll to explore",
@@ -52,7 +52,7 @@
     },
     "cta": {
       "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how Bitloom can help transform your ideas into powerful digital solutions.",
+      "description": "Let's discuss how we can help bring your idea to life.",
       "startProject": "Start a Project",
       "viewOurWork": "View Our Work"
     }
@@ -83,14 +83,14 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Discover our portfolio of successful projects. Each solution demonstrates our commitment to delivering exceptional results through innovative technology and strategic thinking.",
+    "subtitle": "Showcase of modern development and product thinking.",
     "actions": {
       "viewProject": "View Project",
       "sourceCode": "Source Code"
     },
     "cta": {
-      "title": "Ready to Transform Your Ideas?",
-      "description": "Let's discuss how Bitloom can bring your vision to life with innovative technology and strategic expertise.",
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how we can help bring your idea to life.",
       "startProject": "Start Your Project"
     },
     "items": [
@@ -176,7 +176,7 @@
   },
   "references": {
     "title": "Client Reviews & References",
-    "subtitle": "Here's what clients and colleagues have to say about working with me.",
+    "subtitle": "Here's what clients and colleagues have to say about working with us.",
     "at": "at",
     "stats": {
       "projectsCompleted": "Projects Completed",
@@ -199,7 +199,7 @@
     ],
     "cta": {
       "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how I can help bring your ideas to life.",
+      "description": "Let's discuss how we can help bring your idea to life.",
       "startConversation": "Start a Conversation"
     }
   },

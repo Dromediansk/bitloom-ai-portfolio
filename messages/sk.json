@@ -11,8 +11,8 @@
   },
   "hero": {
     "companyName": "Bitloom",
-    "tagline": "Vytváranie digitálnych riešení z odvážnych nápadov",
-    "description": "Špecializujeme sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo, ktoré poháňajú rast podnikania. Spoločnosť Bitloom založil Miroslav Pillár, pričom premieňa nápady na výkonné digitálne riešenia prostredníctvom odborných znalostí, transparentnej komunikácie a strategického myslenia.",
+    "tagline": "Digitálne riešenia z odvážnych nápadov",
+    "description": "Vývoj webu, mobilných appiek a poradenstvo prispôsobené vašim konkrétnym potrebám.",
     "exploreServices": "Preskúmať služby",
     "startProject": "Začať projekt",
     "scrollToExplore": "Posúvajte pre preskúmanie",
@@ -52,7 +52,7 @@
     },
     "cta": {
       "title": "Pripravený začať váš projekt?",
-      "description": "Poďme prediskutovať, ako vám Bitloom môže pomôcť premeniť vaše nápady na kvalitné digitálne riešenia.",
+      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
       "startProject": "Začať projekt",
       "viewOurWork": "Pozrieť našu prácu"
     }
@@ -83,14 +83,14 @@
   },
   "projects": {
     "title": "Vybrané projekty",
-    "subtitle": "Objavte naše portfólio úspešných projektov. Každé riešenie demonštruje náš záväzok poskytovať výnimočné výsledky prostredníctvom inovatívnych technológií a strategického myslenia.",
+    "subtitle": "Prehliadka moderného vývoja a produktového myslenia.",
     "actions": {
       "viewProject": "Zobraziť projekt",
       "sourceCode": "Zdrojový kód"
     },
     "cta": {
-      "title": "Pripravení transformovať vaše nápady?",
-      "description": "Poďme prediskutovať, ako vám Bitloom môže oživiť vašu víziu s inovatívnymi technológiami a strategickou expertízou.",
+      "title": "Pripravení začať váš projekt?",
+      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
       "startProject": "Začať váš projekt"
     },
     "items": [
@@ -176,7 +176,7 @@
   },
   "references": {
     "title": "Klientske recenzie a referencie",
-    "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci so mnou.",
+    "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci s nami.",
     "at": "v",
     "stats": {
       "projectsCompleted": "Dokončené projekty",
@@ -198,8 +198,8 @@
       }
     ],
     "cta": {
-      "title": "Ste pripravený začať váš projekt?",
-      "description": "Poďme prediskutovať, ako vám môžem pomôcť oživiť vaše nápady.",
+      "title": "Pripravený začať váš projekt?",
+      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
       "startConversation": "Začať konverzáciu"
     }
   },
