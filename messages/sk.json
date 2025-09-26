@@ -14,7 +14,7 @@
     "tagline": "Digitálne riešenia z odvážnych nápadov",
     "description": "Vývoj webu, mobilných appiek a poradenstvo prispôsobené vašim konkrétnym potrebám.",
     "exploreServices": "Preskúmať služby",
-    "startProject": "Začať projekt",
+    "contactUs": "Napíšte nám",
     "scrollToExplore": "Posúvajte pre preskúmanie",
     "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
   },
@@ -53,7 +53,7 @@
     "cta": {
       "title": "Pripravený začať váš projekt?",
       "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
-      "startProject": "Začať projekt",
+      "contactUs": "Napíšte nám",
       "viewOurWork": "Pozrieť našu prácu"
     }
   },

@@ -20,7 +20,7 @@ const ContactSection = () => {
           isVisible={hasIntersected}
         />
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <ContactInfo />
 

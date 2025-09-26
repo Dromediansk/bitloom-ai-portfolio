@@ -84,7 +84,7 @@ const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg transition-all duration-300 hover:rotate-1"
             >
-              {t("startProject")}
+              {t("contactUs")}
             </ButtonLink>
           </div>
 

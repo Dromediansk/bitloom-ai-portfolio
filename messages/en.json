@@ -14,7 +14,7 @@
     "tagline": "Digital Solutions from Bold Ideas",
     "description": "Web, mobile apps and consulting tailored to your specific needs.",
     "exploreServices": "Explore Services",
-    "startProject": "Start a Project",
+    "contactUs": "Let's Talk",
     "scrollToExplore": "Scroll to explore",
     "scrollToServicesAriaLabel": "Scroll to services section"
   },
@@ -53,7 +53,7 @@
     "cta": {
       "title": "Ready to Start Your Project?",
       "description": "Let's discuss how we can help bring your idea to life.",
-      "startProject": "Start a Project",
+      "contactUs": "Let's Talk",
       "viewOurWork": "View Our Work"
     }
   },
