@@ -266,17 +266,13 @@
   },
   "metadata": {
     "title": "Bitloom - Vytváranie digitálnych riešení",
-    "description": "Špecializujeme sa na vývoj webu, mobilný vývoj a technické poradenstvo s vysokokvalitnými, škálovateľnými riešeniami, ktoré podporujú rast podnikania. Zakladateľom je Miroslav Pillár.",
+    "description": "Produktovo orientovaná spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne. Zakladateľom je Miroslav Pillár.",
     "keywords": [
-      "vývoj softvéru",
       "vývoj webu",
-      "UX dizajn",
       "frontend vývoj",
       "full-stack vývoj",
-      "mobilný vývoj",
       "technické poradenstvo",
-      "škálovateľné riešenia",
-      "Next.js",
+      "React.js",
       "TypeScript",
       "React Native"
     ]
@@ -285,7 +281,7 @@
     "title": "Zásady ochrany osobných údajov",
     "effectiveDate": "Dátum účinnosti:",
     "lastUpdated": "Posledná aktualizácia:",
-    "date": "28. jún 2025",
+    "date": "3. október 2025",
     "sections": {
       "introduction": {
         "title": "Úvod",

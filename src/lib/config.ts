@@ -1,25 +1,11 @@
-// Site configuration
+// Site configuration - Technical constants only
 export const siteConfig = {
-  name: "Miroslav Portfolio",
-  description:
-    "Modern portfolio website showcasing web development projects and skills",
-  url: "https://miroslav-portfolio.com",
-  ogImage: "https://miroslav-portfolio.com/og-image.jpg",
-  creator: "Miroslav",
-  keywords: [
-    "web developer",
-    "portfolio",
-    "Next.js",
-    "TypeScript",
-    "React",
-    "frontend",
-    "backend",
-    "full-stack",
-  ],
+  url: "https://bitloom.sk",
+  ogImage: "https://bitloom.sk/logo.png",
+  creator: "Miroslav Pillár", // Used in metadata authors field
   social: {
-    github: "https://github.com/bitloom",
-    linkedin: "https://linkedin.com/company/bitloom",
-    twitter: "https://twitter.com/bitloom",
+    github: "https://github.com/Dromediansk",
+    linkedin: "https://www.linkedin.com/in/miroslavpillar/",
     email: "info@bitloom.sk",
     blog: "https://blog.bitloom.sk",
   },
