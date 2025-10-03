@@ -63,22 +63,22 @@
     "discovery": {
       "step": "01",
       "title": "Discovery",
-      "description": "Understanding your business goals, requirements, and target audience."
+      "description": "Understanding your business goals, requirements, and project scope."
     },
-    "design": {
+    "analysis": {
       "step": "02",
-      "title": "Design",
-      "description": "Creating user-centered designs and technical architecture plans."
+      "title": "Analysis",
+      "description": "Architectural and design plans for optimal solutions."
     },
     "development": {
       "step": "03",
       "title": "Development",
-      "description": "Building robust, scalable solutions using modern technologies."
+      "description": "Building solutions with frequent communication and collaboration."
     },
     "delivery": {
       "step": "04",
       "title": "Delivery",
-      "description": "Testing, deployment, and ongoing support for your success."
+      "description": "Testing, deployment and ongoing support for your success."
     }
   },
   "projects": {

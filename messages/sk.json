@@ -63,17 +63,17 @@
     "discovery": {
       "step": "01",
       "title": "Objavenie",
-      "description": "Pochopenie vašich obchodných cieľov, požiadaviek a cieľovej skupiny."
+      "description": "Pochopenie vašich obchodných cieľov, požiadaviek a rozsahu projektu."
     },
-    "design": {
+    "analysis": {
       "step": "02",
-      "title": "Dizajn",
-      "description": "Vytváranie dizajnov zameraných na používateľa a plánov technickej architektúry."
+      "title": "Analýza",
+      "description": "Architektonické a dizajnové plány pre optimálne riešenia."
     },
     "development": {
       "step": "03",
       "title": "Vývoj",
-      "description": "Budovanie robustných, škálovateľných riešení pomocou moderných technológií."
+      "description": "Budovanie riešení s častou komunikáciou a spoluprácou."
     },
     "delivery": {
       "step": "04",

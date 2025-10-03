@@ -19,9 +19,9 @@ export const ProcessContainer = memo(() => {
     },
     {
       id: "2",
-      step: t("design.step"),
-      title: t("design.title"),
-      description: t("design.description"),
+      step: t("analysis.step"),
+      title: t("analysis.title"),
+      description: t("analysis.description"),
     },
     {
       id: "3",

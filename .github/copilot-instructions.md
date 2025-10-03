@@ -106,7 +106,7 @@ Bitloom's core technical expertise includes:
   - **Mobile Mastery** - Crafting seamless cross-platform mobile applications that feel native on every device
   - **Technical consulting** - Strategic guidance to help businesses make informed technology decisions and optimize their development processes.
 - Service descriptions with benefits
-- Process overview (discovery, design, development, delivery)
+- Process overview (discovery, analysis, development, delivery)
 
 ### Projects Section
 
