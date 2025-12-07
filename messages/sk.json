@@ -232,17 +232,17 @@
       "yourName": "Vaše meno",
       "email": "E-mail",
       "company": "Spoločnosť",
-      "projectDetails": "Detaily projektu",
+      "textMessage": "Text správy",
       "required": "*",
       "placeholders": {
         "name": "Vaše celé meno",
         "email": "vas.email@spolocnost.sk",
-        "company": "Vaša spoločnosť alebo organizácia",
-        "message": "Prosím opíšte požiadavky vášho projektu, ciele a časový rámec..."
+        "company": "Vaša spoločnosť",
+        "message": "Opíšte vašu požiadavku, technický problém alebo detaily projektu"
       },
       "sendMessage": "Odoslať správu",
-      "sending": "Odosielam...",
-      "success": "Ďakujeme za vašu obchodnú otázku! Preskúmame detaily vášho projektu a ozveme sa vám do 24 hodín na prediskutovanie ďalších krokov.",
+      "sending": "Odosiela sa...",
+      "success": "Ďakujeme za vašu správu! Ozveme sa vám do 24 hodín.",
       "error": "Prepáčte, pri odosielaní vašej otázky došlo k chybe. Prosím skúste to znovu alebo nás kontaktujte priamo na info@bitloom.sk."
     }
   },

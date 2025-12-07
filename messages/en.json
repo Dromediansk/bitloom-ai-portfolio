@@ -232,17 +232,17 @@
       "yourName": "Your Name",
       "email": "Email",
       "company": "Company",
-      "projectDetails": "Project Details",
+      "textMessage": "Message text",
       "required": "*",
       "placeholders": {
         "name": "Your full name",
         "email": "your.email@company.com",
-        "company": "Your company or organization",
-        "message": "Please describe your project requirements, goals, and timeline..."
+        "company": "Your company",
+        "message": "Describe your request, technical issue or project details"
       },
       "sendMessage": "Send Message",
       "sending": "Sending...",
-      "success": "Thank you for your business inquiry! We'll review your project details and get back to you within 24 hours to discuss next steps.",
+      "success": "Thank you for your message! We will get back to you within 24 hours.",
       "error": "Sorry, there was an error sending your inquiry. Please try again or contact us directly at info@bitloom.sk."
     }
   },

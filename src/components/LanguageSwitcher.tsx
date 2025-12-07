@@ -24,7 +24,7 @@ const LanguageSwitcher = () => {
           className={`px-3 py-1 text-sm font-medium rounded-md transition-all duration-200 ${
             locale === loc
               ? "bg-primary-600 text-white shadow-sm"
-              : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+              : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
           }`}
           aria-label={`Switch to ${loc.toUpperCase()}`}
         >

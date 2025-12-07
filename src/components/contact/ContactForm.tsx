@@ -118,7 +118,6 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder={t("placeholders.name")}
             />
           </div>
 
@@ -137,7 +136,6 @@ const ContactForm = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder={t("placeholders.email")}
             />
           </div>
         </div>
@@ -156,7 +154,6 @@ const ContactForm = () => {
             value={formData.company}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-            placeholder={t("placeholders.company")}
           />
         </div>
 
@@ -165,7 +162,7 @@ const ContactForm = () => {
             htmlFor="message"
             className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
-            {t("projectDetails")} {t("required")}
+            {t("textMessage")} {t("required")}
           </label>
           <textarea
             id="message"

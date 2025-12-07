@@ -20,7 +20,7 @@ const generateEmailTemplate = (data: ContactFormData): string => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>New Business Inquiry - Bitloom</title>
+      <title>You Have a New Message from Bitloom</title>
       <style>
         body { 
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -74,8 +74,7 @@ const generateEmailTemplate = (data: ContactFormData): string => {
     <body>
       <div class="container">
         <div class="header">
-          <h1>🚀 New Business Inquiry</h1>
-          <p>Software Engineering Inquiry</p>
+          <h1>🚀 New Message</h1>
         </div>
         
         <div class="content">
@@ -102,7 +101,7 @@ const generateEmailTemplate = (data: ContactFormData): string => {
 
           
           <div class="field">
-            <div class="field-label">Project Details</div>
+            <div class="field-label">Message Text</div>
             <div class="field-value">${data.message.replace(
               /\n/g,
               "<br>"
@@ -111,7 +110,7 @@ const generateEmailTemplate = (data: ContactFormData): string => {
         </div>
         
         <div class="footer">
-          <p>This inquiry was submitted through <strong>bitloom.sk</strong></p>
+          <p>This message was submitted through <strong>bitloom.sk</strong></p>
           <p>Reply directly to this email to respond to the client.</p>
         </div>
       </div>
@@ -140,9 +139,7 @@ export async function POST(request: NextRequest) {
     const newMessage = {
       from: { name: "Bitloom Contact Form", email: SENDER_EMAIL },
       to: [{ email: RECIPIENT_EMAIL, name: "Bitloom" }],
-      subject: `New Business Inquiry from ${name}${
-        company ? ` (${company})` : ""
-      }`,
+      subject: `New Message from ${name}${company ? ` (${company})` : ""}`,
       html: generateEmailTemplate(body),
     };
 

@@ -37,7 +37,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Company name with gradient text effect */}
           <h1
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-linear-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
               hasIntersected ? "animate-scale-in" : "opacity-0 scale-50"
             }`}
           >
