@@ -5,19 +5,65 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { Button } from "./Button";
 
+const CONSENT_COOKIE_NAME = "cookie-consent";
+const CONSENT_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 180; // 180 days
+
+function getCookieValue(name: string): string | null {
+  if (typeof document === "undefined") return null;
+
+  const parts = document.cookie.split("; ");
+  for (const part of parts) {
+    if (part.startsWith(`${name}=`)) {
+      return decodeURIComponent(part.slice(name.length + 1));
+    }
+  }
+
+  return null;
+}
+
+function setCookieValue(name: string, value: string) {
+  if (typeof document === "undefined") return;
+
+  const secure =
+    typeof window !== "undefined" && window.location.protocol === "https:";
+
+  document.cookie = [
+    `${name}=${encodeURIComponent(value)}`,
+    `Max-Age=${CONSENT_COOKIE_MAX_AGE_SECONDS}`,
+    "Path=/",
+    "SameSite=Lax",
+    secure ? "Secure" : "",
+  ]
+    .filter(Boolean)
+    .join("; ");
+}
+
 const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false);
   const t = useTranslations("cookieConsent");
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
+    const consent = getCookieValue(CONSENT_COOKIE_NAME);
     if (!consent) {
-      setShowBanner(true);
+      const timeoutId = window.setTimeout(() => {
+        setShowBanner(true);
+      }, 0);
+
+      return () => {
+        window.clearTimeout(timeoutId);
+      };
+    }
+
+    // Clean up legacy storage if present.
+    try {
+      localStorage.removeItem(CONSENT_COOKIE_NAME);
+    } catch {
+      // ignore
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem("cookie-consent", "accepted");
+    setCookieValue(CONSENT_COOKIE_NAME, "accepted");
     setShowBanner(false);
 
     // Enable GA tracking with consent
@@ -29,7 +75,7 @@ const CookieConsent = () => {
   };
 
   const declineCookies = () => {
-    localStorage.setItem("cookie-consent", "declined");
+    setCookieValue(CONSENT_COOKIE_NAME, "declined");
     setShowBanner(false);
 
     // Disable GA tracking
@@ -61,7 +107,7 @@ const CookieConsent = () => {
             .
           </p>
         </div>
-        <div className="flex gap-3 flex-shrink-0">
+        <div className="flex gap-3 shrink-0">
           <Button
             onClick={declineCookies}
             variant="secondary"

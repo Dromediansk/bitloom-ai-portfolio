@@ -1,25 +1,35 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
   useEffect(() => {
-    setMounted(true);
+    const timeoutId = window.setTimeout(() => {
+      setMounted(true);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
   }, []);
+
+  const safeTheme = useMemo(() => theme ?? "system", [theme]);
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse" />
+      <div
+        className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 animate-pulse"
+        aria-hidden="true"
+      />
     );
   }
 
   const getIcon = () => {
-    switch (theme) {
+    switch (safeTheme) {
       case "light":
         return (
           <svg
@@ -75,7 +85,7 @@ const ThemeToggle = () => {
   };
 
   const getThemeLabel = () => {
-    switch (theme) {
+    switch (safeTheme) {
       case "light":
         return "Light mode";
       case "dark":
@@ -86,9 +96,9 @@ const ThemeToggle = () => {
   };
 
   const cycleTheme = () => {
-    if (theme === "light") {
+    if (safeTheme === "light") {
       setTheme("dark");
-    } else if (theme === "dark") {
+    } else if (safeTheme === "dark") {
       setTheme("system");
     } else {
       setTheme("light");
