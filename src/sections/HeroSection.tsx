@@ -18,18 +18,21 @@ const HeroSection = () => {
     >
       {/* Floating background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-200/20 dark:bg-primary-500/10 rounded-full animate-float"></div>
         <div
-          className="absolute top-40 right-20 w-32 h-32 bg-primary-300/20 dark:bg-primary-400/10 rounded-full animate-float"
-          style={{ animationDelay: "1s" }}
+          className="absolute top-20 left-10 w-24 h-24 bg-primary-200/15 dark:bg-primary-500/10 rounded-full animate-float"
+          style={{ animationDuration: "8s" }}
         ></div>
         <div
-          className="absolute bottom-40 left-20 w-16 h-16 bg-primary-400/20 dark:bg-primary-600/10 rounded-full animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute top-40 right-20 w-36 h-36 bg-primary-300/15 dark:bg-primary-400/10 rounded-full animate-float"
+          style={{ animationDelay: "2s", animationDuration: "10s" }}
         ></div>
         <div
-          className="absolute bottom-20 right-10 w-24 h-24 bg-primary-300/20 dark:bg-primary-500/10 rounded-full animate-float"
-          style={{ animationDelay: "0.5s" }}
+          className="absolute bottom-40 left-20 w-20 h-20 bg-primary-400/15 dark:bg-primary-600/10 rounded-full animate-float"
+          style={{ animationDelay: "4s", animationDuration: "9s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 right-10 w-28 h-28 bg-primary-300/15 dark:bg-primary-500/10 rounded-full animate-float"
+          style={{ animationDelay: "1s", animationDuration: "11s" }}
         ></div>
       </div>
 
@@ -37,8 +40,10 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Company name with gradient text effect */}
           <h1
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-linear-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-1000 delay-200 ${
-              hasIntersected ? "animate-scale-in" : "opacity-0 scale-50"
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-linear-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-[1500ms] delay-500 ${
+              hasIntersected
+                ? "animate-hero-title"
+                : "opacity-0 scale-[1.3] -translate-y-10"
             }`}
           >
             {t("companyName")}
@@ -46,8 +51,10 @@ const HeroSection = () => {
 
           {/* Company mission */}
           <h2
-            className={`text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-8 transition-all duration-1000 delay-500 ${
-              hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-4"
+            className={`text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-8 transition-all duration-[1200ms] delay-[1300ms] ${
+              hasIntersected
+                ? "animate-hero-slide-in"
+                : "opacity-0 -translate-x-15 skew-x-3"
             }`}
           >
             <span className="inline-block">{t("tagline")}</span>
@@ -55,8 +62,10 @@ const HeroSection = () => {
 
           {/* Company description */}
           <p
-            className={`text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-700 ${
-              hasIntersected ? "animate-fade-in" : "opacity-0"
+            className={`text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-[1300ms] delay-[2100ms] ${
+              hasIntersected
+                ? "animate-hero-blur-fade"
+                : "opacity-0 blur-sm translate-y-2.5"
             }`}
           >
             {t("description")}
@@ -64,8 +73,10 @@ const HeroSection = () => {
 
           {/* CTA Buttons with hover animations */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 delay-1000 ${
-              hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-4"
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-[1200ms] delay-[2900ms] ${
+              hasIntersected
+                ? "animate-hero-rise"
+                : "opacity-0 translate-y-12"
             }`}
           >
             <ButtonLink
@@ -90,8 +101,10 @@ const HeroSection = () => {
 
           {/* Scroll Indicator with enhanced animation */}
           <div
-            className={`mt-16 transition-all duration-1000 delay-1200 ${
-              hasIntersected ? "animate-bounce-in" : "opacity-0 scale-50"
+            className={`mt-16 transition-all duration-[1500ms] delay-[3700ms] ${
+              hasIntersected
+                ? "animate-hero-soft-fade"
+                : "opacity-0 scale-90"
             }`}
           >
             <button

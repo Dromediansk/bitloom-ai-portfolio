@@ -33,6 +33,16 @@ module.exports = {
         "pulse-glow": "pulseGlow 1.5s ease-in-out infinite",
         "float-particle": "floatParticle 4s ease-in-out infinite",
         ripple: "ripple 0.6s ease-out",
+        "hero-title":
+          "heroTitle 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
+        "hero-slide-in":
+          "heroSlideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "hero-blur-fade":
+          "heroBlurFade 1.3s cubic-bezier(0.16, 1, 0.3, 1)",
+        "hero-rise":
+          "heroRise 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "hero-soft-fade":
+          "heroSoftFade 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         fadeIn: {
@@ -168,6 +178,66 @@ module.exports = {
           "100%": {
             transform: "scale(1)",
             opacity: "0",
+          },
+        },
+        heroTitle: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(1.3) translateY(-40px)",
+          },
+          "60%": {
+            opacity: "0.8",
+            transform: "scale(1.02) translateY(5px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1) translateY(0)",
+          },
+        },
+        heroSlideIn: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-60px) skewX(3deg)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0) skewX(0deg)",
+          },
+        },
+        heroBlurFade: {
+          "0%": {
+            opacity: "0",
+            filter: "blur(8px)",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            filter: "blur(0px)",
+            transform: "translateY(0)",
+          },
+        },
+        heroRise: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(50px)",
+          },
+          "60%": {
+            opacity: "0.8",
+            transform: "translateY(-5px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        heroSoftFade: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
           },
         },
       },
