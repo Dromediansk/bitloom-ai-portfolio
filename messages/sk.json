@@ -61,16 +61,16 @@
     "socialProof": {
       "projectsCompleted": "Dokončených projektov",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškané termíny",
+      "missedDeadlines": "Zmeškaných termínov",
       "featuredQuote": "Mirove technické schopnosti ho zaraďujú do najvyšších kategórií vývojárov, s ktorými som mal to potešenie pracovať.",
       "featuredAuthor": "Jacob Ellis",
       "featuredRole": "Vedúci tímu",
       "featuredCompany": "Cognitive Creators"
     },
     "cta": {
-      "title": "Poďme vytvoriť niečo, na čom záleží",
-      "description": "Povedzte nám o vašom projekte a získajte bezplatný odhad do 48 hodín. Žiadny záväzok, žiadny tlak — len jasný obraz toho, čo je možné.",
-      "contactUs": "Získať bezplatný odhad",
+      "title": "Pripravení začať váš projekt?",
+      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
+      "contactUs": "Napíšte nám",
       "viewOurWork": "Pozrieť minulé projekty"
     }
   },
@@ -198,7 +198,7 @@
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškané termíny"
+      "missedDeadlines": "Zmeškaných termínov"
     },
     "testimonials": [
       {
