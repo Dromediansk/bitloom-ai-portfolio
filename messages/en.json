@@ -14,47 +14,64 @@
     "tagline": "Digital Solutions from Bold Ideas",
     "description": "Web, mobile apps and consulting tailored to your specific needs.",
     "exploreServices": "Explore Services",
-    "contactUs": "Let's Talk",
+    "contactUs": "Book a Free Consultation",
     "scrollToExplore": "Scroll to explore",
     "scrollToServicesAriaLabel": "Scroll to services section"
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Comprehensive software development solutions designed to realize your idea",
+    "subtitle": "We help businesses launch faster, reach more users, and scale with confidence",
+    "differentiator": "6+ years shipping production software in healthcare and fintech. One developer, zero overhead, full accountability.",
     "modernWebCraft": {
-      "title": "Modern Web Craft",
-      "description": "We craft exceptional web experiences through the art of full-stack development. From responsive websites to complex web applications, every digital trace is built with precision, performance, and user experience.",
+      "title": "Web Solutions",
+      "description": "We create exceptional web experiences through the art of full-stack development.",
       "features": [
-        "Full-stack web applications",
-        "Responsive website design",
-        "Modern frameworks & architecture",
-        "Performance optimization"
-      ]
+        "Modern full-stack development",
+        "Responsive design",
+        "Performance and SEO optimization"
+      ],
+      "cta": "Discuss Your Web Project"
     },
     "mobileMastery": {
-      "title": "Mobile Mastery",
-      "description": "From concept to deployment, we craft mobile applications that are professional on every platform. Our cross-platform expertise ensures your users get a seamless experience, whether they're on iOS or Android.",
+      "title": "Mobile Apps",
+      "description": "Polished iOS and Android apps from a single codebase — less cost, native performance.",
       "features": [
-        "Cross-platform excellence",
-        "Native performance & feel",
+        "iOS & Android simultaneously",
         "App store optimization",
-        "User-centric design"
-      ]
+        "User-focused design"
+      ],
+      "cta": "Plan Your Mobile App"
     },
     "technicalConsulting": {
       "title": "Technical Consulting",
-      "description": "We provide support for complex technical challenges with strategic consulting services. We help businesses make informed technology decisions and build scalable solutions that align with your goals.",
+      "description": "We provide support for complex technical challenges with strategic consulting services.",
       "features": [
-        "Technology assessment",
-        "Architecture planning",
-        "Team mentoring"
-      ]
+        "Find what's slowing your team down",
+        "Get a clear technical roadmap",
+        "Hands-on developer mentoring"
+      ],
+      "cta": "Book a Free Consultation"
+    },
+    "industries": {
+      "label": "Trusted in industries where precision matters",
+      "healthcare": "Healthcare",
+      "fintech": "Fintech & Banking",
+      "enterprise": "Enterprise Software"
+    },
+    "socialProof": {
+      "projectsCompleted": "Projects Completed",
+      "yearsExperience": "Years Experience",
+      "missedDeadlines": "Missed Deadlines",
+      "featuredQuote": "Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with.",
+      "featuredAuthor": "Jacob Ellis",
+      "featuredRole": "Team Lead",
+      "featuredCompany": "Cognitive Creators"
     },
     "cta": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how we can help bring your idea to life.",
-      "contactUs": "Let's Talk",
-      "viewOurWork": "View Our Work"
+      "title": "Let's Build Something That Matters",
+      "description": "Tell us about your project and get a free estimate within 48 hours. No commitment, no pressure — just a clear picture of what's possible.",
+      "contactUs": "Get Your Free Estimate",
+      "viewOurWork": "See Past Projects"
     }
   },
   "process": {
@@ -63,22 +80,22 @@
     "discovery": {
       "step": "01",
       "title": "Discovery",
-      "description": "Understanding your business goals, requirements, and project scope."
+      "description": "We learn your business, users, and goals. You get a clear project brief before we write a single line of code."
     },
     "analysis": {
       "step": "02",
       "title": "Analysis",
-      "description": "Architectural and design plans for optimal solutions."
+      "description": "We choose the right architecture and tools for your specific needs — no over-engineering, no shortcuts."
     },
     "development": {
       "step": "03",
       "title": "Development",
-      "description": "Building solutions with frequent communication and collaboration."
+      "description": "You see progress every week with demos and updates. No black-box development."
     },
     "delivery": {
       "step": "04",
       "title": "Delivery",
-      "description": "Testing, deployment and ongoing support for your success."
+      "description": "We deploy, test thoroughly, and stay available. Your success is our reputation."
     }
   },
   "projects": {
@@ -181,7 +198,7 @@
     "stats": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
-      "clientSatisfaction": "Client Satisfaction"
+      "missedDeadlines": "Missed Deadlines"
     },
     "testimonials": [
       {

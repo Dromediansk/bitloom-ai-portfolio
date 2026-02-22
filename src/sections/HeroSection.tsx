@@ -40,7 +40,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Company name with gradient text effect */}
           <h1
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-linear-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-[1500ms] delay-500 ${
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold text-transparent bg-linear-to-r from-primary-200 via-primary-600 to-primary-950 dark:from-primary-700 dark:via-primary-500 dark:to-primary-100 bg-clip-text mb-6 transition-all duration-800 delay-200 ${
               hasIntersected
                 ? "animate-hero-title"
                 : "opacity-0 scale-[1.3] -translate-y-10"
@@ -51,7 +51,7 @@ const HeroSection = () => {
 
           {/* Company mission */}
           <h2
-            className={`text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-8 transition-all duration-[1200ms] delay-[1300ms] ${
+            className={`text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-8 transition-all duration-600 delay-500 ${
               hasIntersected
                 ? "animate-hero-slide-in"
                 : "opacity-0 -translate-x-15 skew-x-3"
@@ -62,7 +62,7 @@ const HeroSection = () => {
 
           {/* Company description */}
           <p
-            className={`text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-[1300ms] delay-[2100ms] ${
+            className={`text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-700 delay-800 ${
               hasIntersected
                 ? "animate-hero-blur-fade"
                 : "opacity-0 blur-sm translate-y-2.5"
@@ -73,38 +73,34 @@ const HeroSection = () => {
 
           {/* CTA Buttons with hover animations */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-[1200ms] delay-[2900ms] ${
-              hasIntersected
-                ? "animate-hero-rise"
-                : "opacity-0 translate-y-12"
+            className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-600 delay-1100 ${
+              hasIntersected ? "animate-hero-rise" : "opacity-0 translate-y-12"
             }`}
           >
             <ButtonLink
-              href="/services"
+              href="/contact"
               variant="primary"
               size="lg"
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg hover:animate-glow transition-all duration-300 group"
             >
               <span className="group-hover:animate-pulse">
-                {t("exploreServices")}
+                {t("contactUs")}
               </span>
             </ButtonLink>
             <ButtonLink
-              href="/contact"
+              href="/services"
               variant="secondary"
               size="lg"
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg transition-all duration-300 hover:rotate-1"
             >
-              {t("contactUs")}
+              {t("exploreServices")}
             </ButtonLink>
           </div>
 
           {/* Scroll Indicator with enhanced animation */}
           <div
-            className={`mt-16 transition-all duration-[1500ms] delay-[3700ms] ${
-              hasIntersected
-                ? "animate-hero-soft-fade"
-                : "opacity-0 scale-90"
+            className={`mt-16 transition-all duration-800 delay-1500 ${
+              hasIntersected ? "animate-hero-soft-fade" : "opacity-0 scale-90"
             }`}
           >
             <button

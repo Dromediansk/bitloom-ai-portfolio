@@ -97,7 +97,7 @@ const ReferencesSection = () => {
   const stats = [
     { value: "10+", label: t("stats.projectsCompleted") },
     { value: "6+", label: t("stats.yearsExperience") },
-    { value: "100%", label: t("stats.clientSatisfaction") },
+    { value: "0", label: t("stats.missedDeadlines") },
   ];
 
   return (

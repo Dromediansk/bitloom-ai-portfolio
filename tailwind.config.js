@@ -34,15 +34,15 @@ module.exports = {
         "float-particle": "floatParticle 4s ease-in-out infinite",
         ripple: "ripple 0.6s ease-out",
         "hero-title":
-          "heroTitle 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          "heroTitle 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
         "hero-slide-in":
-          "heroSlideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
+          "heroSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         "hero-blur-fade":
-          "heroBlurFade 1.3s cubic-bezier(0.16, 1, 0.3, 1)",
+          "heroBlurFade 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
         "hero-rise":
-          "heroRise 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
+          "heroRise 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         "hero-soft-fade":
-          "heroSoftFade 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          "heroSoftFade 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         fadeIn: {

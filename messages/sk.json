@@ -14,47 +14,64 @@
     "tagline": "Digitálne riešenia z odvážnych nápadov",
     "description": "Vývoj webu, mobilných appiek a poradenstvo prispôsobené vašim konkrétnym potrebám.",
     "exploreServices": "Preskúmať služby",
-    "contactUs": "Napíšte nám",
+    "contactUs": "Bezplatná konzultácia",
     "scrollToExplore": "Posúvajte pre preskúmanie",
     "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
   },
   "services": {
     "title": "Naše služby",
-    "subtitle": "Komplexné riešenia vývoja softvéru navrhnuté na zrealizovanie vášho nápadu",
+    "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
+    "differentiator": "6+ rokov dodávania produkčného softvéru v zdravotníctve a fintech. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
-      "title": "Moderné webové inžinierstvo",
-      "description": "Vytvárame výnimočné webové zážitky prostredníctvom umenia full-stack vývoja. Od responzívnych webových stránok po komplexné webové aplikácie, každá digitálna stopa je postavená s presnosťou, výkonom a používateľskou skúsenosťou.",
+      "title": "Webové riešenia",
+      "description": "Vytvárame výnimočné webové zážitky prostredníctvom umenia full-stack vývoja.",
       "features": [
-        "Full-stack webové aplikácie",
-        "Responzívny dizajn webových stránok",
-        "Moderné frameworky a architektúra",
-        "Optimalizácia výkonu"
-      ]
+        "Moderný full-stack vývoj",
+        "Responzívny dizajn",
+        "Optimalizácia výkonu a SEO"
+      ],
+      "cta": "Prediskutovať váš web projekt"
     },
     "mobileMastery": {
-      "title": "Mobilné majstrovstvo",
-      "description": "Od konceptu po nasadenie vytvárame mobilné aplikácie, ktoré sú profesionálne na každej platforme. Naša multiplatformová expertíza zabezpečuje, že vaši používatelia získajú bezproblémovú skúsenosť, či už sú na iOS alebo Androide.",
+      "title": "Mobilné aplikácie",
+      "description": "Profesionálne iOS a Android aplikácie z jedného kódu — nižšie náklady, natívny výkon.",
       "features": [
-        "Multiplatformová dokonalosť",
-        "Natívny výkon a pocit",
+        "iOS & Android súčasne",
         "Optimalizácia pre app store",
         "Dizajn zameraný na používateľa"
-      ]
+      ],
+      "cta": "Naplánovať vašu mobilnú appku"
     },
     "technicalConsulting": {
       "title": "Technické poradenstvo",
-      "description": "Poskytujeme podporu pre komplexné technické výzvy so strategickými poradenskými službami. Pomáhame podnikom robiť informované technologické rozhodnutia a budovať škálovateľné riešenia, ktoré sú v súlade s vašimi cieľmi.",
+      "description": "Poskytujeme podporu pre komplexné technické výzvy so strategickými poradenskými službami.",
       "features": [
-        "Hodnotenie technológií",
-        "Plánovanie architektúry",
-        "Mentoring tímov"
-      ]
+        "Zistite, čo spomaľuje váš tím",
+        "Jasný technický plán na mieru",
+        "Praktický mentoring vývojárov"
+      ],
+      "cta": "Rezervovať bezplatnú konzultáciu"
+    },
+    "industries": {
+      "label": "Dôvera v odvetviach, kde záleží na presnosti",
+      "healthcare": "Zdravotníctvo",
+      "fintech": "Fintech a bankovníctvo",
+      "enterprise": "Enterprise softvér"
+    },
+    "socialProof": {
+      "projectsCompleted": "Dokončených projektov",
+      "yearsExperience": "Rokov skúseností",
+      "missedDeadlines": "Zmeškané termíny",
+      "featuredQuote": "Mirove technické schopnosti ho zaraďujú do najvyšších kategórií vývojárov, s ktorými som mal to potešenie pracovať.",
+      "featuredAuthor": "Jacob Ellis",
+      "featuredRole": "Vedúci tímu",
+      "featuredCompany": "Cognitive Creators"
     },
     "cta": {
-      "title": "Pripravený začať váš projekt?",
-      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
-      "contactUs": "Napíšte nám",
-      "viewOurWork": "Pozrieť našu prácu"
+      "title": "Poďme vytvoriť niečo, na čom záleží",
+      "description": "Povedzte nám o vašom projekte a získajte bezplatný odhad do 48 hodín. Žiadny záväzok, žiadny tlak — len jasný obraz toho, čo je možné.",
+      "contactUs": "Získať bezplatný odhad",
+      "viewOurWork": "Pozrieť minulé projekty"
     }
   },
   "process": {
@@ -63,22 +80,22 @@
     "discovery": {
       "step": "01",
       "title": "Objavenie",
-      "description": "Pochopenie vašich obchodných cieľov, požiadaviek a rozsahu projektu."
+      "description": "Spoznáme vaše podnikanie, používateľov a ciele. Získate jasný projektový brief predtým, než napíšeme jediný riadok kódu."
     },
     "analysis": {
       "step": "02",
       "title": "Analýza",
-      "description": "Architektonické a dizajnové plány pre optimálne riešenia."
+      "description": "Vyberieme správnu architektúru a nástroje pre vaše konkrétne potreby — žiadne zbytočné komplikácie, žiadne skratky."
     },
     "development": {
       "step": "03",
       "title": "Vývoj",
-      "description": "Budovanie riešení s častou komunikáciou a spoluprácou."
+      "description": "Vidíte pokrok každý týždeň s demami a aktualizáciami. Žiadny vývoj v čiernej skrinke."
     },
     "delivery": {
       "step": "04",
       "title": "Dodanie",
-      "description": "Testovanie, nasadenie a priebežná podpora pre váš úspech."
+      "description": "Nasadíme, dôkladne otestujeme a zostaneme k dispozícii. Váš úspech je naša reputácia."
     }
   },
   "projects": {
@@ -181,7 +198,7 @@
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
-      "clientSatisfaction": "Spokojnosť klientov"
+      "missedDeadlines": "Zmeškané termíny"
     },
     "testimonials": [
       {
