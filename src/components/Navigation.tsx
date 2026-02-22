@@ -16,6 +16,7 @@ const Navigation = () => {
 
   const navigationLinks = [
     { href: "/", label: t("home") },
+    { href: "/services", label: t("services") },
     { href: "/projects", label: t("projects") },
     { href: "/about", label: t("about") },
     { href: "/references", label: t("references") },
