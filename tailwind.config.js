@@ -31,7 +31,6 @@ module.exports = {
         "tech-cascade": "tagCascade 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         shimmer: "shimmer 2s ease-in-out infinite",
         "pulse-glow": "pulseGlow 1.5s ease-in-out infinite",
-        "float-particle": "floatParticle 4s ease-in-out infinite",
         ripple: "ripple 0.6s ease-out",
         "hero-title":
           "heroTitle 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -157,17 +156,6 @@ module.exports = {
           "100%": {
             transform: "scale(1.05)",
             boxShadow: "0 0 20px rgba(13, 110, 253, 0.6)",
-          },
-        },
-        floatParticle: {
-          "0%": {
-            transform: "translateY(0)",
-          },
-          "50%": {
-            transform: "translateY(-10px)",
-          },
-          "100%": {
-            transform: "translateY(0)",
           },
         },
         ripple: {

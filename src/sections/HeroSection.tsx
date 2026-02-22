@@ -16,26 +16,6 @@ const HeroSection = () => {
       ref={elementRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Floating background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute top-20 left-10 w-24 h-24 bg-primary-200/15 dark:bg-primary-500/10 rounded-full animate-float"
-          style={{ animationDuration: "8s" }}
-        ></div>
-        <div
-          className="absolute top-40 right-20 w-36 h-36 bg-primary-300/15 dark:bg-primary-400/10 rounded-full animate-float"
-          style={{ animationDelay: "2s", animationDuration: "10s" }}
-        ></div>
-        <div
-          className="absolute bottom-40 left-20 w-20 h-20 bg-primary-400/15 dark:bg-primary-600/10 rounded-full animate-float"
-          style={{ animationDelay: "4s", animationDuration: "9s" }}
-        ></div>
-        <div
-          className="absolute bottom-20 right-10 w-28 h-28 bg-primary-300/15 dark:bg-primary-500/10 rounded-full animate-float"
-          style={{ animationDelay: "1s", animationDuration: "11s" }}
-        ></div>
-      </div>
-
       <div className="container-max section-padding text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Company name with gradient text effect */}

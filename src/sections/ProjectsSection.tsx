@@ -5,7 +5,6 @@ import {
   ProjectsHeader,
   ProjectGrid,
   ProjectsCTA,
-  BackgroundElements,
 } from "@/components/projects";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
@@ -20,9 +19,6 @@ const ProjectsSection = () => {
       ref={elementRef}
       className="min-h-screen section-padding relative overflow-hidden"
     >
-      {/* Animated background elements */}
-      <BackgroundElements />
-
       <div className="container-max relative">
         {/* Header */}
         <ProjectsHeader isVisible={hasIntersected} />

@@ -1,5 +1,6 @@
 import { Quicksand } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { BackgroundElements } from "@/components/BackgroundElements";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 
@@ -25,7 +26,8 @@ export default function RootLayout({
         <ThemeProvider>
           <main>
             <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-gray-900 dark:text-white">
-              <div className="pt-20">{children}</div>
+              <BackgroundElements />
+              <div className="pt-20 relative z-1">{children}</div>
             </div>
           </main>
         </ThemeProvider>

@@ -2,21 +2,30 @@ import { memo } from "react";
 
 export const BackgroundElements = memo(() => {
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      {/* Floating geometric shapes */}
-      <div className="absolute top-20 left-10 w-20 h-20 border border-primary-200 dark:border-primary-800 rounded-full floating-particle opacity-20"></div>
+    <div
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      aria-hidden="true"
+    >
+      {/* Woven grid base layer — "Loom" motif */}
+      <div className="absolute inset-0 woven-grid woven-grid-animated" />
+
+      {/* Gradient blob — top left */}
       <div
-        className="absolute top-40 right-20 w-16 h-16 bg-purple-200 dark:bg-purple-800 rounded-lg floating-particle opacity-20"
-        style={{ animationDelay: "2s" }}
-      ></div>
+        className="absolute -top-20 -left-20 w-[450px] h-[450px] bg-primary-300/40 dark:bg-primary-500/20 rounded-full blur-[60px] will-change-transform"
+        style={{ animation: "blobDrift1 25s ease-in-out infinite" }}
+      />
+
+      {/* Gradient blob — bottom right */}
       <div
-        className="absolute bottom-40 left-20 w-12 h-12 border-2 border-pink-200 dark:border-pink-800 rotate-45 floating-particle opacity-20"
-        style={{ animationDelay: "4s" }}
-      ></div>
+        className="absolute -bottom-16 -right-16 w-[380px] h-[380px] bg-primary-400/30 dark:bg-primary-400/15 rounded-full blur-[50px] will-change-transform"
+        style={{ animation: "blobDrift2 30s ease-in-out infinite" }}
+      />
+
+      {/* Gradient blob — center accent */}
       <div
-        className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full floating-particle opacity-20"
-        style={{ animationDelay: "1s" }}
-      ></div>
+        className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-primary-200/30 dark:bg-primary-600/15 rounded-full blur-[45px] will-change-transform"
+        style={{ animation: "blobDrift3 35s ease-in-out infinite" }}
+      />
     </div>
   );
 });
