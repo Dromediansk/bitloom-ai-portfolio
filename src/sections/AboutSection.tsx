@@ -6,9 +6,81 @@ import { useIntersectionObserver } from "@/lib/hooks";
 import { ReasonContainer, TechStack } from "@/components/about";
 import { useTranslations } from "next-intl";
 
+const CommunicationIcon = () => (
+  <svg
+    className="w-6 h-6 text-primary-600 dark:text-primary-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+    />
+  </svg>
+);
+
+const GlobeIcon = () => (
+  <svg
+    className="w-6 h-6 text-primary-600 dark:text-primary-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+);
+
+const LightbulbIcon = () => (
+  <svg
+    className="w-6 h-6 text-primary-600 dark:text-primary-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+    />
+  </svg>
+);
+
+const SectionDivider = () => (
+  <div className="flex justify-center my-12">
+    <div className="w-16 h-1 bg-gradient-to-r from-primary-200 to-primary-500 dark:from-primary-500 dark:to-primary-200 rounded-full"></div>
+  </div>
+);
+
+const coreValueIcons = [
+  <CommunicationIcon key="comm" />,
+  <GlobeIcon key="globe" />,
+  <LightbulbIcon key="bulb" />,
+];
+
+const coreValueKeys = [
+  "transparentCommunication",
+  "remoteFirstCooperation",
+  "openMindedness",
+] as const;
+
 const AboutSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
   const t = useTranslations("about");
+
+  const stats = [
+    { value: "6+", label: t("stats.yearsExperience") },
+    { value: "10+", label: t("stats.projectsCompleted") },
+    { value: "2", label: t("stats.industries") },
+  ];
 
   return (
     <section
@@ -40,49 +112,12 @@ const AboutSection = () => {
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 {t("ourStory.description1")}
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t("ourStory.description2")}
               </p>
-              <div className="bg-primary-50 dark:bg-primary-900/20 rounded-xl p-6 mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                  {t("coreValues.title")}
-                </h3>
-                <div className="grid grid-cols-1 gap-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-primary-600 dark:text-primary-400">
-                      🔍
-                    </span>
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong>
-                        {t("coreValues.transparentCommunication.title")}
-                      </strong>{" "}
-                      - {t("coreValues.transparentCommunication.description")}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-primary-600 dark:text-primary-400">
-                      🌍
-                    </span>
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong>
-                        {t("coreValues.remoteFirstCooperation.title")}
-                      </strong>{" "}
-                      - {t("coreValues.remoteFirstCooperation.description")}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-primary-600 dark:text-primary-400">
-                      💡
-                    </span>
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong>{t("coreValues.openMindedness.title")}</strong> -{" "}
-                      {t("coreValues.openMindedness.description")}
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
+            {/* Stats Block */}
             <div
               className={`relative transition-all duration-1000 delay-500 ${
                 hasIntersected
@@ -90,29 +125,68 @@ const AboutSection = () => {
                   : "opacity-0 translate-x-8"
               }`}
             >
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-3xl flex items-center justify-center relative overflow-hidden group cursor-pointer transform hover:scale-105 transition-all duration-500 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="text-white text-7xl font-bold z-10 group-hover:animate-pulse">
-                  B
+              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
+                <div className="grid grid-cols-1 gap-8">
+                  {stats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="absolute top-6 left-10 w-3 h-3 bg-white/30 rounded-full animate-float"></div>
-                <div
-                  className="absolute bottom-10 right-8 w-4 h-4 bg-white/20 rounded-full animate-float"
-                  style={{ animationDelay: "1s" }}
-                ></div>
-                <div
-                  className="absolute top-16 right-16 w-2 h-2 bg-white/40 rounded-full animate-float"
-                  style={{ animationDelay: "2s" }}
-                ></div>
               </div>
             </div>
           </div>
 
+          {/* Core Values */}
+          <div className="mb-20">
+            <h2
+              className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-all duration-1000 delay-300 ${
+                hasIntersected
+                  ? "animate-fade-in-down"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
+              {t("coreValues.title")}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {coreValueKeys.map((key, index) => (
+                <div
+                  key={key}
+                  className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${
+                    hasIntersected
+                      ? "animate-fade-in-up"
+                      : "opacity-0 translate-y-8"
+                  }`}
+                  style={{
+                    animationDelay: `${index * 150}ms`,
+                  }}
+                >
+                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 ease-out">
+                    {coreValueIcons[index]}
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    {t(`coreValues.${key}.title`)}
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {t(`coreValues.${key}.description`)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <SectionDivider />
+
           {/* Founder Section */}
-          <div className="bg-gray-50 dark:bg-gray-700 rounded-3xl p-8 md:p-12 mb-20">
-            <div className="grid lg:grid-cols-3 gap-8 items-center">
+          <div className="bg-gradient-to-br from-white/70 via-white/50 to-primary-50/40 dark:from-gray-800/70 dark:via-gray-800/50 dark:to-primary-950/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-20 shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="grid lg:grid-cols-5 gap-8 items-center">
               <div
-                className={`lg:col-span-2 transition-all duration-1000 delay-600 ${
+                className={`lg:col-span-3 transition-all duration-1000 delay-600 ${
                   hasIntersected
                     ? "animate-fade-in-left"
                     : "opacity-0 -translate-x-8"
@@ -138,18 +212,18 @@ const AboutSection = () => {
                 </p>
               </div>
               <div
-                className={`flex justify-center transition-all duration-1000 delay-700 ${
+                className={`lg:col-span-2 flex justify-center transition-all duration-1000 delay-700 ${
                   hasIntersected
                     ? "animate-fade-in-right"
                     : "opacity-0 translate-x-8"
                 }`}
               >
-                <div className="w-48 h-48 rounded-full overflow-hidden shadow-xl ring-4 ring-primary-200 dark:ring-primary-800">
+                <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary-200 dark:ring-primary-800">
                   <Image
                     src="/images/about/avatar.png"
                     alt="Miroslav - Founder of Bitloom"
-                    width={192}
-                    height={192}
+                    width={256}
+                    height={256}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     priority
                   />
@@ -158,26 +232,46 @@ const AboutSection = () => {
             </div>
           </div>
 
+          <SectionDivider />
+
           {/* Technical Expertise */}
-          <TechStack isVisible={hasIntersected} />
+          <TechStack />
+
+          <SectionDivider />
 
           {/* Why Choose Bitloom */}
           <ReasonContainer />
 
           {/* CTA */}
           <div
-            className={`text-center mt-16 transition-all duration-1000 delay-1400 ${
+            className={`text-center mt-16 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 transition-all duration-1000 delay-1400 ${
               hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-8"
             }`}
           >
-            <ButtonLink
-              href="/contact"
-              variant="primary"
-              size="lg"
-              className="transform hover:scale-105 hover:shadow-xl transition-all duration-300"
-            >
-              {t("cta")}
-            </ButtonLink>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              {t("ctaSection.title")}
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              {t("ctaSection.description")}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <ButtonLink
+                href="/contact"
+                variant="primary"
+                size="lg"
+                className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
+              >
+                {t("ctaSection.startProject")}
+              </ButtonLink>
+              <ButtonLink
+                href="/services"
+                variant="secondary"
+                size="lg"
+                className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
+              >
+                {t("ctaSection.viewServices")}
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </div>
