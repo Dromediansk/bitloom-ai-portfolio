@@ -101,6 +101,12 @@
   "projects": {
     "title": "Vybrané projekty",
     "subtitle": "Prehliadka moderného vývoja a produktového myslenia.",
+    "categories": {
+      "aiMl": "AI / ML",
+      "mobileApp": "Mobilná appka",
+      "webApp": "Webová appka",
+      "creative": "3D / Kreatívne"
+    },
     "actions": {
       "viewProject": "Zobraziť projekt",
       "sourceCode": "Zdrojový kód"

@@ -3,6 +3,7 @@ import type { Project } from "./types";
 const projectsData = [
   {
     id: 1,
+    categoryKey: "aiMl",
     technologies: [
       "Prompt Engineering",
       "Python",
@@ -14,6 +15,7 @@ const projectsData = [
   },
   {
     id: 2,
+    categoryKey: "mobileApp",
     technologies: [
       "React Native",
       "Expo",
@@ -26,6 +28,7 @@ const projectsData = [
   },
   {
     id: 3,
+    categoryKey: "webApp",
     technologies: [
       "Next.js",
       "Typescript",
@@ -39,6 +42,7 @@ const projectsData = [
   },
   {
     id: 4,
+    categoryKey: "creative",
     technologies: [
       "Three.js",
       "React Three Fiber",
@@ -56,6 +60,7 @@ export const getProjects = (t: (key: string) => string): Project[] =>
     ...project,
     title: t(`items.${index}.title`),
     description: t(`items.${index}.description`),
+    category: t(`categories.${project.categoryKey}`),
     imageUrl: `/images/projects/project_${index + 1}.png`,
     codeUrl: `https://github.com/Dromediansk/${project.githubRepo}`,
   }));
