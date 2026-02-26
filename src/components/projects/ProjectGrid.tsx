@@ -53,7 +53,7 @@ export const ProjectGrid = memo(({ projects }: ProjectGridProps) => {
           <article
             key={project.id}
             className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-all duration-500 will-change-transform group hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700 hover:border-primary-200 dark:hover:border-primary-700 h-full ${
-              isFeatured ? "md:col-span-2 flex flex-col lg:flex-row" : "flex flex-col"
+              isFeatured ? "md:col-span-2 lg:col-span-3 flex flex-col lg:flex-row" : "flex flex-col"
             } ${delayClass} ${
               hasIntersected ? `animate-fade-in-up` : "opacity-0 translate-y-8"
             }`}
