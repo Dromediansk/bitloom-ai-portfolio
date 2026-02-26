@@ -11,7 +11,7 @@ export const TechTags = memo(({ technologies }: TechTagsProps) => {
       technologies.map((tech, techIndex) => (
         <span
           key={techIndex}
-          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 transition-all duration-200 cursor-pointer"
+          className="px-3 py-1 bg-white/60 dark:bg-gray-700/60 backdrop-blur-sm text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-200/50 dark:border-gray-600/50 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 hover:border-primary-200 dark:hover:border-primary-700 transition-all duration-200"
         >
           {tech}
         </span>

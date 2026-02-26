@@ -7,7 +7,7 @@ export const ProjectsCTA = memo(() => {
 
   return (
     <div className="text-center mt-16">
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+      <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
           {t("title")}
         </h2>

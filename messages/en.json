@@ -101,6 +101,12 @@
   "projects": {
     "title": "Featured Projects",
     "subtitle": "Showcase of modern development and product thinking.",
+    "categories": {
+      "aiMl": "AI / ML",
+      "mobileApp": "Mobile App",
+      "webApp": "Web App",
+      "creative": "3D / Creative"
+    },
     "actions": {
       "viewProject": "View Project",
       "sourceCode": "Source Code"

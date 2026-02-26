@@ -3,19 +3,28 @@ import type { Project } from "./types";
 
 interface ProjectImageProps {
   project: Project;
+  featured?: boolean;
 }
 
-export const ProjectImage = ({ project }: ProjectImageProps) => {
+export const ProjectImage = ({
+  project,
+  featured = false,
+}: ProjectImageProps) => {
   return (
-    <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 overflow-hidden">
+    <div
+      className={`relative ${featured ? "h-56 lg:h-full lg:min-h-[280px]" : "h-56"} bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 overflow-hidden`}
+    >
       {project.imageUrl ? (
-        /* Project Image */
         <Image
           src={project.imageUrl}
           alt={`${project.title} project screenshot`}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes={
+            featured
+              ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          }
         />
       ) : (
         <>
@@ -80,6 +89,16 @@ export const ProjectImage = ({ project }: ProjectImageProps) => {
             </div>
           </div>
         </>
+      )}
+
+      {/* Hover gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      {/* Category badge */}
+      {project.category && (
+        <span className="absolute top-3 left-3 px-3 py-1 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm text-xs font-semibold text-primary-700 dark:text-primary-300 rounded-full border border-primary-200 dark:border-primary-700 z-10">
+          {project.category}
+        </span>
       )}
     </div>
   );
