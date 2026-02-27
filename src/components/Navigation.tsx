@@ -45,7 +45,7 @@ const Navigation = () => {
 
   const isLinkActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    return pathname === href || pathname.startsWith(href + "/");
   };
 
   const toggleMenu = () => {
@@ -83,7 +83,7 @@ const Navigation = () => {
                   key={link.href}
                   href={link.href}
                   isExternal={link.isExternal}
-                  isActive={!link.isExternal && isLinkActive(link.href)}
+                  isActive={link.isExternal !== true && isLinkActive(link.href)}
                   className={link.icon ? "flex items-center gap-1" : ""}
                 >
                   {link.label}
@@ -114,18 +114,21 @@ const Navigation = () => {
               aria-expanded={isMenuOpen}
             >
               <span
+                aria-hidden="true"
                 className={`block absolute left-2 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
-                  isMenuOpen ? "top-4.5 rotate-45" : "top-3"
+                  isMenuOpen ? "top-[1.125rem] rotate-45" : "top-3"
                 }`}
               />
               <span
-                className={`block absolute left-2 top-4.5 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
+                aria-hidden="true"
+                className={`block absolute left-2 top-[1.125rem] w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
                   isMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
                 }`}
               />
               <span
+                aria-hidden="true"
                 className={`block absolute left-2 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
-                  isMenuOpen ? "top-4.5 -rotate-45" : "top-6"
+                  isMenuOpen ? "top-[1.125rem] -rotate-45" : "top-6"
                 }`}
               />
             </button>
@@ -135,39 +138,37 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-125 opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-[31.25rem] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-1">
               {[...navigationLinks, { href: "/contact", label: t("contact") }].map(
-                (link, index) => {
-                  const active =
-                    !("isExternal" in link && link.isExternal) &&
-                    isLinkActive(link.href);
+                (link, index, arr) => {
+                  const isExternal = "isExternal" in link && link.isExternal === true;
+                  const hasIcon = "icon" in link && link.icon;
+                  const active = !isExternal && isLinkActive(link.href);
                   return (
                     <NavigationLink
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
                       showUnderline={false}
-                      isExternal={
-                        "isExternal" in link ? link.isExternal : false
-                      }
+                      isExternal={isExternal}
                       isActive={active}
                       className={`py-3 px-4 rounded-xl transition-all duration-300 ${
                         active
                           ? "bg-primary-50 dark:bg-primary-900/30"
                           : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
-                      } ${"icon" in link && link.icon ? "flex items-center gap-1" : ""}`}
+                      } ${hasIcon ? "flex items-center gap-1" : ""}`}
                       style={{
                         transitionDelay: isMenuOpen
                           ? `${index * 50}ms`
-                          : "0ms",
+                          : `${(arr.length - 1 - index) * 30}ms`,
                       }}
                     >
                       {link.label}
-                      {"icon" in link && link.icon}
+                      {hasIcon}
                     </NavigationLink>
                   );
                 },

@@ -30,6 +30,7 @@ const NavigationLink = ({
 
   const underline = showUnderline && (
     <span
+      aria-hidden="true"
       className={`absolute -bottom-1 left-0 h-0.5 bg-primary-600 transition-all duration-300 ${
         isActive ? "w-full" : "w-0 group-hover:w-full"
       }`}
