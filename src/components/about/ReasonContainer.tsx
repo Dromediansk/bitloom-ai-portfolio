@@ -1,7 +1,5 @@
 import { useIntersectionObserver } from "@/lib/hooks";
-import { getStaggeredDelay } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import React from "react";
 
 const ProductIcon = () => (
   <svg
@@ -9,6 +7,8 @@ const ProductIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"
@@ -25,6 +25,8 @@ const ShieldIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"
@@ -41,6 +43,8 @@ const GrowthIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"
@@ -58,10 +62,7 @@ const reasonIcons = [
 ];
 
 export const ReasonContainer = () => {
-  const { elementRef, hasIntersected } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "50px",
-  });
+  const { elementRef, hasIntersected } = useIntersectionObserver<HTMLDivElement>();
   const t = useTranslations("about.whyChoose");
 
   const reasons = [
@@ -85,7 +86,7 @@ export const ReasonContainer = () => {
   return (
     <div
       className="text-center mt-20"
-      ref={elementRef as React.RefObject<HTMLDivElement>}
+      ref={elementRef}
     >
       <h2
         className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 transition-all duration-500 delay-200 ${
@@ -96,15 +97,17 @@ export const ReasonContainer = () => {
       </h2>
       <div className="grid md:grid-cols-3 gap-8">
         {reasons.map((reason, index) => {
-          const delayClass = getStaggeredDelay(index);
           return (
             <div
               key={reason.id}
-              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg transition-all duration-1000 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700 group ${delayClass} ${
+              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg transition-all duration-1000 hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700 group ${
                 hasIntersected
                   ? "animate-fade-in-up"
                   : "opacity-0 translate-y-8"
               }`}
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
             >
               <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-all duration-300 ease-out">
                 {reasonIcons[index]}

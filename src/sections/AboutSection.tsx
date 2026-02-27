@@ -12,6 +12,8 @@ const CommunicationIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"
@@ -28,6 +30,8 @@ const GlobeIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"
@@ -44,6 +48,8 @@ const LightbulbIcon = () => (
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
   >
     <path
       strokeLinecap="round"

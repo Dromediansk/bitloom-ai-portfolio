@@ -1,14 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useIntersectionObserver } from "@/lib/hooks";
-import { getStaggeredDelay } from "@/lib/utils";
-import React from "react";
 
 const TechStack = () => {
-  const { elementRef, hasIntersected } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "50px",
-  });
+  const { elementRef, hasIntersected } = useIntersectionObserver<HTMLDivElement>();
   const t = useTranslations("about.techStack");
 
   const technologies = [
@@ -71,7 +66,7 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="mb-20" ref={elementRef as React.RefObject<HTMLDivElement>}>
+    <div className="mb-20" ref={elementRef}>
       <div
         className={`text-center mb-12 transition-all duration-1000 ${
           hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-8"
@@ -87,15 +82,17 @@ const TechStack = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {technologies.map((tech, index) => {
-          const delayClass = getStaggeredDelay(index);
           return (
             <div
               key={tech.name}
-              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-1 ${delayClass} ${
+              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-1 ${
                 hasIntersected
                   ? "animate-fade-in-up"
                   : "opacity-0 translate-y-8"
               }`}
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
             >
               <div
                 className={`w-12 h-12 ${tech.bgColor} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 ease-out`}
