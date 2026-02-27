@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -12,6 +12,7 @@ import { useScrollDirection } from "@/lib/hooks";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isVisible } = useScrollDirection();
+  const pathname = usePathname();
   const t = useTranslations("navigation");
 
   const navigationLinks = [
@@ -20,7 +21,6 @@ const Navigation = () => {
     { href: "/projects", label: t("projects") },
     { href: "/about", label: t("about") },
     { href: "/references", label: t("references") },
-    { href: "/contact", label: t("contact") },
     {
       href: "https://blog.bitloom.sk",
       label: t("blog"),
@@ -43,13 +43,18 @@ const Navigation = () => {
     },
   ];
 
+  const isLinkActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-transform duration-600 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 nav-blur-enhanced transition-transform duration-600 ease-in-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -58,26 +63,27 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-105 animate-fade-in-left"
+            className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-[1.02] animate-fade-in-left"
           >
             <Image
               src="/logo_pure.svg"
               alt="Bitloom Logo"
               width={200}
               height={60}
-              className="h-14 w-auto"
+              className="h-10 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 animate-fade-in-right">
-            <div className="flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 animate-fade-in-right">
+            <div className="flex items-center space-x-5">
               {navigationLinks.map((link) => (
                 <NavigationLink
                   key={link.href}
                   href={link.href}
                   isExternal={link.isExternal}
+                  isActive={!link.isExternal && isLinkActive(link.href)}
                   className={link.icon ? "flex items-center gap-1" : ""}
                 >
                   {link.label}
@@ -85,67 +91,90 @@ const Navigation = () => {
                 </NavigationLink>
               ))}
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              <Link
+                href="/contact"
+                className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/25"
+              >
+                {t("contact")}
+              </Link>
               <LanguageSwitcher />
               <ThemeToggle />
             </div>
           </div>
 
-          {/* Mobile Menu Button and Theme Toggle */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile Menu Button and Controls */}
+          <div className="lg:hidden flex items-center space-x-2">
             <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="relative p-2 w-10 h-10 rounded-lg bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-gray-600/50 transition-all duration-300 cursor-pointer"
               aria-label={t("toggleMenu")}
+              aria-expanded={isMenuOpen}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
+              <span
+                className={`block absolute left-2 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
+                  isMenuOpen ? "top-4.5 rotate-45" : "top-3"
+                }`}
+              />
+              <span
+                className={`block absolute left-2 top-4.5 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
+                  isMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block absolute left-2 w-6 h-0.5 bg-gray-700 dark:bg-gray-300 transition-all duration-300 ${
+                  isMenuOpen ? "top-4.5 -rotate-45" : "top-6"
+                }`}
+              />
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col space-y-4">
-              {navigationLinks.map((link) => (
-                <NavigationLink
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  showUnderline={false}
-                  isExternal={link.isExternal}
-                  className={link.icon ? "flex items-center gap-1" : ""}
-                >
-                  {link.label}
-                  {link.icon}
-                </NavigationLink>
-              ))}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-125 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="py-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col space-y-1">
+              {[...navigationLinks, { href: "/contact", label: t("contact") }].map(
+                (link, index) => {
+                  const active =
+                    !("isExternal" in link && link.isExternal) &&
+                    isLinkActive(link.href);
+                  return (
+                    <NavigationLink
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      showUnderline={false}
+                      isExternal={
+                        "isExternal" in link ? link.isExternal : false
+                      }
+                      isActive={active}
+                      className={`py-3 px-4 rounded-xl transition-all duration-300 ${
+                        active
+                          ? "bg-primary-50 dark:bg-primary-900/30"
+                          : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                      } ${"icon" in link && link.icon ? "flex items-center gap-1" : ""}`}
+                      style={{
+                        transitionDelay: isMenuOpen
+                          ? `${index * 50}ms`
+                          : "0ms",
+                      }}
+                    >
+                      {link.label}
+                      {"icon" in link && link.icon}
+                    </NavigationLink>
+                  );
+                },
+              )}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
