@@ -16,7 +16,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex items-center space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+    <div className="flex items-center space-x-1 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm rounded-lg p-1">
       {routing.locales.map((loc) => (
         <button
           key={loc}

@@ -27,7 +27,7 @@ export default function RootLayout({
           <main>
             <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900 text-gray-900 dark:text-white">
               <BackgroundElements />
-              <div className="pt-20 relative z-1">{children}</div>
+              <div className="pt-16 relative z-1">{children}</div>
             </div>
           </main>
         </ThemeProvider>
