@@ -38,12 +38,12 @@ export const SectionTitle = memo<SectionTitleProps>(
       <div className={containerClasses}>
         <h1 className={titleClasses}>{title}</h1>
         {showGradientLine && (
-          <div className="w-16 h-1 bg-gradient-to-r from-primary-200 to-primary-500 dark:from-primary-500 dark:to-primary-200 mx-auto mb-6 rounded-full"></div>
+          <div className="w-16 h-1 bg-linear-to-r from-primary-200 to-primary-500 dark:from-primary-500 dark:to-primary-200 mx-auto mb-6 rounded-full"></div>
         )}
         {subtitle && <p className={subtitleClasses}>{subtitle}</p>}
       </div>
     );
-  }
+  },
 );
 
 SectionTitle.displayName = "SectionTitle";

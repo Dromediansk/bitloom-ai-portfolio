@@ -151,7 +151,7 @@
       },
       "remoteFirstCooperation": {
         "title": "Remote-First Cooperation",
-        "description": "Seamless collaboration across borders"
+        "description": "Work seamlessly regardless of your location (operating in CET)"
       },
       "openMindedness": {
         "title": "Open-Mindedness",
@@ -195,7 +195,17 @@
         "description": "We are invested in your success and provide ongoing support as you scale."
       }
     },
-    "cta": "Start Your Project"
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "projectsCompleted": "Projects Completed",
+      "industries": "Key Industries"
+    },
+    "ctaSection": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how we can turn your vision into a high-quality digital product.",
+      "startProject": "Start Your Project",
+      "viewServices": "Explore Services"
+    }
   },
   "references": {
     "title": "Client Reviews & References",

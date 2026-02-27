@@ -151,7 +151,7 @@
       },
       "remoteFirstCooperation": {
         "title": "Remote-first spolupráca",
-        "description": "Bezproblémová spolupráca naprieč hranicami"
+        "description": "Práca bez ohľadu na Vašu polohu (pracujem v CET)"
       },
       "openMindedness": {
         "title": "Otvorenosť mysle",
@@ -195,7 +195,17 @@
         "description": "Sme investovaní do vášho úspechu a poskytujeme priebežnú podporu pri škálovaní."
       }
     },
-    "cta": "Začať váš projekt"
+    "stats": {
+      "yearsExperience": "Rokov skúseností",
+      "projectsCompleted": "Dokončených projektov",
+      "industries": "Kľúčové odvetvia"
+    },
+    "ctaSection": {
+      "title": "Pripravení začať váš projekt?",
+      "description": "Poďme sa porozprávať o tom, ako premeniť vašu víziu na kvalitný digitálny produkt.",
+      "startProject": "Začať váš projekt",
+      "viewServices": "Preskúmať služby"
+    }
   },
   "references": {
     "title": "Klientske recenzie a referencie",

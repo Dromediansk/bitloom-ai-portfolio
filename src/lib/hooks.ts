@@ -1,16 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 
 // Optimized intersection observer hook for performance
-export function useIntersectionObserver(
-  options: IntersectionObserverInit = {}
+export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
+  options: IntersectionObserverInit = {},
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasIntersected, setHasIntersected] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
+
+    // Check if element is already visible in viewport on mount.
+    // Uses requestAnimationFrame to avoid synchronous setState in effect body.
+    // This prevents content from staying invisible (opacity-0) on mobile devices
+    // where the IntersectionObserver callback may not fire on initial load.
+    const rafId = requestAnimationFrame(() => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setIsIntersecting(true);
+        setHasIntersected(true);
+      }
+    });
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -25,12 +37,13 @@ export function useIntersectionObserver(
         threshold: 0.1,
         rootMargin: "50px",
         ...options,
-      }
+      },
     );
 
     observer.observe(element);
 
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
     };
   }, [hasIntersected, options]);
@@ -41,7 +54,7 @@ export function useIntersectionObserver(
 // Hook to detect scroll direction for navigation animation
 export function useScrollDirection(threshold = 10) {
   const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(
-    null
+    null,
   );
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);

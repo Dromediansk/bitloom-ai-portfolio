@@ -1,11 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useIntersectionObserver } from "@/lib/hooks";
 
-interface TechStackProps {
-  isVisible?: boolean;
-}
-
-const TechStack = ({ isVisible = true }: TechStackProps) => {
+const TechStack = () => {
+  const { elementRef, hasIntersected } = useIntersectionObserver<HTMLDivElement>();
   const t = useTranslations("about.techStack");
 
   const technologies = [
@@ -68,10 +66,10 @@ const TechStack = ({ isVisible = true }: TechStackProps) => {
   ];
 
   return (
-    <div className="mb-20">
+    <div className="mb-20" ref={elementRef}>
       <div
-        className={`text-center mb-12 transition-all duration-1000 delay-800 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
+        className={`text-center mb-12 transition-all duration-1000 ${
+          hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-8"
         }`}
       >
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -82,38 +80,44 @@ const TechStack = ({ isVisible = true }: TechStackProps) => {
         </p>
       </div>
 
-      <div
-        className={`grid md:grid-cols-3 lg:grid-cols-4 gap-4 transition-all duration-1000 delay-900 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
-        }`}
-      >
-        {technologies.map((tech) => (
-          <div
-            key={tech.name}
-            className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-          >
-            <div className="flex items-center">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {technologies.map((tech, index) => {
+          return (
+            <div
+              key={tech.name}
+              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-1 ${
+                hasIntersected
+                  ? "animate-fade-in-up"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
+            >
               <div
-                className={`w-8 h-8 ${tech.bgColor} rounded-lg flex items-center justify-center mr-3`}
+                className={`w-12 h-12 ${tech.bgColor} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 ease-out`}
               >
                 <Image
                   src={tech.iconPath}
                   alt={`${tech.name} icon`}
-                  width={16}
-                  height={16}
-                  className={`w-4 h-4 ${
+                  width={24}
+                  height={24}
+                  className={`w-6 h-6 ${
                     tech.keepOriginalInDark
                       ? ""
                       : "dark:invert dark:brightness-0 dark:contrast-100"
                   }`}
                 />
               </div>
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 {tech.name}
               </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {tech.description}
+              </p>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
