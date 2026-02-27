@@ -9,13 +9,20 @@ import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useScrollDirection } from "@/lib/hooks";
 
+type NavLink = {
+  href: string;
+  label: string;
+  isExternal?: boolean;
+  icon?: React.ReactNode;
+};
+
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isVisible } = useScrollDirection();
   const pathname = usePathname();
   const t = useTranslations("navigation");
 
-  const navigationLinks = [
+  const navigationLinks: NavLink[] = [
     { href: "/", label: t("home") },
     { href: "/services", label: t("services") },
     { href: "/projects", label: t("projects") },
@@ -138,29 +145,27 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-[31.25rem] opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-1">
-              {[...navigationLinks, { href: "/contact", label: t("contact") }].map(
+              {([...navigationLinks, { href: "/contact", label: t("contact") }] as NavLink[]).map(
                 (link, index, arr) => {
-                  const isExternal = "isExternal" in link && link.isExternal === true;
-                  const hasIcon = "icon" in link && link.icon;
-                  const active = !isExternal && isLinkActive(link.href);
+                  const active = !link.isExternal && isLinkActive(link.href);
                   return (
                     <NavigationLink
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
                       showUnderline={false}
-                      isExternal={isExternal}
+                      isExternal={link.isExternal}
                       isActive={active}
                       className={`py-3 px-4 rounded-xl transition-all duration-300 ${
                         active
                           ? "bg-primary-50 dark:bg-primary-900/30"
                           : "hover:bg-gray-50 dark:hover:bg-gray-800/50"
-                      } ${hasIcon ? "flex items-center gap-1" : ""}`}
+                      } ${link.icon ? "flex items-center gap-1" : ""}`}
                       style={{
                         transitionDelay: isMenuOpen
                           ? `${index * 50}ms`
@@ -168,7 +173,7 @@ const Navigation = () => {
                       }}
                     >
                       {link.label}
-                      {hasIcon}
+                      {link.icon}
                     </NavigationLink>
                   );
                 },
