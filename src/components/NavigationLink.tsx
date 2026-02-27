@@ -54,7 +54,7 @@ const NavigationLink = ({
   }
 
   return (
-    <Link href={href} className={combinedClasses} onClick={onClick} style={style}>
+    <Link href={href} className={combinedClasses} onClick={onClick} style={style} aria-current={isActive ? "page" : undefined}>
       {children}
       {underline}
     </Link>

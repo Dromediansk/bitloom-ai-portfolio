@@ -119,6 +119,7 @@ const Navigation = () => {
               className="relative p-2 w-10 h-10 rounded-lg bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-gray-600/50 transition-all duration-300 cursor-pointer"
               aria-label={t("toggleMenu")}
               aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               <span
                 aria-hidden="true"
@@ -144,6 +145,9 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div
+          id="mobile-menu"
+          aria-hidden={!isMenuOpen}
+          inert={!isMenuOpen ? true : undefined}
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
