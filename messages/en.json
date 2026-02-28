@@ -24,7 +24,7 @@
     "differentiator": "6+ years shipping production software in healthcare and fintech. One developer, zero overhead, full accountability.",
     "modernWebCraft": {
       "title": "Web Solutions",
-      "description": "We create exceptional web experiences through the art of full-stack development.",
+      "description": "Fast, responsive websites and web apps — built from database to UI.",
       "features": [
         "Modern full-stack development",
         "Responsive design",
@@ -44,7 +44,7 @@
     },
     "technicalConsulting": {
       "title": "Technical Consulting",
-      "description": "We provide support for complex technical challenges with strategic consulting services.",
+      "description": "Stuck on architecture decisions, slow releases, or growing tech debt? I can help you sort it out.",
       "features": [
         "Find what's slowing your team down",
         "Get a clear technical roadmap",
@@ -68,15 +68,15 @@
       "featuredCompany": "Cognitive Creators"
     },
     "cta": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how we can turn your idea into reality.",
+      "title": "Have a Project in Mind?",
+      "description": "Tell us what you're working on — we'll figure out together how to get it done.",
       "contactUs": "Contact Us",
       "viewOurWork": "See Past Projects"
     }
   },
   "process": {
     "title": "Our Process",
-    "subtitle": "A proven methodology that ensures successful project delivery",
+    "subtitle": "How every project works, from first call to launch",
     "discovery": {
       "step": "01",
       "title": "Discovery",
@@ -100,7 +100,7 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Showcase of modern development and product thinking.",
+    "subtitle": "Real projects, real results. Here's what I've built recently.",
     "categories": {
       "aiMl": "AI / ML",
       "mobileApp": "Mobile App",
@@ -112,8 +112,8 @@
       "sourceCode": "Source Code"
     },
     "cta": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how we can help bring your idea to life.",
+      "title": "Got Something You Want to Build?",
+      "description": "Let's talk about your idea and see if we're the right fit.",
       "startProject": "Start Your Project"
     },
     "items": [
@@ -127,21 +127,21 @@
       },
       {
         "title": "Next Notes - Daily Tasks",
-        "description": "Discover the power of daily affirmations and self-reflection with the intuitive note taking app. Capture moments of inspiration, motivation, and personal development to help you become the best version of yourself."
+        "description": "A clean note-taking app for daily affirmations and self-reflection. Write down what inspires you, track your personal growth, and build a habit of journaling."
       },
       {
         "title": "Portfolio with 3D graphics",
-        "description": "Showcasing work with a stunning portfolio featuring 3D graphics and animations. Built with React Three Fiber and modern web technologies to provide an immersive user experience."
+        "description": "An interactive developer portfolio with 3D scenes and smooth animations. Built with React Three Fiber to make browsing projects feel like an experience, not just a page."
       }
     ]
   },
   "about": {
     "title": "About Bitloom company",
-    "subtitle": "Founded with a vision to deliver exceptional software solutions that drive business growth",
+    "subtitle": "One developer, full commitment — building software that actually moves your business forward",
     "ourStory": {
       "title": "Our Story",
-      "description1": "Bitloom was founded by Miroslav with a clear mission: to bridge the gap between innovative technology and meaningful business outcomes. We believe that great software is not just about code – it's about understanding your business, your users, and your goals.",
-      "description2": "Our product-oriented approach ensures that every solution we build is designed to scale, perform, and deliver measurable value to your organization. We embrace growth-oriented values that guide everything we do."
+      "description1": "Bitloom started because Miroslav kept seeing the same problem: companies paying for software that looked good in a demo but fell apart in production. He wanted to do things differently — understand the business first, then build something that actually works long-term.",
+      "description2": "Every project starts with your goals, not a tech stack. We figure out what you need, pick the right tools for the job, and build with the kind of care you'd expect from someone whose name is on the work."
     },
     "coreValues": {
       "title": "Our Core Values",
@@ -162,13 +162,13 @@
       "title": "Meet Our Founder",
       "name": "Miroslav Pillár - Founder & Digital Craftsman",
       "location": "Based in Kosice, Slovakia",
-      "description1": "As a self-taught professional developer with 6 years of hands-on experience, Miroslav brings a unique perspective to software development. His journey demonstrates the power of dedication, continuous learning, and practical problem-solving in mastering modern technologies.",
-      "description2": "Throughout his career, Miroslav has focused on projects within healthcare and financial sectors - industries where precision, security, and reliability aren't just nice-to-have features—they're absolutely essential. This experience has shaped his approach to building software that businesses can truly depend on.",
-      "description3": "This specialized knowledge, combined with expertise in full-stack development and modern technologies, ensures that every Bitloom project benefits from both technical excellence and real-world business understanding."
+      "description1": "Miroslav is a self-taught developer with 6 years of professional experience. He learned by building real products, not in a classroom — and that hands-on approach shapes how he works today.",
+      "description2": "Most of his career has been spent in healthcare and fintech, where bugs aren't just annoying — they can be costly and dangerous. Working in those environments taught him to write code that's reliable, secure, and thoroughly tested.",
+      "description3": "That background — shipping production software in regulated industries, owning features end-to-end — is what every Bitloom client gets. Not just technical skill, but the discipline that comes from working where it really matters."
     },
     "techStack": {
       "title": "Our Technical Expertise",
-      "description": "We specialize in modern technologies that enable us to build scalable, performant, and maintainable solutions for your business needs.",
+      "description": "These are the tools we use daily. We pick what fits your project — not what's trending on Twitter.",
       "technologies": {
         "reactjs": "Modern frontend development with component-based architecture",
         "nextjs": "Full-stack React framework for production-ready applications",
@@ -184,15 +184,15 @@
       "title": "Why Choose Bitloom?",
       "productMindset": {
         "title": "Product Mindset",
-        "description": "We think like product owners, ensuring every feature adds real value to your business."
+        "description": "We don't just write code — we think about what your users need and what will actually move the needle for your business."
       },
       "qualityFocus": {
         "title": "Quality Focus",
-        "description": "Rigorous testing and code review processes ensure reliable, maintainable solutions."
+        "description": "Code is tested, reviewed, and built to last — not just to pass the demo."
       },
       "growthPartnership": {
         "title": "Growth Partnership",
-        "description": "We are invested in your success and provide ongoing support as you scale."
+        "description": "We don't disappear after launch. As your product grows, we're here to help it keep up."
       }
     },
     "stats": {
@@ -201,8 +201,8 @@
       "industries": "Key Industries"
     },
     "ctaSection": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how we can turn your vision into a high-quality digital product.",
+      "title": "Like What You See?",
+      "description": "Let's talk about what you need and how we can work together.",
       "startProject": "Start Your Project",
       "viewServices": "Explore Services"
     }
@@ -231,17 +231,17 @@
       }
     ],
     "cta": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss how we can help bring your idea to life.",
+      "title": "Want Similar Results?",
+      "description": "Tell us about your project and let's see what we can do for you.",
       "startConversation": "Start a Conversation"
     }
   },
   "contact": {
     "title": "Start Your Project",
-    "subtitle": "Ready to transform your ideas into powerful digital solutions? Let's discuss it.",
+    "subtitle": "Have an idea or a problem that needs solving? Let's talk about it.",
     "info": {
       "title": "Let's Start Building Together",
-      "description": "Got a bold vision? Or the time has come to upgrade how you show up online? Bitloom is here to help turn your ideas into elegant, scalable solutions. Let's work together to build something amazing."
+      "description": "Got a bold vision? Or maybe it's time to upgrade how you show up online? Tell us what you're thinking — whether it's a rough idea or a detailed spec, we'll help you figure out the next step."
     },
     "methods": {
       "email": {

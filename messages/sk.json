@@ -24,7 +24,7 @@
     "differentiator": "6+ rokov dodávania produkčného softvéru v zdravotníctve a fintech. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
       "title": "Webové riešenia",
-      "description": "Vytvárame výnimočné webové zážitky prostredníctvom umenia full-stack vývoja.",
+      "description": "Rýchle a responzívne weby a webové aplikácie — od databázy až po rozhranie.",
       "features": [
         "Moderný full-stack vývoj",
         "Responzívny dizajn",
@@ -44,7 +44,7 @@
     },
     "technicalConsulting": {
       "title": "Technické poradenstvo",
-      "description": "Poskytujeme podporu pre komplexné technické výzvy so strategickými poradenskými službami.",
+      "description": "Neviete sa rozhodnúť v architektúre, spomaľujú vás releasy alebo rastie technický dlh? Pomôžem vám to vyriešiť.",
       "features": [
         "Zistite, čo spomaľuje váš tím",
         "Jasný technický plán na mieru",
@@ -68,15 +68,15 @@
       "featuredCompany": "Cognitive Creators"
     },
     "cta": {
-      "title": "Pripravení začať váš projekt?",
-      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
+      "title": "Máte v hlave projekt?",
+      "description": "Povedzte nám, na čom pracujete — spoločne vymyslíme, ako na to.",
       "contactUs": "Napíšte nám",
       "viewOurWork": "Pozrieť minulé projekty"
     }
   },
   "process": {
     "title": "Náš proces",
-    "subtitle": "Overená metodológia, ktorá zabezpečuje úspešné dodanie projektu",
+    "subtitle": "Ako prebieha každý projekt — od prvého hovoru až po spustenie",
     "discovery": {
       "step": "01",
       "title": "Objavenie",
@@ -100,7 +100,7 @@
   },
   "projects": {
     "title": "Vybrané projekty",
-    "subtitle": "Prehliadka moderného vývoja a produktového myslenia.",
+    "subtitle": "Reálne projekty, reálne výsledky. Tu je to, na čom som nedávno pracoval.",
     "categories": {
       "aiMl": "AI / ML",
       "mobileApp": "Mobilná appka",
@@ -112,8 +112,8 @@
       "sourceCode": "Zdrojový kód"
     },
     "cta": {
-      "title": "Pripravení začať váš projekt?",
-      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
+      "title": "Chcete niečo postaviť?",
+      "description": "Porozprávajte nám o vašom nápade a zistíme, či sa k sebe hodíme.",
       "startProject": "Začať váš projekt"
     },
     "items": [
@@ -127,21 +127,21 @@
       },
       {
         "title": "Next Notes - Denné úlohy",
-        "description": "Objavte silu denných afirmácií a sebareflexie s intuitívnou aplikáciou na zapisovanie poznámok. Zachyťte momenty inšpirácie, motivácie a osobného rozvoja, aby ste sa stali najlepšou verziou seba."
+        "description": "Jednoduchá appka na zapisovanie denných afirmácií a sebareflexie. Zaznamenajte si, čo vás inšpiruje, sledujte svoj osobný rast a vybudujte si návyk pravidelného písania."
       },
       {
         "title": "Portfólio s 3D grafikou",
-        "description": "Prezentácia práce s ohromujúcim portfóliom s 3D grafikou a animáciami. Postavené s React Three Fiber a modernými webovými technológiami na poskytnutie pohlcujúcej používateľskej skúsenosti."
+        "description": "Interaktívne vývojárske portfólio s 3D scénami a plynulými animáciami. Postavené s React Three Fiber tak, aby prezeranie projektov bol zážitok, nie len ďalšia stránka."
       }
     ]
   },
   "about": {
     "title": "O spoločnosti Bitloom",
-    "subtitle": "Založené s víziou poskytovať výnimočné softvérové riešenia, ktoré poháňajú rast podnikania",
+    "subtitle": "Jeden vývojár, plné nasadenie — softvér, ktorý váš biznis skutočne posunie vpred",
     "ourStory": {
       "title": "Náš príbeh",
-      "description1": "Bitloom založil Miroslav s jasnou misiou: premostiť priepasť medzi inovatívnymi technológiami a zmysluplnými obchodnými výsledkami. Veríme, že skvelý softvér nie je len o kóde – je o porozumení vašmu podnikaniu, vašim používateľom a vašim cieľom.",
-      "description2": "Náš produktovo orientovaný prístup zabezpečuje, že každé riešenie, ktoré budujeme, je navrhnuté na škálovanie, výkon a poskytovanie merateľnej hodnoty vašej organizácii. Prijímame rastovo orientované hodnoty, ktoré riadia všetko, čo robíme."
+      "description1": "Bitloom vznikol, pretože Miroslav stále narážal na ten istý problém: firmy platili za softvér, ktorý vyzeral dobre na prezentácii, ale v praxi sa rozpadal. Chcel to robiť inak — najprv pochopiť biznis a až potom postaviť niečo, čo naozaj funguje dlhodobo.",
+      "description2": "Každý projekt začína vašimi cieľmi, nie technológiami. Zistíme, čo potrebujete, vyberieme správne nástroje a staviame s takou starostlivosťou, akú by ste čakali od niekoho, kto pod tým podpisuje svoje meno."
     },
     "coreValues": {
       "title": "Naše základné hodnoty",
@@ -162,13 +162,13 @@
       "title": "Spoznajte nášho zakladateľa",
       "name": "Miroslav Pillár - Zakladateľ a digitálny inžinier",
       "location": "Sídli v Košiciach, Slovensko",
-      "description1": "Ako profesionálny vývojár a samouk s 6 rokmi praktických skúseností, Miroslav prináša jedinečný pohľad na vývoj softvéru. Jeho cesta demonštruje silu odhodlania, kontinuálneho učenia a praktického riešenia problémov pri zvládaní moderných technológií.",
-      "description2": "Počas svojej kariéry sa Miroslav zameral na projekty v sektoroch zdravotníctva a financií - priemyselných odvetviach, kde presnosť, bezpečnosť a spoľahlivosť nie sú len príjemnými funkciami - sú absolútne nevyhnutné. Táto skúsenosť formovala jeho prístup k budovaniu softvéru, na ktorý sa podniky môžu skutočne spoľahnúť.",
-      "description3": "Tieto špecializované znalosti v kombinácii s expertízou vo full-stack vývoji a moderných technológiách zabezpečujú, že každý Bitloom projekt má prospech z technickej kvality aj z reálneho obchodného porozumenia."
+      "description1": "Miroslav je samouk s 6 rokmi profesionálnych skúseností. Učil sa na reálnych produktoch, nie v učebni — a tento praktický prístup formuje to, ako pracuje dodnes.",
+      "description2": "Väčšinu kariéry strávil v zdravotníctve a fintechu, kde chyby nie sú len otravné — môžu byť nákladné a nebezpečné. Práca v týchto prostrediach ho naučila písať kód, ktorý je spoľahlivý, bezpečný a dôkladne otestovaný.",
+      "description3": "Práve túto skúsenosť — dodávanie produkčného softvéru v regulovaných odvetviach, vlastníctvo funkcií od A po Z — dostane každý klient Bitloom. Nielen technické schopnosti, ale aj disciplínu z prostredia, kde na tom naozaj záleží."
     },
     "techStack": {
       "title": "Naša technická expertíza",
-      "description": "Špecializujeme sa na moderné technológie, ktoré nám umožňujú budovať škálovateľné, výkonné a udržateľné riešenia pre vaše obchodné potreby.",
+      "description": "Toto sú nástroje, s ktorými pracujeme každý deň. Vyberáme to, čo sedí vášmu projektu — nie to, čo je práve v trende.",
       "technologies": {
         "reactjs": "Moderný frontend vývoj s komponentovou architektúrou",
         "nextjs": "Full-stack React framework pre produkčne pripravené aplikácie",
@@ -184,15 +184,15 @@
       "title": "Prečo si vybrať Bitloom?",
       "productMindset": {
         "title": "Produktové myslenie",
-        "description": "Myslíme ako vlastníci produktov, zabezpečujúc, že každá funkcia pridáva skutočnú hodnotu vášmu podnikaniu."
+        "description": "Nepíšeme len kód — premýšľame nad tým, čo potrebujú vaši používatelia a čo skutočne pohne vaším biznisom."
       },
       "qualityFocus": {
         "title": "Zameranie na kvalitu",
-        "description": "Prísne procesy testovania a kontroly kódu zabezpečujú spoľahlivé, udržateľné riešenia."
+        "description": "Kód je testovaný, skontrolovaný a stavaný tak, aby vydržal — nie len aby prešiel prezentáciou."
       },
       "growthPartnership": {
         "title": "Rastové partnerstvo",
-        "description": "Sme investovaní do vášho úspechu a poskytujeme priebežnú podporu pri škálovaní."
+        "description": "Po spustení nezmizíme. Keď váš produkt rastie, sme tu, aby sme mu pomohli držať krok."
       }
     },
     "stats": {
@@ -201,8 +201,8 @@
       "industries": "Kľúčové odvetvia"
     },
     "ctaSection": {
-      "title": "Pripravení začať váš projekt?",
-      "description": "Poďme sa porozprávať o tom, ako premeniť vašu víziu na kvalitný digitálny produkt.",
+      "title": "Páči sa vám, čo vidíte?",
+      "description": "Poďme sa porozprávať o tom, čo potrebujete a ako môžeme spolupracovať.",
       "startProject": "Začať váš projekt",
       "viewServices": "Preskúmať služby"
     }
@@ -231,17 +231,17 @@
       }
     ],
     "cta": {
-      "title": "Pripravený začať váš projekt?",
-      "description": "Prediskutujme, ako môžeme premeniť vašu myšlienku na realitu.",
+      "title": "Chcete podobné výsledky?",
+      "description": "Povedzte nám o vašom projekte a uvidíme, čo pre vás môžeme urobiť.",
       "startConversation": "Začať konverzáciu"
     }
   },
   "contact": {
     "title": "Začnime váš projekt",
-    "subtitle": "Ste pripravený premeniť vaše nápady na kvalitné digitálne riešenia? Poďme to prediskutovať.",
+    "subtitle": "Máte nápad alebo problém, ktorý treba vyriešiť? Porozprávajme sa o tom.",
     "info": {
       "title": "Začnime spoločne budovať",
-      "description": "Máte odvážnu víziu? Alebo nadišiel čas vylepšiť, ako sa ukazujete v online svete? Bitloom je tu, aby vám pomohol premeniť vaše nápady na elegantné, škálovateľné riešenia. Poďme spoločne vybudovať niečo úžasné."
+      "description": "Máte odvážnu víziu? Alebo je čas vylepšiť, ako sa prezentujete online? Povedzte nám, o čom premýšľate — či už je to hrubý nápad alebo detailná špecifikácia, pomôžeme vám s ďalším krokom."
     },
     "methods": {
       "email": {
@@ -280,7 +280,7 @@
     }
   },
   "footer": {
-    "description": "Produktovo orientovaná spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne.",
+    "description": "Softvérová firma zameraná na vývoj webov, mobilných appiek a technické poradenstvo. Sídlime v Košiciach a pracujeme s klientmi po celom svete.",
     "quickLinks": {
       "title": "Rýchle odkazy",
       "services": "Služby",
