@@ -60,6 +60,60 @@ const LightbulbIcon = () => (
   </svg>
 );
 
+const ClockIcon = () => (
+  <svg
+    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+);
+
+const GraduationCapIcon = () => (
+  <svg
+    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m-4-2.5s4 2.5 8 0"
+    />
+  </svg>
+);
+
+const BriefcaseIcon = () => (
+  <svg
+    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    />
+  </svg>
+);
+
 const SectionDivider = () => (
   <div className="flex justify-center my-12">
     <div className="w-16 h-1 bg-linear-to-r from-primary-200 to-primary-500 dark:from-primary-500 dark:to-primary-200 rounded-full"></div>
@@ -90,8 +144,7 @@ const AboutSection = () => {
 
   return (
     <section ref={elementRef} id="about" className="section-padding">
-      <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <div className="container-max relative z-10">
           <SectionTitle
             title={t("title")}
             subtitle={t("subtitle")}
@@ -217,7 +270,7 @@ const AboutSection = () => {
                 </p>
               </div>
               <div
-                className={`lg:col-span-2 flex justify-center transition-all duration-1000 delay-700 ${
+                className={`lg:col-span-2 flex flex-col items-center gap-6 transition-all duration-1000 delay-700 ${
                   hasIntersected
                     ? "animate-fade-in-right"
                     : "opacity-0 translate-x-8"
@@ -232,6 +285,46 @@ const AboutSection = () => {
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     priority
                   />
+                </div>
+
+                {/* Highlights */}
+                <div className="w-full max-w-xs space-y-3">
+                  <div className="flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
+                    <ClockIcon />
+                    <div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {t("founder.highlights.experienceLabel")}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                        {t("founder.highlights.experienceValue")}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
+                    <GraduationCapIcon />
+                    <div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {t("founder.highlights.educationLabel")}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                        {t("founder.highlights.education1")}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 dark:text-white mt-1">
+                        {t("founder.highlights.education2")}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
+                    <BriefcaseIcon />
+                    <div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {t("founder.highlights.cooperationsLabel")}
+                      </div>
+                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
+                        {t("founder.highlights.cooperations")}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,7 +371,6 @@ const AboutSection = () => {
               </ButtonLink>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );

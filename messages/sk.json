@@ -163,7 +163,16 @@
       "title": "Spoznajte zakladateľa",
       "name": "Miroslav Pillár – Zakladateľ a softvérový inžinier",
       "location": "Košice, Slovensko",
-      "description1": "Miroslav je samouk so 6+ rokmi profesionálnych skúseností vo vývoji softvéru. Programovať sa naučil budovaním reálnych projektov a vlastných aplikácií, kde spájal technické myslenie s kreativitou. Neustále sa vzdeláva v oblastiach webového vývoja, bezpečnosti a umelej inteligencie. Vyštudoval ekonómiu na Masarykovej univerzite v Brne, CZ a je absolventom Zero To Mastery Academy.",
+      "description1": "Miroslav je samouk vo vývoji softvéru. Programovať sa naučil budovaním reálnych projektov a vlastných aplikácií, kde spájal technické myslenie s kreativitou. Neustále sa vzdeláva v oblastiach webového vývoja, mobilných appiek a umelej inteligencie.",
+      "highlights": {
+        "experienceLabel": "Skúsenosti",
+        "experienceValue": "6+ rokov profesionálnych skúseností",
+        "educationLabel": "Vzdelanie",
+        "education1": "Ing. titul v ekonómii, Masarykova univerzita, Brno",
+        "education2": "Akadémia Zero To Mastery",
+        "cooperationsLabel": "Spolupracoval s",
+        "cooperations": "Finshape · GlobalLogic · Senacor"
+      },
       "description2": "Väčšinu kariéry pracoval na projektoch zo zdravotníctva a fintechu, kde musí softvér fungovať spoľahlivo a bezpečne. Práca v týchto prostrediach ho naučila navrhovať riešenia, ktoré sú stabilné, dobre testované a pripravené na dlhodobé používanie.",
       "description3": "Vo voľnom čase rád skúma nové technológie, experimentuje a vytvára vlastné aplikácie, ktoré zjednodušujú každodenný život. Tento prístup sa premieta aj do práce pre klientov Bitloom — dôraz na kvalitu, produktivitu a transparentnú spoluprácu."
     },
@@ -281,7 +290,7 @@
     }
   },
   "footer": {
-    "description": "Softvérová firma zameraná na vývoj webov, mobilných appiek a technické poradenstvo. Sídlime v Košiciach a pracujeme s klientmi po celom svete.",
+    "description": "Softvérová spoločnosť zameraná na vývoj webov, mobilných appiek a technické poradenstvo. Sídli v Košiciach a pracuje s klientmi po celom svete.",
     "quickLinks": {
       "title": "Rýchle odkazy",
       "services": "Služby",

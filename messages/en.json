@@ -163,7 +163,16 @@
       "title": "Meet the Founder",
       "name": "Miroslav Pillár – Founder & Software Engineer",
       "location": "Košice, Slovakia",
-      "description1": "Miroslav is a self-taught software developer with 6+ years of professional experience. He learned programming by building real-world projects and personal applications, combining technical thinking with creativity. He continuously expands his knowledge in web development, security, and artificial intelligence. He holds a degree in Economics from Masaryk University in Brno, Czech Republic and is alumni of Zero To Mastery Academy.",
+      "description1": "Miroslav is a self-taught software developer. He learned programming by building real-world projects and personal applications, combining technical thinking with creativity. He continuously expands his knowledge in web development, mobile apps, and artificial intelligence.",
+      "highlights": {
+        "experienceLabel": "Experience",
+        "experienceValue": "6+ Years of Professional Experience",
+        "educationLabel": "Education",
+        "education1": "Master's Degree in Economics, Masaryk University, Brno",
+        "education2": "Zero To Mastery Academy",
+        "cooperationsLabel": "Worked With",
+        "cooperations": "Finshape · GlobalLogic · Senacor"
+      },
       "description2": "For most of his career, he has worked on healthcare and fintech projects where software must be reliable and secure. Working in these environments taught him to design solutions that are stable, well-tested, and built for long-term use.",
       "description3": "In his free time, he enjoys exploring new technologies, experimenting, and building personal applications that make everyday life easier. This mindset is reflected in his work with Bitloom clients — with a strong focus on quality, productivity, and transparent collaboration."
     },
