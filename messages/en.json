@@ -139,9 +139,10 @@
     "title": "About Bitloom company",
     "subtitle": "One developer, full commitment — building software that actually moves your business forward",
     "ourStory": {
-      "title": "Our Story",
-      "description1": "Bitloom started because Miroslav kept seeing the same problem: companies paying for software that looked good in a demo but fell apart in production. He wanted to do things differently — understand the business first, then build something that actually works long-term.",
-      "description2": "Every project starts with your goals, not a tech stack. We figure out what you need, pick the right tools for the job, and build with the kind of care you'd expect from someone whose name is on the work."
+      "title": "Our story",
+      "description1": "Bitloom was born out of a natural need to create. Miroslav, a self-taught developer, found programming through websites that allowed him to combine technical thinking with creativity.",
+      "description2": "Today, Bitloom is a one-person company focused on developing high-quality software and long-term collaborations. The company values transparent communication and reliability.",
+      "description3": "We believe that you don't need to be constantly busy — what's important is to be productive and do things properly."
     },
     "coreValues": {
       "title": "Our Core Values",
@@ -159,12 +160,12 @@
       }
     },
     "founder": {
-      "title": "Meet Our Founder",
-      "name": "Miroslav Pillár - Founder & Digital Craftsman",
-      "location": "Based in Kosice, Slovakia",
-      "description1": "Miroslav is a self-taught developer with 6 years of professional experience. He learned by building real products, not in a classroom — and that hands-on approach shapes how he works today.",
-      "description2": "Most of his career has been spent in healthcare and fintech, where bugs aren't just annoying — they can be costly and dangerous. Working in those environments taught him to write code that's reliable, secure, and thoroughly tested.",
-      "description3": "That background — shipping production software in regulated industries, owning features end-to-end — is what every Bitloom client gets. Not just technical skill, but the discipline that comes from working where it really matters."
+      "title": "Meet the Founder",
+      "name": "Miroslav Pillár – Founder & Software Engineer",
+      "location": "Košice, Slovakia",
+      "description1": "Miroslav is a self-taught software developer with 6+ years of professional experience. He learned programming by building real-world projects and personal applications, combining technical thinking with creativity. He continuously expands his knowledge in web development, security, and artificial intelligence. He holds a degree in Economics from Masaryk University in Brno, Czech Republic and is alumni of Zero To Mastery Academy.",
+      "description2": "For most of his career, he has worked on healthcare and fintech projects where software must be reliable and secure. Working in these environments taught him to design solutions that are stable, well-tested, and built for long-term use.",
+      "description3": "In his free time, he enjoys exploring new technologies, experimenting, and building personal applications that make everyday life easier. This mindset is reflected in his work with Bitloom clients — with a strong focus on quality, productivity, and transparent collaboration."
     },
     "techStack": {
       "title": "Our Technical Expertise",

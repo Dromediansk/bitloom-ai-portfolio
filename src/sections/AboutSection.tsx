@@ -114,8 +114,11 @@ const AboutSection = () => {
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 {t("ourStory.description1")}
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 {t("ourStory.description2")}
+              </p>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                {t("ourStory.description3")}
               </p>
             </div>
 

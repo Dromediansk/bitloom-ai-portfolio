@@ -140,8 +140,9 @@
     "subtitle": "Jeden vývojár, plné nasadenie — softvér, ktorý váš biznis skutočne posunie vpred",
     "ourStory": {
       "title": "Náš príbeh",
-      "description1": "Bitloom vznikol, pretože Miroslav stále narážal na ten istý problém: firmy platili za softvér, ktorý vyzeral dobre na prezentácii, ale v praxi sa rozpadal. Chcel to robiť inak — najprv pochopiť biznis a až potom postaviť niečo, čo naozaj funguje dlhodobo.",
-      "description2": "Každý projekt začína vašimi cieľmi, nie technológiami. Zistíme, čo potrebujete, vyberieme správne nástroje a staviame s takou starostlivosťou, akú by ste čakali od niekoho, kto pod tým podpisuje svoje meno."
+      "description1": "Bitloom vznikol z prirodzenej potreby tvoriť. Miroslav sa ako samouk dostal k programovaniu cez weby, ktoré mu umožnili spojiť technické myslenie s kreativitou.",
+      "description2": "Dnes je Bitloom jednoosobová spoločnosť zameraná na vývoj kvalitného softvéru a dlhodobé spolupráce. Firma si zakladá na transparentnej komunikácii a spoľahlivosti.",
+      "description3": "Veríme, že nie je dôležité byť neustále zaneprázdnený — dôležité je byť produktívny a robiť veci poriadne."
     },
     "coreValues": {
       "title": "Naše základné hodnoty",
@@ -159,12 +160,12 @@
       }
     },
     "founder": {
-      "title": "Spoznajte nášho zakladateľa",
-      "name": "Miroslav Pillár - Zakladateľ a digitálny inžinier",
-      "location": "Sídli v Košiciach, Slovensko",
-      "description1": "Miroslav je samouk s 6 rokmi profesionálnych skúseností. Učil sa na reálnych produktoch, nie v učebni — a tento praktický prístup formuje to, ako pracuje dodnes.",
-      "description2": "Väčšinu kariéry strávil v zdravotníctve a fintechu, kde chyby nie sú len otravné — môžu byť nákladné a nebezpečné. Práca v týchto prostrediach ho naučila písať kód, ktorý je spoľahlivý, bezpečný a dôkladne otestovaný.",
-      "description3": "Práve túto skúsenosť — dodávanie produkčného softvéru v regulovaných odvetviach, vlastníctvo funkcií od A po Z — dostane každý klient Bitloom. Nielen technické schopnosti, ale aj disciplínu z prostredia, kde na tom naozaj záleží."
+      "title": "Spoznajte zakladateľa",
+      "name": "Miroslav Pillár – Zakladateľ a softvérový inžinier",
+      "location": "Košice, Slovensko",
+      "description1": "Miroslav je samouk so 6+ rokmi profesionálnych skúseností vo vývoji softvéru. Programovať sa naučil budovaním reálnych projektov a vlastných aplikácií, kde spájal technické myslenie s kreativitou. Neustále sa vzdeláva v oblastiach webového vývoja, bezpečnosti a umelej inteligencie. Vyštudoval ekonómiu na Masarykovej univerzite v Brne, CZ a je absolventom Zero To Mastery Academy.",
+      "description2": "Väčšinu kariéry pracoval na projektoch zo zdravotníctva a fintechu, kde musí softvér fungovať spoľahlivo a bezpečne. Práca v týchto prostrediach ho naučila navrhovať riešenia, ktoré sú stabilné, dobre testované a pripravené na dlhodobé používanie.",
+      "description3": "Vo voľnom čase rád skúma nové technológie, experimentuje a vytvára vlastné aplikácie, ktoré zjednodušujú každodenný život. Tento prístup sa premieta aj do práce pre klientov Bitloom — dôraz na kvalitu, produktivitu a transparentnú spoluprácu."
     },
     "techStack": {
       "title": "Naša technická expertíza",
