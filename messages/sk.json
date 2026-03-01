@@ -119,11 +119,11 @@
     "items": [
       {
         "title": "AI Crew analýza obsahu obrázkov",
-        "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované používateľské príbehy. Poháňané GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové poznatky, s výsledkami uloženými v Markdown správe."
+        "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované user stories. Poháňané pomocou GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové požiadavky. Výsledky sú následne uložené v dokumente v Markdown jazyku."
       },
       {
         "title": "Mindtaker - Denník myšlienok poháňaný AI",
-        "description": "React Native mobilná aplikácia, ktorá pomáha používateľom zachytiť a organizovať denné myšlienky s poznatkami poháňanými AI. Obsahuje organizáciu založenú na kalendári, bezpečnú autentifikáciu a inteligentné rozširovanie a sumarizáciu myšlienok."
+        "description": "React Native mobilná aplikácia, ktorá pomáha používateľom zachytiť a organizovať denné myšlienky. Myšlienky je možné rozširovať a sumarizovať pomocou AI. Obsahuje organizáciu cez kalendár a OAuth autentifikáciu."
       },
       {
         "title": "Next Notes - Denné úlohy",
