@@ -2,6 +2,19 @@ import type { Project } from "./types";
 
 const projectsData = [
   {
+    id: 4,
+    categoryKey: "aiMl",
+    technologies: [
+      "TypeScript",
+      "LangGraph.js",
+      "LangChain",
+      "Pinecone",
+      "OpenAI",
+      "Anthropic",
+    ],
+    githubRepo: "research-agent-ts",
+  },
+  {
     id: 1,
     categoryKey: "aiMl",
     technologies: [
@@ -40,19 +53,6 @@ const projectsData = [
     githubRepo: "next-notes",
     demoUrl: "https://next-notes-henna.vercel.app/",
   },
-  {
-    id: 4,
-    categoryKey: "creative",
-    technologies: [
-      "Three.js",
-      "React Three Fiber",
-      "React.js",
-      "Typescript",
-      "Tailwind CSS",
-    ],
-    githubRepo: "r3f-portfolio",
-    demoUrl: "https://r3f01-portfolio.netlify.app",
-  },
 ];
 
 export const getProjects = (t: (key: string) => string): Project[] =>
@@ -61,6 +61,6 @@ export const getProjects = (t: (key: string) => string): Project[] =>
     title: t(`items.${index}.title`),
     description: t(`items.${index}.description`),
     category: t(`categories.${project.categoryKey}`),
-    imageUrl: `/images/projects/project_${index + 1}.png`,
+    imageUrl: `/images/projects/project_${project.id}.png`,
     codeUrl: `https://github.com/Dromediansk/${project.githubRepo}`,
   }));

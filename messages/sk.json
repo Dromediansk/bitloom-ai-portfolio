@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "AI Research Agent CLI",
+        "description": "Autonómny výskumný agent, ktorý odpovedá na zložité otázky orchestráciou viacerých informačných zdrojov — akademických článkov z ArXiv, webového vyhľadávania a RAG znalostnej bázy. Postavený na LangGraph.js a Pinecone, využíva Oracle LLM na inteligentné smerovanie dopytov a zostavovanie štruktúrovaných výskumných správ."
+      },
+      {
         "title": "AI Crew analýza obsahu obrázkov",
         "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované user stories. Poháňané pomocou GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové požiadavky. Výsledky sú následne uložené v dokumente v Markdown jazyku."
       },
@@ -128,10 +132,6 @@
       {
         "title": "Next Notes - Denné úlohy",
         "description": "Jednoduchá appka na zapisovanie denných afirmácií a sebareflexie. Zaznamenajte si, čo vás inšpiruje, sledujte svoj osobný rast a vybudujte si návyk pravidelného písania."
-      },
-      {
-        "title": "Portfólio s 3D grafikou",
-        "description": "Interaktívne vývojárske portfólio s 3D scénami a plynulými animáciami. Postavené s React Three Fiber tak, aby prezeranie projektov bol zážitok, nie len ďalšia stránka."
       }
     ]
   },

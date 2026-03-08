@@ -2,15 +2,16 @@
  * Generates a styled project banner image for the portfolio.
  *
  * Usage:
- *   node scripts/generate-project-banner.js \
+ *   node scripts/generate-project-banner.mjs \
  *     --tagline "Orchestrating AI agents to unlock research insights" \
  *     --category "AI / ML" \
  *     --output "public/images/projects/project_5.png"
  */
 
-const fs = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
+import fs from "fs";
+import path from "path";
+import os from "os";
+import { execFileSync } from "child_process";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -44,6 +45,15 @@ const CATEGORY_THEMES = {
     icon: `<svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>`,
   },
 };
+
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 function getTheme(category) {
   return CATEGORY_THEMES[category] || CATEGORY_THEMES["Web App"];
@@ -140,7 +150,7 @@ function generateHTML({ tagline, category }) {
   <div class="glow-2"></div>
   <div class="container">
     <div class="icon">${theme.icon}</div>
-    <h1 class="tagline">${tagline}</h1>
+    <h1 class="tagline">${escapeHTML(tagline)}</h1>
   </div>
 </body>
 </html>`;
@@ -151,26 +161,41 @@ function main() {
 
   if (!args.tagline || !args.category || !args.output) {
     console.error(
-      "Usage: node generate-project-banner.js --tagline <tagline> --category <category> --output <path>"
+      "Usage: node generate-project-banner.mjs --tagline <tagline> --category <category> --output <path>",
     );
     process.exit(1);
   }
 
   const html = generateHTML(args);
   const outputPath = path.resolve(args.output);
+  const outputDir = path.dirname(outputPath);
+
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
 
   // Write HTML to a temp file, then screenshot it with the Playwright CLI
-  const tmpFile = path.join(require("os").tmpdir(), `banner-${Date.now()}.html`);
+  const tmpFile = path.join(os.tmpdir(), `banner-${Date.now()}.html`);
   fs.writeFileSync(tmpFile, html);
 
   try {
-    execSync(
-      `npx playwright screenshot --viewport-size="1280,720" --wait-for-timeout=3000 "file://${tmpFile}" "${outputPath}"`,
-      { stdio: "inherit" }
+    execFileSync(
+      "npx",
+      [
+        "playwright",
+        "screenshot",
+        `--viewport-size=1280,720`,
+        "--wait-for-timeout=3000",
+        `file://${tmpFile}`,
+        outputPath,
+      ],
+      { stdio: "inherit", shell: true },
     );
     console.log(`Banner saved to ${outputPath}`);
   } finally {
-    fs.unlinkSync(tmpFile);
+    if (fs.existsSync(tmpFile)) {
+      fs.unlinkSync(tmpFile);
+    }
   }
 }
 

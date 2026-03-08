@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "AI Research Agent CLI",
+        "description": "An autonomous research agent that answers complex questions by orchestrating multiple information sources — ArXiv papers, Google web search, and a RAG knowledge base. Built with LangGraph.js and Pinecone, it uses an Oracle LLM to intelligently route queries and compile structured research reports."
+      },
+      {
         "title": "AI Crew Image Content Analysis",
         "description": "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights. The results are then saved in a Markdown document."
       },
@@ -128,10 +132,6 @@
       {
         "title": "Next Notes - Daily Tasks",
         "description": "A clean note-taking app for daily affirmations and self-reflection. Write down what inspires you, track your personal growth, and build a habit of journaling."
-      },
-      {
-        "title": "Portfolio with 3D graphics",
-        "description": "An interactive developer portfolio with 3D scenes and smooth animations. Built with React Three Fiber to make browsing projects feel like an experience, not just a page."
       }
     ]
   },

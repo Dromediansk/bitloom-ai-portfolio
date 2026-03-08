@@ -39,16 +39,29 @@ Read these files to understand the current project count and structure:
 - `messages/en.json` — English translations (`projects.items` array)
 - `messages/sk.json` — Slovak translations (`projects.items` array)
 
-Note the current number of projects (N). The new project will be at index N (0-based), and its id will be N + 1.
+Note the current number of projects (N). The new project will be at index 0 (first position), and its id will be N + 1.
+
+Since translations and images are mapped by array index (not by id), inserting at the front means all existing items shift down by one. You'll handle this in the following steps.
 
 ## Step 3: Generate Project Preview Image
 
 The portfolio displays project screenshots as card images. Generate an appropriate preview image and save it to `public/images/projects/project_<N+1>.png`.
 
+**First, shift existing images** so the new project can take position 1. Rename them in reverse order to avoid overwriting:
+
+```bash
+# Shift existing images: project_N.png → project_N+1.png, ..., project_1.png → project_2.png
+for i in $(seq N -1 1); do
+  mv "public/images/projects/project_${i}.png" "public/images/projects/project_$((i+1)).png"
+done
+```
+
+**Then generate the new project's image** as `public/images/projects/project_1.png`.
+
 **If the project has a live demo URL**, take a screenshot using Playwright:
 
 ```bash
-npx playwright screenshot --viewport-size="1280,720" --wait-for-timeout=3000 "<demo-url>" public/images/projects/project_<N+1>.png
+npx playwright screenshot --viewport-size="1280,720" --wait-for-timeout=3000 "<demo-url>" public/images/projects/project_1.png
 ```
 
 **If there is no live URL**, generate a styled banner image using the banner generator script. The script creates a professional banner with a creative tagline and a category-themed icon — styled with colors that match the category (purple for AI/ML, blue for Web App, etc.).
@@ -61,17 +74,17 @@ Examples:
 - For a 3D portfolio: "Where Code Meets Creative Expression"
 
 ```bash
-node scripts/generate-project-banner.js \
+node scripts/generate-project-banner.mjs \
   --tagline "<creative tagline about what the project does>" \
   --category "<display category name, e.g. 'AI / ML', 'Web App', 'Mobile App', '3D / Creative'>" \
-  --output "public/images/projects/project_<N+1>.png"
+  --output "public/images/projects/project_1.png"
 ```
 
 The `--category` value must match one of: `AI / ML`, `Mobile App`, `Web App`, `3D / Creative` (these are the display names, not the categoryKey values).
 
 ## Step 4: Update data.ts
 
-Add a new entry to the `projectsData` array in `src/components/projects/data.ts`:
+Add a new entry as the **first item** in the `projectsData` array in `src/components/projects/data.ts`:
 
 ```typescript
 {
@@ -82,13 +95,14 @@ Add a new entry to the `projectsData` array in `src/components/projects/data.ts`
   // only include demoUrl if a live URL was found
   demoUrl: "https://...",
 },
+// ... existing entries follow
 ```
 
 The `githubRepo` field is just the repo name (not the full URL) — it gets prefixed with `https://github.com/Dromediansk/` by the `getProjects` function. The `codeUrl` is generated automatically from this.
 
 ## Step 5: Update Translation Files
 
-Add a new item to the end of the `projects.items` array in both translation files.
+Add a new item as the **first entry** in the `projects.items` array in both translation files. This keeps translations aligned with the `projectsData` array order (index 0 = first project).
 
 **messages/en.json**:
 ```json
