@@ -1,6 +1,6 @@
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a single-person product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and technical consulting with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a single-person product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and AI development with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 
@@ -35,7 +35,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 
 - `/` or `/en` → Company Intro (hero section with company mission and values)
 - `/sk` → Slovak version of homepage
-- `/en/services` or `/sk/services` → Service offerings (web development, consulting, product strategy)
+- `/en/services` or `/sk/services` → Service offerings (web development, AI development, mobile apps)
 - `/en/projects` or `/sk/projects` → Featured client work and case studies
 - `/en/about` or `/sk/about` → Company story, team, and founder Miroslav's background
 - `/en/contact` or `/sk/contact` → Contact form and business inquiry details
@@ -104,7 +104,7 @@ Bitloom's core technical expertise includes:
 - Core service offerings:
   - **Modern Web Craft** - Crafting exceptional web experiences through full-stack development and modern architecture
   - **Mobile Mastery** - Crafting seamless cross-platform mobile applications that feel native on every device
-  - **Technical consulting** - Strategic guidance to help businesses make informed technology decisions and optimize their development processes.
+  - **AI Development** - Building AI agents, automations, and AI-powered productivity tools that help businesses harness artificial intelligence.
 - Service descriptions with benefits
 - Process overview (discovery, analysis, development, delivery)
 

@@ -12,7 +12,7 @@
   "hero": {
     "companyName": "Bitloom",
     "tagline": "Digital Solutions from Bold Ideas",
-    "description": "Web, mobile apps and consulting tailored to your specific needs.",
+    "description": "Web, mobile apps and AI solutions tailored to your specific needs.",
     "exploreServices": "Explore Services",
     "contactUs": "Book a Free Consultation",
     "scrollToExplore": "Scroll to explore",
@@ -42,15 +42,15 @@
       ],
       "cta": "Plan Your Mobile App"
     },
-    "technicalConsulting": {
-      "title": "Technical Consulting",
-      "description": "Stuck on architecture decisions, slow releases, or growing tech debt? I can help you sort it out.",
+    "aiDevelopment": {
+      "title": "AI Development",
+      "description": "Looking to harness AI for your business? From custom agents to smart automations, we build AI-powered solutions that boost productivity and cut costs.",
       "features": [
-        "Find what's slowing your team down",
-        "Get a clear technical roadmap",
-        "Hands-on developer mentoring"
+        "Custom AI agents & chatbots",
+        "Workflow automation & integration",
+        "AI-powered productivity tools"
       ],
-      "cta": "Book a Free Consultation"
+      "cta": "Build AI Solutions"
     },
     "industries": {
       "label": "Trusted in industries where precision matters",
@@ -290,7 +290,7 @@
     }
   },
   "footer": {
-    "description": "Product-oriented software engineering company specializing in web development, mobile development, and technical consulting. Based in Kosice, Slovakia, supporting clients globally.",
+    "description": "Product-oriented software engineering company specializing in web development, mobile development, and AI development. Based in Kosice, Slovakia, supporting clients globally.",
     "quickLinks": {
       "title": "Quick Links",
       "services": "Services",
@@ -309,12 +309,12 @@
   },
   "metadata": {
     "title": "Bitloom - Crafting Digital Solutions",
-    "description": "Product-oriented software engineering company specializing in web development, mobile development, and technical consulting. Based in Kosice, Slovakia, supporting clients globally. Founded by Miroslav Pillár.",
+    "description": "Product-oriented software engineering company specializing in web development, mobile development, and AI development. Based in Kosice, Slovakia, supporting clients globally. Founded by Miroslav Pillár.",
     "keywords": [
       "web development",
       "frontend development",
       "full-stack development",
-      "technical consulting",
+      "AI development",
       "React.js",
       "TypeScript",
       "React Native"
@@ -329,7 +329,7 @@
       "introduction": {
         "title": "Introduction",
         "content": {
-          "paragraph1": "Welcome to Bitloom s.r.o. (\"we,\" \"our,\" or \"us\"). We are a Software Engineering company based in Košice, Slovakia, specializing in web development, mobile development, and technical consulting. We are committed to protecting your personal information and your right to privacy.",
+          "paragraph1": "Welcome to Bitloom s.r.o. (\"we,\" \"our,\" or \"us\"). We are a Software Engineering company based in Košice, Slovakia, specializing in web development, mobile development, and AI development. We are committed to protecting your personal information and your right to privacy.",
           "paragraph2": "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website bitloom.sk and blog.bitloom.sk, use our services, or contact us for business inquiries."
         }
       },
@@ -373,7 +373,7 @@
         "intro": "We use your information for the following business purposes:",
         "items": [
           "Business Communications: Responding to inquiries, providing project quotes, discussing technical requirements",
-          "Service Delivery: Managing projects, providing technical consulting, and delivering development services",
+          "Service Delivery: Managing projects, providing AI development, and delivering development services",
           "Website Improvement: Analyzing website performance, understanding user behavior, optimizing user experience",
           "Marketing: Sharing relevant content, case studies, and service updates (with consent)",
           "Legal Compliance: Meeting legal obligations, resolving disputes, enforcing agreements",

@@ -12,7 +12,7 @@
   "hero": {
     "companyName": "Bitloom",
     "tagline": "Digitálne riešenia z odvážnych nápadov",
-    "description": "Vývoj webu, mobilných appiek a poradenstvo prispôsobené vašim konkrétnym potrebám.",
+    "description": "Vývoj webu, mobilných appiek a AI riešenia prispôsobené vašim konkrétnym potrebám.",
     "exploreServices": "Preskúmať služby",
     "contactUs": "Bezplatná konzultácia",
     "scrollToExplore": "Posúvajte pre preskúmanie",
@@ -42,15 +42,15 @@
       ],
       "cta": "Naplánovať vašu mobilnú appku"
     },
-    "technicalConsulting": {
-      "title": "Technické poradenstvo",
-      "description": "Neviete sa rozhodnúť v architektúre, spomaľujú vás releasy alebo rastie technický dlh? Pomôžem vám to vyriešiť.",
+    "aiDevelopment": {
+      "title": "AI vývoj",
+      "description": "Chcete využiť AI vo vašom biznise? Od vlastných agentov po inteligentné automatizácie — budujeme AI riešenia, ktoré zvyšujú produktivitu a znižujú náklady.",
       "features": [
-        "Zistite, čo spomaľuje váš tím",
-        "Jasný technický plán na mieru",
-        "Praktický mentoring vývojárov"
+        "Vlastní AI agenti a chatboty",
+        "Automatizácia a integrácia procesov",
+        "AI nástroje na zvýšenie produktivity"
       ],
-      "cta": "Rezervovať bezplatnú konzultáciu"
+      "cta": "Preskúmať AI riešenia"
     },
     "industries": {
       "label": "Dôvera v odvetviach, kde záleží na presnosti",
@@ -290,7 +290,7 @@
     }
   },
   "footer": {
-    "description": "Softvérová spoločnosť zameraná na vývoj webov, mobilných appiek a technické poradenstvo. Sídli v Košiciach a pracuje s klientmi po celom svete.",
+    "description": "Softvérová spoločnosť zameraná na vývoj webov, mobilných appiek a AI riešení. Sídli v Košiciach a pracuje s klientmi po celom svete.",
     "quickLinks": {
       "title": "Rýchle odkazy",
       "services": "Služby",
@@ -309,12 +309,12 @@
   },
   "metadata": {
     "title": "Bitloom - Vytváranie digitálnych riešení",
-    "description": "Produktovo orientovaná spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a technické poradenstvo. Sídli v Košiciach, Slovensko, podporuje klientov globálne. Zakladateľom je Miroslav Pillár.",
+    "description": "Produktovo orientovaná spoločnosť softvérového inžinierstva špecializujúca sa na vývoj webových aplikácií, mobilných aplikácií a AI vývoj. Sídli v Košiciach, Slovensko, podporuje klientov globálne. Zakladateľom je Miroslav Pillár.",
     "keywords": [
       "vývoj webu",
       "frontend vývoj",
       "full-stack vývoj",
-      "technické poradenstvo",
+      "AI vývoj",
       "React.js",
       "TypeScript",
       "React Native"
@@ -329,7 +329,7 @@
       "introduction": {
         "title": "Úvod",
         "content": {
-          "paragraph1": "Vitajte v Bitloom s.r.o. (\"my\", \"naša\" alebo \"nás\"). Sme spoločnosť softvérového inžinierstva so sídlom v Košiciach na Slovensku, špecializujúca sa na webový vývoj, mobilný vývoj a technické poradenstvo. Zaviazali sme sa chrániť vaše osobné údaje a vaše právo na súkromie.",
+          "paragraph1": "Vitajte v Bitloom s.r.o. (\"my\", \"naša\" alebo \"nás\"). Sme spoločnosť softvérového inžinierstva so sídlom v Košiciach na Slovensku, špecializujúca sa na webový vývoj, mobilný vývoj a AI vývoj. Zaviazali sme sa chrániť vaše osobné údaje a vaše právo na súkromie.",
           "paragraph2": "Tieto zásady ochrany osobných údajov vysvetľujú, ako zhromažďujeme, používame, zverejňujeme a chránime vaše informácie, keď navštívite naše webové stránky bitloom.sk a blog.bitloom.sk, používate naše služby alebo nás kontaktujete pre obchodné dotazy."
         }
       },
@@ -373,7 +373,7 @@
         "intro": "Vaše informácie používame na nasledujúce obchodné účely:",
         "items": [
           "Obchodná komunikácia: Odpoveď na dotazy, poskytovanie cenových ponúk na projekty, diskusia o technických požiadavkách",
-          "Dodávanie služieb: Riadenie projektov, poskytovanie technického poradenstva a dodávanie vývojových služieb",
+          "Dodávanie služieb: Riadenie projektov, poskytovanie AI vývoja a dodávanie vývojových služieb",
           "Zlepšovanie webovej stránky: Analýza výkonu webovej stránky, pochopenie správania používateľov, optimalizácia používateľského zážitku",
           "Marketing: Zdieľanie relevantného obsahu, prípadových štúdií a aktualizácií služieb (so súhlasom)",
           "Právne dodržiavanie: Plnenie právnych povinností, riešenie sporov, presadzovanie dohôd",

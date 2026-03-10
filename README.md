@@ -1,6 +1,6 @@
 # Bitloom Portfolio Website
 
-A modern, professional company website for **Bitloom** - a product-oriented software engineering company specializing in web development, mobile development, and technical consulting with high-quality, scalable solutions.
+A modern, professional company website for **Bitloom** - a product-oriented software engineering company specializing in web development, mobile development, and AI development with high-quality, scalable solutions.
 
 ## 🤖 AI-Powered Development
 
@@ -18,7 +18,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 ### Company Sections
 
 - **Hero Section** - Compelling value proposition and mission statement
-- **Services** - Core offerings including web development and consulting
+- **Services** - Core offerings including web development, mobile apps, and AI development
 - **Projects** - Featured client work and case studies
 - **About** - Company story and founder Miroslav's background
 - **References** - Client testimonials and success stories
