@@ -5,7 +5,7 @@ export const siteConfig = {
   creator: "Miroslav Pillár", // Used in metadata authors field
   social: {
     github: "https://github.com/Dromediansk",
-    linkedin: "https://www.linkedin.com/in/miroslavpillar/",
+    linkedin: "https://www.linkedin.com/company/bitloomsk",
     email: "info@bitloom.sk",
     blog: "https://blog.bitloom.sk",
   },
