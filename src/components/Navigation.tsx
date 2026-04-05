@@ -75,8 +75,8 @@ const Navigation = () => {
             <Image
               src="/logo_pure.svg"
               alt="Bitloom Logo"
-              width={200}
-              height={60}
+              width={440}
+              height={140}
               className="h-10 w-auto"
               priority
             />

@@ -21,8 +21,8 @@ const Footer = () => {
               <Image
                 src="/logo_pure.svg"
                 alt="Bitloom Logo"
-                width={160}
-                height={48}
+                width={440}
+                height={140}
                 className="h-20 w-auto"
               />
             </Link>
