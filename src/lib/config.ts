@@ -1,7 +1,7 @@
 // Site configuration - Technical constants only
 export const siteConfig = {
   url: "https://bitloom.sk",
-  ogImage: "https://bitloom.sk/logo.png",
+  ogImage: "https://bitloom.sk/logo_mark.svg",
   creator: "Miroslav Pillár", // Used in metadata authors field
   social: {
     github: "https://github.com/Dromediansk",
