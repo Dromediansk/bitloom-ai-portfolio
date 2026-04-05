@@ -73,10 +73,10 @@ const Navigation = () => {
             className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-[1.02] animate-fade-in-left"
           >
             <Image
-              src="/logo_pure.svg"
+              src="/icon.svg"
               alt="Bitloom Logo"
-              width={440}
-              height={140}
+              width={160}
+              height={160}
               className="h-10 w-auto"
               priority
             />

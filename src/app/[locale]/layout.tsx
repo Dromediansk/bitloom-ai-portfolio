@@ -31,6 +31,9 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords,
+    icons: {
+      icon: "/icon.svg",
+    },
     authors: [{ name: "Miroslav Pillár" }],
     creator: "Miroslav Pillár",
     openGraph: {

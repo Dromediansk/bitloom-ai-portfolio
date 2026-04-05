@@ -19,10 +19,10 @@ const Footer = () => {
               className="inline-flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-105 mb-4"
             >
               <Image
-                src="/logo_pure.svg"
+                src="/logo_mark.svg"
                 alt="Bitloom Logo"
-                width={440}
-                height={140}
+                width={480}
+                height={160}
                 className="h-20 w-auto"
               />
             </Link>

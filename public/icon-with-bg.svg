@@ -5,6 +5,8 @@
       <stop offset="100%" stop-color="#4d93fc"/>
     </linearGradient>
   </defs>
+  <!-- Gray background -->
+  <rect width="160" height="160" rx="0" fill="#0f172a"/>
   <!-- Dark square -->
   <rect x="24" y="24" width="80" height="80" rx="16" fill="none" stroke="#0d6efd" stroke-width="6"/>
   <!-- Light square -->
