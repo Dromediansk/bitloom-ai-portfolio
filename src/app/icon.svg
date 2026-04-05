@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  <!-- Vertical stem -->
+  <rect x="30" y="16" width="10" height="120" rx="5" fill="#0d6efd" opacity="0.85"/>
+  <!-- Top loop - primary thread -->
+  <path d="M35 26 C66 26, 88 34, 88 52 C88 68, 66 76, 40 76" stroke="#0d6efd" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- Top loop - secondary thread -->
+  <path d="M35 36 C58 36, 74 42, 74 52 C74 62, 58 66, 40 66" stroke="#4d93fc" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.65"/>
+  <!-- Bottom loop - primary thread -->
+  <path d="M35 76 C72 76, 98 84, 98 102 C98 120, 72 130, 35 130" stroke="#0d6efd" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- Bottom loop - secondary thread -->
+  <path d="M35 86 C64 86, 84 92, 84 102 C84 114, 64 120, 35 120" stroke="#4d93fc" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.65"/>
+</svg>
