@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={quicksand.className} suppressHydrationWarning>
+    <html lang="en" className={quicksand.className} suppressHydrationWarning data-scroll-behavior="smooth">
       <Head>
         <meta charSet="UTF-8" />
       </Head>
