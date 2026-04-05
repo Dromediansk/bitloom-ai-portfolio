@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Horizontal top thread (left half, behind vertical) -->
+  <path d="M8 24 L26 24" stroke="#0d6efd" stroke-width="6" stroke-linecap="round"/>
+  <!-- Vertical thread (top, passes over top horizontal) -->
+  <path d="M32 8 L32 30" stroke="#4d93fc" stroke-width="6" stroke-linecap="round"/>
+  <!-- Horizontal top thread (right half, behind vertical) -->
+  <path d="M38 24 L56 24" stroke="#0d6efd" stroke-width="6" stroke-linecap="round"/>
+  <!-- Horizontal bottom thread (full, passes over vertical) -->
+  <path d="M8 40 L56 40" stroke="#0d6efd" stroke-width="6" stroke-linecap="round"/>
+  <!-- Vertical thread (bottom, behind bottom horizontal) -->
+  <path d="M32 46 L32 56" stroke="#4d93fc" stroke-width="6" stroke-linecap="round"/>
+</svg>
