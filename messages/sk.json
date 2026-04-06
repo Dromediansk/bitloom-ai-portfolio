@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "CareerStride - AI kariérny kouč",
+        "description": "Kariérna koučingová platforma poháňaná umelou inteligenciou s tromi špecializovanými AI osobnosťami — stratég pre vedľajšie príjmy, kouč na pohovory a vedec zameraný na vzdelávanie. Obsahuje streamovaný chat v reálnom čase poháňaný Claude, AI kvízy na zručnosti, kurátorované návody krok za krokom a predplatné cez Stripe. Cenovo dostupná alternatíva k drahému ľudskému koučingu."
+      },
+      {
         "title": "AI Research Agent CLI",
         "description": "Autonómny výskumný agent, ktorý odpovedá na zložité otázky orchestráciou viacerých informačných zdrojov — akademických článkov z ArXiv, webového vyhľadávania a RAG znalostnej bázy. Postavený na LangGraph.js a Pinecone, využíva Oracle LLM na inteligentné smerovanie dopytov a zostavovanie štruktúrovaných výskumných správ."
       },

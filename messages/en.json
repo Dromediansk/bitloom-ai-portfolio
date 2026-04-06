@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "CareerStride - AI Career Coach",
+        "description": "An AI-powered career coaching platform with three specialized AI personas — a side hustle strategist, interview coach, and learning scientist. Features real-time streaming chat powered by Claude, AI-generated skill quizzes, curated step-by-step guides, and Stripe-based subscription plans. Built as an affordable alternative to expensive human coaching."
+      },
+      {
         "title": "AI Research Agent CLI",
         "description": "An autonomous research agent that answers complex questions by orchestrating multiple information sources — ArXiv papers, Google web search, and a RAG knowledge base. Built with LangGraph.js and Pinecone, it uses an Oracle LLM to intelligently route queries and compile structured research reports."
       },

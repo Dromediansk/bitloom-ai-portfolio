@@ -12,7 +12,7 @@ export const ProjectActions = memo(
     const t = useTranslations("projects");
 
     return (
-      <div className="flex gap-3">
+      <div className="flex gap-3 max-w-xs self-center ">
         {demoUrl && (
           <ButtonLink
             href={demoUrl}
@@ -37,7 +37,7 @@ export const ProjectActions = memo(
         )}
       </div>
     );
-  }
+  },
 );
 
 ProjectActions.displayName = "ProjectActions";

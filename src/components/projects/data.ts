@@ -2,6 +2,19 @@ import type { Project } from "./types";
 
 const projectsData = [
   {
+    id: 5,
+    categoryKey: "aiMl",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Claude AI",
+      "Supabase",
+      "Drizzle ORM",
+      "Stripe",
+    ],
+    demoUrl: "https://careerstrideai.vercel.app",
+  },
+  {
     id: 4,
     categoryKey: "aiMl",
     technologies: [
@@ -62,5 +75,7 @@ export const getProjects = (t: (key: string) => string): Project[] =>
     description: t(`items.${index}.description`),
     category: t(`categories.${project.categoryKey}`),
     imageUrl: `/images/projects/project_${project.id}.png`,
-    codeUrl: `https://github.com/Dromediansk/${project.githubRepo}`,
+    codeUrl: project.githubRepo
+      ? `https://github.com/Dromediansk/${project.githubRepo}`
+      : undefined,
   }));
