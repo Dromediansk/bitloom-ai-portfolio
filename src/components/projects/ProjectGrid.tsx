@@ -17,12 +17,12 @@ const ProjectContent = ({
   project: Project;
   className?: string;
 }) => (
-  <div className={`p-6 flex flex-col flex-grow ${className}`}>
+  <div className={`p-6 flex flex-col grow ${className}`}>
     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
       {project.title}
     </h3>
 
-    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed flex-grow">
+    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed grow">
       {project.description}
     </p>
 
@@ -53,7 +53,9 @@ export const ProjectGrid = memo(({ projects }: ProjectGridProps) => {
           <article
             key={project.id}
             className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-all duration-500 will-change-transform group hover:shadow-xl hover:-translate-y-2 border border-gray-100 dark:border-gray-700 hover:border-primary-200 dark:hover:border-primary-700 h-full ${
-              isFeatured ? "md:col-span-2 lg:col-span-3 flex flex-col lg:flex-row" : "flex flex-col"
+              isFeatured
+                ? "md:col-span-2 lg:col-span-3 flex flex-col lg:flex-row"
+                : "flex flex-col"
             } ${delayClass} ${
               hasIntersected ? `animate-fade-in-up` : "opacity-0 translate-y-8"
             }`}
@@ -63,10 +65,7 @@ export const ProjectGrid = memo(({ projects }: ProjectGridProps) => {
                 <div className="lg:w-1/2 w-full">
                   <ProjectImage project={project} featured />
                 </div>
-                <ProjectContent
-                  project={project}
-                  className="lg:w-1/2 w-full"
-                />
+                <ProjectContent project={project} className="lg:w-1/2 w-full" />
               </>
             ) : (
               <>

@@ -12,7 +12,7 @@ export const ProjectImage = ({
 }: ProjectImageProps) => {
   return (
     <div
-      className={`relative ${featured ? "h-56 lg:h-full lg:min-h-[280px]" : "h-56"} bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 overflow-hidden`}
+      className={`relative ${featured ? "h-56 lg:h-full lg:min-h-70" : "h-56"} bg-linear-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 overflow-hidden`}
     >
       {project.imageUrl ? (
         <Image
@@ -37,26 +37,26 @@ export const ProjectImage = ({
                   project.id === 1
                     ? "#0d6efd20"
                     : project.id === 2
-                    ? "#6366f120"
-                    : "#06b6d420"
+                      ? "#6366f120"
+                      : "#06b6d420"
                 } 25%, transparent 25%, transparent 75%, ${
                   project.id === 1
                     ? "#0d6efd20"
                     : project.id === 2
-                    ? "#6366f120"
-                    : "#06b6d420"
+                      ? "#6366f120"
+                      : "#06b6d420"
                 } 75%), linear-gradient(45deg, ${
                   project.id === 1
                     ? "#0d6efd20"
                     : project.id === 2
-                    ? "#6366f120"
-                    : "#06b6d420"
+                      ? "#6366f120"
+                      : "#06b6d420"
                 } 25%, transparent 25%, transparent 75%, ${
                   project.id === 1
                     ? "#0d6efd20"
                     : project.id === 2
-                    ? "#6366f120"
-                    : "#06b6d420"
+                      ? "#6366f120"
+                      : "#06b6d420"
                 } 75%)`,
                 backgroundSize: "20px 20px",
                 backgroundPosition: "0 0, 10px 10px",
@@ -73,8 +73,8 @@ export const ProjectImage = ({
                   project.id === 1
                     ? "bg-primary-500"
                     : project.id === 2
-                    ? "bg-indigo-500"
-                    : "bg-cyan-500"
+                      ? "bg-indigo-500"
+                      : "bg-cyan-500"
                 }
                 group-hover:scale-110 transition-transform duration-300 shadow-lg
               `}
@@ -92,7 +92,7 @@ export const ProjectImage = ({
       )}
 
       {/* Hover gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
       {/* Category badge */}
       {project.category && (
