@@ -1,19 +1,19 @@
 import type { Project } from "./types";
 
 const projectsData = [
-  {
-    id: 5,
-    categoryKey: "aiMl",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Claude AI",
-      "Supabase",
-      "Drizzle ORM",
-      "Stripe",
-    ],
-    demoUrl: "https://careerstrideai.vercel.app",
-  },
+  // {
+  //   id: 5,
+  //   categoryKey: "aiMl",
+  //   technologies: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Claude AI",
+  //     "Supabase",
+  //     "Drizzle ORM",
+  //     "Stripe",
+  //   ],
+  //   demoUrl: "https://careerstrideai.vercel.app",
+  // },
   {
     id: 4,
     categoryKey: "aiMl",

@@ -19,7 +19,7 @@ export const ProjectActions = memo(
             target="_blank"
             rel="noopener noreferrer"
             variant="primary"
-            className="flex-1 text-center hover:scale-105 transition-all duration-300"
+            className="flex-1 text-center h-12 hover:scale-105 transition-all duration-300"
           >
             {t("actions.viewProject")}
           </ButtonLink>
@@ -30,7 +30,7 @@ export const ProjectActions = memo(
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
-            className="flex-1 text-center hover:scale-105 transition-all duration-300"
+            className="flex-1 text-center h-12 hover:scale-105 transition-all duration-300"
           >
             {t("actions.sourceCode")}
           </ButtonLink>
