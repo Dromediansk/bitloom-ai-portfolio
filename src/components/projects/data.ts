@@ -1,6 +1,19 @@
 import type { Project } from "./types";
 
 const projectsData = [
+  {
+    id: 5,
+    categoryKey: "webApp",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "next-intl",
+      "React",
+      "Mailtrap",
+    ],
+    demoUrl: "https://holaespanol.sk",
+  },
   // {
   //   id: 5,
   //   categoryKey: "aiMl",

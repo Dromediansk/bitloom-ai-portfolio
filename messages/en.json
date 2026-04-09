@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "Hola Español",
+        "description": "A modern, bilingual website for online Spanish lessons — featuring a clean landing page with service offerings, teacher profile, and an integrated contact form for lesson inquiries. Built with Next.js 16, internationalization support, and dark mode."
+      },
+      {
         "title": "AI Research Agent CLI",
         "description": "An autonomous research agent that answers complex questions by orchestrating multiple information sources — ArXiv papers, Google web search, and a RAG knowledge base. Built with LangGraph.js and Pinecone, it uses an Oracle LLM to intelligently route queries and compile structured research reports."
       },

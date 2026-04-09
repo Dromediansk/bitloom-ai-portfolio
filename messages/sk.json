@@ -118,6 +118,10 @@
     },
     "items": [
       {
+        "title": "Hola Español",
+        "description": "Moderná, dvojjazyčná webová stránka pre online hodiny španielčiny — s prehľadnou úvodnou stránkou, ponukou služieb, profilom lektorky a integrovaným kontaktným formulárom. Postavená na Next.js 16 s podporou internacionalizácie a tmavého režimu."
+      },
+      {
         "title": "AI Research Agent CLI",
         "description": "Autonómny výskumný agent, ktorý odpovedá na zložité otázky orchestráciou viacerých informačných zdrojov — akademických článkov z ArXiv, webového vyhľadávania a RAG znalostnej bázy. Postavený na LangGraph.js a Pinecone, využíva Oracle LLM na inteligentné smerovanie dopytov a zostavovanie štruktúrovaných výskumných správ."
       },
