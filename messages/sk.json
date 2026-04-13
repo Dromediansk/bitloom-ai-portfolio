@@ -29,8 +29,7 @@
         "Moderný full-stack vývoj",
         "Responzívny dizajn",
         "Optimalizácia výkonu a SEO"
-      ],
-      "cta": "Prediskutovať váš web projekt"
+      ]
     },
     "mobileMastery": {
       "title": "Mobilné aplikácie",
@@ -39,8 +38,7 @@
         "iOS & Android súčasne",
         "Optimalizácia pre app store",
         "Dizajn zameraný na používateľa"
-      ],
-      "cta": "Naplánovať vašu mobilnú appku"
+      ]
     },
     "aiDevelopment": {
       "title": "AI vývoj",
@@ -49,8 +47,7 @@
         "Vlastní AI agenti a chatboty",
         "Automatizácia a integrácia procesov",
         "AI nástroje na zvýšenie produktivity"
-      ],
-      "cta": "Preskúmať AI riešenia"
+      ]
     },
     "industries": {
       "label": "Dôvera v odvetviach, kde záleží na presnosti",
@@ -71,7 +68,7 @@
       "title": "Máte v hlave projekt?",
       "description": "Povedzte nám, na čom pracujete — spoločne vymyslíme, ako na to.",
       "contactUs": "Napíšte nám",
-      "viewOurWork": "Pozrieť minulé projekty"
+      "viewOurWork": "Pozrieť našu prácu"
     }
   },
   "process": {

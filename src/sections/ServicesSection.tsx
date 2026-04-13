@@ -122,8 +122,6 @@ const ServicesSection = () => {
         t("modernWebCraft.features.1"),
         t("modernWebCraft.features.2"),
       ],
-      ctaLabel: t("modernWebCraft.cta"),
-      exampleHref: "/projects",
     },
     {
       id: "mobile-mastery" as const,
@@ -134,8 +132,6 @@ const ServicesSection = () => {
         t("mobileMastery.features.1"),
         t("mobileMastery.features.2"),
       ],
-      ctaLabel: t("mobileMastery.cta"),
-      exampleHref: "/projects",
     },
     {
       id: "ai-development" as const,
@@ -146,8 +142,6 @@ const ServicesSection = () => {
         t("aiDevelopment.features.1"),
         t("aiDevelopment.features.2"),
       ],
-      ctaLabel: t("aiDevelopment.cta"),
-      exampleHref: "/projects",
     },
   ];
 
@@ -231,7 +225,7 @@ const ServicesSection = () => {
                 <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
@@ -242,16 +236,6 @@ const ServicesSection = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
-                  <ButtonLink
-                    href="/contact"
-                    variant="secondary"
-                    size="sm"
-                    className="w-full justify-center"
-                  >
-                    {service.ctaLabel}
-                  </ButtonLink>
-                </div>
               </div>
             );
           })}

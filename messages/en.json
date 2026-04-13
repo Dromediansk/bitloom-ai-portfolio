@@ -29,8 +29,7 @@
         "Modern full-stack development",
         "Responsive design",
         "Performance and SEO optimization"
-      ],
-      "cta": "Discuss Your Web Project"
+      ]
     },
     "mobileMastery": {
       "title": "Mobile Apps",
@@ -39,8 +38,7 @@
         "iOS & Android simultaneously",
         "App store optimization",
         "User-focused design"
-      ],
-      "cta": "Plan Your Mobile App"
+      ]
     },
     "aiDevelopment": {
       "title": "AI Development",
@@ -49,8 +47,7 @@
         "Custom AI agents & chatbots",
         "Workflow automation & integration",
         "AI-powered productivity tools"
-      ],
-      "cta": "Build AI Solutions"
+      ]
     },
     "industries": {
       "label": "Trusted in industries where precision matters",
@@ -71,7 +68,7 @@
       "title": "Have a Project in Mind?",
       "description": "Tell us what you're working on — we'll figure out together how to get it done.",
       "contactUs": "Contact Us",
-      "viewOurWork": "See Past Projects"
+      "viewOurWork": "View Our Work"
     }
   },
   "process": {
