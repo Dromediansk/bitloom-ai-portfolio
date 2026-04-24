@@ -4,12 +4,14 @@ import { FormEvent, useState } from "react";
 import { Button } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 interface ContactFormData {
   name: string;
   email: string;
   company: string;
   message: string;
+  website: string;
 }
 
 const ContactForm = () => {
@@ -21,6 +23,7 @@ const ContactForm = () => {
     email: "",
     company: "",
     message: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -45,6 +48,7 @@ const ContactForm = () => {
       email: "",
       company: "",
       message: "",
+      website: "",
     });
   };
 
@@ -175,6 +179,32 @@ const ContactForm = () => {
             placeholder={t("placeholders.message")}
           />
         </div>
+
+        {/* Honeypot — bots fill in visible-to-them fields; humans don't see this */}
+        <div aria-hidden="true" className="hidden" style={{ display: "none" }}>
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* GDPR Art. 13 — privacy notice at point of collection */}
+        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+          {t("privacyNotice.text")}{" "}
+          <Link
+            href="/privacy"
+            className="text-primary-600 dark:text-primary-400 underline hover:no-underline"
+          >
+            {t("privacyNotice.linkText")}
+          </Link>
+          .
+        </p>
 
         {/* Submit Button */}
         <Button

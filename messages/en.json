@@ -287,7 +287,11 @@
       "sendMessage": "Send Message",
       "sending": "Sending...",
       "success": "Thank you for your message! We will get back to you within 24 hours.",
-      "error": "Sorry, there was an error sending your inquiry. Please try again or contact us directly at info@bitloom.sk."
+      "error": "Sorry, there was an error sending your inquiry. Please try again or contact us directly at info@bitloom.sk.",
+      "privacyNotice": {
+        "text": "By submitting this form, you agree that Bitloom s.r.o. may process the personal data you provide to respond to your inquiry (GDPR Art. 6(1)(b) / Art. 6(1)(f)). Data is retained for up to 3 years and is shared only with our email provider. Full details and your GDPR rights are described in our",
+        "linkText": "Privacy Policy"
+      }
     }
   },
   "footer": {
@@ -305,6 +309,15 @@
       "email": "Email:",
       "location": "Location:",
       "locationValue": "Kosice, Slovakia"
+    },
+    "legal": {
+      "title": "Legal Information",
+      "company": "Bitloom s.r.o.",
+      "registeredOffice": "Headquarters: Južné nábrežie 11, 040 01, Košice, Slovakia",
+      "businessId": "IČO: 56397631",
+      "taxId": "DIČ: 2122301907",
+      "vatId": "VAT: SK2122301907",
+      "register": "Registered in the Obchodný register Mestského súdu Košice, oddiel: Sro, vložka č. 60013/V"
     },
     "copyright": "© {year} Bitloom s.r.o. All rights reserved."
   },
@@ -325,7 +338,7 @@
     "title": "Privacy Policy",
     "effectiveDate": "Effective Date:",
     "lastUpdated": "Last Updated:",
-    "date": "October 3, 2025",
+    "date": "April 24, 2026",
     "sections": {
       "introduction": {
         "title": "Introduction",
@@ -398,12 +411,14 @@
       },
       "informationSharing": {
         "title": "Information Sharing and Disclosure",
-        "intro": "We do not sell, trade, or rent your personal information. We may share information in the following limited circumstances:",
+        "intro": "We do not sell, trade, or rent your personal information. We use the following sub-processors under Data Processing Agreements, and may share information in the limited circumstances listed below:",
         "items": [
-          "Service Providers: Trusted third-party services (email providers, analytics, hosting) under strict confidentiality agreements",
-          "Legal Requirements: When required by law, court order, or to protect our legal rights",
-          "Business Transfers: In connection with merger, acquisition, or sale of business assets (with prior notice)",
-          "Consent: When you explicitly consent to sharing for specific purposes"
+          "Mailtrap (Railsware Products Studio LLC, United States): Transactional email delivery for contact form submissions. Data transfer covered by Standard Contractual Clauses (Art. 46 GDPR) under Mailtrap's Data Processing Agreement.",
+          "Google LLC (Google Analytics 4, United States): Website analytics — only if you consent via the cookie banner. Data transfer covered by Google's EU-US Data Privacy Framework certification.",
+          "Vercel Inc. (United States): Website hosting and content delivery. Data transfer covered by Standard Contractual Clauses (Art. 46 GDPR).",
+          "Legal Requirements: When required by law, court order, or to protect our legal rights.",
+          "Business Transfers: In connection with merger, acquisition, or sale of business assets (with prior notice).",
+          "Consent: When you explicitly consent to sharing for specific purposes."
         ]
       },
       "dataSecurity": {
@@ -429,7 +444,7 @@
           "Right to Object: Object to processing based on legitimate interests",
           "Right to Withdraw Consent: Withdraw consent for marketing communications"
         ],
-        "contact": "To exercise these rights, contact us at info@bitloom.sk. We will respond within 30 days of receiving your request."
+        "contact": "To exercise these rights, contact us at info@bitloom.sk. We will respond within 30 days of receiving your request. This period may be extended by up to two further months for complex or numerous requests (GDPR Art. 12(3)), in which case we will inform you of the extension and the reasons for it."
       },
       "cookieManagement": {
         "title": "Cookie Management and Consent",
@@ -445,7 +460,9 @@
           "decline": "Decline Cookies: Only essential functionality cookies are used, no analytics tracking"
         },
         "note": "Disabling essential cookies may limit website functionality and user experience. Analytics cookies are optional.",
-        "noteLabel": "Note:"
+        "noteLabel": "Note:",
+        "manageButton": "Manage cookie preferences",
+        "manageHelp": "Click the button below to reopen the cookie consent banner and change your choice."
       },
       "dataRetention": {
         "title": "Data Retention",
@@ -461,11 +478,12 @@
       },
       "internationalTransfers": {
         "title": "International Data Transfers",
-        "intro": "Your information may be transferred to and processed in countries outside the European Economic Area (EEA), including the United States (Google Analytics). We ensure appropriate safeguards are in place:",
+        "intro": "Some of your data may be transferred to and processed in countries outside the European Economic Area (EEA). We ensure appropriate safeguards are in place for each transfer:",
         "items": [
-          "Google Analytics: Covered by Google's EU-US Data Privacy Framework certification",
-          "Contractual protections: Standard contractual clauses for data transfers",
-          "Adequacy decisions: Transfers to countries with adequate data protection levels"
+          "Mailtrap (transactional email, United States): Transfer covered by Standard Contractual Clauses (SCCs) per GDPR Art. 46.",
+          "Google Analytics (United States): Transfer covered by Google's EU-US Data Privacy Framework certification.",
+          "Vercel (hosting, United States): Transfer covered by Standard Contractual Clauses (SCCs) per GDPR Art. 46.",
+          "General safeguards: Adequacy decisions, Standard Contractual Clauses, and the EU-US Data Privacy Framework apply as relevant to each transfer."
         ]
       },
       "childrensPrivacy": {
@@ -500,6 +518,28 @@
         },
         "gdprNote": "For GDPR-related requests or data protection concerns, please use the subject line \"Privacy Request\" in your email to ensure prompt handling."
       },
+      "legalBases": {
+        "title": "Legal Bases for Processing (GDPR Art. 6)",
+        "intro": "We process your personal data only where we have a valid legal basis under GDPR Art. 6:",
+        "items": [
+          "Contact form inquiries: Art. 6(1)(b) GDPR — processing necessary for pre-contractual steps taken at your request; or Art. 6(1)(f) GDPR — our legitimate interest in responding to business inquiries.",
+          "Google Analytics (when you accept cookies): Art. 6(1)(a) GDPR — your explicit consent, which you may withdraw at any time using the \"Manage cookie preferences\" button in section 8 of this Privacy Policy.",
+          "Cookie consent preference storage: Art. 6(1)(c) GDPR — our legal obligation under the ePrivacy Directive to honor and record your cookie choice.",
+          "Security and abuse prevention (rate limiting, honeypot): Art. 6(1)(f) GDPR — our legitimate interest in protecting the website and its users."
+        ]
+      },
+      "dpoOrContact": {
+        "title": "Data Protection Officer",
+        "content": "Bitloom s.r.o. is not required to appoint a Data Protection Officer under GDPR Art. 37, as our core activities do not involve large-scale systematic monitoring of data subjects or large-scale processing of special categories of data. For any data protection matter, please contact us at info@bitloom.sk with the subject line \"Privacy Request\"."
+      },
+      "supervisoryAuthority": {
+        "title": "Right to Lodge a Complaint",
+        "intro": "Under GDPR Art. 77, you have the right to lodge a complaint with a supervisory authority if you believe our processing of your personal data infringes the GDPR. The competent authority in Slovakia is:",
+        "name": "Úrad na ochranu osobných údajov Slovenskej republiky",
+        "nameTranslation": "(Office for Personal Data Protection of the Slovak Republic)",
+        "address": "Hraničná 12, 820 07 Bratislava 27, Slovakia",
+        "website": "https://dataprotection.gov.sk/"
+      },
       "compliance": {
         "statement": "This Privacy Policy is designed to comply with the EU General Data Protection Regulation (GDPR), Slovak data protection laws, and international privacy best practices. We are committed to transparent communication, remote-first cooperation, and open-mindedness in all our data practices.",
         "registration": "Company Registration: Bitloom s.r.o. is a limited liability company registered in Slovakia with Business ID 56397631, Tax ID 2122301907, and VAT ID SK2122301907."
@@ -518,9 +558,26 @@
     "description": "This website uses cookies to analyze traffic and optimize your experience. We only collect anonymous usage data to improve our services.",
     "preferences": "You can change your preferences at any time in your browser settings. Learn more in our",
     "privacyPolicy": "Privacy Policy",
-    "accept": "Accept",
-    "decline": "Decline",
-    "acceptAriaLabel": "Accept cookies",
-    "declineAriaLabel": "Decline cookies"
+    "accept": "Accept all",
+    "decline": "Reject all",
+    "customise": "Customise",
+    "acceptAriaLabel": "Accept all cookies",
+    "declineAriaLabel": "Reject all non-essential cookies",
+    "customiseAriaLabel": "Customise cookie preferences",
+    "preferencesTitle": "Cookie preferences",
+    "preferencesIntro": "Choose which categories of cookies you consent to. Essential cookies are always active because the website cannot function without them.",
+    "savePreferences": "Save preferences",
+    "back": "Back",
+    "alwaysOn": "Always active",
+    "categories": {
+      "essential": {
+        "label": "Essential",
+        "description": "Required for core functionality such as storing your cookie preference itself, theme selection, and security. These cannot be disabled."
+      },
+      "analytics": {
+        "label": "Analytics",
+        "description": "Google Analytics 4 — helps us understand anonymous usage so we can improve the site. Disabled unless you opt in."
+      }
+    }
   }
 }

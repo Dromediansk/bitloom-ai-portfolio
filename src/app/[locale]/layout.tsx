@@ -5,7 +5,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import CookieConsent from "@/components/CookieConsent";
+import CookieConsent from "@/components/CookieConsentLazy";
 import { siteConfig } from "@/lib/config";
 
 export async function generateMetadata({

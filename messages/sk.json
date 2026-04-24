@@ -287,7 +287,11 @@
       "sendMessage": "Odoslať správu",
       "sending": "Odosiela sa...",
       "success": "Ďakujeme za vašu správu! Ozveme sa vám do 24 hodín.",
-      "error": "Prepáčte, pri odosielaní vašej otázky došlo k chybe. Prosím skúste to znovu alebo nás kontaktujte priamo na info@bitloom.sk."
+      "error": "Prepáčte, pri odosielaní vašej otázky došlo k chybe. Prosím skúste to znovu alebo nás kontaktujte priamo na info@bitloom.sk.",
+      "privacyNotice": {
+        "text": "Odoslaním tohto formulára súhlasíte, aby spoločnosť Bitloom s.r.o. spracúvala vami poskytnuté osobné údaje za účelom odpovede na vašu požiadavku (čl. 6 ods. 1 písm. b) / f) GDPR). Údaje uchovávame najviac 3 roky a poskytujeme ich len nášmu poskytovateľovi e-mailových služieb. Podrobnosti a vaše práva podľa GDPR nájdete v našich",
+        "linkText": "Zásadách ochrany osobných údajov"
+      }
     }
   },
   "footer": {
@@ -305,6 +309,15 @@
       "email": "E-mail:",
       "location": "Lokalita:",
       "locationValue": "Košice, Slovensko"
+    },
+    "legal": {
+      "title": "Identifikačné údaje",
+      "company": "Bitloom s.r.o.",
+      "registeredOffice": "Sídlo: Južné nábrežie 11, 040 01, Košice, Slovensko",
+      "businessId": "IČO: 56397631",
+      "taxId": "DIČ: 2122301907",
+      "vatId": "IČ DPH: SK2122301907",
+      "register": "Zapísaná v Obchodnom registri Mestského súdu Košice, oddiel: Sro, vložka č. 60013/V"
     },
     "copyright": "© {year} Bitloom s.r.o. Všetky práva vyhradené."
   },
@@ -325,7 +338,7 @@
     "title": "Zásady ochrany osobných údajov",
     "effectiveDate": "Dátum účinnosti:",
     "lastUpdated": "Posledná aktualizácia:",
-    "date": "3. október 2025",
+    "date": "24. apríl 2026",
     "sections": {
       "introduction": {
         "title": "Úvod",
@@ -398,12 +411,14 @@
       },
       "informationSharing": {
         "title": "Zdieľanie a zverejňovanie informácií",
-        "intro": "Nepredávame, nevymieňame ani neprenajímame vaše osobné údaje. Informácie môžeme zdieľať v nasledujúcich obmedzených prípadoch:",
+        "intro": "Nepredávame, nevymieňame ani neprenajímame vaše osobné údaje. Využívame nasledujúcich sprostredkovateľov na základe zmlúv o spracúvaní údajov a v obmedzených prípadoch môžeme informácie zdieľať:",
         "items": [
-          "Poskytovatelia služieb: Dôveryhodné služby tretích strán (poskytovatelia e-mailov, analytika, hosting) pod prísnymi dohodami o dôvernosti",
-          "Právne požiadavky: Keď to vyžaduje zákon, súdny príkaz alebo na ochranu našich právnych práv",
-          "Obchodné prevody: V súvislosti s fúziou, akvizíciou alebo predajom obchodného majetku (s predchádzajúcim upozornením)",
-          "Súhlas: Keď výslovne súhlasíte so zdieľaním na konkrétne účely"
+          "Mailtrap (Railsware Products Studio LLC, Spojené štáty): Doručovanie transakčných e-mailov z kontaktného formulára. Prenos údajov je krytý štandardnými zmluvnými doložkami (čl. 46 GDPR) na základe zmluvy o spracúvaní údajov so spoločnosťou Mailtrap.",
+          "Google LLC (Google Analytics 4, Spojené štáty): Analýza návštevnosti webovej stránky — iba ak udelíte súhlas prostredníctvom bannera cookies. Prenos údajov je krytý certifikáciou EU-US Data Privacy Framework spoločnosti Google.",
+          "Vercel Inc. (Spojené štáty): Hosting webovej stránky a doručovanie obsahu. Prenos údajov je krytý štandardnými zmluvnými doložkami (čl. 46 GDPR).",
+          "Zákonné požiadavky: Keď to vyžaduje zákon, súdny príkaz alebo ochrana našich právnych nárokov.",
+          "Obchodné prevody: V súvislosti s fúziou, akvizíciou alebo predajom obchodného majetku (s predchádzajúcim upozornením).",
+          "Súhlas: Keď výslovne súhlasíte so zdieľaním na konkrétne účely."
         ]
       },
       "dataSecurity": {
@@ -429,7 +444,7 @@
           "Právo namietať: Namietať proti spracovaniu na základe oprávnených záujmov",
           "Právo odvolať súhlas: Odvolať súhlas pre marketingovú komunikáciu"
         ],
-        "contact": "Na uplatnenie týchto práv nás kontaktujte na info@bitloom.sk. Odpovieme do 30 dní od prijatia vašej žiadosti."
+        "contact": "Na uplatnenie týchto práv nás kontaktujte na info@bitloom.sk. Odpovieme do 30 dní od prijatia vašej žiadosti. Túto lehotu môžeme pri zložitých alebo početných žiadostiach predĺžiť o ďalšie dva mesiace (čl. 12 ods. 3 GDPR); v takom prípade vás o predĺžení a jeho dôvodoch informujeme."
       },
       "cookieManagement": {
         "title": "Správa cookies a súhlas",
@@ -445,7 +460,9 @@
           "decline": "Odmietnuť cookies: Používajú sa iba nevyhnutné funkčné cookies, žiadne analytické sledovanie"
         },
         "note": "Deaktivácia nevyhnutných cookies môže obmedziť funkčnosť webovej stránky a používateľský zážitok. Analytické cookies sú voliteľné.",
-        "noteLabel": "Poznámka:"
+        "noteLabel": "Poznámka:",
+        "manageButton": "Spravovať preferencie cookies",
+        "manageHelp": "Kliknutím na tlačidlo nižšie znovu otvoríte banner súhlasu s cookies a zmeníte svoju voľbu."
       },
       "dataRetention": {
         "title": "Uchovávanie údajov",
@@ -461,11 +478,12 @@
       },
       "internationalTransfers": {
         "title": "Medzinárodné prenosy údajov",
-        "intro": "Vaše informácie môžu byť prenesené a spracované v krajinách mimo Európskeho hospodárskeho priestoru (EHP), vrátane Spojených štátov (Google Analytics). Zabezpečujeme primerané záruky:",
+        "intro": "Niektoré vaše údaje môžu byť prenesené a spracované v krajinách mimo Európskeho hospodárskeho priestoru (EHP). Pre každý prenos zabezpečujeme primerané záruky:",
         "items": [
-          "Google Analytics: Pokryté certifikáciou Google's EU-US Data Privacy Framework",
-          "Zmluvné ochrany: Štandardné zmluvné doložky pre prenosy údajov",
-          "Rozhodnutia o primeranosti: Prenosy do krajín s primeranými úrovňami ochrany údajov"
+          "Mailtrap (transakčný e-mail, Spojené štáty): Prenos je krytý štandardnými zmluvnými doložkami (SCCs) podľa čl. 46 GDPR.",
+          "Google Analytics (Spojené štáty): Prenos je krytý certifikáciou EU-US Data Privacy Framework spoločnosti Google.",
+          "Vercel (hosting, Spojené štáty): Prenos je krytý štandardnými zmluvnými doložkami (SCCs) podľa čl. 46 GDPR.",
+          "Všeobecné záruky: Rozhodnutia o primeranosti, štandardné zmluvné doložky a rámec EU-US Data Privacy Framework sú uplatnené podľa relevantnosti ku každému prenosu."
         ]
       },
       "childrensPrivacy": {
@@ -500,6 +518,28 @@
         },
         "gdprNote": "Pre žiadosti týkajúce sa GDPR alebo obavy týkajúce sa ochrany údajov, použite v predmete e-mailu \"Žiadosť o súkromie\" na zabezpečenie promptného vybavenia."
       },
+      "legalBases": {
+        "title": "Právne základy spracúvania (čl. 6 GDPR)",
+        "intro": "Vaše osobné údaje spracúvame iba na základe platného právneho základu podľa čl. 6 GDPR:",
+        "items": [
+          "Kontaktné dotazy cez formulár: čl. 6 ods. 1 písm. b) GDPR — spracúvanie nevyhnutné na vykonanie predzmluvných opatrení na vašu žiadosť; alebo čl. 6 ods. 1 písm. f) GDPR — náš oprávnený záujem odpovedať na obchodné dopyty.",
+          "Google Analytics (keď prijmete cookies): čl. 6 ods. 1 písm. a) GDPR — váš výslovný súhlas, ktorý môžete kedykoľvek odvolať tlačidlom „Spravovať preferencie cookies“ v sekcii 8 týchto zásad.",
+          "Ukladanie preferencií súhlasu s cookies: čl. 6 ods. 1 písm. c) GDPR — naša zákonná povinnosť podľa smernice ePrivacy evidovať a rešpektovať vašu voľbu.",
+          "Bezpečnosť a prevencia zneužívania (obmedzovanie rýchlosti, honeypot): čl. 6 ods. 1 písm. f) GDPR — náš oprávnený záujem chrániť webovú stránku a jej používateľov."
+        ]
+      },
+      "dpoOrContact": {
+        "title": "Zodpovedná osoba za ochranu osobných údajov",
+        "content": "Spoločnosť Bitloom s.r.o. nie je povinná menovať zodpovednú osobu (DPO) podľa čl. 37 GDPR, keďže naše hlavné činnosti nezahŕňajú rozsiahle systematické monitorovanie dotknutých osôb ani rozsiahle spracúvanie osobitných kategórií údajov. Vo veciach ochrany osobných údajov nás kontaktujte na info@bitloom.sk s predmetom „Žiadosť o súkromie“."
+      },
+      "supervisoryAuthority": {
+        "title": "Právo podať sťažnosť dozornému orgánu",
+        "intro": "Podľa čl. 77 GDPR máte právo podať sťažnosť dozornému orgánu, ak sa domnievate, že naše spracúvanie vašich osobných údajov je v rozpore s GDPR. Príslušným orgánom v Slovenskej republike je:",
+        "name": "Úrad na ochranu osobných údajov Slovenskej republiky",
+        "nameTranslation": "",
+        "address": "Hraničná 12, 820 07 Bratislava 27, Slovensko",
+        "website": "https://dataprotection.gov.sk/"
+      },
       "compliance": {
         "statement": "Tieto zásady ochrany osobných údajov sú navrhnuté tak, aby boli v súlade s EU všeobecným nariadením o ochrane údajov (GDPR), slovenskými zákonmi o ochrane údajov a medzinárodnými najlepšími postupmi ochrany súkromia. Zaviazali sme sa k transparentnej komunikácii, spolupráci na diaľku a otvorenosti vo všetkých našich postupoch pri nakládaní s údajmi.",
         "registration": "Registrácia spoločnosti: Bitloom s.r.o. je spoločnosť s ručením obmedzeným registrovaná na Slovensku s IČO 56397631, DIČ 2122301907 a IČ DPH SK2122301907."
@@ -518,9 +558,26 @@
     "description": "Táto webová stránka používa cookies na analýzu návštevnosti a optimalizáciu vášho zážitku. Zhromažďujeme iba anonymné údaje o používaní na zlepšenie našich služieb.",
     "preferences": "Svoje preferencie môžete kedykoľvek zmeniť v nastaveniach prehliadača. Viac sa dozviete v našich",
     "privacyPolicy": "Zásadách ochrany osobných údajov",
-    "accept": "Prijať",
-    "decline": "Odmietnuť",
-    "acceptAriaLabel": "Prijať cookies",
-    "declineAriaLabel": "Odmietnuť cookies"
+    "accept": "Prijať všetky",
+    "decline": "Odmietnuť všetky",
+    "customise": "Prispôsobiť",
+    "acceptAriaLabel": "Prijať všetky cookies",
+    "declineAriaLabel": "Odmietnuť všetky voliteľné cookies",
+    "customiseAriaLabel": "Prispôsobiť nastavenia cookies",
+    "preferencesTitle": "Nastavenia cookies",
+    "preferencesIntro": "Vyberte, s ktorými kategóriami cookies súhlasíte. Nevyhnutné cookies sú vždy aktívne, bez nich stránka nemôže fungovať.",
+    "savePreferences": "Uložiť nastavenia",
+    "back": "Späť",
+    "alwaysOn": "Vždy aktívne",
+    "categories": {
+      "essential": {
+        "label": "Nevyhnutné",
+        "description": "Potrebné na základné fungovanie — uchovanie vašej voľby cookies, nastavenia vzhľadu a zabezpečenie. Tieto cookies nie je možné vypnúť."
+      },
+      "analytics": {
+        "label": "Analytika",
+        "description": "Google Analytics 4 — pomáha nám pochopiť anonymné používanie stránky, aby sme ju mohli vylepšovať. Vypnuté, kým to výslovne nepovolíte."
+      }
+    }
   }
 }

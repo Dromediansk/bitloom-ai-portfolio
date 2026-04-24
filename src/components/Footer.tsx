@@ -105,8 +105,21 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Legal identification (Slovak Commercial Code §3a) */}
+        <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm">
+            {t("legal.title")}
+          </h3>
+          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+            {t("legal.company")} · {t("legal.registeredOffice")} ·{" "}
+            {t("legal.businessId")} · {t("legal.taxId")} · {t("legal.vatId")}
+            <br />
+            {t("legal.register")}
+          </p>
+        </div>
+
         {/* Social Links */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div className="flex flex-col sm:flex-row justify-between items-center pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
           <SocialLinks className="mb-4 sm:mb-0" />
 
           <p className="text-gray-600 dark:text-gray-400 text-sm">

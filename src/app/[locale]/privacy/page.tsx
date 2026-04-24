@@ -1,9 +1,21 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import {
+  CONSENT_COOKIE_NAME,
+  CONSENT_CHANGE_EVENT,
+  clearAnalyticsCookies,
+} from "@/lib/consent";
 
 export default function PrivacyPolicyPage() {
   const t = useTranslations("privacy");
+
+  const handleManageCookies = () => {
+    if (typeof document === "undefined") return;
+    document.cookie = `${CONSENT_COOKIE_NAME}=; Max-Age=0; Path=/; SameSite=Lax`;
+    clearAnalyticsCookies();
+    window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
+  };
 
   return (
     <div className="min-h-screen py-20">
@@ -223,6 +235,18 @@ export default function PrivacyPolicyPage() {
                 <strong>{t("sections.cookieManagement.noteLabel")}</strong>{" "}
                 {t("sections.cookieManagement.note")}
               </p>
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <p className="text-sm mb-3">
+                  {t("sections.cookieManagement.manageHelp")}
+                </p>
+                <button
+                  type="button"
+                  onClick={handleManageCookies}
+                  className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  {t("sections.cookieManagement.manageButton")}
+                </button>
+              </div>
             </section>
 
             {/* Data Retention */}
@@ -278,10 +302,64 @@ export default function PrivacyPolicyPage() {
               <p className="mt-4">{t("sections.changes.acceptance")}</p>
             </section>
 
+            {/* Legal Bases */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                13. {t("sections.legalBases.title")}
+              </h2>
+              <p>{t("sections.legalBases.intro")}</p>
+              <ul className="list-disc list-inside mt-2 space-y-2">
+                {t
+                  .raw("sections.legalBases.items")
+                  .map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+              </ul>
+            </section>
+
+            {/* Data Protection Officer */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                14. {t("sections.dpoOrContact.title")}
+              </h2>
+              <p>{t("sections.dpoOrContact.content")}</p>
+            </section>
+
+            {/* Supervisory Authority */}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                15. {t("sections.supervisoryAuthority.title")}
+              </h2>
+              <p>{t("sections.supervisoryAuthority.intro")}</p>
+              <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  {t("sections.supervisoryAuthority.name")}
+                </p>
+                {t("sections.supervisoryAuthority.nameTranslation") && (
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {t("sections.supervisoryAuthority.nameTranslation")}
+                  </p>
+                )}
+                <p className="mt-2">
+                  {t("sections.supervisoryAuthority.address")}
+                </p>
+                <p>
+                  <a
+                    href={t("sections.supervisoryAuthority.website")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 dark:text-primary-400 hover:underline"
+                  >
+                    {t("sections.supervisoryAuthority.website")}
+                  </a>
+                </p>
+              </div>
+            </section>
+
             {/* Contact Information */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                13. {t("sections.contact.title")}
+                16. {t("sections.contact.title")}
               </h2>
               <p>{t("sections.contact.intro")}</p>
               <div className="mt-4 grid md:grid-cols-2 gap-6">

@@ -28,6 +28,7 @@ const Navigation = () => {
     { href: "/projects", label: t("projects") },
     { href: "/about", label: t("about") },
     { href: "/references", label: t("references") },
+    { href: "/contact", label: t("contact") },
     {
       href: "https://blog.bitloom.sk",
       label: t("blog"),
@@ -66,11 +67,11 @@ const Navigation = () => {
       }`}
     >
       <div className="container-max px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+        <div className="flex items-center justify-between lg:grid lg:grid-cols-3">
+          {/* Left: Logo */}
           <Link
             href="/"
-            className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-[1.02] animate-fade-in-left"
+            className="flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-[1.02] animate-fade-in-left lg:justify-self-start"
           >
             <Image
               src="/icon.svg"
@@ -82,32 +83,26 @@ const Navigation = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 animate-fade-in-right">
-            <div className="flex items-center space-x-5">
-              {navigationLinks.map((link) => (
-                <NavigationLink
-                  key={link.href}
-                  href={link.href}
-                  isExternal={link.isExternal}
-                  isActive={link.isExternal !== true && isLinkActive(link.href)}
-                  className={link.icon ? "flex items-center gap-1" : ""}
-                >
-                  {link.label}
-                  {link.icon}
-                </NavigationLink>
-              ))}
-            </div>
-            <div className="flex items-center space-x-3">
-              <Link
-                href="/contact"
-                className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-600/25"
+          {/* Center: Desktop nav links */}
+          <div className="hidden lg:flex lg:justify-self-center items-center space-x-5">
+            {navigationLinks.map((link) => (
+              <NavigationLink
+                key={link.href}
+                href={link.href}
+                isExternal={link.isExternal}
+                isActive={link.isExternal !== true && isLinkActive(link.href)}
+                className={link.icon ? "flex items-center gap-1" : ""}
               >
-                {t("contact")}
-              </Link>
-              <LanguageSwitcher />
-              <ThemeToggle />
-            </div>
+                {link.label}
+                {link.icon}
+              </NavigationLink>
+            ))}
+          </div>
+
+          {/* Right: controls */}
+          <div className="hidden lg:flex lg:justify-self-end items-center space-x-3 animate-fade-in-right">
+            <LanguageSwitcher />
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button and Controls */}
@@ -154,7 +149,7 @@ const Navigation = () => {
         >
           <div className="py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-1">
-              {([...navigationLinks, { href: "/contact", label: t("contact") }] as NavLink[]).map(
+              {navigationLinks.map(
                 (link, index, arr) => {
                   const active = !link.isExternal && isLinkActive(link.href);
                   return (
