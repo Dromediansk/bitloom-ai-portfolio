@@ -22,8 +22,8 @@ const NavigationLink = ({
   style,
 }: NavigationLinkProps) => {
   const baseClasses = isActive
-    ? "text-primary-600 dark:text-primary-400 font-medium transition-all duration-300"
-    : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300";
+    ? "whitespace-nowrap text-primary-600 dark:text-primary-400 font-medium transition-all duration-300"
+    : "whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300";
   const desktopClasses = showUnderline ? "relative group" : "";
   const combinedClasses =
     `${baseClasses} ${desktopClasses} ${className}`.trim();
