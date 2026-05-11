@@ -10,7 +10,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/Dromediansk",
     linkedin: "https://www.linkedin.com/company/bitloomsk",
-    blog: "https://blog.bitloom.sk",
+    whatsapp: "https://wa.me/421910563644",
   },
 };
 
