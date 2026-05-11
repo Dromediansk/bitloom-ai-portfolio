@@ -229,6 +229,11 @@
     },
     "testimonials": [
       {
+        "name": "Ing. Alexandra Šebestová",
+        "role": "C# Developer | .NET | Unity | Software Engineer",
+        "testimonial": "I had the pleasure of working with Miroslav on a web development project, and I couldn't be happier with the experience. I handed over a Figma design and they brought it to life exactly as I wanted. It was clean, and fully functional. What stood out most was the speed and quality. Whenever I needed something tweaked or adjusted, it was handled quickly and without any fuss. Communication throughout was clear and responsive. If you need someone who takes your design seriously, delivers on time, and is genuinely easy to work with, I'd recommend Miroslav without hesitation."
+      },
+      {
         "name": "Andy Swan",
         "role": "Head of Software Engineering",
         "company": "Aptitude Global",

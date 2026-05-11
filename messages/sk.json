@@ -229,6 +229,11 @@
     },
     "testimonials": [
       {
+        "name": "Ing. Alexandra Šebestová",
+        "role": "C# vývojár | .NET | Unity | Softvérový inžinier",
+        "testimonial": "Mala som tú česť spolupracovať s Miroslavom na projekte vývoja webu a so spoluprácou som maximálne spokojná. Odovzdala som mu Figma dizajn a priviedol ho k životu presne tak, ako som si predstavovala — čisto a plne funkčne. Najviac ma zaujala rýchlosť a kvalita. Vždy, keď som potrebovala niečo upraviť, bolo to vyriešené promptne a bez zbytočností. Komunikácia bola počas celej spolupráce jasná a pohotová. Ak hľadáte niekoho, kto berie váš dizajn vážne, dodá načas a s kým sa naozaj dobre spolupracuje, Miroslava odporúčam bez zaváhania."
+      },
+      {
         "name": "Andy Swan",
         "role": "Vedúci softvérového inžinierstva",
         "company": "Aptitude Global",

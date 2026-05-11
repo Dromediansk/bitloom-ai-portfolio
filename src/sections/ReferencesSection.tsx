@@ -9,7 +9,7 @@ interface Reference {
   id: number;
   name: string;
   role: string;
-  company: string;
+  company?: string;
   testimonial: string;
   avatar?: string;
 }
@@ -55,6 +55,7 @@ const ReferenceCard = ({
         <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold text-lg mr-4">
           {reference.name
             .split(" ")
+            .filter((n) => !n.endsWith("."))
             .map((n) => n[0])
             .join("")}
         </div>
@@ -64,7 +65,8 @@ const ReferenceCard = ({
             {reference.name}
           </div>
           <div className="text-gray-600 dark:text-gray-400">
-            {reference.role} {t("at")} {reference.company}
+            {reference.role}
+            {reference.company ? ` ${t("at")} ${reference.company}` : ""}
           </div>
         </div>
       </div>
@@ -82,7 +84,6 @@ const ReferencesSection = () => {
       id: 1,
       name: t("testimonials.0.name"),
       role: t("testimonials.0.role"),
-      company: t("testimonials.0.company"),
       testimonial: t("testimonials.0.testimonial"),
     },
     {
@@ -91,6 +92,13 @@ const ReferencesSection = () => {
       role: t("testimonials.1.role"),
       company: t("testimonials.1.company"),
       testimonial: t("testimonials.1.testimonial"),
+    },
+    {
+      id: 3,
+      name: t("testimonials.2.name"),
+      role: t("testimonials.2.role"),
+      company: t("testimonials.2.company"),
+      testimonial: t("testimonials.2.testimonial"),
     },
   ];
 
