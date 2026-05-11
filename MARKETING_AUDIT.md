@@ -21,7 +21,7 @@
 
 ## 2. Social Proof & Trust Signals
 
-- **Testimonials are strong but buried** on a separate References page — extract pull quotes and place them on the homepage/services
+- **Testimonials are strong but buried** on a separate Testimonials page — extract pull quotes and place them on the homepage/services
 - **No client logos anywhere** — add a "Trusted by" logo strip (Aptitude Global, Cognitive Creators)
 - **No third-party validation** — create profiles on Clutch.co and Google Business for independent credibility
 

@@ -21,7 +21,7 @@ This project showcases the power of **AI-driven development** and **prompt engin
 - **Services** - Core offerings including web development, mobile apps, and AI development
 - **Projects** - Featured client work and case studies
 - **About** - Company story and founder Miroslav's background
-- **References** - Client testimonials and success stories
+- **Testimonials** - Client testimonials and success stories
 - **Contact** - Professional inquiry form with Mailtrap email integration
 
 ### Technical Features
@@ -54,7 +54,7 @@ src/
 │   ├── about/             # About page
 │   ├── contact/           # Contact page
 │   ├── projects/          # Projects showcase
-│   ├── references/        # Client testimonials
+│   ├── testimonials/      # Client testimonials
 │   └── services/          # Service offerings
 ├── components/            # Reusable UI components
 │   ├── Navigation.tsx     # Main navigation with theme toggle

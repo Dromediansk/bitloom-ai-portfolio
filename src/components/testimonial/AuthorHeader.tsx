@@ -5,7 +5,7 @@ import StarRating from "./StarRating";
 import { Testimonial } from "./types";
 
 const AuthorHeader = ({ testimonial }: { testimonial: Testimonial }) => {
-  const t = useTranslations("references");
+  const t = useTranslations("testimonials");
   return (
     <div className="min-w-0">
       <div className="font-semibold text-gray-900 dark:text-white truncate">

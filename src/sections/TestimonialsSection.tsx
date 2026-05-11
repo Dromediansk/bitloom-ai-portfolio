@@ -12,7 +12,7 @@ import { getStaggeredDelay } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-const ReferenceCard = ({
+const TestimonialCard = ({
   testimonial,
   isVisible,
   delayClass,
@@ -23,7 +23,7 @@ const ReferenceCard = ({
   delayClass: string;
   onClick: () => void;
 }) => {
-  const t = useTranslations("references");
+  const t = useTranslations("testimonials");
 
   return (
     <button
@@ -51,12 +51,12 @@ const ReferenceCard = ({
   );
 };
 
-const ReferencesSection = () => {
+const TestimonialsSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver();
-  const t = useTranslations("references");
+  const t = useTranslations("testimonials");
   const [selected, setSelected] = useState<Testimonial | null>(null);
 
-  const testimonials = t.raw("testimonials") as Testimonial[];
+  const testimonials = t.raw("items") as Testimonial[];
 
   const stats = [
     { value: "10+", label: t("stats.projectsCompleted") },
@@ -76,7 +76,7 @@ const ReferencesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
-            <ReferenceCard
+            <TestimonialCard
               key={testimonial.name}
               testimonial={testimonial}
               isVisible={hasIntersected}
@@ -120,4 +120,4 @@ const ReferencesSection = () => {
   );
 };
 
-export default ReferencesSection;
+export default TestimonialsSection;

@@ -17,7 +17,7 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
-  { href: "/references", label: "References" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
   { href: "https://blog.bitloom.sk", label: "Blog", external: true },
 ];

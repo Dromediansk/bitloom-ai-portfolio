@@ -4,7 +4,7 @@
     "services": "Služby",
     "projects": "Projekty",
     "about": "O nás",
-    "references": "Referencie",
+    "testimonials": "Referencie",
     "contact": "Kontakt",
     "blog": "Blog",
     "toggleMenu": "Prepnúť mobilné menu"
@@ -215,7 +215,7 @@
       "viewServices": "Preskúmať služby"
     }
   },
-  "references": {
+  "testimonials": {
     "title": "Klientske recenzie a referencie",
     "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci s nami.",
     "at": "v",
@@ -225,7 +225,7 @@
       "yearsExperience": "Rokov skúseností",
       "missedDeadlines": "Zmeškaných termínov"
     },
-    "testimonials": [
+    "items": [
       {
         "name": "Ing. Alexandra Šebestová",
         "role": "C# vývojár | .NET | Unity | Softvérový inžinier",

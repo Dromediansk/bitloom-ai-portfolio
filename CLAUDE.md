@@ -14,7 +14,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 
 /app # App Router entry point
 /components # Reusable UI components
-/sections # Page sections (Intro, Projects, References, Contact)
+/sections # Page sections (Intro, Projects, Testimonials, Contact)
 /lib # Utilities (SEO config, email utils, etc.)
 /public # Static assets (images, icons, etc.)
 /messages # i18n translation files (en.json, sk.json)
@@ -39,7 +39,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - `/en/projects` or `/sk/projects` → Featured client work and case studies
 - `/en/about` or `/sk/about` → Company story, team, and founder Miroslav's background
 - `/en/contact` or `/sk/contact` → Contact form and business inquiry details
-- `/en/references` or `/sk/references` → Client testimonials and success stories
+- `/en/testimonials` or `/sk/testimonials` → Client testimonials and success stories
 - `blog.bitloom.sk` → External blog link (opens in new tab)
 
 ## Style Guide
@@ -124,7 +124,7 @@ Bitloom's core technical expertise includes:
 - Team philosophy and approach
 - Why choose Bitloom
 
-### References Section
+### Testimonials Section
 
 - Client testimonials and success stories
 - Company/contact name and role

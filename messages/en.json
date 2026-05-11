@@ -4,7 +4,7 @@
     "services": "Services",
     "projects": "Projects",
     "about": "About",
-    "references": "References",
+    "testimonials": "Testimonials",
     "contact": "Contact",
     "blog": "Blog",
     "toggleMenu": "Toggle mobile menu"
@@ -215,8 +215,8 @@
       "viewServices": "Explore Services"
     }
   },
-  "references": {
-    "title": "Client Reviews & References",
+  "testimonials": {
+    "title": "Client Reviews & Testimonials",
     "subtitle": "Here's what clients and colleagues have to say about working with us.",
     "at": "at",
     "readMore": "Read full review",
@@ -225,7 +225,7 @@
       "yearsExperience": "Years Experience",
       "missedDeadlines": "Missed Deadlines"
     },
-    "testimonials": [
+    "items": [
       {
         "name": "Ing. Alexandra Šebestová",
         "role": "C# Developer | .NET | Unity | Software Engineer",

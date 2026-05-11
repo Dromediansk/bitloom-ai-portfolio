@@ -27,7 +27,7 @@ const Navigation = () => {
     { href: "/services", label: t("services") },
     { href: "/projects", label: t("projects") },
     { href: "/about", label: t("about") },
-    { href: "/references", label: t("references") },
+    { href: "/testimonials", label: t("testimonials") },
     { href: "/contact", label: t("contact") },
     {
       href: "https://blog.bitloom.sk",

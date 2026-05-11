@@ -9,7 +9,7 @@ const ROTATION_MS = 7000;
 
 const FeaturedTestimonial = () => {
   const t = useTranslations();
-  const testimonials = t.raw("references.testimonials") as Testimonial[];
+  const testimonials = t.raw("testimonials.items") as Testimonial[];
 
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -41,7 +41,7 @@ const FeaturedTestimonial = () => {
       <button
         type="button"
         onClick={() => setSelected(current)}
-        aria-label={`${t("references.readMore")}: ${current.name}`}
+        aria-label={`${t("testimonials.readMore")}: ${current.name}`}
         className="group block w-full text-center cursor-pointer rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 px-2 py-3"
       >
         <div key={index} className={paused ? undefined : "animate-fade-cycle"}>
@@ -60,7 +60,7 @@ const FeaturedTestimonial = () => {
       </button>
 
       <Link
-        href="/references"
+        href="/testimonials"
         className="mt-3 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
       >
         {t("services.socialProof.seeAll")}
