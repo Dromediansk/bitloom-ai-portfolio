@@ -2,129 +2,120 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SocialLinks from "./SocialLinks";
+import { siteConfig } from "@/lib/config";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("footer");
-  const tNav = useTranslations("navigation");
+
+  const quickLinks = [
+    { href: "/services", labelKey: "quickLinks.services" },
+    { href: "/projects", labelKey: "quickLinks.projects" },
+    { href: "/about", labelKey: "quickLinks.about" },
+    { href: "/contact", labelKey: "quickLinks.contact" },
+  ] as const;
+
+  const legalLinks = [
+    { href: "/privacy", labelKey: "legalLinks.privacy" },
+    { href: "/imprint", labelKey: "legalLinks.imprint" },
+  ] as const;
 
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-      <div className="container-max px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* Company Info */}
-          <div className="md:col-span-2">
+      <div className="container-max px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-3">
+          {/* Branding */}
+          <div className="space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-105 mb-4"
+              className="inline-flex items-center hover:opacity-80 transition-all duration-300 transform hover:scale-105"
             >
               <Image
                 src="/logo_mark.svg"
                 alt="Bitloom Logo"
                 width={480}
                 height={160}
-                className="h-20 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-xs">
               {t("description")}
             </p>
+            <SocialLinks className="pt-2" />
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">
               {t("quickLinks.title")}
             </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/services"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  {tNav("services")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  {tNav("projects")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  {tNav("about")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  {tNav("contact")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  {t("quickLinks.privacyPolicy")}
-                </Link>
-              </li>
+            <ul className="mt-4 space-y-3 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
+            <h3 className="font-semibold text-gray-900 dark:text-white">
               {t("contactInfo.title")}
             </h3>
-            <ul className="space-y-2">
-              <li className="text-gray-600 dark:text-gray-400">
-                <span className="font-medium">{t("contactInfo.email")}</span>
-                <br />
-                <a
-                  href="mailto:info@bitloom.sk"
-                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  info@bitloom.sk
-                </a>
-              </li>
-              <li className="text-gray-600 dark:text-gray-400">
-                <span className="font-medium">{t("contactInfo.location")}</span>
-                <br />
-                {t("contactInfo.locationValue")}
-              </li>
-            </ul>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div>
+                <dt className="text-gray-900 dark:text-white font-medium">
+                  {t("contactInfo.email")}
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {siteConfig.contact.email}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-gray-900 dark:text-white font-medium">
+                  {t("contactInfo.phone")}
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
 
-        {/* Legal identification (Slovak Commercial Code §3a) */}
-        <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm">
-            {t("legal.title")}
-          </h3>
-          <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-            {t("legal.company")} · {t("legal.registeredOffice")} ·{" "}
-            {t("legal.businessId")} · {t("legal.taxId")} · {t("legal.vatId")}
-            <br />
-            {t("legal.register")}
-          </p>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
-          <SocialLinks className="mb-4 sm:mb-0" />
-
-          <p className="text-gray-600 dark:text-gray-400 text-sm">
-            {t("copyright", { year: currentYear })}
-          </p>
+        {/* Bottom strip — copyright + legal links */}
+        <div className="border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col items-start justify-between gap-3 py-6 text-xs text-gray-500 dark:text-gray-400 md:flex-row md:items-center">
+            <p>{t("copyright", { year: currentYear })}</p>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>

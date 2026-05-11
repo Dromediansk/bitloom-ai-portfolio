@@ -259,8 +259,10 @@
     },
     "methods": {
       "email": {
-        "title": "Email",
-        "value": "info@bitloom.sk"
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Phone"
       },
       "location": {
         "title": "Location",
@@ -298,31 +300,66 @@
     }
   },
   "footer": {
-    "description": "Product-oriented software engineering company specializing in web development, mobile development, and AI development. Based in Kosice, Slovakia, supporting clients globally.",
+    "description": "Crafting reliable web, mobile, and AI solutions that help businesses grow.",
     "quickLinks": {
       "title": "Quick Links",
       "services": "Services",
       "projects": "Projects",
       "about": "About",
-      "contact": "Contact",
-      "privacyPolicy": "Privacy Policy"
+      "contact": "Contact"
     },
     "contactInfo": {
       "title": "Contact",
       "email": "Email:",
-      "location": "Location:",
-      "locationValue": "Kosice, Slovakia"
+      "phone": "Phone:"
     },
-    "legal": {
-      "title": "Legal Information",
-      "company": "Bitloom s.r.o.",
-      "registeredOffice": "Headquarters: Južné nábrežie 11, 040 01, Košice, Slovakia",
-      "businessId": "IČO: 56397631",
-      "taxId": "DIČ: 2122301907",
-      "vatId": "VAT: SK2122301907",
-      "register": "Registered in the Obchodný register Mestského súdu Košice, oddiel: Sro, vložka č. 60013/V"
+    "legalLinks": {
+      "privacy": "Privacy Policy",
+      "imprint": "Legal Information"
     },
     "copyright": "© {year} Bitloom s.r.o. All rights reserved."
+  },
+  "imprint": {
+    "title": "Legal Information",
+    "intro": "Information required under §3a of the Slovak Commercial Code and applicable EU regulations.",
+    "sections": {
+      "provider": {
+        "title": "Company Details",
+        "company": "Bitloom s.r.o.",
+        "registeredOfficeLabel": "Registered office:",
+        "registeredOffice": "Južné nábrežie 11, 040 01, Košice, Slovakia",
+        "businessIdLabel": "Business ID:",
+        "businessId": "56397631",
+        "taxIdLabel": "Tax ID:",
+        "taxId": "2122301907",
+        "vatIdLabel": "VAT ID:",
+        "vatId": "SK2122301907",
+        "register": "Registered in the Obchodný register Mestského súdu Košice, oddiel: Sro, vložka č. 60013/V."
+      },
+      "contact": {
+        "title": "Contact",
+        "emailLabel": "Email:",
+        "phoneLabel": "Phone:",
+        "locationLabel": "Location:",
+        "location": "Košice, Slovakia"
+      },
+      "representation": {
+        "title": "Represented By",
+        "content": "Ing. Miroslav Pillár — Founder & CEO"
+      },
+      "disputeResolution": {
+        "title": "Online Dispute Resolution",
+        "intro": "The European Commission provides a platform for online dispute resolution (ODR), available at",
+        "linkText": "ec.europa.eu/consumers/odr",
+        "outro": ". We are not obliged and not willing to participate in dispute resolution proceedings before a consumer arbitration board."
+      },
+      "dataProtection": {
+        "title": "Data Protection",
+        "intro": "For information about how we collect and process personal data, please see our",
+        "linkText": "Privacy Policy",
+        "outro": "."
+      }
+    }
   },
   "metadata": {
     "title": "Bitloom - Crafting Digital Solutions",

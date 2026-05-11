@@ -1,5 +1,6 @@
 import { MailtrapClient } from "mailtrap";
 import { NextRequest, NextResponse } from "next/server";
+import { siteConfig } from "@/lib/config";
 
 interface ContactFormData {
   name: string;
@@ -11,7 +12,7 @@ interface ContactFormData {
 
 const TOKEN = process.env.MAILTRAP_API_TOKEN || "";
 const SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || "portfolio@bitloom.sk";
-const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || "info@bitloom.sk";
+const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT_EMAIL || siteConfig.contact.email;
 
 const MAX_LEN = { name: 200, email: 254, company: 200, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

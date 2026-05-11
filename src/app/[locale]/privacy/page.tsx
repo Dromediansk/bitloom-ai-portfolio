@@ -6,6 +6,7 @@ import {
   CONSENT_CHANGE_EVENT,
   clearAnalyticsCookies,
 } from "@/lib/consent";
+import { siteConfig } from "@/lib/config";
 
 export default function PrivacyPolicyPage() {
   const t = useTranslations("privacy");
@@ -382,10 +383,10 @@ export default function PrivacyPolicyPage() {
                   <p>
                     {t("sections.contact.details.email")}:{" "}
                     <a
-                      href="mailto:info@bitloom.sk"
+                      href={`mailto:${siteConfig.contact.email}`}
                       className="text-primary-600 dark:text-primary-400 hover:underline"
                     >
-                      info@bitloom.sk
+                      {siteConfig.contact.email}
                     </a>
                   </p>
                   <p>{t("sections.contact.details.location")}</p>

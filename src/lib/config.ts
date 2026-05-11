@@ -3,10 +3,13 @@ export const siteConfig = {
   url: "https://bitloom.sk",
   ogImage: "https://bitloom.sk/logo_mark.svg",
   creator: "Miroslav Pillár", // Used in metadata authors field
+  contact: {
+    email: "info@bitloom.sk",
+    phone: "+421 910 563 644",
+  },
   social: {
     github: "https://github.com/Dromediansk",
     linkedin: "https://www.linkedin.com/company/bitloomsk",
-    email: "info@bitloom.sk",
     blog: "https://blog.bitloom.sk",
   },
 };
