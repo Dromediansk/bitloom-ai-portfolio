@@ -155,18 +155,13 @@ body {
   transform: translateZ(0) translateY(-4px);
 }
 
-/* Smooth scrolling with better performance */
-html {
-  scroll-behavior: smooth;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0s !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0s !important;
     scroll-behavior: auto !important;
   }
 }
@@ -338,7 +333,7 @@ html {
 
 /* Class definitions for performance-optimized animations */
 .card-entrance {
-  animation: cardEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) basic;
+  animation: cardEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .magnetic-hover:hover {
@@ -362,6 +357,25 @@ html {
 
 .pulse-glow:hover {
   animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeCycle {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-cycle {
+  animation: fadeCycle 7s ease-in-out forwards;
 }
 
 
@@ -433,4 +447,41 @@ html {
 }
 .delay-600 {
   animation-delay: 600ms;
+}
+
+/* === Class-based blob drift animations (gateable by [data-low-perf]) === */
+.blob-drift-1 {
+  animation: blobDrift1 25s ease-in-out infinite;
+}
+.blob-drift-2 {
+  animation: blobDrift2 30s ease-in-out infinite;
+}
+.blob-drift-3 {
+  animation: blobDrift3 35s ease-in-out infinite;
+}
+
+/* === Low-performance gate: disable expensive effects on weak devices === */
+[data-low-perf="true"] .woven-grid-animated,
+[data-low-perf="true"] .blob-drift-1,
+[data-low-perf="true"] .blob-drift-2,
+[data-low-perf="true"] .blob-drift-3,
+[data-low-perf="true"] .logo-glow,
+[data-low-perf="true"] .animate-float,
+[data-low-perf="true"] .shimmer-effect,
+[data-low-perf="true"] .pulse-glow:hover {
+  animation: none !important;
+}
+
+[data-low-perf="true"] .bg-blob {
+  filter: blur(20px);
+  opacity: 0.6;
+}
+
+[data-low-perf="true"] .nav-blur-enhanced {
+  backdrop-filter: none;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+[data-low-perf="true"] .dark .nav-blur-enhanced {
+  background: rgba(15, 23, 42, 0.95);
 }

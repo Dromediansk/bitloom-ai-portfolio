@@ -21,6 +21,13 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={quicksand.className} suppressHydrationWarning data-scroll-behavior="smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=document.documentElement,m=navigator.deviceMemory,c=navigator.hardwareConcurrency,r=matchMedia('(prefers-reduced-motion: reduce)').matches,s=matchMedia('(update: slow)').matches;if(r||s||(m&&m<=4)||(c&&c<=4)){d.dataset.lowPerf='true';}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="antialiased">
         <a
           href="#main-content"

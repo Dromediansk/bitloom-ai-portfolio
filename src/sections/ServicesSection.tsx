@@ -1,6 +1,6 @@
 "use client";
 
-import { ButtonLink, SectionTitle } from "@/components";
+import { ButtonLink, FeaturedTestimonial, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ProcessContainer } from "@/components/process";
 import { getStaggeredDelay } from "@/lib/utils";
@@ -261,20 +261,7 @@ const ServicesSection = () => {
             ))}
           </div>
 
-          {/* Featured Testimonial */}
-          <div className="max-w-2xl mx-auto text-center">
-            <blockquote className="text-gray-600 dark:text-gray-300 italic text-lg leading-relaxed mb-3">
-              &ldquo;{t("socialProof.featuredQuote")}&rdquo;
-            </blockquote>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold text-gray-700 dark:text-gray-200">
-                {t("socialProof.featuredAuthor")}
-              </span>
-              {" — "}
-              {t("socialProof.featuredRole")},{" "}
-              {t("socialProof.featuredCompany")}
-            </p>
-          </div>
+          <FeaturedTestimonial />
         </div>
 
         {/* Process Section */}
