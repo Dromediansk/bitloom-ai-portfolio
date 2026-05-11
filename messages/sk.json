@@ -222,6 +222,7 @@
     "title": "Klientske recenzie a referencie",
     "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci s nami.",
     "at": "v",
+    "readMore": "Čítať celú recenziu",
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
@@ -556,7 +557,8 @@
     "learnMore": "Dozvedieť sa viac",
     "getStarted": "Začať",
     "contactUs": "Kontaktujte nás",
-    "viewAll": "Zobraziť všetko"
+    "viewAll": "Zobraziť všetko",
+    "close": "Zavrieť"
   },
   "cookieConsent": {
     "title": "Rešpektujeme vaše súkromie.",

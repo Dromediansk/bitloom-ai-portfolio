@@ -222,6 +222,7 @@
     "title": "Client Reviews & References",
     "subtitle": "Here's what clients and colleagues have to say about working with us.",
     "at": "at",
+    "readMore": "Read full review",
     "stats": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
@@ -556,7 +557,8 @@
     "learnMore": "Learn More",
     "getStarted": "Get Started",
     "contactUs": "Contact Us",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "close": "Close"
   },
   "cookieConsent": {
     "title": "We respect your privacy.",

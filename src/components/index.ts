@@ -6,6 +6,7 @@ export { default as ThemeToggle } from "./ThemeToggle";
 export { default as LanguageSwitcher } from "./LanguageSwitcher";
 export { default as Footer } from "./Footer";
 export { default as SocialLinks } from "./SocialLinks";
+export { default as Modal } from "./Modal";
 
 // Project components
 export * from "./projects";
