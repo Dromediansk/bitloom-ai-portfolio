@@ -22,8 +22,8 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 
 ## Internationalization (i18n)
 
-- **Supported Languages**: English (default) and Slovak
-- **URL Structure**: `/en/page` and `/sk/page` with automatic locale detection
+- **Supported Languages**: Slovak (default) and English
+- **URL Structure**: `/page` for Slovak (default) and `/en/page` for English — `localePrefix: "as-needed"` hides the prefix for the default locale
 - **Translation Files**:
   - `messages/en.json` - English translations
   - `messages/sk.json` - Slovak translations
@@ -33,13 +33,13 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 
 ## Pages / Routes
 
-- `/` or `/en` → Company Intro (hero section with company mission and values)
-- `/sk` → Slovak version of homepage
-- `/en/services` or `/sk/services` → Service offerings (web development, AI development, mobile apps)
-- `/en/projects` or `/sk/projects` → Featured client work and case studies
-- `/en/about` or `/sk/about` → Company story, team, and founder Miroslav's background
-- `/en/contact` or `/sk/contact` → Contact form and business inquiry details
-- `/en/testimonials` or `/sk/testimonials` → Client testimonials and success stories
+- `/` (Slovak) or `/en` → Company Intro (hero section with company mission and values)
+- `/services` or `/en/services` → Service offerings (web development, AI development, mobile apps)
+- `/projects` or `/en/projects` → Featured client work and case studies
+- `/about` or `/en/about` → Company story, team, and founder Miroslav's background
+- `/contact` or `/en/contact` → Contact form and business inquiry details
+- `/testimonials` or `/en/testimonials` → Client testimonials and success stories
+- `/imprint` or `/en/imprint` → Imprint / legal information
 - `blog.bitloom.sk` → External blog link (opens in new tab)
 
 ## Style Guide

@@ -18,6 +18,13 @@
     "scrollToExplore": "Posúvajte pre preskúmanie",
     "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Stránka nenájdená",
+    "description": "Stránku, ktorú hľadáte, sme presunuli, premenovali, alebo nikdy neexistovala. Vráťme vás na správnu cestu.",
+    "backHome": "Späť na úvod",
+    "contactUs": "Kontaktujte nás"
+  },
   "services": {
     "title": "Naše služby",
     "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
@@ -315,12 +322,12 @@
     },
     "legalLinks": {
       "privacy": "Zásady ochrany osobných údajov",
-      "imprint": "Identifikačné údaje"
+      "imprint": "Právne informácie"
     },
     "copyright": "© {year} Bitloom s.r.o. Všetky práva vyhradené."
   },
   "imprint": {
-    "title": "Identifikačné údaje",
+    "title": "Právne informácie",
     "intro": "Informácie zverejňované podľa §3a Obchodného zákonníka SR a príslušných predpisov EÚ.",
     "sections": {
       "provider": {

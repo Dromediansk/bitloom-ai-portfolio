@@ -18,6 +18,13 @@
     "scrollToExplore": "Scroll to explore",
     "scrollToServicesAriaLabel": "Scroll to services section"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you're looking for has moved, been renamed, or never existed. Let's get you back on track.",
+    "backHome": "Back to home",
+    "contactUs": "Contact us"
+  },
   "services": {
     "title": "Our Services",
     "subtitle": "We help businesses launch faster, reach more users, and scale with confidence",
