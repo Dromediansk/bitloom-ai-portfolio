@@ -227,6 +227,9 @@
     "subtitle": "Tu je to, čo klienti a kolegovia hovoria o práci s nami.",
     "at": "v",
     "readMore": "Čítať celú recenziu",
+    "ui": {
+      "verifiedBadge": "Overené na LinkedIn"
+    },
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
@@ -236,19 +239,22 @@
       {
         "name": "Ing. Alexandra Šebestová",
         "role": "C# vývojár | .NET | Unity | Softvérový inžinier",
-        "testimonial": "Mala som tú česť spolupracovať s Miroslavom na projekte vývoja webu a so spoluprácou som maximálne spokojná. Odovzdala som mu Figma dizajn a priviedol ho k životu presne tak, ako som si predstavovala — čisto a plne funkčne. Najviac ma zaujala rýchlosť a kvalita. Vždy, keď som potrebovala niečo upraviť, bolo to vyriešené promptne a bez zbytočností. Komunikácia bola počas celej spolupráce jasná a pohotová. Ak hľadáte niekoho, kto berie váš dizajn vážne, dodá načas a s kým sa naozaj dobre spolupracuje, Miroslava odporúčam bez zaváhania."
+        "testimonial": "Mala som tú česť spolupracovať s Miroslavom na projekte vývoja webu a so spoluprácou som maximálne spokojná. Odovzdala som mu Figma dizajn a priviedol ho k životu presne tak, ako som si predstavovala — čisto a plne funkčne. Najviac ma zaujala rýchlosť a kvalita. Vždy, keď som potrebovala niečo upraviť, bolo to vyriešené promptne a bez zbytočností. Komunikácia bola počas celej spolupráce jasná a pohotová. Ak hľadáte niekoho, kto berie váš dizajn vážne, dodá načas a s kým sa naozaj dobre spolupracuje, Miroslava odporúčam bez zaváhania.",
+        "recommendationDate": ""
       },
       {
         "name": "Andy Swan",
         "role": "Vedúci softvérového inžinierstva",
         "company": "Aptitude Global",
-        "testimonial": "Pracoval som s Mirom na projekte zameranom na štandardizáciu podnikového prístupu k vývoju aplikácií. Jeho prístup k vývoju a QA, spolu s jeho pragmatickým pohľadom na opakovateľnosť, prevyšuje ľudí s výrazne väčšími skúsenosťami. Okrem typických vývojárskych úloh využívajúcich JS, TS, HTML, CSS a AWS sa aktívne podieľal na procesoch technickej architektúry, kde bol jeho príspevok cenný. Bolo mi ľúto vidieť ho odísť z tohto projektu a pozíciu, ktorú zanechal, bolo ťažké obsadiť. Odporúčam Mira celým srdcom a dúfam, že s ním budem v budúcnosti opäť pracovať."
+        "testimonial": "Pracoval som s Mirom na projekte zameranom na štandardizáciu podnikového prístupu k vývoju aplikácií. Jeho prístup k vývoju a QA, spolu s jeho pragmatickým pohľadom na opakovateľnosť, prevyšuje ľudí s výrazne väčšími skúsenosťami. Okrem typických vývojárskych úloh využívajúcich JS, TS, HTML, CSS a AWS sa aktívne podieľal na procesoch technickej architektúry, kde bol jeho príspevok cenný. Bolo mi ľúto vidieť ho odísť z tohto projektu a pozíciu, ktorú zanechal, bolo ťažké obsadiť. Odporúčam Mira celým srdcom a dúfam, že s ním budem v budúcnosti opäť pracovať.",
+        "recommendationDate": ""
       },
       {
         "name": "Jacob Ellis",
         "role": "Vedúci tímu",
         "company": "Cognitive Creators",
-        "testimonial": "Práca s Mirom na významnom americkom farmaceutickom projekte bola vynikajúcou skúsenosťou. Vyčnieva ako špičkový vývojár s výnimočnými zručnosťami v TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless a PostgreSQL. Mirove technické schopnosti ho zaraďujú do najvyšších kategórií vývojárov, s ktorými som mal to potešenie pracovať. Jeho schopnosť spojiť vysokoúrovňové technické zručnosti s reálnymi aplikáciami bola kľúčová pre posun nášho projektu vpred. Mirove poznatky boli neoceniteľné, významne prispievajúc k mojej práci aj k projektu ako celku. Hoci jeho odchod zanecháva veľké topánky na vyplnenie, jeho budúci tím má neuveriteľné šťastie, že ho má. Želám Mirovi všetko najlepšie v jeho nových počinaniach – jeho vplyv tu bude zapamätaný."
+        "testimonial": "Práca s Mirom na významnom americkom farmaceutickom projekte bola vynikajúcou skúsenosťou. Vyčnieva ako špičkový vývojár s výnimočnými zručnosťami v TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless a PostgreSQL. Mirove technické schopnosti ho zaraďujú do najvyšších kategórií vývojárov, s ktorými som mal to potešenie pracovať. Jeho schopnosť spojiť vysokoúrovňové technické zručnosti s reálnymi aplikáciami bola kľúčová pre posun nášho projektu vpred. Mirove poznatky boli neoceniteľné, významne prispievajúc k mojej práci aj k projektu ako celku. Hoci jeho odchod zanecháva veľké topánky na vyplnenie, jeho budúci tím má neuveriteľné šťastie, že ho má. Želám Mirovi všetko najlepšie v jeho nových počinaniach – jeho vplyv tu bude zapamätaný.",
+        "recommendationDate": ""
       }
     ],
     "cta": {

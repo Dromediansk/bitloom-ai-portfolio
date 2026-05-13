@@ -6,6 +6,7 @@ import {
   DecorativeQuote,
   Testimonial,
   TestimonialModal,
+  VerifiedBadge,
 } from "@/components/testimonial";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { getStaggeredDelay } from "@/lib/utils";
@@ -26,28 +27,38 @@ const TestimonialCard = ({
   const t = useTranslations("testimonials");
 
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={`${t("readMore")}: ${testimonial.name}`}
-      className={`relative text-left w-full bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+    <div
+      className={`flex flex-col gap-3 ${
         isVisible
           ? `animate-fade-in-up ${delayClass}`
           : "opacity-0 translate-y-8"
-      }`}
+      } transition-all duration-500`}
     >
-      <DecorativeQuote />
-      <AuthorHeader testimonial={testimonial} />
-      <blockquote className="mt-5 text-gray-700 dark:text-gray-300 text-base leading-relaxed line-clamp-3">
-        &ldquo;{testimonial.testimonial}&rdquo;
-      </blockquote>
-      <span className="mt-4 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
-        {t("readMore")}
-        <span aria-hidden="true" className="ml-1">
-          →
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={`${t("readMore")}: ${testimonial.name}`}
+        className="relative text-left w-full bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+      >
+        <DecorativeQuote />
+        <AuthorHeader testimonial={testimonial} />
+        <blockquote className="mt-5 text-gray-700 dark:text-gray-300 text-base leading-relaxed line-clamp-3">
+          &ldquo;{testimonial.testimonial}&rdquo;
+        </blockquote>
+        <span className="mt-4 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400">
+          {t("readMore")}
+          <span aria-hidden="true" className="ml-1">
+            →
+          </span>
         </span>
-      </span>
-    </button>
+      </button>
+      <div className="px-1">
+        <VerifiedBadge
+          recommendationDate={testimonial.recommendationDate}
+          authorName={testimonial.name}
+        />
+      </div>
+    </div>
   );
 };
 

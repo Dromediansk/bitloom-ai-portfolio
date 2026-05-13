@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import StarRating from "./StarRating";
 import { Testimonial } from "./types";
 
 const AuthorHeader = ({ testimonial }: { testimonial: Testimonial }) => {
@@ -15,7 +14,6 @@ const AuthorHeader = ({ testimonial }: { testimonial: Testimonial }) => {
         {testimonial.role}
         {testimonial.company ? ` ${t("at")} ${testimonial.company}` : ""}
       </div>
-      <StarRating />
     </div>
   );
 };

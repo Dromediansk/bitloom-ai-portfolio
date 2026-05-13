@@ -3,4 +3,5 @@ export interface Testimonial {
   role: string;
   company?: string;
   testimonial: string;
+  recommendationDate: string;
 }

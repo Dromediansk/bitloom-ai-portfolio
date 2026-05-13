@@ -227,6 +227,9 @@
     "subtitle": "Here's what clients and colleagues have to say about working with us.",
     "at": "at",
     "readMore": "Read full review",
+    "ui": {
+      "verifiedBadge": "Verified on LinkedIn"
+    },
     "stats": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
@@ -236,19 +239,22 @@
       {
         "name": "Ing. Alexandra Šebestová",
         "role": "C# Developer | .NET | Unity | Software Engineer",
-        "testimonial": "I had the pleasure of working with Miroslav on a web development project, and I couldn't be happier with the experience. I handed over a Figma design and they brought it to life exactly as I wanted. It was clean, and fully functional. What stood out most was the speed and quality. Whenever I needed something tweaked or adjusted, it was handled quickly and without any fuss. Communication throughout was clear and responsive. If you need someone who takes your design seriously, delivers on time, and is genuinely easy to work with, I'd recommend Miroslav without hesitation."
+        "testimonial": "I had the pleasure of working with Miroslav on a web development project, and I couldn't be happier with the experience. I handed over a Figma design and they brought it to life exactly as I wanted. It was clean, and fully functional. What stood out most was the speed and quality. Whenever I needed something tweaked or adjusted, it was handled quickly and without any fuss. Communication throughout was clear and responsive. If you need someone who takes your design seriously, delivers on time, and is genuinely easy to work with, I'd recommend Miroslav without hesitation.",
+        "recommendationDate": "May 11, 2026"
       },
       {
         "name": "Andy Swan",
         "role": "Head of Software Engineering",
         "company": "Aptitude Global",
-        "testimonial": "I worked with Miro on a project aimed at standardising enterprise approach to application development. His approach to development and QA, alongside his pragmatic view of reusability, stand above people with significantly more experience. On top of typical development tasks utilising JS, TS, HTML, CSS and AWS, he was actively involved in technical architecture processes where his input was valuable. I was sorry to see him move on from that project and the opening he left was difficult to fill. I would recommend Miro wholeheartedly and hope to work with him again in the future."
+        "testimonial": "I worked with Miro on a project aimed at standardising enterprise approach to application development. His approach to development and QA, alongside his pragmatic view of reusability, stand above people with significantly more experience. On top of typical development tasks utilising JS, TS, HTML, CSS and AWS, he was actively involved in technical architecture processes where his input was valuable. I was sorry to see him move on from that project and the opening he left was difficult to fill. I would recommend Miro wholeheartedly and hope to work with him again in the future.",
+        "recommendationDate": "Janurary 16, 2024"
       },
       {
         "name": "Jacob Ellis",
         "role": "Team Lead",
         "company": "Cognitive Creators",
-        "testimonial": "Working alongside Miro on a high profile US Pharma project has been an excellent experience. He stands out as a top-tier developer, with exceptional skills in TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless, and PostgreSQL. Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with. His ability to merge high-level technical skills with real-world applications has been instrumental in driving our project forward. Miro's insights have been invaluable, contributing significantly to both my work and the project as a whole. Though his departure leaves big shoes to fill, his future team is incredibly lucky to have him. Wishing Miro all the best in his new endeavors – his impact here will be remembered."
+        "testimonial": "Working alongside Miro on a high profile US Pharma project has been an excellent experience. He stands out as a top-tier developer, with exceptional skills in TypeScript, FullStack, React, Node.js, AWS Lambda, Serverless, and PostgreSQL. Miro's technical acumen places him in the upper echelons of developers I've had the pleasure to work with. His ability to merge high-level technical skills with real-world applications has been instrumental in driving our project forward. Miro's insights have been invaluable, contributing significantly to both my work and the project as a whole. Though his departure leaves big shoes to fill, his future team is incredibly lucky to have him. Wishing Miro all the best in his new endeavors – his impact here will be remembered.",
+        "recommendationDate": "January 15, 2024"
       }
     ],
     "cta": {
