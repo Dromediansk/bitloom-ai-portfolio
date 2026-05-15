@@ -4,21 +4,32 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 
 ## Tech Stack
 
-- **Next.js** (App Router)
+- **Next.js 16** (App Router, Turbopack dev)
+- **React 19**
 - **TypeScript**
-- **Tailwind CSS**
-- **@next/font** or custom fonts for typography
-- **next-intl** (for internationalization - English and Slovak)
+- **Tailwind CSS v4** (CSS-first config via `@theme` in `src/app/globals.css`; the legacy `tailwind.config.js` is unused)
+- **next-intl** (i18n — English and Slovak)
+- **next-themes** (dark mode, via `src/providers/ThemeProvider.tsx`)
+- **mailtrap** (contact form email delivery)
+
+## Dev Commands
+
+- `npm run dev` — start dev server (Turbopack)
+- `npm run build` — production build
+- `npm run lint` — ESLint
 
 ## Project Structure Guidelines
 
-/app # App Router entry point
-/components # Reusable UI components
-/sections # Page sections (Intro, Projects, Testimonials, Contact)
-/lib # Utilities (SEO config, email utils, etc.)
-/public # Static assets (images, icons, etc.)
-/messages # i18n translation files (en.json, sk.json)
-/i18n # Internationalization configuration (routing, middleware)
+src/app # App Router (locale-scoped pages under src/app/[locale])
+src/components # Reusable UI components (incl. about/, contact/, process/, projects/, testimonial/)
+src/sections # Page sections (Hero, Services, Projects, About, Testimonials, Contact)
+src/lib # Utilities (analytics, config, consent, hooks, utils)
+src/providers # React providers (ThemeProvider)
+src/i18n # next-intl routing + request config
+src/proxy.ts # next-intl middleware (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
+src/app/api # Route handlers (contact form)
+public # Static assets
+messages # i18n translation files (en.json, sk.json)
 
 ## Internationalization (i18n)
 
@@ -29,7 +40,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
   - `messages/sk.json` - Slovak translations
 - **Components**: All user-facing text uses `useTranslations()` hook from next-intl
 - **Language Switcher**: Available in navigation for seamless language switching
-- **Middleware**: Automatic locale detection and routing via `src/middleware.ts`
+- **Middleware**: Automatic locale detection and routing via `src/proxy.ts` (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
 
 ## Pages / Routes
 
@@ -86,10 +97,11 @@ Bitloom's core technical expertise includes:
 
 ## SEO Guidelines
 
-- Title and meta description per page (use **next-seo**)
+- Title and meta description per page via Next.js Metadata API (`export const metadata` / `generateMetadata`)
 - Open Graph / Twitter Card meta tags for link previews
 - Headings (`<h1>` → `<h6>`) structured hierarchically
 - Use `next/image` for optimized images
+- `src/app/sitemap.ts` and `src/app/robots.ts` generate sitemap.xml and robots.txt
 
 ## Features to Implement
 
@@ -167,21 +179,6 @@ Bitloom's core technical expertise includes:
 - Maintain consistent key structure across both languages
 - Use professional, business-appropriate tone for both languages
 - Slovak translations should sound natural, not machine-translated
-
-## Optional Enhancements
-
-- **Dark Mode** with Tailwind theming
-- **Framer Motion** for transitions
-- **Sitemap.xml** and **robots.txt** for SEO completeness
-- **RSS feed** if a blog is added later
-
-## Example Copilot Prompts
-
-// Create a responsive company hero section with value proposition and CTA using Tailwind CSS
-
-// Generate enterprise-focused SEO config for a Next.js business website
-
-// Build a professional contact form for business inquiries with validation
 
 ## Custom Agents
 
