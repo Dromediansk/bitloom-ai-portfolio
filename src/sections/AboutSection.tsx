@@ -137,7 +137,7 @@ const AboutSection = () => {
   const t = useTranslations("about");
 
   const stats = [
-    { value: "6+", label: t("stats.yearsExperience") },
+    { value: "7+", label: t("stats.yearsExperience") },
     { value: "10+", label: t("stats.projectsCompleted") },
     { value: "2", label: t("stats.industries") },
   ];

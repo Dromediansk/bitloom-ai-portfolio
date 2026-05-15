@@ -28,7 +28,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "We help businesses launch faster, reach more users, and scale with confidence",
-    "differentiator": "6+ years shipping production software in healthcare and fintech. One developer, zero overhead, full accountability.",
+    "differentiator": "7+ years shipping production software in fintech, banking, and AI engineering. One developer, zero overhead, full accountability.",
     "modernWebCraft": {
       "title": "Web Solutions",
       "description": "Fast, responsive websites and web apps — built from database to UI.",
@@ -166,33 +166,34 @@
     },
     "founder": {
       "title": "Meet the Founder",
-      "name": "Miroslav Pillár – Founder & Software Engineer",
+      "name": "Miroslav Pillár – Founder & AI Engineer",
       "location": "Košice, Slovakia",
-      "description1": "Miroslav is a self-taught software developer. He learned programming by building real-world projects and personal applications, combining technical thinking with creativity. He continuously expands his knowledge in web development, mobile apps, and artificial intelligence.",
+      "description1": "Miroslav is a self-taught software engineer who started in frontend and full-stack development and is now focused on AI engineering. He learned by shipping real products — combining technical depth with a product mindset — and is continuously expanding into agentic systems and AI-powered automation.",
       "highlights": {
         "experienceLabel": "Experience",
-        "experienceValue": "6+ Years of Professional Experience",
+        "experienceValue": "7+ Years of Professional Experience",
         "educationLabel": "Education",
         "education1": "Master's Degree in Economics, Masaryk University, Brno",
         "education2": "Zero To Mastery Academy",
         "cooperationsLabel": "Worked With",
         "cooperations": "Finshape · GlobalLogic · Senacor"
       },
-      "description2": "For most of his career, he has worked on healthcare and fintech projects where software must be reliable and secure. Working in these environments taught him to design solutions that are stable, well-tested, and built for long-term use.",
-      "description3": "In his free time, he enjoys exploring new technologies, experimenting, and building personal applications that make everyday life easier. This mindset is reflected in his work with Bitloom clients — with a strong focus on quality, productivity, and transparent collaboration."
+      "description2": "Most of his career has been spent in high-stakes industries — fintech and banking — where software must be reliable, secure, and battle-tested. He has shipped production banking solutions and led the response to incidents in production affecting thousands of end users.",
+      "description3": "Today, his focus is on AI engineering: building agentic systems with LangGraph and TypeScript, integrating standardized protocols like A2A and AG-UI, and crafting Claude tools (skills and plugins) that accelerate analytics work. The same mindset — quality, productivity, and transparent collaboration — carries into every Bitloom engagement."
     },
     "techStack": {
       "title": "Our Technical Expertise",
       "description": "These are the tools we use daily. We pick what fits your project — not what's trending on Twitter.",
       "technologies": {
-        "reactjs": "Modern frontend development with component-based architecture",
+        "langgraph": "Stateful, graph-based framework for building production AI agents",
+        "claude": "Anthropic's AI platform for agents, integrations, and developer tooling",
+        "mcp": "Open protocol that connects AI agents to tools, data, and external systems",
+        "reactjs": "Component-based architecture for modern web (React.js) and mobile (React Native) interfaces",
         "nextjs": "Full-stack React framework for production-ready applications",
+        "expo": "Streamlined React Native development and deployment platform",
         "typescript": "Type-safe development for robust, maintainable applications",
         "nodejs": "Server-side JavaScript for scalable backend solutions",
-        "python": "Versatile programming for web applications, APIs, and automation",
-        "postgresql": "Powerful, open-source relational database system",
-        "reactNative": "Cross-platform mobile app development",
-        "expo": "Streamlined React Native development and deployment platform"
+        "python": "Versatile programming for web applications, APIs, and automation"
       }
     },
     "whyChoose": {

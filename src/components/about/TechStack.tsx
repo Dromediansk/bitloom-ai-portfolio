@@ -3,12 +3,34 @@ import { useTranslations } from "next-intl";
 import { useIntersectionObserver } from "@/lib/hooks";
 
 const TechStack = () => {
-  const { elementRef, hasIntersected } = useIntersectionObserver<HTMLDivElement>();
+  const { elementRef, hasIntersected } =
+    useIntersectionObserver<HTMLDivElement>();
   const t = useTranslations("about.techStack");
 
   const technologies = [
     {
-      name: "React.js",
+      name: "LangGraph",
+      description: t("technologies.langgraph"),
+      iconPath: "/icons/Langgraph.svg",
+      bgColor: "bg-emerald-100 dark:bg-emerald-900/30",
+      keepOriginalInDark: false,
+    },
+    {
+      name: "Claude SDK",
+      description: t("technologies.claude"),
+      iconPath: "/icons/Claude.svg",
+      bgColor: "bg-orange-100 dark:bg-orange-900/30",
+      keepOriginalInDark: false,
+    },
+    {
+      name: "MCP",
+      description: t("technologies.mcp"),
+      iconPath: "/icons/mcp.svg",
+      bgColor: "bg-violet-100 dark:bg-violet-900/30",
+      keepOriginalInDark: false,
+    },
+    {
+      name: "React + React Native",
       description: t("technologies.reactjs"),
       iconPath: "/icons/ReactJS.svg",
       bgColor: "bg-blue-100 dark:bg-blue-900/30",
@@ -20,13 +42,6 @@ const TechStack = () => {
       iconPath: "/icons/NextJS.svg",
       bgColor: "bg-gray-100 dark:bg-gray-900/30",
       keepOriginalInDark: false,
-    },
-    {
-      name: "React Native",
-      description: t("technologies.reactNative"),
-      iconPath: "/icons/ReactNative.svg",
-      bgColor: "bg-cyan-100 dark:bg-cyan-900/30",
-      keepOriginalInDark: true,
     },
     {
       name: "Expo",
@@ -43,24 +58,10 @@ const TechStack = () => {
       keepOriginalInDark: true,
     },
     {
-      name: "Node.js",
-      description: t("technologies.nodejs"),
-      iconPath: "/icons/NodeJS.svg",
-      bgColor: "bg-green-100 dark:bg-green-900/30",
-      keepOriginalInDark: true,
-    },
-    {
       name: "Python",
       description: t("technologies.python"),
       iconPath: "/icons/Python.svg",
       bgColor: "bg-yellow-100 dark:bg-yellow-900/30",
-      keepOriginalInDark: true,
-    },
-    {
-      name: "PostgreSQL",
-      description: t("technologies.postgresql"),
-      iconPath: "/icons/Postgres.svg",
-      bgColor: "bg-indigo-100 dark:bg-indigo-900/30",
       keepOriginalInDark: true,
     },
   ];
@@ -80,12 +81,12 @@ const TechStack = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {technologies.map((tech, index) => {
           return (
             <div
               key={tech.name}
-              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-1 ${
+              className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-1 text-center sm:text-left ${
                 hasIntersected
                   ? "animate-fade-in-up"
                   : "opacity-0 translate-y-8"
@@ -95,7 +96,7 @@ const TechStack = () => {
               }}
             >
               <div
-                className={`w-12 h-12 ${tech.bgColor} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 ease-out`}
+                className={`w-12 h-12 ${tech.bgColor} rounded-lg flex items-center justify-center mb-4 mx-auto sm:mx-0 group-hover:scale-110 transition-all duration-300 ease-out`}
               >
                 <Image
                   src={tech.iconPath}

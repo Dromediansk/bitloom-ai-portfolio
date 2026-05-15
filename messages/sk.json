@@ -28,7 +28,7 @@
   "services": {
     "title": "Naše služby",
     "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
-    "differentiator": "6+ rokov dodávania produkčného softvéru v zdravotníctve a fintech. Jeden vývojár, nulová réžia, plná zodpovednosť.",
+    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
       "title": "Webové riešenia",
       "description": "Rýchle a responzívne weby a webové aplikácie — od databázy až po rozhranie.",
@@ -166,33 +166,34 @@
     },
     "founder": {
       "title": "Spoznajte zakladateľa",
-      "name": "Miroslav Pillár – Zakladateľ a softvérový inžinier",
+      "name": "Miroslav Pillár – Zakladateľ a AI Engineer",
       "location": "Košice, Slovensko",
-      "description1": "Miroslav je samouk vo vývoji softvéru. Programovať sa naučil budovaním reálnych projektov a vlastných aplikácií, kde spájal technické myslenie s kreativitou. Neustále sa vzdeláva v oblastiach webového vývoja, mobilných appiek a umelej inteligencie.",
+      "description1": "Miroslav je samouk vo vývoji softvéru. Začínal vo frontende a full-stack vývoji a dnes sa naplno venuje vývoju AI riešení. Programovať sa naučil budovaním reálnych produktov, kde spájal technickú hĺbku s produktovým myslením, a postupne sa rozširuje do agentických systémov a AI automatizácie.",
       "highlights": {
         "experienceLabel": "Skúsenosti",
-        "experienceValue": "6+ rokov profesionálnych skúseností",
+        "experienceValue": "7+ rokov profesionálnych skúseností",
         "educationLabel": "Vzdelanie",
         "education1": "Ing. titul v ekonómii, Masarykova univerzita, Brno",
         "education2": "Akadémia Zero To Mastery",
         "cooperationsLabel": "Spolupracoval s",
         "cooperations": "Finshape · GlobalLogic · Senacor"
       },
-      "description2": "Väčšinu kariéry pracoval na projektoch zo zdravotníctva a fintechu, kde musí softvér fungovať spoľahlivo a bezpečne. Práca v týchto prostrediach ho naučila navrhovať riešenia, ktoré sú stabilné, dobre testované a pripravené na dlhodobé používanie.",
-      "description3": "Vo voľnom čase rád skúma nové technológie, experimentuje a vytvára vlastné aplikácie, ktoré zjednodušujú každodenný život. Tento prístup sa premieta aj do práce pre klientov Bitloom — dôraz na kvalitu, produktivitu a transparentnú spoluprácu."
+      "description2": "Väčšinu kariéry pracoval na projektoch z fintechu a bankovníctva, kde musí softvér fungovať spoľahlivo, bezpečne a obstáť aj v ostrej prevádzke. Dodával produkčné bankové riešenia a riešil incidenty v produkcii s dopadom na tisíce používateľov.",
+      "description3": "Dnes sa naplno venuje AI engineeringu — stavia agentické systémy v LangGraph a TypeScripte, integruje štandardizované protokoly ako A2A a AG-UI a vytvára nástroje pre Claude (skills a plugins), ktoré urýchľujú analytickú prácu. Rovnaký prístup — dôraz na kvalitu, produktivitu a transparentnú spoluprácu — sa premieta do každej spolupráce s klientmi Bitloom."
     },
     "techStack": {
       "title": "Naša technická expertíza",
       "description": "Toto sú nástroje, s ktorými pracujeme každý deň. Vyberáme to, čo sedí vášmu projektu — nie to, čo je práve v trende.",
       "technologies": {
-        "reactjs": "Moderný frontend vývoj s komponentovou architektúrou",
+        "langgraph": "Stavový, grafový framework na tvorbu produkčných AI agentov",
+        "claude": "AI platforma od Anthropicu — pre agentov, integrácie a vývojárske nástroje",
+        "mcp": "Otvorený protokol, ktorý prepája AI agentov s nástrojmi, dátami a externými systémami",
+        "reactjs": "Komponentová architektúra pre moderné webové (React.js) a mobilné (React Native) rozhrania",
         "nextjs": "Full-stack React framework pre produkčne pripravené aplikácie",
+        "expo": "Zjednodušený vývoj a nasadenie React Native platforma",
         "typescript": "Typovo bezpečný vývoj pre robustné, udržateľné aplikácie",
         "nodejs": "Server-side JavaScript pre škálovateľné backend riešenia",
-        "python": "Všestranné programovanie pre webové aplikácie, API a automatizáciu",
-        "postgresql": "Výkonný, open-source relačný databázový systém",
-        "reactNative": "Multiplatformový vývoj mobilných aplikácií",
-        "expo": "Zjednodušený vývoj a nasadenie React Native platforma"
+        "python": "Všestranné programovanie pre webové aplikácie, API a automatizáciu"
       }
     },
     "whyChoose": {
