@@ -19,17 +19,20 @@ export const pageview = (url: string) => {
   }
 };
 
-// Track custom events
+// Track custom events. Beyond the standard category/label/value fields, any
+// extra keys are forwarded as GA4 event parameters (for custom dimensions).
 export const event = (
   action: string,
   {
     event_category,
     event_label,
     value,
+    ...params
   }: {
     event_category?: string;
     event_label?: string;
     value?: number;
+    [key: string]: string | number | boolean | undefined;
   } = {}
 ) => {
   if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
@@ -39,7 +42,41 @@ export const event = (
     if (event_label) eventConfig.event_label = event_label;
     if (value !== undefined) eventConfig.value = value;
 
+    for (const [key, val] of Object.entries(params)) {
+      if (val !== undefined) eventConfig[key] = val;
+    }
+
     window.gtag("event", action, eventConfig);
+  }
+};
+
+// Lead attribution — record the session's first landing page so the
+// conversion event can be broken down by entry point (GA4 custom dimension).
+const LANDING_PAGE_STORAGE_KEY = "bitloom_landing_page";
+
+export const captureLandingPage = () => {
+  if (typeof window === "undefined") return;
+  try {
+    if (!window.sessionStorage.getItem(LANDING_PAGE_STORAGE_KEY)) {
+      window.sessionStorage.setItem(
+        LANDING_PAGE_STORAGE_KEY,
+        window.location.pathname + window.location.search
+      );
+    }
+  } catch {
+    // sessionStorage unavailable (e.g. private mode) — attribution is best-effort
+  }
+};
+
+export const getLandingPage = (): string => {
+  if (typeof window === "undefined") return "(unknown)";
+  try {
+    return (
+      window.sessionStorage.getItem(LANDING_PAGE_STORAGE_KEY) ??
+      window.location.pathname
+    );
+  } catch {
+    return "(unknown)";
   }
 };
 
@@ -117,6 +154,20 @@ export const trackNewsletterSignup = () => {
   event("newsletter_signup", {
     event_category: "engagement",
     event_label: "footer_newsletter",
+  });
+};
+
+// Primary conversion event — GA4's recommended `generate_lead` event, fired on
+// successful contact-form submission. Mark this as a key event in GA4 Admin.
+export const trackLeadGenerated = (params: {
+  form_name: string;
+  lead_source: string;
+}) => {
+  event("generate_lead", {
+    event_category: "lead_generation",
+    event_label: params.form_name,
+    value: 1,
+    lead_source: params.lead_source,
   });
 };
 

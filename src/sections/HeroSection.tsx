@@ -3,6 +3,7 @@
 import { ButtonLink } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
+import { trackCTAClick } from "@/lib/analytics";
 
 const HeroSection = () => {
   const { elementRef, hasIntersected } = useIntersectionObserver({
@@ -61,6 +62,7 @@ const HeroSection = () => {
               href="/contact"
               variant="primary"
               size="lg"
+              onClick={() => trackCTAClick("contact_us", "hero")}
               className="w-full sm:w-auto transform hover:scale-105 hover:shadow-lg hover:animate-glow transition-all duration-300 group"
             >
               <span className="group-hover:animate-pulse">

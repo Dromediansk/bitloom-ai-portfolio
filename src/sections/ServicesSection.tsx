@@ -5,6 +5,7 @@ import { useIntersectionObserver } from "@/lib/hooks";
 import { ProcessContainer } from "@/components/process";
 import { getStaggeredDelay } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { trackCTAClick } from "@/lib/analytics";
 
 const WebIcon = () => (
   <svg
@@ -284,6 +285,7 @@ const ServicesSection = () => {
               href="/contact"
               variant="primary"
               size="lg"
+              onClick={() => trackCTAClick("contact_us", "services")}
               className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
             >
               {t("cta.contactUs")}

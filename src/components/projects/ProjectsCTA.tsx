@@ -1,6 +1,9 @@
+"use client";
+
 import { memo } from "react";
 import { ButtonLink } from "@/components";
 import { useTranslations } from "next-intl";
+import { trackCTAClick } from "@/lib/analytics";
 
 export const ProjectsCTA = memo(() => {
   const t = useTranslations("projects.cta");
@@ -17,6 +20,7 @@ export const ProjectsCTA = memo(() => {
         <ButtonLink
           href="/contact"
           variant="primary"
+          onClick={() => trackCTAClick("start_project", "projects")}
           className="hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 group"
         >
           <span>{t("startProject")}</span>

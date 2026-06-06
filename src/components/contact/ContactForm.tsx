@@ -1,10 +1,16 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { Button } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import {
+  getLandingPage,
+  trackFormError,
+  trackFormStart,
+  trackLeadGenerated,
+} from "@/lib/analytics";
 
 interface ContactFormData {
   name: string;
@@ -29,6 +35,15 @@ const ContactForm = () => {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const hasStartedRef = useRef(false);
+
+  // Fire form_start once, on the first interaction with the form.
+  const handleFormStart = () => {
+    if (!hasStartedRef.current) {
+      hasStartedRef.current = true;
+      trackFormStart("contact_form");
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -72,11 +87,16 @@ const ContactForm = () => {
       if (response.ok) {
         setSubmitStatus("success");
         resetForm();
+        trackLeadGenerated({
+          form_name: "contact_form",
+          lead_source: getLandingPage(),
+        });
       } else {
         throw new Error("Failed to send message. Please try again later.");
       }
     } catch {
       setSubmitStatus("error");
+      trackFormError("contact_form", "submission_failed");
     } finally {
       setIsSubmitting(false);
     }
@@ -100,6 +120,7 @@ const ContactForm = () => {
       </h2>
       <form
         onSubmit={handleSubmit}
+        onFocus={handleFormStart}
         className={`space-y-6 transition-all duration-800 delay-400 ${
           hasIntersected
             ? "opacity-100 translate-y-0"

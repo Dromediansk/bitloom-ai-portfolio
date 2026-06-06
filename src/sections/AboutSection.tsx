@@ -5,6 +5,7 @@ import { ButtonLink, SectionTitle } from "@/components";
 import { useIntersectionObserver } from "@/lib/hooks";
 import { ReasonContainer, TechStack } from "@/components/about";
 import { useTranslations } from "next-intl";
+import { trackCTAClick } from "@/lib/analytics";
 
 const CommunicationIcon = () => (
   <svg
@@ -357,6 +358,7 @@ const AboutSection = () => {
                 href="/contact"
                 variant="primary"
                 size="lg"
+                onClick={() => trackCTAClick("start_project", "about")}
                 className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
               >
                 {t("ctaSection.startProject")}

@@ -12,6 +12,7 @@ import { useIntersectionObserver } from "@/lib/hooks";
 import { getStaggeredDelay } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { trackCTAClick } from "@/lib/analytics";
 
 const TestimonialCard = ({
   testimonial,
@@ -117,7 +118,11 @@ const TestimonialsSection = () => {
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
             {t("cta.description")}
           </p>
-          <ButtonLink href="/contact" variant="primary">
+          <ButtonLink
+            href="/contact"
+            variant="primary"
+            onClick={() => trackCTAClick("start_conversation", "testimonials")}
+          >
             {t("cta.startConversation")}
           </ButtonLink>
         </div>

@@ -4,6 +4,7 @@ import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
 import SocialLinks from "../SocialLinks";
 import { siteConfig } from "@/lib/config";
+import { trackCTAClick } from "@/lib/analytics";
 
 const ContactInfo = () => {
   const { hasIntersected, elementRef } = useIntersectionObserver();
@@ -68,6 +69,7 @@ const ContactInfo = () => {
             <p className="text-gray-600 dark:text-gray-300">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
+                onClick={() => trackCTAClick("email_link", "contact_info")}
                 className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               >
                 {siteConfig.contact.email}
@@ -105,6 +107,7 @@ const ContactInfo = () => {
             <p className="text-gray-600 dark:text-gray-300">
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+                onClick={() => trackCTAClick("phone_link", "contact_info")}
                 className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               >
                 {siteConfig.contact.phone}
