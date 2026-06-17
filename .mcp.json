@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "analytics-mcp": {
+      "type": "stdio",
+      "command": "pipx",
+      "args": [
+        "run",
+        "analytics-mcp"
+      ],
+      "env": {}
+    }
+  }
+}
