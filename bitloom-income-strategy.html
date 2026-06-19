@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bitloom — Passive / Semi-Passive Income Strategy</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --surface: #171a21;
+    --surface-2: #1e222b;
+    --border: #2a2f3a;
+    --text: #e6e8ec;
+    --muted: #9aa1ad;
+    --accent: #6ea8fe;
+    --accent-2: #8be0c4;
+    --warn: #f0b34e;
+    --danger: #f08a8a;
+    --good: #7fd99a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px 96px; }
+  header.hero {
+    padding: 72px 24px 48px;
+    text-align: center;
+    background: radial-gradient(1200px 400px at 50% -10%, rgba(110,168,254,0.12), transparent 70%);
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  header.hero h1 { font-size: 38px; margin: 12px 0 8px; line-height: 1.15; }
+  header.hero p { color: var(--muted); max-width: 640px; margin: 0 auto; font-size: 17px; }
+  .goal-pill {
+    display: inline-block; margin-top: 22px; padding: 10px 18px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+    font-size: 14px; color: var(--text);
+  }
+  .goal-pill b { color: var(--accent-2); }
+
+  h2 { font-size: 26px; margin: 56px 0 6px; padding-top: 12px; }
+  h2 .num { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 10px; }
+  h3 { font-size: 19px; margin: 28px 0 6px; }
+  .lead { color: var(--muted); margin-top: 4px; }
+  p { margin: 10px 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { margin: 10px 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  small, .src { font-size: 12.5px; color: var(--muted); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; margin: 18px 0;
+  }
+  .card.option { border-left: 3px solid var(--accent); }
+  .grid { display: grid; gap: 16px; }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 720px){ .grid.two { grid-template-columns: 1fr; } header.hero h1{font-size:30px;} }
+
+  .badge { display:inline-block; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; border:1px solid var(--border); }
+  .badge.green { color: var(--good); border-color: rgba(127,217,154,0.4); background: rgba(127,217,154,0.08); }
+  .badge.amber { color: var(--warn); border-color: rgba(240,179,78,0.4); background: rgba(240,179,78,0.08); }
+  .badge.red { color: var(--danger); border-color: rgba(240,138,138,0.4); background: rgba(240,138,138,0.08); }
+  .badge.blue { color: var(--accent); border-color: rgba(110,168,254,0.4); background: rgba(110,168,254,0.08); }
+
+  table { width:100%; border-collapse: collapse; margin: 16px 0; font-size: 14.5px; }
+  th, td { text-align:left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:0.04em; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .rank { font-weight:700; color: var(--accent); }
+
+  .meta-row { display:flex; flex-wrap:wrap; gap: 18px; margin: 14px 0 4px; }
+  .meta-row div { font-size: 14px; }
+  .meta-row .label { color: var(--muted); display:block; font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; }
+
+  .callout { border-radius: 12px; padding: 16px 20px; margin: 18px 0; border:1px solid var(--border); }
+  .callout.key { background: rgba(110,168,254,0.07); border-color: rgba(110,168,254,0.35); }
+  .callout.warn { background: rgba(240,179,78,0.06); border-color: rgba(240,179,78,0.3); }
+  .callout h4 { margin: 0 0 6px; font-size: 15px; }
+
+  .toc { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top: 28px; }
+  .toc a { font-size:13.5px; padding:7px 14px; border:1px solid var(--border); border-radius:999px; color:var(--text); background:var(--surface); }
+  .toc a:hover { border-color: var(--accent); text-decoration:none; }
+
+  .timeline { border-left: 2px solid var(--border); margin: 20px 0; padding-left: 22px; }
+  .timeline .step { position: relative; margin-bottom: 22px; }
+  .timeline .step::before {
+    content:""; position:absolute; left:-29px; top:4px; width:12px; height:12px;
+    border-radius:50%; background: var(--accent); border:2px solid var(--bg);
+  }
+  .timeline .when { font-size:12.5px; color: var(--accent); text-transform:uppercase; letter-spacing:0.05em; font-weight:600; }
+
+  .footnote { color: var(--muted); font-size: 13px; border-top:1px solid var(--border); margin-top:48px; padding-top:20px; }
+  hr.soft { border:none; border-top:1px solid var(--border); margin: 40px 0; }
+  .verdict { font-size:17px; }
+  .verdict b { color: var(--accent-2); }
+  code { background: var(--surface-2); padding: 1px 6px; border-radius: 5px; font-size: 13.5px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Bitloom · Business Strategy Brief</div>
+  <h1>Building a Passive / Semi-Passive Income Stream</h1>
+  <p>Strategic options and a recommended roadmap for reaching a first milestone of recurring monthly revenue — grounded in Bitloom's actual positioning, portfolio, and founder profile.</p>
+  <div class="goal-pill">🎯 Starting goal: <b>€200–300 / month</b> recurring, with room to scale</div>
+  <nav class="toc">
+    <a href="#context">Company context</a>
+    <a href="#summary">Options at a glance</a>
+    <a href="#opt1">1 · Retainers &amp; clients</a>
+    <a href="#opt2">2 · Build a product</a>
+    <a href="#opt3">3 · Audience &amp; content</a>
+    <a href="#recommendation">Recommendation</a>
+    <a href="#roadmap">90-day roadmap</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ===================== CONTEXT ===================== -->
+  <section id="context">
+    <h2><span class="num">00</span>Where Bitloom stands today</h2>
+    <p class="lead">The honest assessment that everything below is built on.</p>
+    <div class="grid two">
+      <div class="card">
+        <h3>Assets &amp; strengths</h3>
+        <ul>
+          <li><b>Founder:</b> Miroslav — 7+ yrs senior full-stack (TS/React/Next.js/Node/React Native, AWS serverless, PostgreSQL), now specialised in <b>AI engineering</b> (LangGraph.js, Claude, MCP, CrewAI, RAG).</li>
+          <li><b>Domain credibility:</b> fintech, banking, healthcare/pharma, enterprise — high-stakes, regulated sectors. Rare and valuable.</li>
+          <li><b>Proof:</b> 3 strong LinkedIn-verified testimonials, 10+ projects, public GitHub portfolio (AI research agent, CrewAI image analyzer, RN apps).</li>
+          <li><b>Channels in place:</b> bilingual EN/SK site, a blog (blog.bitloom.sk), LinkedIn company page, GA4 analytics, Košice/EU base.</li>
+          <li>Writes well; sits squarely in the <b>hottest niche of 2026</b> (AI agents / MCP).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Constraints &amp; reality</h3>
+        <ul>
+          <li><b>Solo + time-constrained.</b> Every hour spent here competes with billable work.</li>
+          <li><b>No existing audience yet</b> at scale — the single biggest gate on "passive" income (see below).</li>
+          <li>"Passive" is mostly a myth near-term: every documented success had an audience or a client base <i>first</i>.</li>
+          <li>The €200–300/mo target is modest and very achievable — it's the <i>bottom-to-middle</i> of every distribution we researched, not the unicorn tail.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout key">
+      <h4>The one finding that shapes the whole strategy</h4>
+      <p style="margin:0">Across <b>all three</b> research tracks, the same truth surfaced independently: <b>recurring income follows an existing relationship or audience — it does not appear before one.</b> So the fastest path to €200–300/mo is the one where Bitloom already has the relationship (clients), and the most durable path is the one that builds a compounding asset (an audience). The two are complementary, not either/or.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SUMMARY ===================== -->
+  <section id="summary">
+    <h2><span class="num">01</span>The three options at a glance</h2>
+    <p class="lead">Ranked by realistic probability of hitting €200–300/mo for <em>this</em> founder.</p>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Option</th><th>Time to target</th><th>How "passive"</th><th>Probability</th><th>Effort</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><b>Retainers &amp; new clients</b><br><small class="src">Convert clients → monthly care/automation plans</small></td>
+          <td>Weeks–2 months</td>
+          <td>Semi (light monthly work)</td>
+          <td><span class="badge green">Highest</span></td>
+          <td>Low–Medium</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><b>Build a focused product</b><br><small class="src">Niche AI/compliance SaaS, RN app, or starter kit</small></td>
+          <td>3–9 months</td>
+          <td>Semi (updates + marketing)</td>
+          <td><span class="badge amber">Medium</span></td>
+          <td>High up-front</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><b>Audience &amp; content engine</b><br><small class="src">Newsletter + sponsorships/affiliate, templates, course</small></td>
+          <td>6–12 months</td>
+          <td>Semi → compounds, feeds everything</td>
+          <td><span class="badge blue">High (but slow)</span></td>
+          <td>Sustained</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="src">Currency note: most sources are USD; EUR ≈ 0.92 × USD. All figures are directional 2025–2026 benchmarks, not guarantees.</p>
+  </section>
+
+  <hr class="soft" />
+
+  <!-- ===================== OPTION 1 ===================== -->
+  <section id="opt1">
+    <h2><span class="num">02</span>Option 1 — Retainers &amp; new clients <span class="badge green" style="font-size:13px;vertical-align:middle">Recommended start</span></h2>
+    <p class="lead">The lowest-effort, highest-probability route. This is "semi-passive" rather than passive — but a single retainer already clears the goal.</p>
+
+    <div class="card option">
+      <h3>The core move: turn project work into monthly recurring revenue</h3>
+      <p>Industry maintenance pricing runs <b>15–25% of the original build cost per year</b>; productized "care plans" cluster at <b>$100–250/month</b> (mid-tier 2025 average ≈ $246/mo). That means <b>one or two clients on a care plan hits the entire €200–300 target</b> — and only ~13% of consultants even offer retainers, so the upside is largely untapped.</p>
+      <div class="meta-row">
+        <div><span class="label">Realistic /mo</span> €100–250 per client</div>
+        <div><span class="label">To hit goal</span> 1–2 retainers</div>
+        <div><span class="label">Time to revenue</span> Weeks (existing clients)</div>
+        <div><span class="label">Ongoing effort</span> A few hrs/mo per client</div>
+      </div>
+      <h3>How to structure it</h3>
+      <ul>
+        <li><b>2–3 tiers:</b> e.g. Basic ~€100/mo (monitoring + minor fixes), Standard ~€250/mo (priority + small features), Premium ~€500/mo. Discounted hour-blocks below your project rate.</li>
+        <li><b>Pitch at the moment of peak trust</b> — immediately after a successful project handoff. Framework: reference results → name the recurring challenges → present the plan → propose a trial period.</li>
+        <li><b>Protect yourself:</b> defined monthly hours, response-time SLA, scope exclusions, rollover rules, termination clause — to stop scope creep.</li>
+      </ul>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Where to find the first clients</h3>
+        <p><b>Best-fit marketplaces for a senior AI + EU dev:</b></p>
+        <ul>
+          <li><b>Lemon.io</b> — Eastern-Europe focused, ~$60–120/hr, strong EU fit, vets clients (guaranteed payment). <span class="badge blue">Best EU entry</span></li>
+          <li><b>Toptal / A.Team</b> — high rates ($60–200+/hr; AI specialists $200+/hr), long engagements = recurring-friendly. Slow, selective vetting. <i>Note: Toptal embeds a hidden ~10–20% markup, so you net less than the client pays.</i></li>
+          <li><b>Braintrust / Contra</b> — <b>0% talent fee, keep 100%</b>; more self-driven acquisition.</li>
+          <li><b>Upwork</b> — good to <i>land</i> a first client; heavy price competition; fees now 0–15%.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Local &amp; outbound channels (Košice / CET / EU SMBs)</h3>
+        <ul>
+          <li><b>TITANS.sk</b> — Slovakia's IT freelancer-outsourcing marketplace (subcontracting).</li>
+          <li><b>Košice IT Valley</b> cluster + local meetups (Innovation &amp; Start-up Community, Cloud) — warm, in-city leads.</li>
+          <li><b>LinkedIn outbound</b> (highest-ROI cold channel): warm-first, 15–20 connection requests/day, lead with a <b>free AI/website audit</b> as a lead magnet. DMs reply ~10% vs ~5% for cold email.</li>
+        </ul>
+        <p class="src"><b>Market tailwind:</b> Only ~17% of small EU enterprises use AI (vs 55% of large firms) — a low-saturation regional market for hands-on AI-automation help.</p>
+      </div>
+    </div>
+
+    <div class="card option">
+      <h3>The differentiated upsell: a "productized AI Automation" package</h3>
+      <p>This is Bitloom's clearest edge into the underserved EU-SMB gap. Fixed scope, flat pricing: typical builds run <b>$2k–10k</b> + monthly retainers of <b>$500–1,500</b> (basic) and up. Even a single small automation retainer comfortably exceeds the starting goal and is far more defensible than generic dev work.</p>
+    </div>
+  </section>
+
+  <hr class="soft" />
+
+  <!-- ===================== OPTION 2 ===================== -->
+  <section id="opt2">
+    <h2><span class="num">03</span>Option 2 — Build a focused product</h2>
+    <p class="lead">Higher ceiling and true semi-passive potential, but front-loaded and with real failure odds. <b>Build narrow, in your domain — not a generic boilerplate or a thin AI wrapper.</b></p>
+
+    <div class="callout warn">
+      <h4>Reality check before building anything</h4>
+      <p style="margin:0">Median micro-SaaS earns ~$500/mo; ~70% earn under $500/mo and ~54% of indie products make $0. <b>Your €200–300 band (≈10–30 customers) is realistic</b> — but it is <i>not</i> passive; it needs active distribution. Good news: AI coding tools now make an MVP shippable in ~3 weeks for near-zero cost, and AI-first products reach $1k/mo materially faster than traditional software. Also: <b>price higher and sell to businesses</b> — sub-$25/mo products churn ~6%/mo; aim for ~10–15 customers at €20–40/mo, not 100 at €3.</p>
+    </div>
+
+    <div class="card option" style="border-left-color: var(--accent-2);">
+      <h3>⭐ Bitloom already has a head start: <span style="color:var(--accent-2)">ReadNest</span></h3>
+      <p>ReadNest (in <code>repos/readnest</code>, not yet on the Bitloom site) is a <b>polished, feature-complete, well-tested Expo / React Native app</b> for tracking books and capturing <i>insights</i> from them — local-first, privacy-first, no account needed. It's ~<b>2–3 weeks of store-listing work away from shipping</b>. The expensive part — a tested, CI-backed, near-MVP app — is <b>already built and paid for</b>. That makes it the cheapest possible experiment for the entire product path.</p>
+      <div class="meta-row">
+        <div><span class="label">Status</span> Near-MVP, buildable today (no backend needed)</div>
+        <div><span class="label">Current monetization</span> Buy Me a Coffee donation only</div>
+        <div><span class="label">As-is potential</span> ~$10–50/mo (donation, not the goal)</div>
+        <div><span class="label">To reach goal</span> Needs a real paid tier</div>
+      </div>
+      <p><b>The honest catch:</b> a donation model won't reliably hit €200–300/mo — a <b>hard paywall earns ~8× donation/freemium</b>, but even then it's top-15–20%-of-apps territory, and the real bottleneck is <b>distribution/ASO in a crowded book-tracking category</b>, not the code.</p>
+      <p><b>The unlock that fits Bitloom:</b> the natural premium tier is <b>AI features</b> (insight summarization, auto-tagging, reflection prompts) — which plays directly to Miroslav's AI-engineering edge and can be a hard paywall via RevenueCat (~2–4 weeks). Avoid paid cloud-sync first: it requires building the empty backend (6–10 wks) and breaks the privacy-first story.</p>
+      <p style="margin-bottom:0"><b>Recommended play:</b> <b>(1)</b> ship it now with the donation model — nearly free, yields real install/retention data, and becomes a <b>live portfolio piece + lead-gen asset</b> (a finished AI-ready mobile app to show clients) regardless of its own revenue; <b>(2)</b> add an AI-powered Pro tier <i>only after</i> retention data justifies it; <b>(3)</b> treat its main value as <b>learning app-store monetization cheaply + credibility</b>, with direct revenue as upside — not as the dependable route to the goal (that's still retainers, Option 1).</p>
+    </div>
+
+    <h3>Bitloom's edge = the intersection nobody else has</h3>
+    <p><b>AI engineering (MCP / agents / Claude) + healthcare/fintech domain + EU/GDPR positioning.</b> EU regulation (AI Act) is a <i>moat</i>, not just a cost — EU buyers increasingly favour EU-based, privacy-first providers. Build something narrow here. Three concrete candidates, ranked:</p>
+
+    <div class="card option">
+      <h3>Idea A — EU-compliance-grade MCP server / AI-agent toolkit <span class="badge green">Best fit</span></h3>
+      <p>A hosted MCP server (+ thin dashboard) exposing one painful, <i>compliant</i> workflow to AI agents — e.g. <b>GDPR-safe PII redaction &amp; audit-logged RAG retrieval</b> over fintech/healthcare documents, with EU data residency and AI-Act-aligned logging built in.</p>
+      <div class="meta-row">
+        <div><span class="label">Buyer</span> EU fintech/healthtech dev teams &amp; agencies</div>
+        <div><span class="label">Pricing</span> €29–49/mo (8–12 customers = goal)</div>
+        <div><span class="label">Effort</span> Medium (4–8 weeks)</div>
+        <div><span class="label">Risk</span> Compliance claims must be real; narrow ICP = slow sales</div>
+      </div>
+      <p class="src">Hits all three of Bitloom's edges and matches the durable "own a regulated workflow" pattern that investors and the market now reward over thin wrappers.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="card option">
+        <h3>Idea B — "Compliant AI feature" starter kit</h3>
+        <p>Not a generic SaaS boilerplate (saturated, and even category leader ShipFast's revenue <i>fell</i> in 2025). Instead: a narrow <b>Next.js + Node + AWS-serverless kit for shipping a GDPR/AI-Act-compliant AI feature</b> (RAG chat with audit trail, PII handling, EU infra) — sold as encoded judgment, plus an optional paid setup call.</p>
+        <div class="meta-row">
+          <div><span class="label">Pricing</span> €149–299 one-time + €99 setup</div>
+          <div><span class="label">Risk</span> Boilerplate category declining — the compliance angle is the only differentiator</div>
+        </div>
+      </div>
+      <div class="card option">
+        <h3>Idea C — Niche React Native subscription app</h3>
+        <p>Matches existing RN/Expo skills (Mindtaker, Next Notes). With a <b>hard paywall</b> (~8× the revenue of freemium), ~150–250 quality installs/mo can clear the target. Apple/Google Small Business Program cuts the platform fee to 15%.</p>
+        <div class="meta-row">
+          <div><span class="label">Reality</span> Top ~15–20% of apps territory</div>
+          <div><span class="label">Risk</span> Brutal ASO/discovery; ongoing acquisition needed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>How you'd actually get the first 10–30 customers</h3>
+      <p><b>Works:</b> value-first niche communities (Indie Hackers, targeted subreddits, AI Discords), build-in-public, tightly-targeted outreach, and citation-earning technical/comparison content. <b>Overrated:</b> Product Hunt (featured rate collapsed to ~10%; a launch yields maybe 10–20 paying customers — good for one-time awareness, not your customer base). <b>Avoid:</b> thin programmatic SEO, generic content vs Google AI Overviews.</p>
+    </div>
+
+    <div class="callout warn">
+      <h4>Verify before betting</h4>
+      <p style="margin:0">Reports of an <i>official</i> Anthropic paid Skills/plugin marketplace (15% cut) circulated but could only be traced to low-quality speculative blogs — <b>treat as unconfirmed; verify at claude.com/plugins.</b> Real third-party MCP monetization does exist (e.g. MCPize ~85% rev-share, and emerging per-call rails like x402 / Stripe MPP), but it's fragmented and early — fine as a credibility/lead-gen line, risky as a sole revenue base.</p>
+    </div>
+  </section>
+
+  <hr class="soft" />
+
+  <!-- ===================== OPTION 3 ===================== -->
+  <section id="opt3">
+    <h2><span class="num">04</span>Option 3 — Audience &amp; content engine</h2>
+    <p class="lead">The slowest to pay out, but the highest-leverage long game — and it plays directly to Bitloom's strengths (writes well, bilingual, hottest niche). Crucially, <b>this asset de-risks and feeds every other option.</b></p>
+
+    <div class="card option">
+      <h3>The flywheel: free newsletter → sponsorships + affiliate</h3>
+      <p>Sequence: publish a focused technical guide/ebook as a <b>free lead magnet</b> → grow a <b>free newsletter (beehiiv)</b> → monetize. beehiiv's ad network opens at 2,500 subscribers; sponsorship CPMs run $15–50. <b>€200–300/mo is realistic at ~3,000–6,000 engaged subscribers (≈6–12 months of building).</b></p>
+      <div class="meta-row">
+        <div><span class="label">Realistic /mo</span> €200–300+ at 3–6k engaged subs</div>
+        <div><span class="label">Time to revenue</span> 6–12 months</div>
+        <div><span class="label">Effort</span> Weekly publishing (the real cost)</div>
+        <div><span class="label">Compounds?</span> Yes — feeds product, course, clients</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Stream</th><th>Realistic €/mo</th><th>Time</th><th>Fit / notes</th></tr></thead>
+      <tbody>
+        <tr><td><b>Newsletter sponsorships</b></td><td>200–300+ at ~3–6k subs</td><td>6–12 mo</td><td><span class="badge green">Strong</span> — best fit; the anchor asset</td></tr>
+        <tr><td><b>Recurring affiliate</b><br><small class="src">Cloudways, Kit, Make, ElevenLabs, Framer</small></td><td>200–300 once audience compounds</td><td>6–12 mo</td><td>Pairs with newsletter; ~8–15 active referrals needed. <i>Skip credit-only programs: Vercel, Netlify, Anthropic, OpenAI.</i></td></tr>
+        <tr><td><b>Starter kit / templates (Gumroad)</b></td><td>20–300, front-loaded</td><td>Weeks–months</td><td><span class="badge green">Strong fit</span> — RN/Next.js/AI-agent kit; needs updates</td></tr>
+        <tr><td><b>Technical ebook (AI-agents niche)</b></td><td>20–150, decaying</td><td>1–3 mo</td><td>Best used as the <b>lead magnet</b> for the newsletter</td></tr>
+        <tr><td><b>Udemy / online course</b></td><td>10–80 per course</td><td>3–6+ mo</td><td>Niche AI angle only (healthcare/fintech); ~75% of instructors earn &lt;$1k/yr</td></tr>
+        <tr><td><b>Paid newsletter / community</b></td><td>200–300 once ~1–2k free subs</td><td>6–12 mo</td><td>Durable but heavy feeding</td></tr>
+        <tr><td>YouTube AdSense</td><td>needs 25–60k views/mo</td><td>6–18 mo</td><td><span class="badge amber">Weak near-term</span></td></tr>
+        <tr><td>Display ads / Medium</td><td>~7–75 (trivial)</td><td>Immediate</td><td><span class="badge amber">Covers hosting, not the goal</span></td></tr>
+        <tr><td>Open-source donations</td><td>~0 without audience</td><td>12+ mo</td><td><span class="badge red">Skip as primary.</span> If used, sell an open-core paid tier via Polar.sh, not donations</td></tr>
+        <tr><td>GPT Store / Envato / bounties</td><td>thin / declining</td><td>—</td><td><span class="badge red">Avoid near-term</span></td></tr>
+      </tbody>
+    </table>
+    <p class="src"><b>Why it matters even though it's slow:</b> the audience is the one asset that compounds and makes the product (Option 2) and the client pipeline (Option 1) dramatically easier. Starting it <i>now</i> is the highest-leverage decision in this brief.</p>
+  </section>
+
+  <hr class="soft" />
+
+  <!-- ===================== RECOMMENDATION ===================== -->
+  <section id="recommendation">
+    <h2><span class="num">05</span>Recommendation</h2>
+    <div class="callout key">
+      <p class="verdict" style="margin:0">Don't pick one option — <b>run them in the right order.</b> Use the <b>fastest path to hit the number now</b> (retainers), and in parallel start the <b>slow compounding asset</b> (audience) that will make a product viable later.</p>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <h3>✅ Do first (hit €200–300 in weeks)</h3>
+        <ul>
+          <li>Package <b>2–3 maintenance / care-plan tiers</b> and pitch every past &amp; future client at handoff. <b>1–2 yeses = goal met.</b></li>
+          <li>Build the <b>"AI Automation Setup" productized offer</b> — Bitloom's sharpest differentiator into the EU-SMB gap.</li>
+          <li>Open one acquisition channel: <b>Lemon.io</b> + warm <b>LinkedIn outreach</b> with a free-audit lead magnet.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🌱 Start in parallel (compounds for later)</h3>
+        <ul>
+          <li>Launch a <b>free beehiiv newsletter</b> in the AI-engineering / MCP niche. This is the long-term engine.</li>
+          <li>Write <b>one technical guide</b> as the lead magnet (also resells later as an ebook).</li>
+          <li>Once the audience exists, build <b>Idea A (EU-compliant MCP/AI toolkit)</b> — it sells <i>to</i> that audience and inherits the trust.</li>
+        </ul>
+      </div>
+    </div>
+    <p>This sequencing means Bitloom doesn't gamble months of build time on a product before having any way to distribute it — and doesn't stay stuck in pure hourly work with no compounding asset. The retainer covers the goal immediately; the audience makes everything after it easier.</p>
+  </section>
+
+  <!-- ===================== ROADMAP ===================== -->
+  <section id="roadmap">
+    <h2><span class="num">06</span>Suggested 90-day roadmap</h2>
+    <div class="timeline">
+      <div class="step">
+        <div class="when">Weeks 1–2 — Bank the quick win</div>
+        <p>Define care-plan tiers (~€100 / €250 / €500). Email every past and current client a retainer/care-plan offer at the next natural touchpoint. <b>Target: first €200–300/mo signed.</b></p>
+      </div>
+      <div class="step">
+        <div class="when">Weeks 1–6 — Open the pipeline</div>
+        <p>Apply to Lemon.io (+ optionally Toptal/A.Team). Run warm LinkedIn outreach (15–20/day) leading with a free AI/website audit to Slovak/CET SMBs. Stand up the "AI Automation Setup" package page.</p>
+      </div>
+      <div class="step">
+        <div class="when">Weeks 2–8 — Plant the audience</div>
+        <p>Launch the beehiiv newsletter; publish the first technical guide as a lead magnet. Repurpose existing GitHub projects (research agent, CrewAI analyzer) into build-in-public posts. Goal: consistent weekly publishing rhythm, not subscriber count yet.</p>
+      </div>
+      <div class="step">
+        <div class="when">Weeks 2–5 — Ship ReadNest (cheap product experiment)</div>
+        <p>Finish store-listing assets and <b>publish ReadNest</b> (Android + iOS) with the donation model — it's nearly free and already built. Add it to the Bitloom site as a live portfolio/lead-gen piece. The goal here is <b>install + retention data and learning the app-store game</b>, not immediate revenue.</p>
+      </div>
+      <div class="step">
+        <div class="when">Months 2–3 — Validate a product wedge</div>
+        <p>If ReadNest retention looks promising, add an <b>AI-powered Pro tier</b> (RevenueCat hard paywall) — leveraging Miroslav's AI edge. In parallel, spec a thin MVP of <b>Idea A</b> (EU-compliant MCP/RAG toolkit); talk to 5–10 target EU dev teams before building, ship only after a demand signal. Add affiliate links (Cloudways/Kit/Make) to the newsletter.</p>
+      </div>
+      <div class="step">
+        <div class="when">Month 3+ — Stack &amp; compound</div>
+        <p>Add a paid starter-kit/template for semi-passive income. Grow the newsletter toward the 2,500-sub sponsorship threshold. Convert more clients to retainers. Each layer makes the next cheaper to acquire.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footnote">
+    <p><b>How this brief was built.</b> Three parallel research tracks (client acquisition / freelancing, product &amp; SaaS opportunities, alternative passive income) were run against current 2025–2026 sources and cross-checked. Company context was extracted directly from the Bitloom codebase (site copy, projects, testimonials, CLAUDE.md).</p>
+    <p><b>Confidence &amp; caveats:</b> directional patterns are high-confidence and cross-corroborate (the "~1,000 subscribers ≈ ~$200/mo" benchmark appeared independently in multiple tracks). Softer/single-sourced items, flagged inline, include: precise Udemy instructor averages, low-ARPU churn bands, an unconfirmed official Anthropic paid marketplace, and the EU AI Act high-risk timeline (headline Aug 2026 vs a proposed Dec 2027 deferral) — verify before committing capital. All currency figures are USD-sourced unless noted (EUR ≈ 0.92 × USD).</p>
+    <p class="src">Prepared for Bitloom · strategy brief · figures are 2025–2026 benchmarks, not guarantees.</p>
+  </div>
+
+</div>
+</body>
+</html>
