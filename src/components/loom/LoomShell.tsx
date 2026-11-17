@@ -9,7 +9,7 @@ import SiteFooter from "./SiteFooter";
 import "@/styles/loom-shell.css";
 import "@/styles/loom-pages.css";
 
-export const isHomePath = (pathname: string | null) => /^\/(en|sk)?\/?$/.test(pathname ?? "");
+const isHomePath = (pathname: string | null) => /^\/(en|sk)?\/?$/.test(pathname ?? "");
 
 /**
  * The frame every page sits in: the selvedge (woven by scroll, it is also the

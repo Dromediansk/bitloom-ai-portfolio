@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { prefersReducedMotion } from "@/lib/loom/weave";
 import { Testimonial, TestimonialModal } from "./testimonial";
 
 const ROTATION_MS = 8000;
@@ -21,7 +22,7 @@ const FeaturedTestimonial = () => {
 
   useEffect(() => {
     if (paused || testimonials.length <= 1) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (prefersReducedMotion()) return;
     const id = setInterval(() => setIndex((i) => (i + 1) % testimonials.length), ROTATION_MS);
     return () => clearInterval(id);
   }, [paused, testimonials.length]);

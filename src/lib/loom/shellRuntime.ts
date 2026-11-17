@@ -12,21 +12,34 @@
  *   [data-chapter]                a band of cloth in the selvedge, and a nav link.
  *   .loom-label__cloth            re-woven from the visitor's record.
  *   .loom-swatch__cloth           static weave draft (data-weave/weft/warp).
+ *
+ * Page-specific scenes (the home title and turn) plug in via addScene() and are
+ * drawn inside this same loop with their act's p.
  */
-import { actProgress, clamp, ease, sizeCanvas, weaveOf } from "./weave";
+import { WEFT } from "./chapters";
+import { clamp, ease, NARROW_MQ, onScreen, prefersReducedMotion, sizeCanvas, weaveOf, type Weave } from "./weave";
 
-type Act = { el: HTMLElement; kind: string; p: number };
+type Act = { el: HTMLElement; kind: string; p: number; on: boolean; lastP: string };
+
+/** A bespoke drawing bound to a [data-act] element; drawn while that act is on screen. */
+export type Scene = { el: HTMLElement; draw: (p: number, now: number) => void; layout?: () => void };
+const scenes = new Set<Scene>();
+export function addScene(scene: Scene): () => void {
+  scenes.add(scene);
+  return () => scenes.delete(scene);
+}
 
 export function startShell(root: HTMLElement): () => void {
-  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const narrowMQ = matchMedia("(max-width: 860px)");
+  const RM = prefersReducedMotion();
+  const narrowMQ = matchMedia(NARROW_MQ);
   let alive = true;
 
   /* ============================================================ ACTS == */
   let acts: Act[] = [];
-  let cues: { el: HTMLElement; act: Act; v: number[] }[] = [];
-  let pans: { el: HTMLElement; act: Act }[] = [];
+  let cues: { el: HTMLElement; act: Act; v: number[]; last: string }[] = [];
+  let pans: { el: HTMLElement; act: Act; travel: number }[] = [];
   let reveals: { el: HTMLElement; act: Act; v: number[] }[] = [];
+  let labels: { cv: HTMLCanvasElement; act?: Act }[] = [];
 
   const actOf = (el: HTMLElement) => {
     const host = el.closest<HTMLElement>("[data-act]");
@@ -39,22 +52,25 @@ export function startShell(root: HTMLElement): () => void {
       el,
       kind: el.dataset.act || "flow",
       p: 0,
+      on: false,
+      lastP: "",
     }));
     cues = [];
     root.querySelectorAll<HTMLElement>("[data-cue]").forEach((el) => {
       const act = actOf(el);
-      if (act) cues.push({ el, act, v: nums(el.dataset.cue) });
+      if (act) cues.push({ el, act, v: nums(el.dataset.cue), last: "" });
     });
     pans = [];
     root.querySelectorAll<HTMLElement>("[data-pan]").forEach((el) => {
       const act = actOf(el);
-      if (act) pans.push({ el, act });
+      if (act) pans.push({ el, act, travel: Math.max(0, el.scrollWidth - el.parentElement!.clientWidth) });
     });
     reveals = [];
     root.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
       const act = actOf(el);
       if (act) reveals.push({ el, act, v: nums(el.dataset.reveal) });
     });
+    labels = [...root.querySelectorAll<HTMLCanvasElement>(".loom-label__cloth")].map((cv) => ({ cv, act: actOf(cv) }));
   }
 
   const cueOpacity = (p: number, v: number[]) => {
@@ -72,21 +88,28 @@ export function startShell(root: HTMLElement): () => void {
     const vh = innerHeight;
     for (const a of acts) {
       const r = a.el.getBoundingClientRect();
+      a.on = r.bottom > -50 && r.top < vh + 50;
       a.p =
         a.kind === "flow"
           ? clamp((vh - r.top) / (r.height + vh))
           : clamp(-r.top / Math.max(1, r.height - vh));
-      a.el.style.setProperty("--p", a.p.toFixed(4));
+      const ps = a.p.toFixed(4);
+      if (ps !== a.lastP) {
+        a.lastP = ps;
+        a.el.style.setProperty("--p", ps);
+      }
     }
     for (const c of cues) {
       const o = cueOpacity(c.act.p, c.v);
-      c.el.style.opacity = o.toFixed(3);
+      const os = o.toFixed(3);
+      if (os === c.last) continue;
+      c.last = os;
+      c.el.style.opacity = os;
       c.el.style.visibility = o < 0.01 ? "hidden" : "";
       if (!RM) c.el.style.transform = `translate3d(0, ${((1 - o) * 16).toFixed(1)}px, 0)`;
     }
     if (!RM) {
-      for (const { el, act } of pans) {
-        const travel = Math.max(0, el.scrollWidth - el.parentElement!.clientWidth);
+      for (const { el, act, travel } of pans) {
         el.style.transform = `translate3d(${(-act.p * travel).toFixed(1)}px, 0, 0)`;
       }
       for (const { el, act, v } of reveals) {
@@ -116,6 +139,8 @@ export function startShell(root: HTMLElement): () => void {
 
   /* ======================================================== SELVEDGE == */
   let chapters: HTMLElement[] = [];
+  let chapterStyle: { fn: Weave; weft: string }[] = [];
+  let scrollMax = 1;
   const selvCv = root.querySelector<HTMLCanvasElement>(".loom-selvedge__cloth");
   const bandsOl = root.querySelector<HTMLOListElement>(".loom-selvedge__bands");
   const PICK = 3;
@@ -158,7 +183,7 @@ export function startShell(root: HTMLElement): () => void {
       reach = -1;
       for (let r = 0; r < rows; r++) if (beat[r] >= 0) reach = r;
     }
-    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const max = (scrollMax = Math.max(1, document.documentElement.scrollHeight - innerHeight));
     const starts = chapters.map((s) => s.getBoundingClientRect().top + scrollY - innerHeight * 0.5);
     rowChapter = new Int16Array(rows);
     for (let r = 0; r < rows; r++) {
@@ -214,7 +239,7 @@ export function startShell(root: HTMLElement): () => void {
       const r = pickRow(q);
       const b = r >= 0 && r < rows ? beat[r] : -1;
       const along = q * pk;
-      const ch = b >= 0 ? chapters[rowChapter[r]] : undefined;
+      const ch = b >= 0 ? chapterStyle[rowChapter[r]] : undefined;
       if (q >= shown || b < 0 || !ch) {
         ctx.fillStyle = "#2A3756";
         for (let i = 0; i < ends; i++) {
@@ -224,8 +249,7 @@ export function startShell(root: HTMLElement): () => void {
         }
         continue;
       }
-      const fn = weaveOf(ch.dataset.weave);
-      const weft = ch.dataset.weft || "#2F6FE4";
+      const { fn, weft } = ch;
       for (let i = 0; i < ends; i++) {
         const o = i * endW;
         if (fn(i, q)) {
@@ -258,9 +282,8 @@ export function startShell(root: HTMLElement): () => void {
   }
 
   /* ========================================================= LABELS == */
-  function drawLabel(cv: HTMLCanvasElement) {
-    const host = cv.closest<HTMLElement>("[data-act]");
-    const p = host ? actProgress(host) : 1;
+  function drawLabel(cv: HTMLCanvasElement, act?: Act) {
+    const p = act ? act.p : 1;
     const { ctx, w, h } = sizeCanvas(cv);
     const horizontal = w > h * 1.6;
     const len = horizontal ? w : h;
@@ -279,7 +302,7 @@ export function startShell(root: HTMLElement): () => void {
       const { ctx, w, h } = sizeCanvas(cv);
       const fn = weaveOf(cv.dataset.weave);
       const warp = cv.dataset.warp || "#0E1A33";
-      const weft = cv.dataset.weft || "#2F6FE4";
+      const weft = cv.dataset.weft || WEFT.cobalt;
       const cell = Number(cv.dataset.cell) || 6;
       ctx.fillStyle = warp;
       ctx.fillRect(0, 0, w, h);
@@ -303,22 +326,17 @@ export function startShell(root: HTMLElement): () => void {
   }
 
   /* =========================================================== LOOP == */
-  const onScreen = (el: Element) => {
-    const r = el.getBoundingClientRect();
-    return r.bottom > -50 && r.top < innerHeight + 50;
-  };
   let lastFell = -2;
   let needsSelv = true;
   let raf = 0;
 
-  function frame() {
+  function frame(now: number) {
     if (!alive) return;
     updateActs();
-    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     const y = scrollY;
     const v = Math.abs(y - lastY);
     lastY = y;
-    const frac = clamp(y / max);
+    const frac = clamp(y / scrollMax);
     if (weaveRows(frac, v)) needsSelv = true;
     fell = Math.min(rows - 1, Math.floor(frac * rows));
     if (fell !== lastFell) {
@@ -329,19 +347,23 @@ export function startShell(root: HTMLElement): () => void {
       drawSelvedge();
       needsSelv = false;
     }
-    root.querySelectorAll<HTMLCanvasElement>(".loom-label__cloth").forEach((cv) => {
-      if (onScreen(cv)) drawLabel(cv);
-    });
+    for (const { cv, act } of labels) if (onScreen(cv)) drawLabel(cv, act);
+    for (const s of scenes) {
+      const act = acts.find((a) => a.el === s.el);
+      if (act?.on) s.draw(act.p, now);
+    }
     raf = requestAnimationFrame(frame);
   }
 
   function relayout() {
     chapters = [...root.querySelectorAll<HTMLElement>("[data-chapter]")];
+    chapterStyle = chapters.map((ch) => ({ fn: weaveOf(ch.dataset.weave), weft: ch.dataset.weft || WEFT.cobalt }));
     collect();
     buildBands();
     layoutSelvedge();
     drawSwatches();
     watchIn(root);
+    for (const s of scenes) s.layout?.();
     needsSelv = true;
   }
 

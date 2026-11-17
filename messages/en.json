@@ -6,8 +6,7 @@
     "about": "About",
     "testimonials": "Testimonials",
     "contact": "Contact",
-    "blog": "Blog",
-    "toggleMenu": "Toggle mobile menu"
+    "blog": "Blog"
   },
   "home": {
     "chapters": {
@@ -703,11 +702,6 @@
     }
   },
   "common": {
-    "readMore": "Read More",
-    "learnMore": "Learn More",
-    "getStarted": "Get Started",
-    "contactUs": "Contact Us",
-    "viewAll": "View All",
     "close": "Close"
   },
   "cookieConsent": {

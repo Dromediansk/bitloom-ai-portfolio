@@ -6,8 +6,7 @@
     "about": "O nás",
     "testimonials": "Referencie",
     "contact": "Kontakt",
-    "blog": "Blog",
-    "toggleMenu": "Prepnúť mobilné menu"
+    "blog": "Blog"
   },
   "home": {
     "chapters": {
@@ -703,11 +702,6 @@
     }
   },
   "common": {
-    "readMore": "Čítať viac",
-    "learnMore": "Dozvedieť sa viac",
-    "getStarted": "Začať",
-    "contactUs": "Kontaktujte nás",
-    "viewAll": "Zobraziť všetko",
     "close": "Zavrieť"
   },
   "cookieConsent": {

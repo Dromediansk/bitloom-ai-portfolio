@@ -16,14 +16,14 @@
 
 html {
   scroll-behavior: smooth;
-  background: #edf0f3;
+  background: var(--color-paper);
   color-scheme: light;
 }
 
 body {
   margin: 0;
-  background: #edf0f3;
-  color: #0c1424;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
 }
 

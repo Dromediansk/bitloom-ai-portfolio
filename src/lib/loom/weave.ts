@@ -40,8 +40,12 @@ export function sizeCanvas(cv: HTMLCanvasElement) {
   return { ctx, w, h };
 }
 
-/** Progress (0..1) an act publishes as --p; 0 until the shell has run. */
-export const actProgress = (el: HTMLElement) => {
-  const v = parseFloat(el.style.getPropertyValue("--p"));
-  return Number.isFinite(v) ? v : 0;
+/** Phone layout breakpoint; keep in sync with the `@media (max-width: 860px)` blocks. */
+export const NARROW_MQ = "(max-width: 860px)";
+export const prefersReducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Within (or 50px around) the viewport. */
+export const onScreen = (el: Element) => {
+  const r = el.getBoundingClientRect();
+  return r.bottom > -50 && r.top < innerHeight + 50;
 };

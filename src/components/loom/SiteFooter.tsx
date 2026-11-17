@@ -35,7 +35,7 @@ export default function SiteFooter() {
                 </li>
               ))}
               <li>
-                <a href="https://blog.bitloom.sk" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.blogUrl} target="_blank" rel="noopener noreferrer">
                   {nav("blog")}
                 </a>
               </li>

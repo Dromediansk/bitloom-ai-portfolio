@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { FeaturedTestimonial } from "@/components";
+import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import PageMasthead from "@/components/loom/PageMasthead";
 import PageClose from "@/components/loom/PageClose";
 import { chapter, WEFT } from "@/lib/loom/chapters";

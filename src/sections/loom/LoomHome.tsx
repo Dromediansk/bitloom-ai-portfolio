@@ -8,34 +8,15 @@ import { siteConfig } from "@/lib/config";
 import { trackCTAClick } from "@/lib/analytics";
 import SiteNav from "@/components/loom/SiteNav";
 import WovenLabel from "@/components/loom/WovenLabel";
+import { chapter, WEFT } from "@/lib/loom/chapters";
 import { startHome } from "./homeRuntime";
 import "./loom.css";
 
-type Chapter = {
-  id: "title" | "problem" | "turn" | "work" | "founder" | "close";
-  weave: string;
-  weft: string;
-};
-
-// Each chapter weaves its own band into the selvedge.
-const CHAPTERS: Chapter[] = [
-  { id: "title", weave: "plain", weft: "#2F6FE4" },
-  { id: "problem", weave: "twill", weft: "#C9D3E3" },
-  { id: "turn", weave: "herring", weft: "#6EA8FF" },
-  { id: "work", weave: "basket", weft: "#E9EDF4" },
-  { id: "founder", weave: "satin", weft: "#9CC2FF" },
-  { id: "close", weave: "plain", weft: "#2F6FE4" },
-];
-const chapterProps = (id: Chapter["id"], label: string) => {
-  const c = CHAPTERS.find((x) => x.id === id)!;
-  return { id, "data-chapter": label, "data-weave": c.weave, "data-weft": c.weft };
-};
-
 const SWATCHES = [
-  { weave: "herring", weft: "#2F6FE4", warp: "#0E1A33" },
-  { weave: "twill", weft: "#E8EDF5", warp: "#2F6FE4" },
-  { weave: "satin", weft: "#9CC2FF", warp: "#14203A" },
-  { weave: "basket", weft: "#2F6FE4", warp: "#DCE3EE" },
+  { weave: "herring", weft: WEFT.cobalt, warp: "#0E1A33" },
+  { weave: "twill", weft: "#E8EDF5", warp: WEFT.cobalt },
+  { weave: "satin", weft: WEFT.pale, warp: "#14203A" },
+  { weave: "basket", weft: WEFT.cobalt, warp: "#DCE3EE" },
 ];
 
 const FRONT_THREADS = [7, 19, 31, 44, 57, 70, 83, 94];
@@ -56,7 +37,7 @@ export default function LoomHome() {
     <div className="loom-home" ref={rootRef}>
       {/* 1 · TITLE: pinned title page, warp threads in front of and behind the type */}
       <section
-        {...chapterProps("title", t("chapters.title"))}
+        {...chapter("title", t("chapters.title"))}
         className="loom-g-paper loom-act-title"
         data-act="pin"
         style={{ "--span": 1.6 } as React.CSSProperties}
@@ -93,7 +74,7 @@ export default function LoomHome() {
 
       {/* 2 · TENSION: hard cut to navy, read at reading pace */}
       <section
-        {...chapterProps("problem", t("chapters.problem"))}
+        {...chapter("problem", t("chapters.problem"), "twill", WEFT.mist)}
         className="loom-g-navy loom-act-tension"
         data-act="flow"
       >
@@ -119,7 +100,7 @@ export default function LoomHome() {
 
       {/* 3 · TURN (the peak): a silence of loose bits, then the cloth forms */}
       <section
-        {...chapterProps("turn", t("chapters.turn"))}
+        {...chapter("turn", t("chapters.turn"), "herring", WEFT.sky)}
         className="loom-g-navy loom-act-turn"
         data-act="pin"
         style={{ "--span": 4 } as React.CSSProperties}
@@ -141,7 +122,7 @@ export default function LoomHome() {
 
       {/* 4 · WORK: lateral rail of woven swatches with label facts */}
       <section
-        {...chapterProps("work", t("chapters.work"))}
+        {...chapter("work", t("chapters.work"), "basket", WEFT.bone)}
         className="loom-g-paper loom-act-work"
         data-act="pan"
         style={{ "--span": 3.4 } as React.CSSProperties}
@@ -198,12 +179,12 @@ export default function LoomHome() {
 
       {/* 5 · FOUNDER: a real person, wiped in */}
       <section
-        {...chapterProps("founder", t("chapters.founder"))}
+        {...chapter("founder", t("chapters.founder"), "satin", WEFT.pale)}
         className="loom-g-navy loom-act-founder"
         data-act="flow"
       >
-        <div className="loom-wrap loom-founder">
-          <figure className="loom-founder__photo">
+        <div className="loom-wrap loom-split">
+          <figure className="loom-portrait">
             <div data-reveal="0.08 0.4">
               <Image
                 src="/images/about/avatar.png"
@@ -213,7 +194,7 @@ export default function LoomHome() {
                 alt={t("founder.photoAlt")}
               />
             </div>
-            <figcaption>{t("founder.caption")}</figcaption>
+            <figcaption className="loom-tag">{t("founder.caption")}</figcaption>
           </figure>
 
           <div className="loom-founder__text" data-in="">
@@ -238,7 +219,7 @@ export default function LoomHome() {
 
       {/* 6 · CLOSE: the visitor's cloth becomes the label. Last element on the page. */}
       <section
-        {...chapterProps("close", t("chapters.close"))}
+        {...chapter("close", t("chapters.close"))}
         className="loom-g-paper loom-act-close"
         data-act="pin"
         style={{ "--span": 1.2 } as React.CSSProperties}
@@ -275,7 +256,7 @@ export default function LoomHome() {
                 <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
               </li>
               <li>
-                <a href="https://blog.bitloom.sk" target="_blank" rel="noopener noreferrer">{nav("blog")}</a>
+                <a href={siteConfig.blogUrl} target="_blank" rel="noopener noreferrer">{nav("blog")}</a>
               </li>
               <li>
                 <Link href="/imprint">{legal("imprint")}</Link>

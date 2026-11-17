@@ -43,10 +43,10 @@
   background: var(--canvas); color: var(--ink);
 }
 
-/* :where keeps the reset at zero specificity so component spacing always wins */
-.loom :where(h1, h2, h3, h4, p, figure, dl, dd, ol, ul, blockquote) { margin: 0; }
-.loom a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
-.loom a:hover { text-decoration-thickness: 2px; }
+/* :where keeps the reset at zero specificity so component spacing and color always win */
+:where(.loom) :where(h1, h2, h3, h4, p, figure, dl, dd, ol, ul, blockquote) { margin: 0; }
+:where(.loom) a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+:where(.loom) a:hover { text-decoration-thickness: 2px; }
 .loom :focus-visible { outline: 2px solid var(--accent, #0b5bd1); outline-offset: 3px; border-radius: 4px; }
 
 /* ---------------------------------------------------------------- type -- */
@@ -78,7 +78,10 @@
 .loom-section { padding-block: var(--section); }
 .loom-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
 .loom-split > :first-child { position: sticky; top: 12vh; }
-.loom-split--even { grid-template-columns: 1fr 1fr; }
+
+/* founder portrait (home and about) */
+.loom-portrait img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 30%; border-radius: 4px; display: block; }
+.loom-portrait figcaption { margin-top: 12px; }
 
 /* acts: pinned acts own --span viewport-heights, their stage sticks */
 .loom [data-act="pin"], .loom [data-act="pan"] { position: relative; height: calc(var(--span, 1.5) * 100vh); height: calc(var(--span, 1.5) * 100svh); }
@@ -211,6 +214,11 @@
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding-top: 3px;
 }
 .loom-ledger--quiet dt { color: var(--ink-soft); }
+/* terms set as names, not tags (about: tech stack) */
+.loom-ledger--terms dt {
+  color: var(--ink); font-family: var(--display); font-variation-settings: "wdth" 104; font-weight: 600;
+  text-transform: none; letter-spacing: -0.01em; font-size: var(--t-base); padding-top: 0;
+}
 
 /* square bullets for plain lists */
 .loom-list { list-style: none; padding: 0; }
@@ -238,28 +246,29 @@
 }
 
 /* ----------------------------------------------------------- the label -- */
-.loom-label {
-  position: relative; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
-  width: min(100%, 1040px); background: #f7f8fa; border-radius: 4px; overflow: clip; color: #0c1424;
+/* sewn paper: the label's surface and stitch, also used by the contact form */
+.loom-sewn {
+  position: relative; background: #f7f8fa; border-radius: 4px; color: #0c1424;
   box-shadow: 0 1px 0 #fff inset, 0 30px 60px -36px rgba(12, 20, 36, 0.55), 0 4px 12px -6px rgba(12, 20, 36, 0.25);
 }
-.loom-label::after {
+.loom-sewn::after {
   content: ""; position: absolute; inset: 9px; border: 1.5px dashed rgba(11, 91, 209, 0.45); border-radius: 2px; pointer-events: none;
 }
+.loom-label { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); width: min(100%, 1040px); overflow: clip; }
 .loom-label__cloth { display: block; width: 100%; height: 100%; min-height: 300px; }
 .loom-label__text { position: relative; z-index: 1; padding: clamp(28px, 4vw, 56px); --accent: #0b5bd1; --accent-ink: #f5f7fa; --ink: #0c1424; --ink-soft: #45506a; }
 .loom-label__maker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #45506a; }
-.loom-label__h { font-size: var(--t-2xl); margin: 18px 0 16px !important; max-width: 14ch; }
-.loom-label__body { margin-bottom: 26px !important; color: #45506a; max-width: 40ch; }
+.loom-label__h { font-size: var(--t-2xl); margin: 18px 0 16px; max-width: 14ch; }
+.loom-label__body { margin-bottom: 26px; color: #45506a; max-width: 40ch; }
 .loom-label__actions { display: flex; align-items: center; gap: 14px 26px; flex-wrap: wrap; }
-.loom-label__mail { margin-top: 16px !important; font-size: var(--t-sm); color: #45506a; }
-.loom-close__note { margin-top: 18px !important; font-size: var(--t-sm); color: var(--ink-soft); }
+.loom-label__mail { margin-top: 16px; font-size: var(--t-sm); color: #45506a; }
+.loom-close__note { margin-top: 18px; font-size: var(--t-sm); color: var(--ink-soft); }
 
 /* ------------------------------------------------------------ footer --- */
 .loom-site-close { padding-block: var(--section) clamp(72px, 10vh, 120px); }
 .loom-site-foot { padding: clamp(56px, 9vh, 96px) 0 28px; font-size: var(--t-sm); }
 .loom-site-foot__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
-.loom-site-foot h2 { margin-bottom: 14px !important; }
+.loom-site-foot h2 { margin-bottom: 14px; }
 .loom-site-foot ul { list-style: none; padding: 0; display: grid; gap: 9px; }
 .loom-site-foot a { text-decoration: none; }
 .loom-site-foot a:hover { text-decoration: underline; }
@@ -293,8 +302,8 @@
 /* ----------------------------------------------------------- documents -- */
 .loom-doc { max-width: 74ch; }
 .loom-doc section + section { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--hair); }
-.loom-doc h2 { font-family: var(--display); font-variation-settings: "wdth" 106; font-weight: 600; font-size: var(--t-xl); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px !important; }
-.loom-doc h3 { font-weight: 600; font-size: var(--t-base); margin: 26px 0 10px !important; }
+.loom-doc h2 { font-family: var(--display); font-variation-settings: "wdth" 106; font-weight: 600; font-size: var(--t-xl); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px; }
+.loom-doc h3 { font-weight: 600; font-size: var(--t-base); margin: 26px 0 10px; }
 .loom-doc p + p, .loom-doc p + ul, .loom-doc ul + p { margin-top: 14px; }
 .loom-doc ul { list-style: none; padding: 0; margin-top: 10px; }
 .loom-doc ul li { position: relative; padding-left: 20px; }
@@ -348,8 +357,9 @@
   .loom-masthead--compact { padding: 36px 0 28px; }
   .loom-pages ul { gap: 6px 14px; }
   .loom-pages a { font-size: 0.88rem; }
-  .loom-split, .loom-split--even { grid-template-columns: 1fr; }
+  .loom-split { grid-template-columns: 1fr; }
   .loom-split > :first-child { position: static; }
+  .loom-portrait { max-width: 420px; }
   .loom-ledger li, .loom-ledger > div { grid-template-columns: 1fr; gap: 4px; }
   .loom-label { grid-template-columns: 1fr; }
   .loom-label__cloth { min-height: 0; height: 88px; }

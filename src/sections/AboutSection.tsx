@@ -60,8 +60,8 @@ const AboutSection = () => {
 
       {/* Founder */}
       <section {...chapter("founder", t("founder.title"), "satin", WEFT.pale)} className="loom-g-navy loom-section" data-act="flow">
-        <div className="loom-wrap abt-founder">
-          <figure className="abt-founder__photo">
+        <div className="loom-wrap loom-split">
+          <figure className="loom-portrait">
             <div data-reveal="0.06 0.36">
               <Image
                 src="/images/about/avatar.png"
@@ -130,7 +130,7 @@ const AboutSection = () => {
               {t("techStack.description")}
             </p>
           </div>
-          <dl className="loom-ledger loom-ledger--quiet abt-stack" data-in="">
+          <dl className="loom-ledger loom-ledger--terms abt-stack" data-in="">
             {TECH.map((x) => (
               <div key={x.key}>
                 <dt>{x.name}</dt>

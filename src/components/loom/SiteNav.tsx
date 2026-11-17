@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
+import { siteConfig } from "@/lib/config";
 import LocaleSwitch from "./LocaleSwitch";
 
 export const PAGES = ["services", "projects", "about", "testimonials", "contact"] as const;
@@ -33,7 +34,7 @@ export default function SiteNav({ className = "" }: { className?: string }) {
             );
           })}
           <li>
-            <a href="https://blog.bitloom.sk" target="_blank" rel="noopener noreferrer">
+            <a href={siteConfig.blogUrl} target="_blank" rel="noopener noreferrer">
               {nav("blog")}
             </a>
           </li>

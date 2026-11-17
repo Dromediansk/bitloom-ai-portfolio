@@ -18,7 +18,7 @@ export default function PageMasthead({
   children?: ReactNode;
 }) {
   return (
-    <section {...chapter("top", chapterLabel, weave, WEFT.cobalt)} className={`loom-g-paper loom-masthead${compact ? " loom-masthead--compact" : ""}`}>
+    <section {...chapter("top", chapterLabel, weave)} className={`loom-g-paper loom-masthead${compact ? " loom-masthead--compact" : ""}`}>
       <div className="loom-wrap" data-in="">
         <h1 className="loom-page-h1">{title}</h1>
         {lede && <p className="loom-lede">{lede}</p>}
@@ -28,7 +28,7 @@ export default function PageMasthead({
         <canvas
           className="loom-swatch__cloth loom-masthead__band"
           data-weave={weave}
-          data-weft="#2F6FE4"
+          data-weft={WEFT.cobalt}
           data-warp="#0E1A33"
           data-cell="4"
           aria-hidden="true"

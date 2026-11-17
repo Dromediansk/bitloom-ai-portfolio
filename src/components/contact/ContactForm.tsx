@@ -101,7 +101,7 @@ const ContactForm = () => {
 
   return (
     <div className="ct-form" data-in="">
-      <div className="ct-form__panel">
+      <div className="loom-sewn ct-form__panel">
         <h2 className="loom-display ct-form__h">{t("title")}</h2>
         <form onSubmit={handleSubmit} onFocus={handleFormStart} className="ct-form__grid" noValidate={false}>
           <div className="loom-field">

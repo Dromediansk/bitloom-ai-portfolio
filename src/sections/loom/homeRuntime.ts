@@ -2,15 +2,17 @@
  * Bitloom home: the two bespoke scenes that only live on the home page.
  *   title  warp threads in front of / behind the headline, parting on scroll
  *   turn   loose bits pulled into warp, then woven, with the Bitloom mark in the cloth
- * Everything shared (acts, cues, the selvedge, the label) runs in the shell.
+ * Everything shared (acts, cues, the selvedge, the label, the rAF loop and
+ * relayout) runs in the shell; these register as scenes on it.
  */
-import { actProgress, clamp, ease, hash, lerp, sizeCanvas, WEAVES } from "@/lib/loom/weave";
+import { addScene } from "@/lib/loom/shellRuntime";
+import { WEFT } from "@/lib/loom/chapters";
+import { clamp, ease, hash, lerp, NARROW_MQ, prefersReducedMotion, sizeCanvas, WEAVES } from "@/lib/loom/weave";
 
 export function startHome(root: HTMLElement): () => void {
-  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const RM = prefersReducedMotion();
   const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const narrowMQ = matchMedia("(max-width: 860px)");
-  let alive = true;
+  const narrowMQ = matchMedia(NARROW_MQ);
 
 /* ========================================================== TITLE == */
   const titleSec = root.querySelector<HTMLElement>("#title")!;
@@ -37,10 +39,12 @@ export function startHome(root: HTMLElement): () => void {
     pmx = lerp(pmx, mx, 0.08);
     pmy = lerp(pmy, my, 0.08);
     const e = ease(p);
+    // all reads before any write, so the frame lays out once
     const hb = tH1.getBoundingClientRect();
     const sb = tStage.getBoundingClientRect();
+    const bb = tBar.getBoundingClientRect();
     tFrontWrap.style.setProperty("--cut", `${Math.round(hb.bottom - sb.top + 4)}px`);
-    tFrontWrap.style.setProperty("--top", `${Math.round(tBar.getBoundingClientRect().bottom - sb.top + 8)}px`);
+    tFrontWrap.style.setProperty("--top", `${Math.round(bb.bottom - sb.top + 8)}px`);
     tBack.style.transform = `translate3d(${pmx * -8}px, ${-e * 36 + pmy * -6}px, 0) scale(${1 + e * 0.04})`;
     tWeft.style.transform = `translate3d(${(e - 0.5) * 60 + pmx * -14}px, ${-e * 60}px, 0)`;
     tCopy.style.transform = `translate3d(0, ${-e * 24}px, 0) scale(${1 - e * 0.03})`;
@@ -61,6 +65,8 @@ export function startHome(root: HTMLElement): () => void {
     sx: Float32Array; sy: Float32Array; ph: Float32Array; dl: Float32Array; motif: Uint8Array; tone: Uint8Array;
   };
   let T: TurnGeo | null = null;
+  // once fully woven the picture is static: skip repaints until it unweaves or relayouts
+  let turnDone = false;
 
   function logoCell(u: number, v: number) {
     // Bitloom mark: two interlocking rounded squares, A (0..0.62) and B (0.38..1)
@@ -113,19 +119,23 @@ export function startHome(root: HTMLElement): () => void {
       g.motif[k] = u >= 0 && u <= 1 && v >= 0 && v <= 1 ? logoCell(u, v) : 0;
     }
     T = g;
+    turnDone = false;
   }
 
-  const BIT = ["#2A3B62", "#6EA8FF", "#C9D3E3"];
-  const MOTIF: (string[] | null)[] = [null, ["#3D84FF", "#2F6FE4"], ["#9CC2FF", "#86B2F5"], ["#F5F7FA", "#F5F7FA"]];
+  const BIT = ["#2A3B62", WEFT.sky, WEFT.mist];
+  const MOTIF: (string[] | null)[] = [null, ["#3D84FF", WEFT.cobalt], [WEFT.pale, "#86B2F5"], ["#F5F7FA", "#F5F7FA"]];
 
   function drawTurn(p: number, now: number) {
     if (!T) layoutTurn();
     const g = T!;
     if (RM) p = 1;
+    const wv = clamp((p - 0.46) / 0.32) * (g.rws + 2);
+    const woven = wv >= g.rws;
+    if (woven && turnDone) return;
+    turnDone = woven;
     const ctx = turnCv.getContext("2d")!;
     ctx.clearRect(0, 0, g.w, g.h);
     const gather = clamp((p - 0.1) / 0.42);
-    const wv = clamp((p - 0.46) / 0.32) * (g.rws + 2);
     const time = RM ? 0 : now * 0.0006;
     for (let k = 0; k < g.n; k++) {
       const c = k % g.cols;
@@ -159,33 +169,14 @@ export function startHome(root: HTMLElement): () => void {
     }
   }
 
-  /* =========================================================== LOOP == */
-  const onScreen = (el: HTMLElement) => {
-    const r = el.getBoundingClientRect();
-    return r.bottom > -50 && r.top < innerHeight + 50;
-  };
-  let raf = 0;
-  function frame(now: number) {
-    if (!alive) return;
-    if (onScreen(titleSec)) drawTitle(actProgress(titleSec));
-    if (onScreen(turnSec)) drawTurn(actProgress(turnSec), now);
-    raf = requestAnimationFrame(frame);
-  }
-
-  let rt = 0;
-  const onResize = () => {
-    clearTimeout(rt);
-    rt = window.setTimeout(layoutTurn, 120);
-  };
-  addEventListener("resize", onResize);
+  /* ========================================================= SCENES == */
   layoutTurn();
-  raf = requestAnimationFrame(frame);
+  const removeTitle = addScene({ el: titleSec, draw: (p) => drawTitle(p) });
+  const removeTurn = addScene({ el: turnSec, draw: drawTurn, layout: layoutTurn });
 
   return () => {
-    alive = false;
-    cancelAnimationFrame(raf);
-    clearTimeout(rt);
-    removeEventListener("resize", onResize);
+    removeTitle();
+    removeTurn();
     removeEventListener("pointermove", onPointer);
   };
 }

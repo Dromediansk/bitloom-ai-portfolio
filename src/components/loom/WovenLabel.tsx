@@ -21,7 +21,7 @@ export default function WovenLabel({
   className?: string;
 } & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`loom-label ${className}`} {...rest}>
+    <div className={`loom-sewn loom-label ${className}`} {...rest}>
       <canvas className="loom-label__cloth" aria-hidden="true" />
       <div className="loom-label__text">
         <p className="loom-label__maker">{maker}</p>
