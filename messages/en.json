@@ -22,7 +22,7 @@
     "title": {
       "line1": "Software,",
       "line2": "woven to hold.",
-      "sub": "Web, mobile and AI systems from Košice, for teams where a mistake costs real money.",
+      "sub": "Web, mobile and AI systems from Košice, for fintech teams and small businesses alike.",
       "cta": "Start a project"
     },
     "problem": {
@@ -31,7 +31,7 @@
       "assistant": "Waits for a prompt at every step. Long, multi-step work never gets finished.",
       "agentLabel": "The autonomous agent",
       "agent": "Acts on its own with nobody watching. Fine for a demo. Not for a decision a bank has to audit.",
-      "close": "In finance and healthcare, neither is acceptable."
+      "close": "In finance, neither is acceptable."
     },
     "turn": {
       "line1": "Bitloom builds the third option.",
@@ -129,7 +129,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "We help businesses launch faster, reach more users, and scale with confidence",
-    "differentiator": "7+ years shipping production software in fintech, banking, and AI engineering. One developer, zero overhead, full accountability.",
+    "differentiator": "7+ years shipping production software in fintech, banking, and AI engineering, now for enterprise teams and small businesses alike. One developer, zero overhead, full accountability.",
     "modernWebCraft": {
       "title": "Web Solutions",
       "description": "Fast, responsive websites and web apps — built from database to UI.",
@@ -158,15 +158,15 @@
       ]
     },
     "industries": {
-      "label": "Trusted in industries where precision matters",
-      "healthcare": "Healthcare",
+      "label": "Who Bitloom builds for",
       "fintech": "Fintech & Banking",
-      "enterprise": "Enterprise Software"
+      "enterprise": "Enterprise Software",
+      "smallBusiness": "Small Businesses & Entrepreneurs"
     },
     "socialProof": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
-      "missedDeadlines": "Missed Deadlines",
+      "replyTime": "Reply Time",
       "seeAll": "See all testimonials"
     },
     "cta": {
@@ -315,7 +315,7 @@
     "stats": {
       "yearsExperience": "Years Experience",
       "projectsCompleted": "Projects Completed",
-      "industries": "Key Industries"
+      "pointOfContact": "Point of Contact"
     },
     "ctaSection": {
       "title": "Like What You See?",
@@ -335,7 +335,7 @@
     "stats": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
-      "missedDeadlines": "Missed Deadlines"
+      "replyTime": "Reply Time"
     },
     "items": [
       {

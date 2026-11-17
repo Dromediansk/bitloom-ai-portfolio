@@ -27,7 +27,7 @@ const AboutSection = () => {
   const facts = [
     { value: "7+", label: t("stats.yearsExperience") },
     { value: "10+", label: t("stats.projectsCompleted") },
-    { value: "2", label: t("stats.industries") },
+    { value: "1", label: t("stats.pointOfContact") },
   ];
 
   return (

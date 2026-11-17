@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
   const facts = [
     { value: "10+", label: t("stats.projectsCompleted") },
     { value: "7+", label: t("stats.yearsExperience") },
-    { value: "0", label: t("stats.missedDeadlines") },
+    { value: "24 h", label: t("stats.replyTime") },
   ];
 
   const card = (item: Testimonial, big = false) => (

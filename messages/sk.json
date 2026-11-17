@@ -22,7 +22,7 @@
     "title": {
       "line1": "Softvér,",
       "line2": "ktorý vydrží.",
-      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre firmy, v ktorých chyba stojí skutočné peniaze.",
+      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre fintech aj pre malé firmy a živnostníkov.",
       "cta": "Začať projekt"
     },
     "problem": {
@@ -31,7 +31,7 @@
       "assistant": "Pri každom kroku čaká, kým mu niečo zadáte. Dlhšiu prácu s mnohými krokmi preto nikdy nedotiahne do konca.",
       "agentLabel": "Autonómny agent",
       "agent": "Koná sám a nikto ho nekontroluje. Na ukážku to stačí, no nie na rozhodnutia, ktoré musí banka vedieť auditovať.",
-      "close": "Vo financiách ani v zdravotníctve nie je prijateľná ani jedna z nich."
+      "close": "Vo financiách nie je prijateľná ani jedna z nich."
     },
     "turn": {
       "line1": "Bitloom ponúka tretiu cestu.",
@@ -129,7 +129,7 @@
   "services": {
     "title": "Naše služby",
     "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
-    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI. Jeden vývojár, nulová réžia, plná zodpovednosť.",
+    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI, dnes pre veľké firmy aj pre malých podnikateľov. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
       "title": "Webové riešenia",
       "description": "Rýchle a responzívne weby a webové aplikácie — od databázy až po rozhranie.",
@@ -158,15 +158,15 @@
       ]
     },
     "industries": {
-      "label": "Dôvera v odvetviach, kde záleží na presnosti",
-      "healthcare": "Zdravotníctvo",
+      "label": "Pre koho Bitloom pracuje",
       "fintech": "Fintech a bankovníctvo",
-      "enterprise": "Enterprise softvér"
+      "enterprise": "Enterprise softvér",
+      "smallBusiness": "Malé firmy a živnostníci"
     },
     "socialProof": {
       "projectsCompleted": "Dokončených projektov",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškaných termínov",
+      "replyTime": "Čas odpovede",
       "seeAll": "Pozrieť všetky referencie"
     },
     "cta": {
@@ -315,7 +315,7 @@
     "stats": {
       "yearsExperience": "Rokov skúseností",
       "projectsCompleted": "Dokončených projektov",
-      "industries": "Kľúčové odvetvia"
+      "pointOfContact": "Kontaktná osoba"
     },
     "ctaSection": {
       "title": "Páči sa vám, čo vidíte?",
@@ -335,7 +335,7 @@
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškaných termínov"
+      "replyTime": "Čas odpovede"
     },
     "items": [
       {

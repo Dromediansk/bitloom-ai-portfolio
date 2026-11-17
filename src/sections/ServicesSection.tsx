@@ -24,7 +24,7 @@ const ServicesSection = () => {
   const facts = [
     { value: "10+", label: t("socialProof.projectsCompleted") },
     { value: "7+", label: t("socialProof.yearsExperience") },
-    { value: "0", label: t("socialProof.missedDeadlines") },
+    { value: "24 h", label: t("socialProof.replyTime") },
   ];
 
   return (
@@ -67,9 +67,9 @@ const ServicesSection = () => {
           <div className="svc-industries" data-in="">
             <p className="loom-tag">{t("industries.label")}</p>
             <ul>
-              <li>{t("industries.healthcare")}</li>
               <li>{t("industries.fintech")}</li>
               <li>{t("industries.enterprise")}</li>
+              <li>{t("industries.smallBusiness")}</li>
             </ul>
           </div>
         </div>

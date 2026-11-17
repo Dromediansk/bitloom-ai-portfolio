@@ -76,7 +76,7 @@ messages # i18n translation files (en.json, sk.json)
 ### Founder & Leadership
 
 - **Founder**: Miroslav - Self-taught professional developer with 6 years of experience
-- **Industry Focus**: Specialized experience in healthcare and financial sector projects where precision, security, and reliability are essential
+- **Industry Focus**: Fintech and banking (regulated, high-stakes work) and enterprise software, alongside websites and apps for small businesses and entrepreneurs
 - **Market Advantage**: Experience in high-stakes industries has shaped his approach to building dependable software solutions
 - **Professional Journey**: Demonstrates commitment to continuous learning and mastery of modern technologies
 
