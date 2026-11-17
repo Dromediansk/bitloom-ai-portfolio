@@ -11,12 +11,14 @@
  *   [data-in]                     fade + rise once on entry (children staggered).
  *   [data-chapter]                a band of cloth in the selvedge, and a nav link.
  *   .loom-label__cloth            re-woven from the visitor's record.
- *   .loom-swatch__cloth           static weave draft (data-weave/weft/warp).
+ *   .loom-swatch__cloth           static weave draft (data-weave/weft/warp; thread names).
+ *
+ * Every color is read from src/styles/tokens.css (readTokens / threadColor).
  *
  * Page-specific scenes (the home title and turn) plug in via addScene() and are
  * drawn inside this same loop with their act's p.
  */
-import { WEFT } from "./chapters";
+import { readTokens, threadColor } from "./tokens";
 import { clamp, ease, NARROW_MQ, onScreen, prefersReducedMotion, sizeCanvas, weaveOf, type Weave } from "./weave";
 
 type Act = { el: HTMLElement; kind: string; p: number; on: boolean; lastP: string };
@@ -32,6 +34,14 @@ export function addScene(scene: Scene): () => void {
 export function startShell(root: HTMLElement): () => void {
   const RM = prefersReducedMotion();
   const narrowMQ = matchMedia(NARROW_MQ);
+  const C = readTokens({
+    ground: "cloth-ground",
+    warp: "cloth-warp",
+    open: "cloth-warp-open",
+    fell: "cloth-fell",
+    sheen: "cloth-sheen",
+    shade: "cloth-shade",
+  });
   let alive = true;
 
   /* ============================================================ ACTS == */
@@ -233,7 +243,7 @@ export function startShell(root: HTMLElement): () => void {
     const len = horizontal ? w : h;
     const endW = across / ends;
     const pk = len / picks;
-    ctx.fillStyle = "#0D1526";
+    ctx.fillStyle = C.ground;
     ctx.fillRect(0, 0, w, h);
     for (let q = 0; q < picks; q++) {
       const r = pickRow(q);
@@ -241,7 +251,7 @@ export function startShell(root: HTMLElement): () => void {
       const along = q * pk;
       const ch = b >= 0 ? chapterStyle[rowChapter[r]] : undefined;
       if (q >= shown || b < 0 || !ch) {
-        ctx.fillStyle = "#2A3756";
+        ctx.fillStyle = C.open;
         for (let i = 0; i < ends; i++) {
           const o = i * endW + endW * 0.3;
           if (horizontal) ctx.fillRect(along, o, pk, endW * 0.4);
@@ -259,7 +269,7 @@ export function startShell(root: HTMLElement): () => void {
           if (horizontal) ctx.fillRect(along + off, o, th, endW);
           else ctx.fillRect(o, along + off, endW, th);
         } else {
-          ctx.fillStyle = "#33456E";
+          ctx.fillStyle = C.warp;
           const t = endW * 0.78;
           const oo = o + (endW - t) / 2;
           if (horizontal) ctx.fillRect(along, oo, pk, t);
@@ -275,7 +285,7 @@ export function startShell(root: HTMLElement): () => void {
     const horizontal = narrowMQ.matches;
     drawCloth(ctx, w, h, horizontal, ENDS, rows, rows, (q) => q);
     if (fell >= 0) {
-      ctx.fillStyle = "#F5F7FA";
+      ctx.fillStyle = C.fell;
       if (horizontal) ctx.fillRect(fell * PICK, 0, 2, h);
       else ctx.fillRect(0, fell * PICK, w, 2);
     }
@@ -301,8 +311,8 @@ export function startShell(root: HTMLElement): () => void {
     root.querySelectorAll<HTMLCanvasElement>(".loom-swatch__cloth").forEach((cv) => {
       const { ctx, w, h } = sizeCanvas(cv);
       const fn = weaveOf(cv.dataset.weave);
-      const warp = cv.dataset.warp || "#0E1A33";
-      const weft = cv.dataset.weft || WEFT.cobalt;
+      const warp = threadColor(cv.dataset.warp, "navy");
+      const weft = threadColor(cv.dataset.weft, "cobalt");
       const cell = Number(cv.dataset.cell) || 6;
       ctx.fillStyle = warp;
       ctx.fillRect(0, 0, w, h);
@@ -318,8 +328,8 @@ export function startShell(root: HTMLElement): () => void {
         }
       }
       const gr = ctx.createLinearGradient(0, 0, w, h);
-      gr.addColorStop(0, "rgba(255,255,255,0.10)");
-      gr.addColorStop(1, "rgba(0,0,0,0.14)");
+      gr.addColorStop(0, C.sheen);
+      gr.addColorStop(1, C.shade);
       ctx.fillStyle = gr;
       ctx.fillRect(0, 0, w, h);
     });
@@ -357,7 +367,7 @@ export function startShell(root: HTMLElement): () => void {
 
   function relayout() {
     chapters = [...root.querySelectorAll<HTMLElement>("[data-chapter]")];
-    chapterStyle = chapters.map((ch) => ({ fn: weaveOf(ch.dataset.weave), weft: ch.dataset.weft || WEFT.cobalt }));
+    chapterStyle = chapters.map((ch) => ({ fn: weaveOf(ch.dataset.weave), weft: threadColor(ch.dataset.weft, "cobalt") }));
     collect();
     buildBands();
     layoutSelvedge();

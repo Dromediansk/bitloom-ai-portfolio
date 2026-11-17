@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { Link } from "@/i18n/routing";
 import { siteConfig } from "@/lib/config";
 import { trackCTAClick } from "@/lib/analytics";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter } from "@/lib/loom/chapters";
 import WovenLabel from "./WovenLabel";
 
 /** The closing label at the end of an inner page: the visitor's cloth plus one action. */
@@ -23,7 +23,7 @@ export default function PageClose({
   const t = useTranslations("home");
   return (
     <section
-      {...chapter("start", t("chapters.close"), "plain", WEFT.cobalt)}
+      {...chapter("start", t("chapters.close"), "plain", "cobalt")}
       className="loom-g-paper loom-site-close"
       data-act="flow"
     >

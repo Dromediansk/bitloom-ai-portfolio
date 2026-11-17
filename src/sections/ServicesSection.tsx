@@ -5,13 +5,14 @@ import { Link } from "@/i18n/routing";
 import FeaturedTestimonial from "@/components/FeaturedTestimonial";
 import PageMasthead from "@/components/loom/PageMasthead";
 import PageClose from "@/components/loom/PageClose";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter, type WeaveName } from "@/lib/loom/chapters";
+import type { Thread } from "@/lib/loom/tokens";
 
 const SERVICES = [
-  { key: "modernWebCraft", weave: "twill", weft: "#E8EDF5", warp: "#2F6FE4" },
-  { key: "mobileMastery", weave: "basket", weft: "#2F6FE4", warp: "#DCE3EE" },
-  { key: "aiDevelopment", weave: "herring", weft: "#6EA8FF", warp: "#0E1A33" },
-] as const;
+  { key: "modernWebCraft", weave: "twill", weft: "ivory", warp: "cobalt" },
+  { key: "mobileMastery", weave: "basket", weft: "cobalt", warp: "frost" },
+  { key: "aiDevelopment", weave: "herring", weft: "sky", warp: "navy" },
+] as const satisfies readonly { key: string; weave: WeaveName; weft: Thread; warp: Thread }[];
 
 const STEPS = ["discovery", "analysis", "development", "delivery"] as const;
 
@@ -29,14 +30,14 @@ const ServicesSection = () => {
   return (
     <>
       <PageMasthead title={t("title")} lede={t("subtitle")} chapterLabel={nav("services")} weave="twill">
-        <p className="loom-accent" style={{ maxWidth: "60ch", fontWeight: 520 }}>
+        <p className="loom-accent svc-differentiator">
           {t("differentiator")}
         </p>
       </PageMasthead>
 
       {/* What Bitloom builds: a ledger of three rows, each with its own cloth */}
       <section
-        {...chapter("offer", t("title"), "herring", WEFT.sky)}
+        {...chapter("offer", t("title"), "herring", "sky")}
         className="loom-g-navy loom-section"
       >
         <div className="loom-wrap">
@@ -76,7 +77,7 @@ const ServicesSection = () => {
 
       {/* Proof: plain figures and what people said */}
       <section
-        {...chapter("proof", nav("testimonials"), "satin", WEFT.cobalt)}
+        {...chapter("proof", nav("testimonials"), "satin", "cobalt")}
         className="loom-g-paper loom-section"
       >
         <div className="loom-wrap loom-split">
@@ -100,13 +101,13 @@ const ServicesSection = () => {
 
       {/* How a project runs */}
       <section
-        {...chapter("process", p("title"), "basket", WEFT.pale)}
+        {...chapter("process", p("title"), "basket", "pale")}
         className="loom-g-navy loom-section"
       >
         <div className="loom-wrap loom-split">
           <div data-in="">
             <h2 className="loom-display loom-h2">{p("title")}</h2>
-            <p className="loom-lede" style={{ marginTop: 22 }}>
+            <p className="loom-lede loom-lede--spaced">
               {p("subtitle")}
             </p>
           </div>

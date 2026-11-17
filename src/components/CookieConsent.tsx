@@ -64,7 +64,7 @@ const CookieConsent = () => {
   if (!showBanner) return null;
 
   return (
-    <div className="loom-cookie" role="region" aria-label={t("title")}>
+    <div className="loom-g-navy loom-cookie" role="region" aria-label={t("title")}>
       {!showDetails ? (
         <>
           <p>

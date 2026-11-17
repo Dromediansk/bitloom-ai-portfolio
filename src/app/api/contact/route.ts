@@ -51,6 +51,20 @@ function clientIp(request: NextRequest): string {
   return request.headers.get("x-real-ip") || "unknown";
 }
 
+// Email clients ignore CSS custom properties, so the template inlines its colors.
+// Mirror of src/styles/tokens.css; keep these in sync with the --color-* values named here.
+// (The only file besides tokens.css allowed raw colors; see scripts/check-tokens.mjs.)
+const MAIL = {
+  paper: "#edf0f3", // --color-paper
+  panel: "#f7f8fa", // --color-paper-light
+  navy: "#0a1122", // --color-navy
+  bone: "#e9edf4", // --color-bone
+  ink: "#0c1424", // --color-ink
+  inkSoft: "#45506a", // --color-ink-soft
+  hair: "#d6d8dc", // --color-ink at 14% over --color-paper-light (derived)
+  cobalt: "#0b5bd1", // --color-cobalt
+};
+
 const generateEmailTemplate = (data: ContactFormData): string => {
   const name = esc(data.name);
   const email = esc(data.email);
@@ -68,19 +82,19 @@ const generateEmailTemplate = (data: ContactFormData): string => {
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           line-height: 1.6;
-          color: #333;
+          color: ${MAIL.ink};
           max-width: 600px;
           margin: 0 auto;
           padding: 20px;
-          background-color: #f8f9fa;
+          background-color: ${MAIL.paper};
         }
-        .container { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-        .header { background: linear-gradient(135deg, #0d6efd 0%, #05214d 100%); color: white; padding: 30px; text-align: center; }
+        .container { background: ${MAIL.panel}; border-radius: 6px; overflow: hidden; border: 1px solid ${MAIL.hair}; }
+        .header { background: ${MAIL.navy}; color: ${MAIL.bone}; padding: 30px; text-align: center; border-bottom: 4px solid ${MAIL.cobalt}; }
         .content { padding: 30px; }
-        .field { margin-bottom: 20px; padding: 16px; background: #e6f0ff; border-radius: 8px; border-left: 4px solid #0d6efd; }
-        .field-label { font-weight: 600; color: #374151; margin-bottom: 6px; font-size: 14px; text-transform: uppercase; }
-        .field-value { color: #111827; font-size: 16px; }
-        .footer { text-align: center; padding: 20px; color: #6b7280; font-size: 14px; border-top: 1px solid #e5e7eb; }
+        .field { margin-bottom: 20px; padding: 16px; background: ${MAIL.paper}; border-radius: 4px; border-left: 4px solid ${MAIL.cobalt}; }
+        .field-label { font-weight: 600; color: ${MAIL.inkSoft}; margin-bottom: 6px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+        .field-value { color: ${MAIL.ink}; font-size: 16px; }
+        .footer { text-align: center; padding: 20px; color: ${MAIL.inkSoft}; font-size: 14px; border-top: 1px solid ${MAIL.hair}; }
       </style>
     </head>
     <body>

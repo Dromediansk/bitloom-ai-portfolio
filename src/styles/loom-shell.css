@@ -1,27 +1,13 @@
-/* The loom: shared design system for every page. Scoped under .loom.
+/* The loom: shared components for every page, scoped under .loom.
+   Every value comes from src/styles/tokens.css; no raw colors here.
    Home-only scenes live in src/sections/loom/loom.css. */
 
 .loom {
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --display: var(--font-archivo), system-ui, sans-serif;
-  --text: var(--font-geist), system-ui, sans-serif;
-  --mono: var(--font-geist-mono), ui-monospace, monospace;
-  --gutter: clamp(20px, 6vw, 96px);
-  --selv: 30px;
-  --selv-gap: 44px;
-  --t-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.95rem);
-  --t-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
-  --t-lg: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
-  --t-xl: clamp(1.6rem, 1.35rem + 1.2vw, 2.25rem);
-  --t-2xl: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
-  --t-3xl: clamp(2.6rem, 1.8rem + 3.8vw, 4.75rem);
-  --section: clamp(88px, 13vh, 150px);
-
   position: relative;
   min-height: 100vh;
   padding-left: var(--selv-gap);
-  background: #edf0f3;
-  color: #0c1424;
+  background: var(--canvas);
+  color: var(--ink);
   font-family: var(--text);
   font-size: var(--t-base);
   line-height: 1.6;
@@ -29,25 +15,16 @@
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
-.loom ::selection { background: #0b5bd1; color: #f5f7fa; }
+.loom ::selection { background: var(--selection); color: var(--selection-ink); }
 
-/* Hard-cut grounds. Color is restated wherever the ink changes. */
-.loom-g-paper {
-  --canvas: #edf0f3; --surface: #e1e6ec; --panel: #f7f8fa; --ink: #0c1424; --ink-soft: #45506a;
-  --accent: #0b5bd1; --accent-ink: #f5f7fa; --hair: rgba(12, 20, 36, 0.14); --hair-strong: rgba(12, 20, 36, 0.28);
-  background: var(--canvas); color: var(--ink);
-}
-.loom-g-navy {
-  --canvas: #0a1122; --surface: #121a2e; --panel: #121a2e; --ink: #e9edf4; --ink-soft: #a3afc5;
-  --accent: #7db1ff; --accent-ink: #0a1122; --hair: rgba(233, 237, 244, 0.16); --hair-strong: rgba(233, 237, 244, 0.32);
-  background: var(--canvas); color: var(--ink);
-}
+/* Hard-cut grounds: tokens.css re-points the colors, this paints them. */
+.loom-g-paper, .loom-g-navy { background: var(--canvas); color: var(--ink); }
 
 /* :where keeps the reset at zero specificity so component spacing and color always win */
 :where(.loom) :where(h1, h2, h3, h4, p, figure, dl, dd, ol, ul, blockquote) { margin: 0; }
 :where(.loom) a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
 :where(.loom) a:hover { text-decoration-thickness: 2px; }
-.loom :focus-visible { outline: 2px solid var(--accent, #0b5bd1); outline-offset: 3px; border-radius: 4px; }
+.loom :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 /* ---------------------------------------------------------------- type -- */
 .loom-display {
@@ -107,7 +84,7 @@
   padding: 0.95em 1.4em; border-radius: 8px; border: 0;
   background: var(--accent); color: var(--accent-ink) !important;
   font: inherit; font-weight: 560; text-decoration: none !important; white-space: nowrap; cursor: pointer;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 6px 18px -8px rgba(11, 40, 110, 0.55);
+  box-shadow: var(--shadow-button);
   transition: transform 140ms var(--ease-out), background-color 160ms var(--ease-out), opacity 160ms var(--ease-out);
 }
 .loom-btn::after {
@@ -140,27 +117,27 @@
 /* ---------------------------------------------------------- selvedge -- */
 .loom-selvedge {
   position: fixed; left: 0; top: 0; bottom: 0; width: var(--selv); z-index: 40;
-  background: #0d1526;
-  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.06), 6px 0 18px -10px rgba(4, 10, 24, 0.6);
+  background: var(--chrome);
+  box-shadow: var(--shadow-selvedge);
 }
 .loom-selvedge__cloth { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .loom-selvedge__bands { list-style: none; padding: 0; position: absolute; inset: 0; }
 .loom-selvedge__bands li { position: absolute; left: 0; width: 100%; }
 .loom-selvedge__bands a { position: absolute; inset: 0; display: block; text-decoration: none; }
 .loom-selvedge__bands a::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: rgba(233, 237, 244, 0.22);
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: color-mix(in srgb, var(--chrome-ink) 22%, transparent);
 }
 .loom-selvedge__bands span {
   position: absolute; left: calc(100% + 10px); top: 50%; translate: 0 -50%;
   padding: 6px 10px; border-radius: 6px; white-space: nowrap;
-  background: #0d1526; color: #e9edf4;
+  background: var(--chrome); color: var(--chrome-ink);
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
   opacity: 0; transform: translateX(-4px); pointer-events: none;
   transition: opacity 140ms var(--ease-out), transform 160ms var(--ease-out);
-  box-shadow: 0 6px 16px -8px rgba(4, 10, 24, 0.6);
+  box-shadow: var(--shadow-tip);
 }
 .loom-selvedge__bands a:hover span, .loom-selvedge__bands a:focus-visible span { opacity: 1; transform: none; }
-.loom-selvedge__bands a:focus-visible { outline-offset: -2px; outline-color: #e9edf4; }
+.loom-selvedge__bands a:focus-visible { outline-offset: -2px; outline-color: var(--chrome-ink); }
 
 /* -------------------------------------------------------- site bar ---- */
 .loom-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px 20px; flex-wrap: wrap; }
@@ -190,9 +167,9 @@
 .loom-masthead { position: relative; padding: clamp(64px, 14vh, 150px) 0 clamp(64px, 11vh, 120px); overflow: clip; }
 .loom-masthead::before {           /* a few warp threads behind the title */
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(90deg, rgba(12, 20, 36, 0.07) 0 1px, transparent 1px 22px);
-  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%);
-  mask-image: linear-gradient(to bottom, #000, transparent 85%);
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 7%, transparent) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
 .loom-masthead > * { position: relative; }
 .loom-page-h1 {
@@ -201,6 +178,7 @@
   text-wrap: balance; max-width: 14ch;
 }
 .loom-masthead .loom-lede { margin-top: clamp(22px, 4vh, 40px); }
+.loom-lede.loom-lede--spaced { margin-top: 22px; } /* a lede set close under its heading; wins over the masthead's */
 .loom-masthead__band { display: block; width: 100%; height: 14px; margin-top: clamp(48px, 9vh, 96px); border-radius: 2px; }
 .loom-masthead__extra { margin-top: 28px; }
 .loom-masthead--compact { padding: clamp(40px, 8vh, 88px) 0 clamp(24px, 4vh, 40px); }
@@ -242,26 +220,27 @@
 /* swatches (static weave drafts) */
 .loom-swatch__cloth {
   display: block; width: 100%; aspect-ratio: 5 / 4; border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 14px 28px -18px rgba(12, 20, 36, 0.55), 0 2px 6px -2px rgba(12, 20, 36, 0.25);
+  box-shadow: var(--shadow-cloth);
 }
 
 /* ----------------------------------------------------------- the label -- */
-/* sewn paper: the label's surface and stitch, also used by the contact form */
+/* sewn paper: the label's surface and stitch, also used by the contact form.
+   Always set on a paper ground (.loom-g-paper), whatever section it sits in. */
 .loom-sewn {
-  position: relative; background: #f7f8fa; border-radius: 4px; color: #0c1424;
-  box-shadow: 0 1px 0 #fff inset, 0 30px 60px -36px rgba(12, 20, 36, 0.55), 0 4px 12px -6px rgba(12, 20, 36, 0.25);
+  position: relative; background: var(--panel); border-radius: 4px;
+  box-shadow: var(--shadow-raised);
 }
 .loom-sewn::after {
-  content: ""; position: absolute; inset: 9px; border: 1.5px dashed rgba(11, 91, 209, 0.45); border-radius: 2px; pointer-events: none;
+  content: ""; position: absolute; inset: 9px; border: 1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent); border-radius: 2px; pointer-events: none;
 }
 .loom-label { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); width: min(100%, 1040px); overflow: clip; }
 .loom-label__cloth { display: block; width: 100%; height: 100%; min-height: 300px; }
-.loom-label__text { position: relative; z-index: 1; padding: clamp(28px, 4vw, 56px); --accent: #0b5bd1; --accent-ink: #f5f7fa; --ink: #0c1424; --ink-soft: #45506a; }
-.loom-label__maker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #45506a; }
+.loom-label__text { position: relative; z-index: 1; padding: clamp(28px, 4vw, 56px); }
+.loom-label__maker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 .loom-label__h { font-size: var(--t-2xl); margin: 18px 0 16px; max-width: 14ch; }
-.loom-label__body { margin-bottom: 26px; color: #45506a; max-width: 40ch; }
+.loom-label__body { margin-bottom: 26px; color: var(--ink-soft); max-width: 40ch; }
 .loom-label__actions { display: flex; align-items: center; gap: 14px 26px; flex-wrap: wrap; }
-.loom-label__mail { margin-top: 16px; font-size: var(--t-sm); color: #45506a; }
+.loom-label__mail { margin-top: 16px; font-size: var(--t-sm); color: var(--ink-soft); }
 .loom-close__note { margin-top: 18px; font-size: var(--t-sm); color: var(--ink-soft); }
 
 /* ------------------------------------------------------------ footer --- */
@@ -289,15 +268,15 @@
 .loom-field label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 .loom-field input, .loom-field textarea {
   width: 100%; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--hair-strong);
-  background: #fbfcfd; color: #0c1424; font: inherit; line-height: 1.5;
+  background: var(--field); color: var(--field-ink); font: inherit; line-height: 1.5;
   transition: border-color 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
 }
 .loom-field textarea { resize: vertical; min-height: 9rem; }
 .loom-field input:focus, .loom-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
-.loom-field ::placeholder { color: #7b859a; }
+.loom-field ::placeholder { color: var(--field-placeholder); }
 .loom-status { padding: 14px 16px; border-radius: 6px; font-size: var(--t-sm); }
-.loom-status--ok { background: #e3efe6; color: #1d4d2b; }
-.loom-status--err { background: #f6e3e1; color: #7a2018; }
+.loom-status--ok { background: var(--ok-wash); color: var(--ok-ink); }
+.loom-status--err { background: var(--err-wash); color: var(--err-ink); }
 
 /* ----------------------------------------------------------- documents -- */
 .loom-doc { max-width: 74ch; }
@@ -316,36 +295,33 @@
 
 /* -------------------------------------------------------------- modal -- */
 .loom-modal { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; }
-.loom-modal__scrim { position: absolute; inset: 0; background: rgba(6, 10, 22, 0.62); animation: loom-fade 180ms var(--ease-out); }
+.loom-modal__scrim { position: absolute; inset: 0; background: var(--scrim); animation: loom-fade 180ms var(--ease-out); }
 .loom-modal__panel {
   position: relative; width: min(100%, 720px); max-height: 85vh; overflow-y: auto;
-  padding: clamp(28px, 4vw, 48px); border-radius: 6px; background: #f7f8fa; color: #0c1424;
-  --ink: #0c1424; --ink-soft: #45506a; --accent: #0b5bd1; --hair: rgba(12, 20, 36, 0.14);
-  box-shadow: 0 40px 80px -40px rgba(4, 10, 24, 0.7);
+  padding: clamp(28px, 4vw, 48px); border-radius: 6px; background: var(--panel); /* on .loom-g-paper */
+  box-shadow: var(--shadow-overlay);
   animation: loom-rise 220ms var(--ease-out);
 }
 .loom-modal__close {
   position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 6px; border: 0;
-  background: transparent; color: #45506a; cursor: pointer; display: grid; place-items: center;
+  background: transparent; color: var(--ink-soft); cursor: pointer; display: grid; place-items: center;
 }
-.loom-modal__close:hover { background: rgba(12, 20, 36, 0.07); color: #0c1424; }
+.loom-modal__close:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); color: var(--ink); }
 @keyframes loom-fade { from { opacity: 0; } }
 @keyframes loom-rise { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
 
 /* ------------------------------------------------------------- cookie -- */
 .loom-cookie {
   position: fixed; z-index: 55; left: calc(var(--selv-gap, 44px) + 12px); bottom: 16px; width: min(560px, calc(100vw - var(--selv-gap, 44px) - 24px));
-  padding: 22px; border-radius: 6px; background: #0d1526; color: #e9edf4; font-size: 0.9rem; line-height: 1.55;
-  --accent: #7db1ff; --ink: #e9edf4; --ink-soft: #a3afc5; --hair: rgba(233, 237, 244, 0.16); --hair-strong: rgba(233, 237, 244, 0.32); --canvas: #0d1526;
-  box-shadow: 0 30px 60px -30px rgba(4, 10, 24, 0.8), 0 0 0 1px rgba(233, 237, 244, 0.08);
+  padding: 22px; border-radius: 6px; background: var(--chrome); /* on .loom-g-navy */ font-size: 0.9rem; line-height: 1.55;
+  box-shadow: var(--shadow-floating);
 }
 .loom-cookie p + p { margin-top: 8px; }
 .loom-cookie a { color: var(--accent); }
 .loom-cookie__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-.loom-cookie .loom-btn { --accent-ink: #0a1122; }
 .loom-cookie__cats { list-style: none; padding: 0; margin-top: 14px; display: grid; gap: 10px; }
 .loom-cookie__cats li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid var(--hair); border-radius: 6px; }
-.loom-cookie__cats input { accent-color: #7db1ff; width: 18px; height: 18px; margin-top: 2px; }
+.loom-cookie__cats input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 2px; }
 
 /* -------------------------------------------------------------- phones -- */
 @media (max-width: 860px) {

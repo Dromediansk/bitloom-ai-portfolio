@@ -1,7 +1,8 @@
 /* Inner pages: layouts specific to services, projects, about, testimonials,
-   contact, the legal documents and 404. Tokens come from loom-shell.css. */
+   contact, the legal documents and 404. Tokens come from tokens.css. */
 
 /* ------------------------------------------------------------ services -- */
+.svc-differentiator { max-width: 60ch; font-weight: 520; }
 .svc-rows { border-top: 1px solid var(--hair); }
 .svc-row {
   display: grid; grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 1.25fr);
@@ -52,7 +53,7 @@
 .prj-object { display: grid; gap: 22px; }
 .prj-object__media {
   position: relative; aspect-ratio: 16 / 10; border-radius: 4px; overflow: hidden; background: var(--surface);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 24px 44px -28px rgba(12, 20, 36, 0.55), 0 2px 6px -2px rgba(12, 20, 36, 0.2);
+  box-shadow: var(--shadow-media);
 }
 .prj-object__media img { object-fit: cover; transition: transform 600ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
@@ -87,8 +88,8 @@
 /* ----------------------------------------------------------- documents -- */
 .loom-doc-section { padding-top: clamp(16px, 3vh, 40px); }
 .loom-doc__strong { font-weight: 600; }
-.loom-doc__no { color: #a3281c; }
-.loom-doc__yes { color: #1f6b38; }
+.loom-doc__no { color: var(--err); }
+.loom-doc__yes { color: var(--ok); }
 .loom-doc__compact { font-size: var(--t-sm); }
 .loom-doc__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
 .loom-doc__cols .loom-note { margin-top: 0; }

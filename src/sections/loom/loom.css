@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------- title -- */
 .loom-title__back {
   position: absolute; inset: -8% -4%;
-  background: repeating-linear-gradient(90deg, rgba(12, 20, 36, 0.1) 0 1px, transparent 1px 22px);
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 10%, transparent) 0 1px, transparent 1px 22px);
   will-change: transform;
 }
 .loom-title__bar { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); top: clamp(20px, 4vh, 36px); }
@@ -102,7 +102,7 @@
   .loom-tension__pair { grid-template-columns: 1fr; margin-left: 0; }
   .loom-tension__close { margin-left: 0; }
   .loom-turn__copy { left: 20px; right: 20px; width: auto; top: auto; bottom: 0; height: 46%; }
-  .loom-turn__scrim { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 50%; background: linear-gradient(to bottom, rgba(10, 17, 34, 0), rgba(10, 17, 34, 0.92) 18%); }
+  .loom-turn__scrim { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 50%; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--canvas) 92%, transparent) 18%); }
   .loom-turn__h { font-size: var(--t-2xl); }
   .loom-rail__lead { flex-basis: 78vw; }
   .loom-swatch { flex-basis: 76vw; }

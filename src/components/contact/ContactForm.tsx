@@ -101,7 +101,7 @@ const ContactForm = () => {
 
   return (
     <div className="ct-form" data-in="">
-      <div className="loom-sewn ct-form__panel">
+      <div className="loom-g-paper loom-sewn ct-form__panel">
         <h2 className="loom-display ct-form__h">{t("title")}</h2>
         <form onSubmit={handleSubmit} onFocus={handleFormStart} className="ct-form__grid" noValidate={false}>
           <div className="loom-field">
@@ -165,7 +165,7 @@ const ContactForm = () => {
           </div>
 
           {/* Honeypot: bots fill in visible-to-them fields; humans don't see this */}
-          <div aria-hidden="true" style={{ display: "none" }}>
+          <div aria-hidden="true" hidden>
             <label htmlFor="website">Website</label>
             <input
               type="text"

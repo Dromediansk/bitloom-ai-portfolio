@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { getProjects, type Project } from "@/components/projects";
 import PageMasthead from "@/components/loom/PageMasthead";
 import PageClose from "@/components/loom/PageClose";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter } from "@/lib/loom/chapters";
 import { trackProjectView } from "@/lib/analytics";
 
 function ProjectObject({ project, lead = false }: { project: Project; lead?: boolean }) {
@@ -63,7 +63,7 @@ const ProjectsSection = () => {
     <>
       <PageMasthead title={t("title")} lede={t("subtitle")} chapterLabel={nav("projects")} weave="herring" />
 
-      <section {...chapter("work", t("title"), "basket", WEFT.cobalt)} className="loom-g-paper loom-section prj-section">
+      <section {...chapter("work", t("title"), "basket", "cobalt")} className="loom-g-paper loom-section prj-section">
         <div className="loom-wrap">
           {lead && (
             <div data-in="">

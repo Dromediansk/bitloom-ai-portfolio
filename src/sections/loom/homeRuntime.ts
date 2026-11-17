@@ -4,15 +4,35 @@
  *   turn   loose bits pulled into warp, then woven, with the Bitloom mark in the cloth
  * Everything shared (acts, cues, the selvedge, the label, the rAF loop and
  * relayout) runs in the shell; these register as scenes on it.
+ * Colors come from src/styles/tokens.css (--title-*, --turn-*, --thread-*).
  */
 import { addScene } from "@/lib/loom/shellRuntime";
-import { WEFT } from "@/lib/loom/chapters";
+import { readTokens, withAlpha } from "@/lib/loom/tokens";
 import { clamp, ease, hash, lerp, NARROW_MQ, prefersReducedMotion, sizeCanvas, WEAVES } from "@/lib/loom/weave";
 
 export function startHome(root: HTMLElement): () => void {
   const RM = prefersReducedMotion();
   const FINE = matchMedia("(hover: hover) and (pointer: fine)").matches;
   const narrowMQ = matchMedia(NARROW_MQ);
+  const C = readTokens({
+    comb: "title-comb",
+    weft: "title-weft",
+    weftUnder: "title-weft-under",
+    end: "title-end",
+    shuttle: "title-shuttle",
+    bit: "turn-bit",
+    gathered: "turn-gathered",
+    over: "turn-over",
+    under: "turn-under",
+    markA: "turn-mark-a",
+    markB: "turn-mark-b",
+    knot: "turn-knot",
+    turnShuttle: "turn-shuttle",
+    cobalt: "thread-cobalt",
+    sky: "thread-sky",
+    pale: "thread-pale",
+    mist: "thread-mist",
+  });
 
 /* ========================================================== TITLE == */
   // Loose warp ends hang across the headline. Scrolling throws picks through them,
@@ -86,14 +106,14 @@ export function startHome(root: HTMLElement): () => void {
     const ends = Math.ceil(tW / END);
 
     // unwoven warp in the band: a comb of fine ends waiting for weft
-    ctx.fillStyle = "rgba(14, 26, 51, 0.28)";
+    ctx.fillStyle = C.comb;
     for (let i = 0; i < ends; i++) ctx.fillRect(i * END + 2, bandTop, 1, (picks - done) * PICK);
 
     // woven cloth: light slate twill, so the headline stays the darkest thing on the page
     for (let k = 0; k < done; k++) {
       const y = bandBot - (k + 1) * PICK;
       for (let i = 0; i < ends; i++) {
-        ctx.fillStyle = WEAVES.twill(i, k) ? "#9AA9C4" : "#7486A8";
+        ctx.fillStyle = WEAVES.twill(i, k) ? C.weft : C.weftUnder;
         ctx.fillRect(i * END, y, END, PICK);
       }
     }
@@ -105,9 +125,9 @@ export function startHome(root: HTMLElement): () => void {
       const ltr = done % 2 === 0;
       const reach = fr * tW;
       const x0 = ltr ? 0 : tW - reach;
-      ctx.fillStyle = "#9AA9C4";
+      ctx.fillStyle = C.weft;
       ctx.fillRect(x0, y + 1, reach, PICK - 2);
-      ctx.fillStyle = WEFT.cobalt;
+      ctx.fillStyle = C.shuttle;
       ctx.fillRect(ltr ? reach - 22 : tW - reach, y - 1, 22, PICK + 2);
     }
 
@@ -124,9 +144,9 @@ export function startHome(root: HTMLElement): () => void {
         // loose part: fades in under the page links, sways toward the pointer, pinned at the band
         const gr = ctx.createLinearGradient(0, top, 0, bandTop);
         const fade = Math.min(0.9, 40 / span);
-        gr.addColorStop(0, "rgba(11, 91, 209, 0)");
-        gr.addColorStop(fade, `rgba(11, 91, 209, ${alpha})`);
-        gr.addColorStop(1, `rgba(11, 91, 209, ${alpha})`);
+        gr.addColorStop(0, withAlpha(C.end, 0));
+        gr.addColorStop(fade, withAlpha(C.end, alpha));
+        gr.addColorStop(1, withAlpha(C.end, alpha));
         ctx.strokeStyle = gr;
         ctx.lineWidth = wdt;
         ctx.beginPath();
@@ -136,7 +156,7 @@ export function startHome(root: HTMLElement): () => void {
       }
       // through the band: over every other pick where woven, plain where still open
       ctx.globalAlpha = alpha;
-      ctx.fillStyle = "#0B5BD1";
+      ctx.fillStyle = C.end;
       for (let k = 0; k < picks; k++) {
         const y = bandBot - (k + 1) * PICK;
         if (k < done && (t + k) % 2 === 1) continue; // under this pick
@@ -151,13 +171,13 @@ export function startHome(root: HTMLElement): () => void {
     ctx.globalCompositeOperation = "destination-out";
     const edge = Math.min(72, tW * 0.08);
     const l = ctx.createLinearGradient(0, 0, edge, 0);
-    l.addColorStop(0, "rgba(0,0,0,1)");
-    l.addColorStop(1, "rgba(0,0,0,0)");
+    l.addColorStop(0, "black");
+    l.addColorStop(1, "transparent");
     ctx.fillStyle = l;
     ctx.fillRect(0, bandTop - 2, edge, picks * PICK + 8);
     const r = ctx.createLinearGradient(tW - edge, 0, tW, 0);
-    r.addColorStop(0, "rgba(0,0,0,0)");
-    r.addColorStop(1, "rgba(0,0,0,1)");
+    r.addColorStop(0, "transparent");
+    r.addColorStop(1, "black");
     ctx.fillStyle = r;
     ctx.fillRect(tW - edge, bandTop - 2, edge, picks * PICK + 8);
     ctx.globalCompositeOperation = "source-over";
@@ -228,8 +248,9 @@ export function startHome(root: HTMLElement): () => void {
     turnDone = false;
   }
 
-  const BIT = ["#2A3B62", WEFT.sky, WEFT.mist];
-  const MOTIF: (string[] | null)[] = [null, ["#3D84FF", WEFT.cobalt], [WEFT.pale, "#86B2F5"], ["#F5F7FA", "#F5F7FA"]];
+  const BIT = [C.bit, C.sky, C.mist];
+  // per motif cell: [over, under]
+  const MOTIF: (string[] | null)[] = [null, [C.markA, C.cobalt], [C.pale, C.markB], [C.knot, C.knot]];
 
   function drawTurn(p: number, now: number) {
     if (!T) layoutTurn();
@@ -251,7 +272,7 @@ export function startHome(root: HTMLElement): () => void {
       if (r < wv) {
         const over = WEAVES.twill(c, r);
         const m = g.motif[k];
-        ctx.fillStyle = m ? MOTIF[m]![over ? 0 : 1] : over ? "#3A5088" : "#22315A";
+        ctx.fillStyle = m ? MOTIF[m]![over ? 0 : 1] : over ? C.over : C.under;
         ctx.fillRect(tx, ty, g.cell - 1, g.cell - 1);
         continue;
       }
@@ -259,7 +280,7 @@ export function startHome(root: HTMLElement): () => void {
       const drift = (1 - t) * 16;
       const x = lerp(g.sx[k] + Math.sin(time + g.ph[k]) * drift, tx + g.cell * 0.29, t);
       const y = lerp(g.sy[k] + Math.cos(time * 0.8 + g.ph[k]) * drift, ty, t);
-      ctx.fillStyle = t > 0.55 ? "#2E4170" : BIT[g.tone[k]];
+      ctx.fillStyle = t > 0.55 ? C.gathered : BIT[g.tone[k]];
       ctx.globalAlpha = t > 0.55 ? 1 : 0.55 + 0.45 * (g.tone[k] ? 1 : 0.5);
       ctx.fillRect(x, y, lerp(3.2, g.cell * 0.42, t), lerp(3.2, g.cell - 1, t));
     }
@@ -267,7 +288,7 @@ export function startHome(root: HTMLElement): () => void {
     if (wv > 0 && wv < g.rws) {
       const ry = g.oy + Math.floor(wv) * g.cell;
       const width = g.cols * g.cell;
-      ctx.fillStyle = "rgba(245,247,250,0.85)";
+      ctx.fillStyle = withAlpha(C.turnShuttle, 0.85);
       ctx.fillRect(g.ox, ry - 1, width, 2);
       const fr = wv % 1;
       const dir = Math.floor(wv) % 2 === 0;

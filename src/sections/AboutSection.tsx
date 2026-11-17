@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import PageMasthead from "@/components/loom/PageMasthead";
 import PageClose from "@/components/loom/PageClose";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter } from "@/lib/loom/chapters";
 
 const VALUES = ["transparentCommunication", "remoteFirstCooperation", "openMindedness"] as const;
 const REASONS = ["productMindset", "qualityFocus", "growthPartnership"] as const;
@@ -35,7 +35,7 @@ const AboutSection = () => {
       <PageMasthead title={t("title")} lede={t("subtitle")} chapterLabel={nav("about")} weave="basket" />
 
       {/* Story */}
-      <section {...chapter("story", t("ourStory.title"), "plain", WEFT.cobalt)} className="loom-g-paper loom-section abt-story">
+      <section {...chapter("story", t("ourStory.title"), "plain", "cobalt")} className="loom-g-paper loom-section abt-story">
         <div className="loom-wrap loom-split">
           <div data-in="">
             <h2 className="loom-display loom-h2">{t("ourStory.title")}</h2>
@@ -59,7 +59,7 @@ const AboutSection = () => {
       </section>
 
       {/* Founder */}
-      <section {...chapter("founder", t("founder.title"), "satin", WEFT.pale)} className="loom-g-navy loom-section" data-act="flow">
+      <section {...chapter("founder", t("founder.title"), "satin", "pale")} className="loom-g-navy loom-section" data-act="flow">
         <div className="loom-wrap loom-split">
           <figure className="loom-portrait">
             <div data-reveal="0.06 0.36">
@@ -105,7 +105,7 @@ const AboutSection = () => {
       </section>
 
       {/* Values */}
-      <section {...chapter("values", t("coreValues.title"), "twill", WEFT.cobalt)} className="loom-g-paper loom-section">
+      <section {...chapter("values", t("coreValues.title"), "twill", "cobalt")} className="loom-g-paper loom-section">
         <div className="loom-wrap loom-split">
           <h2 className="loom-display loom-h2" data-in="">
             <span>{t("coreValues.title")}</span>
@@ -122,11 +122,11 @@ const AboutSection = () => {
       </section>
 
       {/* Tools */}
-      <section {...chapter("stack", t("techStack.title"), "herring", WEFT.sky)} className="loom-g-navy loom-section">
+      <section {...chapter("stack", t("techStack.title"), "herring", "sky")} className="loom-g-navy loom-section">
         <div className="loom-wrap loom-split">
           <div data-in="">
             <h2 className="loom-display loom-h2">{t("techStack.title")}</h2>
-            <p className="loom-lede" style={{ marginTop: 22 }}>
+            <p className="loom-lede loom-lede--spaced">
               {t("techStack.description")}
             </p>
           </div>
@@ -142,7 +142,7 @@ const AboutSection = () => {
       </section>
 
       {/* Why Bitloom */}
-      <section {...chapter("why", t("whyChoose.title"), "basket", WEFT.cobalt)} className="loom-g-paper loom-section">
+      <section {...chapter("why", t("whyChoose.title"), "basket", "cobalt")} className="loom-g-paper loom-section">
         <div className="loom-wrap loom-split">
           <h2 className="loom-display loom-h2" data-in="">
             <span>{t("whyChoose.title")}</span>

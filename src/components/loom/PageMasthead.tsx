@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { chapter, WEFT, type WeaveName } from "@/lib/loom/chapters";
+import { chapter, type WeaveName } from "@/lib/loom/chapters";
 
 /** The title page of every inner page: big type on paper, a woven band underneath. */
 export default function PageMasthead({
@@ -28,8 +28,8 @@ export default function PageMasthead({
         <canvas
           className="loom-swatch__cloth loom-masthead__band"
           data-weave={weave}
-          data-weft={WEFT.cobalt}
-          data-warp="#0E1A33"
+          data-weft="cobalt"
+          data-warp="navy"
           data-cell="4"
           aria-hidden="true"
         />

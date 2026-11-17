@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AuthorHeader, Testimonial, TestimonialModal, VerifiedBadge } from "@/components/testimonial";
 import PageMasthead from "@/components/loom/PageMasthead";
 import PageClose from "@/components/loom/PageClose";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter } from "@/lib/loom/chapters";
 
 const TestimonialsSection = () => {
   const t = useTranslations("testimonials");
@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
       </section>
 
       <section
-        {...chapter("figures", t("stats.projectsCompleted"), "basket", WEFT.pale)}
+        {...chapter("figures", t("stats.projectsCompleted"), "basket", "pale")}
         className="loom-g-navy loom-section"
       >
         <div className="loom-wrap">

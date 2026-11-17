@@ -1,18 +1,18 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter } from "@/lib/loom/chapters";
 
 export default function NotFound() {
   const t = useTranslations("notFound");
 
   return (
-    <section {...chapter("top", t("title"), "plain", WEFT.cobalt)} className="loom-g-paper loom-masthead nf">
+    <section {...chapter("top", t("title"), "plain", "cobalt")} className="loom-g-paper loom-masthead nf">
       <div className="loom-wrap">
         <p className="loom-page-h1 nf__code" aria-hidden="true">
           {t("code")}
         </p>
         <h1 className="loom-display loom-h2">{t("title")}</h1>
-        <p className="loom-lede" style={{ marginTop: 22 }}>
+        <p className="loom-lede loom-lede--spaced">
           {t("description")}
         </p>
         <p className="nf__actions">

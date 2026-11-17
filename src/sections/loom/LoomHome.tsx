@@ -8,15 +8,16 @@ import { siteConfig } from "@/lib/config";
 import { trackCTAClick } from "@/lib/analytics";
 import SiteNav from "@/components/loom/SiteNav";
 import WovenLabel from "@/components/loom/WovenLabel";
-import { chapter, WEFT } from "@/lib/loom/chapters";
+import { chapter, type WeaveName } from "@/lib/loom/chapters";
+import type { Thread } from "@/lib/loom/tokens";
 import { startHome } from "./homeRuntime";
 import "./loom.css";
 
-const SWATCHES = [
-  { weave: "herring", weft: WEFT.cobalt, warp: "#0E1A33" },
-  { weave: "twill", weft: "#E8EDF5", warp: WEFT.cobalt },
-  { weave: "satin", weft: WEFT.pale, warp: "#14203A" },
-  { weave: "basket", weft: WEFT.cobalt, warp: "#DCE3EE" },
+const SWATCHES: { weave: WeaveName; weft: Thread; warp: Thread }[] = [
+  { weave: "herring", weft: "cobalt", warp: "navy" },
+  { weave: "twill", weft: "ivory", warp: "cobalt" },
+  { weave: "satin", weft: "pale", warp: "indigo" },
+  { weave: "basket", weft: "cobalt", warp: "frost" },
 ];
 
 export default function LoomHome() {
@@ -67,7 +68,7 @@ export default function LoomHome() {
 
       {/* 2 · TENSION: hard cut to navy, read at reading pace */}
       <section
-        {...chapter("problem", t("chapters.problem"), "twill", WEFT.mist)}
+        {...chapter("problem", t("chapters.problem"), "twill", "mist")}
         className="loom-g-navy loom-act-tension"
         data-act="flow"
       >
@@ -93,7 +94,7 @@ export default function LoomHome() {
 
       {/* 3 · TURN (the peak): a silence of loose bits, then the cloth forms */}
       <section
-        {...chapter("turn", t("chapters.turn"), "herring", WEFT.sky)}
+        {...chapter("turn", t("chapters.turn"), "herring", "sky")}
         className="loom-g-navy loom-act-turn"
         data-act="pin"
         style={{ "--span": 4 } as React.CSSProperties}
@@ -115,7 +116,7 @@ export default function LoomHome() {
 
       {/* 4 · WORK: lateral rail of woven swatches with label facts */}
       <section
-        {...chapter("work", t("chapters.work"), "basket", WEFT.bone)}
+        {...chapter("work", t("chapters.work"), "basket", "bone")}
         className="loom-g-paper loom-act-work"
         data-act="pan"
         style={{ "--span": 3.4 } as React.CSSProperties}
@@ -172,7 +173,7 @@ export default function LoomHome() {
 
       {/* 5 · FOUNDER: a real person, wiped in */}
       <section
-        {...chapter("founder", t("chapters.founder"), "satin", WEFT.pale)}
+        {...chapter("founder", t("chapters.founder"), "satin", "pale")}
         className="loom-g-navy loom-act-founder"
         data-act="flow"
       >
