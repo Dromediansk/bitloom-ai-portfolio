@@ -22,7 +22,7 @@
     "title": {
       "line1": "Softvér,",
       "line2": "ktorý vydrží.",
-      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre fintech aj pre malé firmy a živnostníkov.",
+      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre fintech aj pre drobných podnikateľov.",
       "cta": "Začať projekt"
     },
     "problem": {
@@ -129,7 +129,7 @@
   "services": {
     "title": "Naše služby",
     "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
-    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI, dnes pre veľké firmy aj pre malých podnikateľov. Jeden vývojár, nulová réžia, plná zodpovednosť.",
+    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI, dnes pre veľké firmy aj pre drobných podnikateľov. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
       "title": "Webové riešenia",
       "description": "Rýchle a responzívne weby a webové aplikácie — od databázy až po rozhranie.",
@@ -161,7 +161,7 @@
       "label": "Pre koho Bitloom pracuje",
       "fintech": "Fintech a bankovníctvo",
       "enterprise": "Enterprise softvér",
-      "smallBusiness": "Malé firmy a živnostníci"
+      "smallBusiness": "Drobní podnikatelia"
     },
     "socialProof": {
       "projectsCompleted": "Dokončených projektov",
