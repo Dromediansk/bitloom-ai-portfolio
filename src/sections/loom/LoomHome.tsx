@@ -19,8 +19,6 @@ const SWATCHES = [
   { weave: "basket", weft: WEFT.cobalt, warp: "#DCE3EE" },
 ];
 
-const FRONT_THREADS = [7, 19, 31, 44, 57, 70, 83, 94];
-
 export default function LoomHome() {
   const t = useTranslations("home");
   const nav = useTranslations("navigation");
@@ -35,7 +33,7 @@ export default function LoomHome() {
 
   return (
     <div className="loom-home" ref={rootRef}>
-      {/* 1 · TITLE: pinned title page, warp threads in front of and behind the type */}
+      {/* 1 · TITLE: pinned title page, loose warp across the type bound into cloth beneath it */}
       <section
         {...chapter("title", t("chapters.title"))}
         className="loom-g-paper loom-act-title"
@@ -44,7 +42,6 @@ export default function LoomHome() {
       >
         <div className="loom-stage loom-title">
           <div className="loom-title__back" aria-hidden="true" />
-          <div className="loom-title__weft" aria-hidden="true" />
 
           <SiteNav className="loom-title__bar" />
 
@@ -64,11 +61,7 @@ export default function LoomHome() {
             </Link>
           </div>
 
-          <div className="loom-title__front" aria-hidden="true">
-            {FRONT_THREADS.map((x) => (
-              <i key={x} data-x={x} style={{ left: `${x}%` }} />
-            ))}
-          </div>
+          <canvas className="loom-title__loom" aria-hidden="true" />
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 /*
  * Bitloom home: the two bespoke scenes that only live on the home page.
- *   title  warp threads in front of / behind the headline, parting on scroll
+ *   title  loose warp ends across the headline, bound into cloth beneath it on scroll
  *   turn   loose bits pulled into warp, then woven, with the Bitloom mark in the cloth
  * Everything shared (acts, cues, the selvedge, the label, the rAF loop and
  * relayout) runs in the shell; these register as scenes on it.
@@ -15,15 +15,24 @@ export function startHome(root: HTMLElement): () => void {
   const narrowMQ = matchMedia(NARROW_MQ);
 
 /* ========================================================== TITLE == */
+  // Loose warp ends hang across the headline. Scrolling throws picks through them,
+  // bottom up, until they are bound into a strip of cloth under the type and the
+  // headline stands clear. Loose threads, then cloth that holds.
   const titleSec = root.querySelector<HTMLElement>("#title")!;
   const tStage = titleSec.querySelector<HTMLElement>(".loom-stage")!;
   const tBack = titleSec.querySelector<HTMLElement>(".loom-title__back")!;
-  const tWeft = titleSec.querySelector<HTMLElement>(".loom-title__weft")!;
-  const tCopy = titleSec.querySelector<HTMLElement>(".loom-title__copy")!;
   const tH1 = titleSec.querySelector<HTMLElement>(".loom-title__h1")!;
+  const tSub = titleSec.querySelector<HTMLElement>(".loom-title__sub")!;
   const tBar = titleSec.querySelector<HTMLElement>(".loom-title__bar")!;
-  const tFrontWrap = titleSec.querySelector<HTMLElement>(".loom-title__front")!;
-  const tFront = [...tFrontWrap.querySelectorAll<HTMLElement>("i")];
+  const tCv = titleSec.querySelector<HTMLCanvasElement>(".loom-title__loom")!;
+  const THREADS = [7, 19, 31, 44, 57, 70, 83, 94];
+  const THREADS_NARROW = [10, 30, 50, 70, 90];
+  const END = 6; // fine warp spacing in the band
+  const PICK = 4; // pick height
+  let tW = 0;
+  let tH = 0;
+  let fs = 100;
+  let lastKey = "";
   let mx = 0;
   let my = 0;
   let pmx = 0;
@@ -34,27 +43,124 @@ export function startHome(root: HTMLElement): () => void {
   };
   if (FINE && !RM) addEventListener("pointermove", onPointer, { passive: true });
 
+  function layoutTitle() {
+    const { w, h } = sizeCanvas(tCv);
+    tW = w;
+    tH = h;
+    fs = parseFloat(getComputedStyle(tH1).fontSize) || 100;
+    lastKey = "";
+  }
+
   function drawTitle(p: number) {
-    if (RM) p = 0.35;
+    if (!tW) layoutTitle();
+    if (RM) p = 1;
     pmx = lerp(pmx, mx, 0.08);
     pmy = lerp(pmy, my, 0.08);
-    const e = ease(p);
-    // all reads before any write, so the frame lays out once
-    const hb = tH1.getBoundingClientRect();
+    tBack.style.transform = `translate3d(${pmx * -8}px, ${-ease(p) * 24 + pmy * -6}px, 0)`;
+
     const sb = tStage.getBoundingClientRect();
+    const hb = tH1.getBoundingClientRect();
+    const ub = tSub.getBoundingClientRect();
     const bb = tBar.getBoundingClientRect();
-    tFrontWrap.style.setProperty("--cut", `${Math.round(hb.bottom - sb.top + 4)}px`);
-    tFrontWrap.style.setProperty("--top", `${Math.round(bb.bottom - sb.top + 8)}px`);
-    tBack.style.transform = `translate3d(${pmx * -8}px, ${-e * 36 + pmy * -6}px, 0) scale(${1 + e * 0.04})`;
-    tWeft.style.transform = `translate3d(${(e - 0.5) * 60 + pmx * -14}px, ${-e * 60}px, 0)`;
-    tCopy.style.transform = `translate3d(0, ${-e * 24}px, 0) scale(${1 - e * 0.03})`;
-    for (const el of tFront) {
-      const x = parseFloat(el.dataset.x || "50");
-      const side = (x - 50) / 50;
-      const dx = side * e * innerWidth * 0.34 + pmx * 22 * (0.6 + Math.abs(side));
-      el.style.transform = `translate3d(${dx}px, ${pmy * 10}px, 0)`;
-      el.style.opacity = String(1 - clamp(Math.abs(side) * 0.9 + e * 0.7 - 1.1));
+    // the band sits in the gap between headline (clear of descenders) and subline
+    const gapTop = hb.bottom - sb.top + Math.max(12, fs * 0.12);
+    const gapBot = ub.top - sb.top - 20;
+    const picks = clamp(Math.floor((gapBot - gapTop) / PICK), 3, 8);
+    // centre the band in the gap so it reads as an underline, not a ledge
+    const bandBot = Math.round((gapTop + gapBot + picks * PICK) / 2);
+    const bandTop = bandBot - picks * PICK;
+    const hangTop = bb.bottom - sb.top + 8;
+
+    const key = `${p.toFixed(4)}|${pmx.toFixed(3)}|${bandTop}|${bandBot}|${hangTop}|${tW}`;
+    if (key === lastKey) return;
+    lastKey = key;
+
+    const ctx = tCv.getContext("2d")!;
+    ctx.clearRect(0, 0, tW, tH);
+    const narrow = narrowMQ.matches;
+    const threads = narrow ? THREADS_NARROW : THREADS;
+
+    // picks woven so far, from the bottom of the band up
+    const wv = clamp((p - 0.04) / 0.82) * picks;
+    const done = Math.floor(wv);
+    const ends = Math.ceil(tW / END);
+
+    // unwoven warp in the band: a comb of fine ends waiting for weft
+    ctx.fillStyle = "rgba(14, 26, 51, 0.28)";
+    for (let i = 0; i < ends; i++) ctx.fillRect(i * END + 2, bandTop, 1, (picks - done) * PICK);
+
+    // woven cloth: light slate twill, so the headline stays the darkest thing on the page
+    for (let k = 0; k < done; k++) {
+      const y = bandBot - (k + 1) * PICK;
+      for (let i = 0; i < ends; i++) {
+        ctx.fillStyle = WEAVES.twill(i, k) ? "#9AA9C4" : "#7486A8";
+        ctx.fillRect(i * END, y, END, PICK);
+      }
     }
+
+    // the pick being thrown: partial row plus the shuttle
+    const fr = wv - done;
+    if (done < picks && fr > 0) {
+      const y = bandBot - (done + 1) * PICK;
+      const ltr = done % 2 === 0;
+      const reach = fr * tW;
+      const x0 = ltr ? 0 : tW - reach;
+      ctx.fillStyle = "#9AA9C4";
+      ctx.fillRect(x0, y + 1, reach, PICK - 2);
+      ctx.fillStyle = WEFT.cobalt;
+      ctx.fillRect(ltr ? reach - 22 : tW - reach, y - 1, 22, PICK + 2);
+    }
+
+    // the cobalt ends: hanging loose above, bound over/under through the cloth
+    const e = ease(clamp(p / 0.86));
+    const top = lerp(hangTop, bandTop, e);
+    const sway = (1 - e) * pmx * 18;
+    for (let t = 0; t < threads.length; t++) {
+      const x = Math.round((threads[t] / 100) * tW);
+      const wdt = t % 2 ? 2 : 3;
+      const alpha = t % 2 ? 0.85 : 1;
+      const span = bandTop - top;
+      if (span > 1) {
+        // loose part: fades in under the page links, sways toward the pointer, pinned at the band
+        const gr = ctx.createLinearGradient(0, top, 0, bandTop);
+        const fade = Math.min(0.9, 40 / span);
+        gr.addColorStop(0, "rgba(11, 91, 209, 0)");
+        gr.addColorStop(fade, `rgba(11, 91, 209, ${alpha})`);
+        gr.addColorStop(1, `rgba(11, 91, 209, ${alpha})`);
+        ctx.strokeStyle = gr;
+        ctx.lineWidth = wdt;
+        ctx.beginPath();
+        ctx.moveTo(x + sway, top);
+        ctx.lineTo(x, bandTop);
+        ctx.stroke();
+      }
+      // through the band: over every other pick where woven, plain where still open
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = "#0B5BD1";
+      for (let k = 0; k < picks; k++) {
+        const y = bandBot - (k + 1) * PICK;
+        if (k < done && (t + k) % 2 === 1) continue; // under this pick
+        ctx.fillRect(x - wdt / 2, y, wdt, PICK);
+      }
+      // a short fringe below the cloth
+      ctx.fillRect(x - wdt / 2, bandBot, wdt, 4);
+      ctx.globalAlpha = 1;
+    }
+
+    // soft selvedges: fade the band out at both page edges
+    ctx.globalCompositeOperation = "destination-out";
+    const edge = Math.min(72, tW * 0.08);
+    const l = ctx.createLinearGradient(0, 0, edge, 0);
+    l.addColorStop(0, "rgba(0,0,0,1)");
+    l.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = l;
+    ctx.fillRect(0, bandTop - 2, edge, picks * PICK + 8);
+    const r = ctx.createLinearGradient(tW - edge, 0, tW, 0);
+    r.addColorStop(0, "rgba(0,0,0,0)");
+    r.addColorStop(1, "rgba(0,0,0,1)");
+    ctx.fillStyle = r;
+    ctx.fillRect(tW - edge, bandTop - 2, edge, picks * PICK + 8);
+    ctx.globalCompositeOperation = "source-over";
   }
 
   /* =========================================================== TURN == */
@@ -171,7 +277,7 @@ export function startHome(root: HTMLElement): () => void {
 
   /* ========================================================= SCENES == */
   layoutTurn();
-  const removeTitle = addScene({ el: titleSec, draw: (p) => drawTitle(p) });
+  const removeTitle = addScene({ el: titleSec, draw: (p) => drawTitle(p), layout: layoutTitle });
   const removeTurn = addScene({ el: turnSec, draw: drawTurn, layout: layoutTurn });
 
   return () => {
