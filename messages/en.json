@@ -30,15 +30,15 @@
       "assistantLabel": "The assistant",
       "assistant": "Waits for a prompt at every step. Long, multi-step work never gets finished.",
       "agentLabel": "The autonomous agent",
-      "agent": "Acts on its own with nobody watching. Fine for a demo. Not for a decision a bank has to audit.",
-      "close": "In finance, neither is acceptable."
+      "agent": "Acts on its own with nobody watching. Fine for a demo. Not for decisions a bank or a business owner has to answer for.",
+      "close": "When real money or your own business is on the line, neither is acceptable."
     },
     "turn": {
       "line1": "Bitloom builds the third option.",
       "line2": "Agents do the research, the drafting and the self-review.",
       "line3": "People keep authority at every decision that matters.",
       "heading": "Augmented, not autonomous.",
-      "body": "Every change an agent makes is versioned, attributable and reversible. That is how Bitloom builds agentic AI for regulated work today."
+      "body": "Every change an agent makes is versioned, attributable and reversible. That is how Bitloom builds agentic AI for work that has to hold up."
     },
     "work": {
       "heading": "Off the loom.",

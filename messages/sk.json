@@ -30,15 +30,15 @@
       "assistantLabel": "Asistent",
       "assistant": "Pri každom kroku čaká, kým mu niečo zadáte. Dlhšiu prácu s mnohými krokmi preto nikdy nedotiahne do konca.",
       "agentLabel": "Autonómny agent",
-      "agent": "Koná sám a nikto ho nekontroluje. Na ukážku to stačí, no nie na rozhodnutia, ktoré musí banka vedieť auditovať.",
-      "close": "Vo financiách nie je prijateľná ani jedna z nich."
+      "agent": "Koná sám a nikto ho nekontroluje. Na ukážku to stačí, no nie na rozhodnutia, za ktoré zodpovedá banka alebo majiteľ firmy.",
+      "close": "Keď ide o skutočné peniaze alebo o vašu vlastnú firmu, nie je prijateľná ani jedna z nich."
     },
     "turn": {
       "line1": "Bitloom ponúka tretiu cestu.",
       "line2": "Agenti zbierajú podklady, pripravujú návrhy a sami si ich kontrolujú.",
       "line3": "Pri každom dôležitom rozhodnutí má posledné slovo človek.",
       "heading": "Človek pri kormidle, nie autopilot.",
-      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dá sa dohľadať aj vrátiť späť. Takto dnes Bitloom vyvíja agentickú AI pre regulované odvetvia."
+      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dá sa dohľadať aj vrátiť späť. Takto dnes Bitloom vyvíja agentickú AI pre prácu, ktorá musí obstáť."
     },
     "work": {
       "heading": "Výber z práce.",
