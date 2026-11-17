@@ -21,53 +21,53 @@
     "pagesLabel": "Stránky",
     "title": {
       "line1": "Softvér,",
-      "line2": "utkaný na záťaž.",
-      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre tímy, pri ktorých chyba stojí skutočné peniaze.",
+      "line2": "ktorý vydrží.",
+      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre firmy, v ktorých chyba stojí skutočné peniaze.",
       "cta": "Začať projekt"
     },
     "problem": {
-      "heading": "Väčšina AI vás núti vybrať si, ako zlyhá.",
+      "heading": "Väčšina AI vám ponúka len dve zlé možnosti.",
       "assistantLabel": "Asistent",
-      "assistant": "Pri každom kroku čaká na pokyn. Dlhá práca s mnohými krokmi sa tak nikdy nedokončí.",
+      "assistant": "Pri každom kroku čaká, kým mu niečo zadáte. Dlhšiu prácu s mnohými krokmi preto nikdy nedotiahne do konca.",
       "agentLabel": "Autonómny agent",
-      "agent": "Koná sám a nikto ho nesleduje. Na ukážku to stačí. Na rozhodnutie, ktoré musí banka vedieť auditovať, nie.",
-      "close": "Vo financiách a v zdravotníctve nie je prijateľná ani jedna z týchto možností."
+      "agent": "Koná sám a nikto ho nekontroluje. Na ukážku to stačí, no nie na rozhodnutia, ktoré musí banka vedieť auditovať.",
+      "close": "Vo financiách ani v zdravotníctve nie je prijateľná ani jedna z nich."
     },
     "turn": {
-      "line1": "Bitloom stavia tretiu možnosť.",
-      "line2": "Agenti robia rešerš, návrh aj vlastnú kontrolu.",
+      "line1": "Bitloom ponúka tretiu cestu.",
+      "line2": "Agenti zbierajú podklady, pripravujú návrhy a sami si ich kontrolujú.",
       "line3": "Pri každom dôležitom rozhodnutí má posledné slovo človek.",
       "heading": "Človek pri kormidle, nie autopilot.",
-      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dohľadateľná a dá sa vrátiť. Presne takto dnes Bitloom stavia agentickú AI pre regulované prostredie."
+      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dá sa dohľadať aj vrátiť späť. Takto dnes Bitloom vyvíja agentickú AI pre regulované odvetvia."
     },
     "work": {
-      "heading": "Z krosien.",
-      "intro": "Projekty pre klientov aj vlastné produkty Bitloomu. Každý má rovnaký štítok: pre koho je, čo urobil Bitloom, z čoho je utkaný a v akom je stave.",
+      "heading": "Výber z práce.",
+      "intro": "Projekty pre klientov aj vlastné produkty Bitloomu. Pri každom nájdete to isté: pre koho je, čo na ňom Bitloom robil, aké technológie používa a v akom je stave.",
       "labels": {
         "for": "Pre",
         "did": "Bitloom",
-        "fibre": "Vlákno",
+        "fibre": "Technológie",
         "state": "Stav"
       },
       "items": [
         {
           "name": "Agentická AI platforma",
-          "for": "Dodávateľ softvéru pre fintech. Práca s rozsiahlou dokumentáciou v regulovanom odvetví.",
-          "did": "Seniorný AI engineering: backend agentov, streamovanie z agenta do UI, generatívne UI, procesy ľudskej kontroly.",
+          "for": "Dodávateľ softvéru pre fintech. Spracovanie veľkého množstva dokumentov v regulovanom odvetví.",
+          "did": "Seniorný AI vývoj: backend agentov, streamovanie výstupu agenta do UI, generatívne UI, schvaľovanie človekom.",
           "fibre": "TypeScript, LangGraph, React, PostgreSQL",
-          "state": "V produkčnom používaní. Od februára 2026."
+          "state": "V produkcii, priebežne od februára 2026."
         },
         {
           "name": "Wishlist",
           "for": "Rodiny, priatelia a kolegovia, ktorí si v skupinách zdieľajú priania.",
-          "did": "Produkt a full-stack vývoj. Prvá verzia vznikla za dve hodiny vďaka vývoju s pomocou AI.",
+          "did": "Návrh produktu a full-stack vývoj. Prvá verzia vznikla s pomocou AI za dve hodiny.",
           "fibre": "Next.js, TypeScript, Supabase, prihlásenie cez Google",
           "state": "V prevádzke, používajú ho prví zákazníci."
         },
         {
           "name": "ReadNest",
-          "for": "Čitatelia, ktorí si evidujú knihy a zapisujú nápady.",
-          "did": "Produkt a full-stack vývoj. Funguje iba lokálne: nič neopustí telefón.",
+          "for": "Čitatelia, ktorí si chcú viesť prehľad o knihách a zapisovať si myšlienky.",
+          "did": "Návrh produktu a full-stack vývoj. Všetky dáta zostávajú v telefóne, nič sa neodosiela.",
           "fibre": "React Native, Expo, TypeScript",
           "state": "Pred spustením."
         },
@@ -79,42 +79,42 @@
           "state": "V prevádzke na <link>holaespanol.sk</link>"
         }
       ],
-      "end": "Pred Bitloomom: bankové frontendy v Senacor Technologies, potom knižnica grafov v Reacte a Node služby v GlobalLogic.",
+      "end": "Ešte pred Bitloomom: frontend bankových aplikácií v Senacor Technologies, potom knižnica grafov v Reacte a služby v Node.js v GlobalLogic.",
       "more": "Všetky projekty"
     },
     "founder": {
-      "heading": "Jeden inžinier pri krosnách.",
-      "p1": "Bitloom je Miroslav Pillár. Inžinier samouk, ktorý od roku 2019 píše produkčný softvér: najprv ako seniorný frontend vývojár na bankových produktoch v Senacor Technologies, potom na knižnici grafov v Reacte a Node službách v GlobalLogic. Bitloom založil v Košiciach v roku 2024 a dnes stavia agentické AI systémy.",
-      "p2": "Vďaka magisterskému štúdiu regionálnej ekonomiky sú rozpočet, termíny a biznisový zmysel súčasťou technickej debaty už od prvého hovoru.",
+      "heading": "Jeden človek, celý projekt.",
+      "p1": "Bitloom je Miroslav Pillár, vývojár samouk, ktorý od roku 2019 píše softvér pre ostrú prevádzku. Najprv ako seniorný frontend vývojár na bankových produktoch v Senacor Technologies, potom na knižnici grafov v Reacte a službách v Node.js v GlobalLogic. Bitloom založil v roku 2024 v Košiciach a dnes vyvíja agentické AI systémy.",
+      "p2": "Má vyštudovanú regionálnu ekonomiku, preto s vami už od prvého hovoru rieši nielen techniku, ale aj rozpočet, termíny a obchodný prínos.",
       "photoAlt": "Miroslav Pillár, zakladateľ Bitloomu, na kamienkovej pláži pri mori.",
       "caption": "Ing. Miroslav Pillár, zakladateľ",
       "processLabel": "Ako prebieha projekt",
       "steps": [
         {
-          "name": "Objavenie",
-          "text": "Najprv sa zhodneme na probléme, až potom sa píše kód."
+          "name": "Konzultácia",
+          "text": "Najprv sa zhodneme na tom, čo riešime, až potom sa píše kód."
         },
         {
           "name": "Analýza",
-          "text": "Rozsah, riziká a plán, ktorého sa môžete Bitloom držať."
+          "text": "Rozsah, riziká a plán, ktorý Bitloom dodrží."
         },
         {
           "name": "Vývoj",
-          "text": "Malé kroky, ktoré si môžete skontrolovať a vidieť v chode."
+          "text": "Postup po malých krokoch, ktoré si môžete priebežne pozrieť a vyskúšať."
         },
         {
           "name": "Dodanie",
-          "text": "Nasadenie do produkcie, odovzdanie a podpora aj potom."
+          "text": "Nasadenie do produkcie, odovzdanie a podpora aj po spustení."
         }
       ],
-      "values": "Transparentná komunikácia. Remote-first. Otvorená myseľ. Slovenčina, angličtina a nemčina.",
+      "values": "Transparentná komunikácia. Spolupráca na diaľku. Otvorený prístup. Slovenčina, angličtina a nemčina.",
       "more": "Viac o Bitloome"
     },
     "close": {
       "maker": "Bitloom s.r.o. · Košice, Slovensko · Od roku 2024",
-      "heading": "Máte niečo, čo musí vydržať?",
-      "body": "Napíšte mi, na čom pracujete. Dostanete priamu odpoveď, či je Bitloom tá správna voľba.",
-      "note": "Látka na tomto štítku vznikla z vášho posúvania touto stránkou.",
+      "heading": "Potrebujete softvér, na ktorý sa dá spoľahnúť?",
+      "body": "Napíšte mi, na čom pracujete. Dostanete úprimnú odpoveď, či je Bitloom pre vás tá správna voľba.",
+      "note": "Vzor na tomto štítku vznikol z toho, ako ste si prezerali túto stránku.",
       "registration": "IČO 56397631 · DIČ 2122301907 · IČ DPH SK2122301907"
     },
     "language": "Jazyk"
@@ -181,7 +181,7 @@
     "subtitle": "Ako prebieha každý projekt — od prvého hovoru až po spustenie",
     "discovery": {
       "step": "01",
-      "title": "Objavenie",
+      "title": "Konzultácia",
       "description": "Spoznáme vaše podnikanie, používateľov a ciele. Získate jasný projektový brief predtým, než napíšeme jediný riadok kódu."
     },
     "analysis": {
