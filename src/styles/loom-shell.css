@@ -1,0 +1,367 @@
+/* The loom: shared design system for every page. Scoped under .loom.
+   Home-only scenes live in src/sections/loom/loom.css. */
+
+.loom {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --display: var(--font-archivo), system-ui, sans-serif;
+  --text: var(--font-geist), system-ui, sans-serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
+  --gutter: clamp(20px, 6vw, 96px);
+  --selv: 30px;
+  --selv-gap: 44px;
+  --t-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.95rem);
+  --t-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+  --t-lg: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --t-xl: clamp(1.6rem, 1.35rem + 1.2vw, 2.25rem);
+  --t-2xl: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+  --t-3xl: clamp(2.6rem, 1.8rem + 3.8vw, 4.75rem);
+  --section: clamp(88px, 13vh, 150px);
+
+  position: relative;
+  min-height: 100vh;
+  padding-left: var(--selv-gap);
+  background: #edf0f3;
+  color: #0c1424;
+  font-family: var(--text);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+.loom ::selection { background: #0b5bd1; color: #f5f7fa; }
+
+/* Hard-cut grounds. Color is restated wherever the ink changes. */
+.loom-g-paper {
+  --canvas: #edf0f3; --surface: #e1e6ec; --panel: #f7f8fa; --ink: #0c1424; --ink-soft: #45506a;
+  --accent: #0b5bd1; --accent-ink: #f5f7fa; --hair: rgba(12, 20, 36, 0.14); --hair-strong: rgba(12, 20, 36, 0.28);
+  background: var(--canvas); color: var(--ink);
+}
+.loom-g-navy {
+  --canvas: #0a1122; --surface: #121a2e; --panel: #121a2e; --ink: #e9edf4; --ink-soft: #a3afc5;
+  --accent: #7db1ff; --accent-ink: #0a1122; --hair: rgba(233, 237, 244, 0.16); --hair-strong: rgba(233, 237, 244, 0.32);
+  background: var(--canvas); color: var(--ink);
+}
+
+/* :where keeps the reset at zero specificity so component spacing always wins */
+.loom :where(h1, h2, h3, h4, p, figure, dl, dd, ol, ul, blockquote) { margin: 0; }
+.loom a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+.loom a:hover { text-decoration-thickness: 2px; }
+.loom :focus-visible { outline: 2px solid var(--accent, #0b5bd1); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------------------------------------------------------------- type -- */
+.loom-display {
+  font-family: var(--display);
+  font-variation-settings: "wdth" 112;
+  font-weight: 560;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.loom-h2 { font-size: var(--t-3xl); }
+.loom-h3 {
+  font-family: var(--display); font-variation-settings: "wdth" 108; font-weight: 600;
+  font-size: var(--t-lg); line-height: 1.2; letter-spacing: -0.015em;
+}
+.loom-lede { font-size: var(--t-lg); line-height: 1.5; color: var(--ink-soft); max-width: 46ch; text-wrap: pretty; }
+.loom-body p { max-width: 62ch; text-wrap: pretty; }
+.loom-body > * + * { margin-top: 18px; }
+.loom-soft { color: var(--ink-soft); }
+.loom-tag {
+  font-family: var(--mono); font-weight: 500; font-size: 0.75rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft);
+}
+.loom-accent { color: var(--accent); }
+
+/* -------------------------------------------------------------- layout -- */
+.loom-wrap { max-width: 1320px; margin-inline: auto; padding-inline: var(--gutter); }
+.loom-section { padding-block: var(--section); }
+.loom-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.loom-split > :first-child { position: sticky; top: 12vh; }
+.loom-split--even { grid-template-columns: 1fr 1fr; }
+
+/* acts: pinned acts own --span viewport-heights, their stage sticks */
+.loom [data-act="pin"], .loom [data-act="pan"] { position: relative; height: calc(var(--span, 1.5) * 100vh); height: calc(var(--span, 1.5) * 100svh); }
+.loom-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: clip; }
+.loom [data-cue] { will-change: opacity, transform; }
+
+/* [data-in]: hidden only once the runtime is live, so no-JS still reads */
+.loom.is-live [data-in] > * {
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+.loom.is-live [data-in].is-in > * { opacity: 1; transform: none; }
+
+.loom-grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 30; opacity: 0.045; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ------------------------------------------------------------- buttons -- */
+.loom-btn {
+  display: inline-flex; align-items: center; gap: 0.7em;
+  padding: 0.95em 1.4em; border-radius: 8px; border: 0;
+  background: var(--accent); color: var(--accent-ink) !important;
+  font: inherit; font-weight: 560; text-decoration: none !important; white-space: nowrap; cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 6px 18px -8px rgba(11, 40, 110, 0.55);
+  transition: transform 140ms var(--ease-out), background-color 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+.loom-btn::after {
+  content: ""; width: 7px; height: 7px; border-radius: 1.5px; background: currentColor;
+  transition: transform 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .loom-btn:not(:disabled):hover { background: color-mix(in srgb, var(--accent) 86%, black); }
+  .loom-btn:not(:disabled):hover::after { transform: translateX(3px); }
+}
+.loom-btn:not(:disabled):active { transform: translateY(1px) scale(0.98); }
+.loom-btn:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.loom-btn--ghost {
+  background: transparent; color: var(--ink) !important;
+  box-shadow: inset 0 0 0 1px var(--hair-strong);
+}
+.loom-btn--ghost::after { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .loom-btn--ghost:not(:disabled):hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+}
+.loom-btn--sm { padding: 0.6em 1em; font-size: 0.9rem; border-radius: 7px; }
+
+.loom-arrow-link {
+  display: inline-flex; align-items: center; gap: 0.6em;
+  font-weight: 560; color: var(--accent) !important; background: none; border: 0; padding: 0; font-size: inherit; cursor: pointer;
+}
+.loom-arrow-link::after { content: ""; width: 6px; height: 6px; border-radius: 1px; background: currentColor; transition: transform 160ms var(--ease-out); }
+.loom-arrow-link:hover::after { transform: translateX(3px); }
+
+/* ---------------------------------------------------------- selvedge -- */
+.loom-selvedge {
+  position: fixed; left: 0; top: 0; bottom: 0; width: var(--selv); z-index: 40;
+  background: #0d1526;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.06), 6px 0 18px -10px rgba(4, 10, 24, 0.6);
+}
+.loom-selvedge__cloth { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.loom-selvedge__bands { list-style: none; padding: 0; position: absolute; inset: 0; }
+.loom-selvedge__bands li { position: absolute; left: 0; width: 100%; }
+.loom-selvedge__bands a { position: absolute; inset: 0; display: block; text-decoration: none; }
+.loom-selvedge__bands a::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: rgba(233, 237, 244, 0.22);
+}
+.loom-selvedge__bands span {
+  position: absolute; left: calc(100% + 10px); top: 50%; translate: 0 -50%;
+  padding: 6px 10px; border-radius: 6px; white-space: nowrap;
+  background: #0d1526; color: #e9edf4;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  opacity: 0; transform: translateX(-4px); pointer-events: none;
+  transition: opacity 140ms var(--ease-out), transform 160ms var(--ease-out);
+  box-shadow: 0 6px 16px -8px rgba(4, 10, 24, 0.6);
+}
+.loom-selvedge__bands a:hover span, .loom-selvedge__bands a:focus-visible span { opacity: 1; transform: none; }
+.loom-selvedge__bands a:focus-visible { outline-offset: -2px; outline-color: #e9edf4; }
+
+/* -------------------------------------------------------- site bar ---- */
+.loom-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px 20px; flex-wrap: wrap; }
+.loom-mark {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none !important;
+  font-family: var(--display); font-variation-settings: "wdth" 100; font-weight: 600;
+  font-size: 1.15rem; letter-spacing: -0.01em;
+}
+.loom-pages { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.loom-pages ul { list-style: none; padding: 0; display: flex; gap: 6px 20px; flex-wrap: wrap; }
+.loom-pages a { font-size: 0.92rem; text-decoration: none; color: var(--ink-soft); }
+.loom-pages a:hover { color: var(--ink); text-decoration: underline; }
+.loom-pages a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.loom-site-header { position: relative; z-index: 3; padding: clamp(20px, 4vh, 36px) var(--gutter) 0; }
+
+.loom-locale { display: inline-flex; border: 1px solid var(--hair); border-radius: 7px; padding: 2px; background: color-mix(in srgb, var(--canvas) 80%, white); }
+.loom-g-navy .loom-locale { background: var(--surface); }
+.loom-locale button {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; border: 0;
+  padding: 5px 9px; border-radius: 5px; color: var(--ink-soft); background: transparent; cursor: pointer;
+  transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+}
+.loom-locale button[aria-pressed="true"] { background: var(--ink); color: var(--canvas); }
+.loom-locale button:not([aria-pressed="true"]):hover { color: var(--ink); }
+
+/* ----------------------------------------------------------- masthead -- */
+.loom-masthead { position: relative; padding: clamp(64px, 14vh, 150px) 0 clamp(64px, 11vh, 120px); overflow: clip; }
+.loom-masthead::before {           /* a few warp threads behind the title */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, rgba(12, 20, 36, 0.07) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%);
+  mask-image: linear-gradient(to bottom, #000, transparent 85%);
+}
+.loom-masthead > * { position: relative; }
+.loom-page-h1 {
+  font-family: var(--display); font-variation-settings: "wdth" 116; font-weight: 600;
+  font-size: clamp(3rem, 1rem + 7.2vw, 8.5rem); line-height: 0.94; letter-spacing: -0.045em;
+  text-wrap: balance; max-width: 14ch;
+}
+.loom-masthead .loom-lede { margin-top: clamp(22px, 4vh, 40px); }
+.loom-masthead__band { display: block; width: 100%; height: 14px; margin-top: clamp(48px, 9vh, 96px); border-radius: 2px; }
+.loom-masthead__extra { margin-top: 28px; }
+.loom-masthead--compact { padding: clamp(40px, 8vh, 88px) 0 clamp(24px, 4vh, 40px); }
+.loom-masthead--compact .loom-page-h1 { font-size: clamp(2.6rem, 1rem + 5vw, 6rem); }
+.loom-masthead--compact .loom-masthead__band { margin-top: clamp(28px, 5vh, 48px); }
+
+/* -------------------------------------------------------------- ledger -- */
+.loom-ledger { list-style: none; padding: 0; border-top: 1px solid var(--hair); }
+.loom-ledger li, .loom-ledger > div { display: grid; grid-template-columns: 11rem 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--hair); line-height: 1.5; }
+.loom-ledger dt, .loom-ledger li > span:first-child {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding-top: 3px;
+}
+.loom-ledger--quiet dt { color: var(--ink-soft); }
+
+/* square bullets for plain lists */
+.loom-list { list-style: none; padding: 0; }
+.loom-list li { position: relative; padding-left: 20px; }
+.loom-list li + li { margin-top: 8px; }
+.loom-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); }
+
+/* facts: real figures set as type, not counters */
+.loom-facts { display: flex; flex-wrap: wrap; gap: 28px clamp(32px, 6vw, 96px); }
+.loom-facts div { display: grid; gap: 6px; }
+.loom-facts strong { font-family: var(--display); font-variation-settings: "wdth" 112; font-weight: 600; font-size: var(--t-3xl); line-height: 1; letter-spacing: -0.035em; }
+
+/* quotes */
+.loom-quote blockquote {
+  font-family: var(--display); font-variation-settings: "wdth" 100; font-weight: 420;
+  font-size: var(--t-xl); line-height: 1.3; letter-spacing: -0.015em; text-wrap: pretty;
+}
+.loom-quote figcaption { margin-top: 18px; display: grid; gap: 2px; font-size: var(--t-sm); }
+.loom-quote figcaption b { font-weight: 600; }
+
+/* swatches (static weave drafts) */
+.loom-swatch__cloth {
+  display: block; width: 100%; aspect-ratio: 5 / 4; border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 14px 28px -18px rgba(12, 20, 36, 0.55), 0 2px 6px -2px rgba(12, 20, 36, 0.25);
+}
+
+/* ----------------------------------------------------------- the label -- */
+.loom-label {
+  position: relative; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  width: min(100%, 1040px); background: #f7f8fa; border-radius: 4px; overflow: clip; color: #0c1424;
+  box-shadow: 0 1px 0 #fff inset, 0 30px 60px -36px rgba(12, 20, 36, 0.55), 0 4px 12px -6px rgba(12, 20, 36, 0.25);
+}
+.loom-label::after {
+  content: ""; position: absolute; inset: 9px; border: 1.5px dashed rgba(11, 91, 209, 0.45); border-radius: 2px; pointer-events: none;
+}
+.loom-label__cloth { display: block; width: 100%; height: 100%; min-height: 300px; }
+.loom-label__text { position: relative; z-index: 1; padding: clamp(28px, 4vw, 56px); --accent: #0b5bd1; --accent-ink: #f5f7fa; --ink: #0c1424; --ink-soft: #45506a; }
+.loom-label__maker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #45506a; }
+.loom-label__h { font-size: var(--t-2xl); margin: 18px 0 16px !important; max-width: 14ch; }
+.loom-label__body { margin-bottom: 26px !important; color: #45506a; max-width: 40ch; }
+.loom-label__actions { display: flex; align-items: center; gap: 14px 26px; flex-wrap: wrap; }
+.loom-label__mail { margin-top: 16px !important; font-size: var(--t-sm); color: #45506a; }
+.loom-close__note { margin-top: 18px !important; font-size: var(--t-sm); color: var(--ink-soft); }
+
+/* ------------------------------------------------------------ footer --- */
+.loom-site-close { padding-block: var(--section) clamp(72px, 10vh, 120px); }
+.loom-site-foot { padding: clamp(56px, 9vh, 96px) 0 28px; font-size: var(--t-sm); }
+.loom-site-foot__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
+.loom-site-foot h2 { margin-bottom: 14px !important; }
+.loom-site-foot ul { list-style: none; padding: 0; display: grid; gap: 9px; }
+.loom-site-foot a { text-decoration: none; }
+.loom-site-foot a:hover { text-decoration: underline; }
+.loom-site-foot__brand p { margin-top: 14px; max-width: 34ch; color: var(--ink-soft); }
+.loom-site-foot__bottom {
+  margin-top: clamp(40px, 7vh, 72px); padding-top: 20px; border-top: 1px solid var(--hair);
+  display: flex; justify-content: space-between; align-items: center; gap: 14px 24px; flex-wrap: wrap; color: var(--ink-soft); font-size: 12.5px;
+}
+.loom-foot {
+  display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap;
+  padding: 14px 0 22px; border-top: 1px solid var(--hair);
+  font-size: 12.5px; color: var(--ink-soft);
+}
+.loom-foot ul { list-style: none; padding: 0; display: flex; gap: 8px 22px; flex-wrap: wrap; }
+
+/* -------------------------------------------------------------- forms -- */
+.loom-field { display: grid; gap: 8px; }
+.loom-field label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.loom-field input, .loom-field textarea {
+  width: 100%; padding: 14px 16px; border-radius: 6px; border: 1px solid var(--hair-strong);
+  background: #fbfcfd; color: #0c1424; font: inherit; line-height: 1.5;
+  transition: border-color 140ms var(--ease-out), box-shadow 140ms var(--ease-out);
+}
+.loom-field textarea { resize: vertical; min-height: 9rem; }
+.loom-field input:focus, .loom-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.loom-field ::placeholder { color: #7b859a; }
+.loom-status { padding: 14px 16px; border-radius: 6px; font-size: var(--t-sm); }
+.loom-status--ok { background: #e3efe6; color: #1d4d2b; }
+.loom-status--err { background: #f6e3e1; color: #7a2018; }
+
+/* ----------------------------------------------------------- documents -- */
+.loom-doc { max-width: 74ch; }
+.loom-doc section + section { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--hair); }
+.loom-doc h2 { font-family: var(--display); font-variation-settings: "wdth" 106; font-weight: 600; font-size: var(--t-xl); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px !important; }
+.loom-doc h3 { font-weight: 600; font-size: var(--t-base); margin: 26px 0 10px !important; }
+.loom-doc p + p, .loom-doc p + ul, .loom-doc ul + p { margin-top: 14px; }
+.loom-doc ul { list-style: none; padding: 0; margin-top: 10px; }
+.loom-doc ul li { position: relative; padding-left: 20px; }
+.loom-doc ul li + li { margin-top: 8px; }
+.loom-doc ul li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 5px; height: 5px; border-radius: 1px; background: var(--accent); }
+.loom-doc a { color: var(--accent); }
+.loom-doc dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin-top: 12px; }
+.loom-doc dt { font-weight: 600; }
+.loom-note { margin-top: 16px; padding: 14px 18px; border-radius: 6px; background: var(--surface); font-size: var(--t-sm); }
+
+/* -------------------------------------------------------------- modal -- */
+.loom-modal { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; }
+.loom-modal__scrim { position: absolute; inset: 0; background: rgba(6, 10, 22, 0.62); animation: loom-fade 180ms var(--ease-out); }
+.loom-modal__panel {
+  position: relative; width: min(100%, 720px); max-height: 85vh; overflow-y: auto;
+  padding: clamp(28px, 4vw, 48px); border-radius: 6px; background: #f7f8fa; color: #0c1424;
+  --ink: #0c1424; --ink-soft: #45506a; --accent: #0b5bd1; --hair: rgba(12, 20, 36, 0.14);
+  box-shadow: 0 40px 80px -40px rgba(4, 10, 24, 0.7);
+  animation: loom-rise 220ms var(--ease-out);
+}
+.loom-modal__close {
+  position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 6px; border: 0;
+  background: transparent; color: #45506a; cursor: pointer; display: grid; place-items: center;
+}
+.loom-modal__close:hover { background: rgba(12, 20, 36, 0.07); color: #0c1424; }
+@keyframes loom-fade { from { opacity: 0; } }
+@keyframes loom-rise { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+
+/* ------------------------------------------------------------- cookie -- */
+.loom-cookie {
+  position: fixed; z-index: 55; left: calc(var(--selv-gap, 44px) + 12px); bottom: 16px; width: min(560px, calc(100vw - var(--selv-gap, 44px) - 24px));
+  padding: 22px; border-radius: 6px; background: #0d1526; color: #e9edf4; font-size: 0.9rem; line-height: 1.55;
+  --accent: #7db1ff; --ink: #e9edf4; --ink-soft: #a3afc5; --hair: rgba(233, 237, 244, 0.16); --hair-strong: rgba(233, 237, 244, 0.32); --canvas: #0d1526;
+  box-shadow: 0 30px 60px -30px rgba(4, 10, 24, 0.8), 0 0 0 1px rgba(233, 237, 244, 0.08);
+}
+.loom-cookie p + p { margin-top: 8px; }
+.loom-cookie a { color: var(--accent); }
+.loom-cookie__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.loom-cookie .loom-btn { --accent-ink: #0a1122; }
+.loom-cookie__cats { list-style: none; padding: 0; margin-top: 14px; display: grid; gap: 10px; }
+.loom-cookie__cats li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid var(--hair); border-radius: 6px; }
+.loom-cookie__cats input { accent-color: #7db1ff; width: 18px; height: 18px; margin-top: 2px; }
+
+/* -------------------------------------------------------------- phones -- */
+@media (max-width: 860px) {
+  .loom { --selv-gap: 0px; }
+  .loom-selvedge { right: 0; bottom: auto; width: auto; height: 10px; }
+  .loom-selvedge__bands { display: none; }
+  .loom-site-header { padding-top: 26px; }
+  .loom-masthead { padding: 48px 0 56px; }
+  .loom-masthead--compact { padding: 36px 0 28px; }
+  .loom-pages ul { gap: 6px 14px; }
+  .loom-pages a { font-size: 0.88rem; }
+  .loom-split, .loom-split--even { grid-template-columns: 1fr; }
+  .loom-split > :first-child { position: static; }
+  .loom-ledger li, .loom-ledger > div { grid-template-columns: 1fr; gap: 4px; }
+  .loom-label { grid-template-columns: 1fr; }
+  .loom-label__cloth { min-height: 0; height: 88px; }
+  .loom-label__h { font-size: var(--t-xl); }
+  .loom-site-foot__grid { grid-template-columns: 1fr 1fr; }
+  .loom-site-foot__brand { grid-column: 1 / -1; }
+  .loom-foot { font-size: 11.5px; }
+  .loom-doc dl { grid-template-columns: 1fr; gap: 2px; }
+  .loom-doc dd { margin-bottom: 10px; }
+  .loom-cookie { left: 12px; right: 12px; bottom: 12px; width: auto; padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loom [data-reveal] { clip-path: none !important; }
+  .loom-modal__scrim, .loom-modal__panel { animation: none; }
+}

@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { Link, routing, usePathname, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { siteConfig } from "@/lib/config";
 import { trackCTAClick } from "@/lib/analytics";
-import { startLoom } from "./loomRuntime";
+import SiteNav from "@/components/loom/SiteNav";
+import WovenLabel from "@/components/loom/WovenLabel";
+import { startHome } from "./homeRuntime";
 import "./loom.css";
 
 type Chapter = {
@@ -38,27 +40,6 @@ const SWATCHES = [
 
 const FRONT_THREADS = [7, 19, 31, 44, 57, 70, 83, 94];
 
-function LocaleSwitch({ label }: { label: string }) {
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-  return (
-    <div className="loom-locale" role="group" aria-label={label}>
-      {routing.locales.map((loc) => (
-        <button
-          key={loc}
-          type="button"
-          lang={loc}
-          aria-pressed={locale === loc}
-          onClick={() => router.replace(pathname, { locale: loc, scroll: false })}
-        >
-          {loc.toUpperCase()}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 export default function LoomHome() {
   const t = useTranslations("home");
   const nav = useTranslations("navigation");
@@ -67,36 +48,12 @@ export default function LoomHome() {
 
   useEffect(() => {
     if (!rootRef.current) return;
-    return startLoom(rootRef.current);
+    return startHome(rootRef.current);
   }, []);
-
-  const pages = [
-    { href: "/services", label: nav("services") },
-    { href: "/projects", label: nav("projects") },
-    { href: "/about", label: nav("about") },
-    { href: "/testimonials", label: nav("testimonials") },
-    { href: "/contact", label: nav("contact") },
-  ];
   const workLabels = ["for", "did", "fibre", "state"] as const;
 
   return (
-    <div className="loom" ref={rootRef}>
-      {/* THE SELVEDGE: the visitor's scroll weaves this strip. It is also the chapter nav. */}
-      <nav className="loom-selvedge" aria-label={t("chaptersLabel")}>
-        <canvas className="loom-selvedge__cloth" aria-hidden="true" />
-        <ol className="loom-selvedge__bands">
-          {CHAPTERS.map((c) => (
-            <li key={c.id}>
-              <a href={`#${c.id}`} aria-label={t(`chapters.${c.id}`)}>
-                <span aria-hidden="true">{t(`chapters.${c.id}`)}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-
-      <div className="loom-grain" aria-hidden="true" />
-
+    <div className="loom-home" ref={rootRef}>
       {/* 1 · TITLE: pinned title page, warp threads in front of and behind the type */}
       <section
         {...chapterProps("title", t("chapters.title"))}
@@ -108,27 +65,7 @@ export default function LoomHome() {
           <div className="loom-title__back" aria-hidden="true" />
           <div className="loom-title__weft" aria-hidden="true" />
 
-          <header className="loom-title__bar">
-            <p className="loom-mark">
-              <Image src="/icon.svg" width={32} height={32} alt="" priority />
-              <span>Bitloom</span>
-            </p>
-            <nav className="loom-pages" aria-label={t("pagesLabel")}>
-              <ul>
-                {pages.map((p) => (
-                  <li key={p.href}>
-                    <Link href={p.href}>{p.label}</Link>
-                  </li>
-                ))}
-                <li>
-                  <a href="https://blog.bitloom.sk" target="_blank" rel="noopener noreferrer">
-                    {nav("blog")}
-                  </a>
-                </li>
-              </ul>
-              <LocaleSwitch label={t("language")} />
-            </nav>
-          </header>
+          <SiteNav className="loom-title__bar" />
 
           <div className="loom-title__copy" data-cue="0 1 0 0">
             <h1 className="loom-title__h1">
@@ -283,7 +220,7 @@ export default function LoomHome() {
             <h2 className="loom-display loom-founder__h">{t("founder.heading")}</h2>
             <p>{t("founder.p1")}</p>
             <p>{t("founder.p2")}</p>
-            <ol className="loom-ledger" aria-label={t("founder.processLabel")}>
+            <ol className="loom-ledger loom-ledger--steps" aria-label={t("founder.processLabel")}>
               {[0, 1, 2, 3].map((i) => (
                 <li key={i}>
                   <span>{t(`founder.steps.${i}.name`)}</span>
@@ -308,12 +245,12 @@ export default function LoomHome() {
       >
         <div className="loom-stage loom-close">
           <div className="loom-close__body">
-            <div className="loom-label" data-cue="0 1 0 0">
-              <canvas className="loom-label__cloth" aria-hidden="true" />
-              <div className="loom-label__text">
-                <p className="loom-label__maker">{t("close.maker")}</p>
-                <h2 className="loom-display loom-label__h">{t("close.heading")}</h2>
-                <p className="loom-label__body">{t("close.body")}</p>
+            <WovenLabel
+              data-cue="0 1 0 0"
+              maker={t("close.maker")}
+              heading={t("close.heading")}
+              body={t("close.body")}
+              actions={
                 <Link
                   className="loom-btn"
                   href="/contact"
@@ -321,11 +258,9 @@ export default function LoomHome() {
                 >
                   {t("title.cta")}
                 </Link>
-                <p className="loom-label__mail">
-                  <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
-                </p>
-              </div>
-            </div>
+              }
+              footnote={<a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>}
+            />
             <p className="loom-close__note" data-cue="0 1 0 0">
               {t("close.note")}
             </p>

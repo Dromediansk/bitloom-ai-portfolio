@@ -532,7 +532,7 @@
           "items": [
             "Nevyhnutné cookies: Vždy aktívne - Požadované pre funkčnosť webovej stránky, bezpečnosť a preferencie súhlasu",
             "Analytické cookies: Iba s vaším súhlasom - Google Analytics na analýzu výkonu webovej stránky",
-            "Preferenčné cookies: Zapamätajú si vaše nastavenia (téma, jazykové preferencie, voľba súhlasu s cookies)"
+            "Preferenčné cookies: Zapamätajú si vaše nastavenia (jazyková preferencia, voľba súhlasu s cookies)"
           ],
           "choice": "Môžete prijať alebo odmietnuť cookies pri prvej návšteve našej webovej stránky. Svoju voľbu môžete kedykoľvek zmeniť v nastaveniach prehliadača.",
           "choiceLabel": "Vaša voľba:"
@@ -729,7 +729,7 @@
     "categories": {
       "essential": {
         "label": "Nevyhnutné",
-        "description": "Potrebné na základné fungovanie — uchovanie vašej voľby cookies, nastavenia vzhľadu a zabezpečenie. Tieto cookies nie je možné vypnúť."
+        "description": "Potrebné na základné fungovanie — uchovanie vašej voľby cookies a zabezpečenie. Tieto cookies nie je možné vypnúť."
       },
       "analytics": {
         "label": "Analytika",

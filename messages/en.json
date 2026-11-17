@@ -532,7 +532,7 @@
           "items": [
             "Essential Cookies: Always active - Required for website functionality, security, and consent preferences",
             "Analytics Cookies: Only with your consent - Google Analytics for website performance analysis",
-            "Preference Cookies: Remember your settings (theme, language preferences, cookie consent choice)"
+            "Preference Cookies: Remember your settings (language preference, cookie consent choice)"
           ],
           "choice": "You can accept or decline cookies when you first visit our website. You can change your choice at any time through your browser settings.",
           "choiceLabel": "Your Choice:"
@@ -729,7 +729,7 @@
     "categories": {
       "essential": {
         "label": "Essential",
-        "description": "Required for core functionality such as storing your cookie preference itself, theme selection, and security. These cannot be disabled."
+        "description": "Required for core functionality such as storing your cookie preference itself and security. These cannot be disabled."
       },
       "analytics": {
         "label": "Analytics",

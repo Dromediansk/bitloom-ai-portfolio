@@ -9,7 +9,6 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **TypeScript**
 - **Tailwind CSS v4** (CSS-first config via `@theme` in `src/app/globals.css`; the legacy `tailwind.config.js` is unused)
 - **next-intl** (i18n — English and Slovak)
-- **next-themes** (dark mode, via `src/providers/ThemeProvider.tsx`)
 - **mailtrap** (contact form email delivery)
 
 ## Dev Commands
@@ -21,10 +20,10 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 ## Project Structure Guidelines
 
 src/app # App Router (locale-scoped pages under src/app/[locale])
-src/components # Reusable UI components (incl. about/, contact/, process/, projects/, testimonial/)
-src/sections # Page sections (Hero, Services, Projects, About, Testimonials, Contact)
-src/lib # Utilities (analytics, config, consent, hooks, utils)
-src/providers # React providers (ThemeProvider)
+src/components # Reusable UI components (loom/ = shared shell: header, selvedge, label, footer; contact/, projects/, testimonial/)
+src/sections # Page sections (loom/ = home page; Services, Projects, About, Testimonials, Contact)
+src/lib # Utilities (analytics, config, consent, utils; loom/ = scroll runtime + weave helpers)
+src/styles # Design system CSS (loom-shell.css shared, loom-pages.css inner pages)
 src/i18n # next-intl routing + request config
 src/proxy.ts # next-intl middleware (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
 src/app/api # Route handlers (contact form)
@@ -55,6 +54,7 @@ messages # i18n translation files (en.json, sk.json)
 
 ## Style Guide
 
+- **Design system "the loom"**: paper (`#edf0f3`) and navy (`#0a1122`) sections with hard cuts, one cobalt accent, Archivo (display, width axis) + Geist + Geist Mono. No dark-mode toggle: the pages alternate light and dark grounds themselves. A fixed woven strip (selvedge) is woven by the visitor's scroll on every page; sections with `data-chapter` become its bands and nav links.
 - **Design**: Clean, minimalist, professional with enterprise appeal
 - **Color Palette**: Modern sophisticated tones; excellent contrast for business credibility
 - **Typography**: Clear headings, professional font choices, responsive and accessible

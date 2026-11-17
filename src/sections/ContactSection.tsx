@@ -1,34 +1,24 @@
 "use client";
 
-import { SectionTitle } from "@/components";
-import { ContactForm, ContactInfo } from "@/components/contact";
-import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
+import { ContactForm, ContactInfo } from "@/components/contact";
+import PageMasthead from "@/components/loom/PageMasthead";
+import { chapter, WEFT } from "@/lib/loom/chapters";
 
 const ContactSection = () => {
-  const { elementRef, hasIntersected } = useIntersectionObserver();
   const t = useTranslations("contact");
+  const nav = useTranslations("navigation");
 
   return (
-    <section ref={elementRef} className="min-h-screen section-padding">
-      <div className="container-max">
-        {/* Header */}
-        <SectionTitle
-          title={t("title")}
-          subtitle={t("subtitle")}
-          animated={true}
-          isVisible={hasIntersected}
-        />
-
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
+    <>
+      <PageMasthead title={t("title")} lede={t("subtitle")} chapterLabel={nav("contact")} weave="plain" compact />
+      <section {...chapter("write", t("form.title"), "twill", WEFT.cobalt)} className="loom-g-paper loom-section ct-section">
+        <div className="loom-wrap ct-layout">
           <ContactInfo />
-
-          {/* Contact Form */}
           <ContactForm />
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

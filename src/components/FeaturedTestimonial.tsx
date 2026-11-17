@@ -5,8 +5,9 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Testimonial, TestimonialModal } from "./testimonial";
 
-const ROTATION_MS = 7000;
+const ROTATION_MS = 8000;
 
+/** One quote at a time, rotating, with the full review a click away. */
 const FeaturedTestimonial = () => {
   const t = useTranslations();
   const testimonials = t.raw("testimonials.items") as Testimonial[];
@@ -20,59 +21,45 @@ const FeaturedTestimonial = () => {
 
   useEffect(() => {
     if (paused || testimonials.length <= 1) return;
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % testimonials.length);
-    }, ROTATION_MS);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % testimonials.length), ROTATION_MS);
     return () => clearInterval(id);
   }, [paused, testimonials.length]);
 
   return (
-    <div
-      className="max-w-2xl mx-auto text-center"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <button
-        type="button"
-        onClick={() => setSelected(current)}
-        aria-label={`${t("testimonials.readMore")}: ${current.name}`}
-        className="group block w-full text-center cursor-pointer rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 px-2 py-3"
-      >
-        <div key={index} className={paused ? undefined : "animate-fade-cycle"}>
-          <blockquote className="text-gray-600 dark:text-gray-300 italic text-lg leading-relaxed mb-3 line-clamp-2 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors">
-            &ldquo;{current.testimonial}&rdquo;
-          </blockquote>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            <span className="font-semibold text-gray-700 dark:text-gray-200">
-              {current.name}
-            </span>
-            {" — "}
+    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocus={() => setHovered(true)} onBlur={() => setHovered(false)}>
+      <figure key={index} className="loom-quote tst-featured">
+        <blockquote className="tst-clamp">&ldquo;{current.testimonial}&rdquo;</blockquote>
+        <figcaption>
+          <b>{current.name}</b>
+          <span className="loom-soft">
             {current.role}
             {current.company ? `, ${current.company}` : ""}
-          </p>
+          </span>
+        </figcaption>
+      </figure>
+      <div className="tst-featured__actions">
+        <button type="button" className="loom-arrow-link" onClick={() => setSelected(current)}>
+          {t("testimonials.readMore")}
+        </button>
+        <Link href="/testimonials" className="loom-soft">
+          {t("services.socialProof.seeAll")}
+        </Link>
+      </div>
+      {testimonials.length > 1 && (
+        <div className="tst-dots" role="group" aria-label={t("testimonials.title")}>
+          {testimonials.map((x, i) => (
+            <button
+              key={x.name}
+              type="button"
+              aria-label={x.name}
+              aria-pressed={i === index}
+              onClick={() => setIndex(i)}
+            />
+          ))}
         </div>
-      </button>
-
-      <Link
-        href="/testimonials"
-        className="mt-3 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-      >
-        {t("services.socialProof.seeAll")}
-        <span aria-hidden="true" className="ml-1">
-          →
-        </span>
-      </Link>
-
-      <TestimonialModal
-        testimonial={selected}
-        onClose={() => setSelected(null)}
-      />
+      )}
+      <TestimonialModal testimonial={selected} onClose={() => setSelected(null)} />
     </div>
   );
 };

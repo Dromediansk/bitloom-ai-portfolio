@@ -1,380 +1,174 @@
 "use client";
 
 import Image from "next/image";
-import { ButtonLink, SectionTitle } from "@/components";
-import { useIntersectionObserver } from "@/lib/hooks";
-import { ReasonContainer, TechStack } from "@/components/about";
 import { useTranslations } from "next-intl";
-import { trackCTAClick } from "@/lib/analytics";
+import { Link } from "@/i18n/routing";
+import PageMasthead from "@/components/loom/PageMasthead";
+import PageClose from "@/components/loom/PageClose";
+import { chapter, WEFT } from "@/lib/loom/chapters";
 
-const CommunicationIcon = () => (
-  <svg
-    className="w-6 h-6 text-primary-600 dark:text-primary-400"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-    />
-  </svg>
-);
-
-const GlobeIcon = () => (
-  <svg
-    className="w-6 h-6 text-primary-600 dark:text-primary-400"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-    />
-  </svg>
-);
-
-const LightbulbIcon = () => (
-  <svg
-    className="w-6 h-6 text-primary-600 dark:text-primary-400"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-    />
-  </svg>
-);
-
-const ClockIcon = () => (
-  <svg
-    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-    />
-  </svg>
-);
-
-const GraduationCapIcon = () => (
-  <svg
-    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m-4-2.5s4 2.5 8 0"
-    />
-  </svg>
-);
-
-const BriefcaseIcon = () => (
-  <svg
-    className="w-4 h-4 text-primary-600 dark:text-primary-400 shrink-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-    />
-  </svg>
-);
-
-const SectionDivider = () => (
-  <div className="flex justify-center my-12">
-    <div className="w-16 h-1 bg-linear-to-r from-primary-200 to-primary-500 dark:from-primary-500 dark:to-primary-200 rounded-full"></div>
-  </div>
-);
-
-const coreValueIcons = [
-  <CommunicationIcon key="comm" />,
-  <GlobeIcon key="globe" />,
-  <LightbulbIcon key="bulb" />,
-];
-
-const coreValueKeys = [
-  "transparentCommunication",
-  "remoteFirstCooperation",
-  "openMindedness",
+const VALUES = ["transparentCommunication", "remoteFirstCooperation", "openMindedness"] as const;
+const REASONS = ["productMindset", "qualityFocus", "growthPartnership"] as const;
+const TECH = [
+  { name: "LangGraph", key: "langgraph" },
+  { name: "Claude SDK", key: "claude" },
+  { name: "MCP", key: "mcp" },
+  { name: "React + React Native", key: "reactjs" },
+  { name: "Next.js", key: "nextjs" },
+  { name: "Expo", key: "expo" },
+  { name: "TypeScript", key: "typescript" },
+  { name: "Python", key: "python" },
 ] as const;
 
 const AboutSection = () => {
-  const { elementRef, hasIntersected } = useIntersectionObserver();
   const t = useTranslations("about");
+  const nav = useTranslations("navigation");
 
-  const stats = [
+  const facts = [
     { value: "7+", label: t("stats.yearsExperience") },
     { value: "10+", label: t("stats.projectsCompleted") },
     { value: "2", label: t("stats.industries") },
   ];
 
   return (
-    <section ref={elementRef} id="about" className="section-padding">
-      <div className="container-max relative z-10">
-          <SectionTitle
-            title={t("title")}
-            subtitle={t("subtitle")}
-            animated={true}
-            isVisible={hasIntersected}
-          />
+    <>
+      <PageMasthead title={t("title")} lede={t("subtitle")} chapterLabel={nav("about")} weave="basket" />
 
-          {/* Company Story */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div
-              className={`transition-all duration-1000 delay-300 ${
-                hasIntersected
-                  ? "animate-fade-in-left"
-                  : "opacity-0 -translate-x-8"
-              }`}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                {t("ourStory.title")}
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                {t("ourStory.description1")}
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                {t("ourStory.description2")}
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("ourStory.description3")}
-              </p>
-            </div>
-
-            {/* Stats Block */}
-            <div
-              className={`relative transition-all duration-1000 delay-500 ${
-                hasIntersected
-                  ? "animate-fade-in-right"
-                  : "opacity-0 translate-x-8"
-              }`}
-            >
-              <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
-                <div className="grid grid-cols-1 gap-8">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-300">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Core Values */}
-          <div className="mb-20">
-            <h2
-              className={`text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-all duration-1000 delay-300 ${
-                hasIntersected
-                  ? "animate-fade-in-down"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              {t("coreValues.title")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {coreValueKeys.map((key, index) => (
-                <div
-                  key={key}
-                  className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${
-                    hasIntersected
-                      ? "animate-fade-in-up"
-                      : "opacity-0 translate-y-8"
-                  }`}
-                  style={{
-                    animationDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 ease-out">
-                    {coreValueIcons[index]}
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    {t(`coreValues.${key}.title`)}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {t(`coreValues.${key}.description`)}
-                  </p>
+      {/* Story */}
+      <section {...chapter("story", t("ourStory.title"), "plain", WEFT.cobalt)} className="loom-g-paper loom-section abt-story">
+        <div className="loom-wrap loom-split">
+          <div data-in="">
+            <h2 className="loom-display loom-h2">{t("ourStory.title")}</h2>
+            <dl className="loom-facts abt-facts">
+              {facts.map((f) => (
+                <div key={f.label}>
+                  <dt className="loom-tag">{f.label}</dt>
+                  <dd>
+                    <strong>{f.value}</strong>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
-
-          <SectionDivider />
-
-          {/* Founder Section */}
-          <div className="bg-linear-to-brfrom-white/70 via-white/50 to-primary-50/40 dark:from-gray-800/70 dark:via-gray-800/50 dark:to-primary-950/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-20 shadow-xl border border-gray-100 dark:border-gray-700">
-            <div className="grid lg:grid-cols-5 gap-8 items-center">
-              <div
-                className={`lg:col-span-3 transition-all duration-1000 delay-600 ${
-                  hasIntersected
-                    ? "animate-fade-in-left"
-                    : "opacity-0 -translate-x-8"
-                }`}
-              >
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                  {t("founder.title")}
-                </h2>
-                <h3 className="text-xl font-semibold text-primary-600 dark:text-primary-400 mb-4">
-                  {t("founder.name")}
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  {t("founder.location")}
-                </p>
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {t("founder.description1")}
-                </p>
-                <p className="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {t("founder.description2")}
-                </p>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {t("founder.description3")}
-                </p>
-              </div>
-              <div
-                className={`lg:col-span-2 flex flex-col items-center gap-6 transition-all duration-1000 delay-700 ${
-                  hasIntersected
-                    ? "animate-fade-in-right"
-                    : "opacity-0 translate-x-8"
-                }`}
-              >
-                <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary-200 dark:ring-primary-800">
-                  <Image
-                    src="/images/about/avatar.png"
-                    alt="Miroslav - Founder of Bitloom"
-                    width={256}
-                    height={256}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                    priority
-                  />
-                </div>
-
-                {/* Highlights */}
-                <div className="w-full max-w-xs space-y-3">
-                  <div className="flex items-center gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
-                    <ClockIcon />
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {t("founder.highlights.experienceLabel")}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
-                        {t("founder.highlights.experienceValue")}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
-                    <GraduationCapIcon />
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {t("founder.highlights.educationLabel")}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
-                        {t("founder.highlights.education1")}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-900 dark:text-white mt-1">
-                        {t("founder.highlights.education2")}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700">
-                    <BriefcaseIcon />
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {t("founder.highlights.cooperationsLabel")}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-900 dark:text-white">
-                        {t("founder.highlights.cooperations")}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="loom-body abt-lead" data-in="">
+            <p>{t("ourStory.description1")}</p>
+            <p>{t("ourStory.description2")}</p>
+            <p>{t("ourStory.description3")}</p>
           </div>
+        </div>
+      </section>
 
-          <SectionDivider />
+      {/* Founder */}
+      <section {...chapter("founder", t("founder.title"), "satin", WEFT.pale)} className="loom-g-navy loom-section" data-act="flow">
+        <div className="loom-wrap abt-founder">
+          <figure className="abt-founder__photo">
+            <div data-reveal="0.06 0.36">
+              <Image
+                src="/images/about/avatar.png"
+                width={900}
+                height={1125}
+                sizes="(max-width: 860px) 90vw, 36vw"
+                alt={t("founder.name")}
+              />
+            </div>
+            <figcaption className="loom-tag">{t("founder.location")}</figcaption>
+          </figure>
 
-          {/* Technical Expertise */}
-          <TechStack />
+          <div data-in="" className="abt-founder__text">
+            <p className="loom-tag">{t("founder.title")}</p>
+            <h2 className="loom-display loom-h2">{t("founder.name")}</h2>
+            <div className="loom-body">
+              <p>{t("founder.description1")}</p>
+              <p>{t("founder.description2")}</p>
+              <p>{t("founder.description3")}</p>
+            </div>
+            <dl className="loom-ledger loom-ledger--quiet">
+              <div>
+                <dt>{t("founder.highlights.experienceLabel")}</dt>
+                <dd>{t("founder.highlights.experienceValue")}</dd>
+              </div>
+              <div>
+                <dt>{t("founder.highlights.educationLabel")}</dt>
+                <dd>
+                  {t("founder.highlights.education1")}
+                  <br />
+                  {t("founder.highlights.education2")}
+                </dd>
+              </div>
+              <div>
+                <dt>{t("founder.highlights.cooperationsLabel")}</dt>
+                <dd>{t("founder.highlights.cooperations")}</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
 
-          <SectionDivider />
+      {/* Values */}
+      <section {...chapter("values", t("coreValues.title"), "twill", WEFT.cobalt)} className="loom-g-paper loom-section">
+        <div className="loom-wrap loom-split">
+          <h2 className="loom-display loom-h2" data-in="">
+            <span>{t("coreValues.title")}</span>
+          </h2>
+          <ul className="abt-points" data-in="">
+            {VALUES.map((k) => (
+              <li key={k}>
+                <h3 className="loom-h3">{t(`coreValues.${k}.title`)}</h3>
+                <p className="loom-soft">{t(`coreValues.${k}.description`)}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-          {/* Why Choose Bitloom */}
-          <ReasonContainer />
-
-          {/* CTA */}
-          <div
-            className={`text-center mt-16 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 transition-all duration-1000 delay-1400 ${
-              hasIntersected ? "animate-fade-in-up" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              {t("ctaSection.title")}
-            </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-              {t("ctaSection.description")}
+      {/* Tools */}
+      <section {...chapter("stack", t("techStack.title"), "herring", WEFT.sky)} className="loom-g-navy loom-section">
+        <div className="loom-wrap loom-split">
+          <div data-in="">
+            <h2 className="loom-display loom-h2">{t("techStack.title")}</h2>
+            <p className="loom-lede" style={{ marginTop: 22 }}>
+              {t("techStack.description")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ButtonLink
-                href="/contact"
-                variant="primary"
-                size="lg"
-                onClick={() => trackCTAClick("start_project", "about")}
-                className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
-              >
-                {t("ctaSection.startProject")}
-              </ButtonLink>
-              <ButtonLink
-                href="/services"
-                variant="secondary"
-                size="lg"
-                className="transform hover:scale-105 hover:shadow-lg transition-all duration-300"
-              >
-                {t("ctaSection.viewServices")}
-              </ButtonLink>
-            </div>
           </div>
-      </div>
-    </section>
+          <dl className="loom-ledger loom-ledger--quiet abt-stack" data-in="">
+            {TECH.map((x) => (
+              <div key={x.key}>
+                <dt>{x.name}</dt>
+                <dd>{t(`techStack.technologies.${x.key}`)}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Why Bitloom */}
+      <section {...chapter("why", t("whyChoose.title"), "basket", WEFT.cobalt)} className="loom-g-paper loom-section">
+        <div className="loom-wrap loom-split">
+          <h2 className="loom-display loom-h2" data-in="">
+            <span>{t("whyChoose.title")}</span>
+          </h2>
+          <ul className="abt-points" data-in="">
+            {REASONS.map((k) => (
+              <li key={k}>
+                <h3 className="loom-h3">{t(`whyChoose.${k}.title`)}</h3>
+                <p className="loom-soft">{t(`whyChoose.${k}.description`)}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <PageClose
+        heading={t("ctaSection.title")}
+        body={t("ctaSection.description")}
+        location="about"
+        secondary={
+          <Link className="loom-arrow-link" href="/services">
+            {t("ctaSection.viewServices")}
+          </Link>
+        }
+      />
+    </>
   );
 };
 
