@@ -1,13 +1,5 @@
-import HeroSection from "@/sections/HeroSection";
-import ServicesSection from "@/sections/ServicesSection";
+import LoomHome from "@/sections/loom/LoomHome";
 
 export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <div id="services">
-        <ServicesSection />
-      </div>
-    </>
-  );
+  return <LoomHome />;
 }

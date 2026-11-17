@@ -9,14 +9,116 @@
     "blog": "Blog",
     "toggleMenu": "Prepnúť mobilné menu"
   },
-  "hero": {
-    "companyName": "Bitloom",
-    "tagline": "Digitálne riešenia z odvážnych nápadov",
-    "description": "Vývoj webu, mobilných appiek a AI riešenia prispôsobené vašim konkrétnym potrebám.",
-    "exploreServices": "Preskúmať služby",
-    "contactUs": "Bezplatná konzultácia",
-    "scrollToExplore": "Posúvajte pre preskúmanie",
-    "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
+  "home": {
+    "chapters": {
+      "title": "Úvod",
+      "problem": "Problém",
+      "turn": "Prístup",
+      "work": "Práca",
+      "founder": "Zakladateľ",
+      "close": "Začať projekt"
+    },
+    "chaptersLabel": "Kapitoly stránky",
+    "pagesLabel": "Stránky",
+    "title": {
+      "line1": "Softvér,",
+      "line2": "utkaný na záťaž.",
+      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre tímy, pri ktorých chyba stojí skutočné peniaze.",
+      "cta": "Začať projekt"
+    },
+    "problem": {
+      "heading": "Väčšina AI vás núti vybrať si, ako zlyhá.",
+      "assistantLabel": "Asistent",
+      "assistant": "Pri každom kroku čaká na pokyn. Dlhá práca s mnohými krokmi sa tak nikdy nedokončí.",
+      "agentLabel": "Autonómny agent",
+      "agent": "Koná sám a nikto ho nesleduje. Na ukážku to stačí. Na rozhodnutie, ktoré musí banka vedieť auditovať, nie.",
+      "close": "Vo financiách a v zdravotníctve nie je prijateľná ani jedna z týchto možností."
+    },
+    "turn": {
+      "line1": "Bitloom stavia tretiu možnosť.",
+      "line2": "Agenti robia rešerš, návrh aj vlastnú kontrolu.",
+      "line3": "Pri každom dôležitom rozhodnutí má posledné slovo človek.",
+      "heading": "Človek pri kormidle, nie autopilot.",
+      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dohľadateľná a dá sa vrátiť. Presne takto dnes Bitloom stavia agentickú AI pre regulované prostredie."
+    },
+    "work": {
+      "heading": "Z krosien.",
+      "intro": "Projekty pre klientov aj vlastné produkty Bitloomu. Každý má rovnaký štítok: pre koho je, čo urobil Bitloom, z čoho je utkaný a v akom je stave.",
+      "labels": {
+        "for": "Pre",
+        "did": "Bitloom",
+        "fibre": "Vlákno",
+        "state": "Stav"
+      },
+      "items": [
+        {
+          "name": "Agentická AI platforma",
+          "for": "Dodávateľ softvéru pre fintech. Práca s rozsiahlou dokumentáciou v regulovanom odvetví.",
+          "did": "Seniorný AI engineering: backend agentov, streamovanie z agenta do UI, generatívne UI, procesy ľudskej kontroly.",
+          "fibre": "TypeScript, LangGraph, React, PostgreSQL",
+          "state": "V produkčnom používaní. Od februára 2026."
+        },
+        {
+          "name": "Wishlist",
+          "for": "Rodiny, priatelia a kolegovia, ktorí si v skupinách zdieľajú priania.",
+          "did": "Produkt a full-stack vývoj. Prvá verzia vznikla za dve hodiny vďaka vývoju s pomocou AI.",
+          "fibre": "Next.js, TypeScript, Supabase, prihlásenie cez Google",
+          "state": "V prevádzke, používajú ho prví zákazníci."
+        },
+        {
+          "name": "ReadNest",
+          "for": "Čitatelia, ktorí si evidujú knihy a zapisujú nápady.",
+          "did": "Produkt a full-stack vývoj. Funguje iba lokálne: nič neopustí telefón.",
+          "fibre": "React Native, Expo, TypeScript",
+          "state": "Pred spustením."
+        },
+        {
+          "name": "Hola Español",
+          "for": "Online výučba španielčiny.",
+          "did": "Návrh a vývoj dvojjazyčného webu s formulárom na objednanie lekcií.",
+          "fibre": "Next.js, TypeScript, next-intl",
+          "state": "V prevádzke na <link>holaespanol.sk</link>"
+        }
+      ],
+      "end": "Pred Bitloomom: bankové frontendy v Senacor Technologies, potom knižnica grafov v Reacte a Node služby v GlobalLogic.",
+      "more": "Všetky projekty"
+    },
+    "founder": {
+      "heading": "Jeden inžinier pri krosnách.",
+      "p1": "Bitloom je Miroslav Pillár. Inžinier samouk, ktorý od roku 2019 píše produkčný softvér: najprv ako seniorný frontend vývojár na bankových produktoch v Senacor Technologies, potom na knižnici grafov v Reacte a Node službách v GlobalLogic. Bitloom založil v Košiciach v roku 2024 a dnes stavia agentické AI systémy.",
+      "p2": "Vďaka magisterskému štúdiu regionálnej ekonomiky sú rozpočet, termíny a biznisový zmysel súčasťou technickej debaty už od prvého hovoru.",
+      "photoAlt": "Miroslav Pillár, zakladateľ Bitloomu, na kamienkovej pláži pri mori.",
+      "caption": "Ing. Miroslav Pillár, zakladateľ",
+      "processLabel": "Ako prebieha projekt",
+      "steps": [
+        {
+          "name": "Objavenie",
+          "text": "Najprv sa zhodneme na probléme, až potom sa píše kód."
+        },
+        {
+          "name": "Analýza",
+          "text": "Rozsah, riziká a plán, ktorého sa môžete Bitloom držať."
+        },
+        {
+          "name": "Vývoj",
+          "text": "Malé kroky, ktoré si môžete skontrolovať a vidieť v chode."
+        },
+        {
+          "name": "Dodanie",
+          "text": "Nasadenie do produkcie, odovzdanie a podpora aj potom."
+        }
+      ],
+      "values": "Transparentná komunikácia. Remote-first. Otvorená myseľ. Slovenčina, angličtina a nemčina.",
+      "more": "Viac o Bitloome"
+    },
+    "close": {
+      "maker": "Bitloom s.r.o. · Košice, Slovensko · Od roku 2024",
+      "heading": "Máte niečo, čo musí vydržať?",
+      "body": "Napíšte mi, na čom pracujete. Dostanete priamu odpoveď, či je Bitloom tá správna voľba.",
+      "note": "Látka na tomto štítku vznikla z vášho posúvania touto stránkou.",
+      "registration": "IČO 56397631 · DIČ 2122301907 · IČ DPH SK2122301907"
+    },
+    "language": "Jazyk"
   },
   "notFound": {
     "code": "404",

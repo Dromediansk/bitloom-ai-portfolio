@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsentLazy";
 import { siteConfig } from "@/lib/config";
+import { HideOnHome } from "@/components/SiteFrame";
 
 export async function generateMetadata({
   params,
@@ -80,10 +81,14 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navigation />
+      <HideOnHome>
+        <Navigation />
+      </HideOnHome>
       {children}
       <CookieConsent />
-      <Footer />
+      <HideOnHome>
+        <Footer />
+      </HideOnHome>
     </NextIntlClientProvider>
   );
 }
