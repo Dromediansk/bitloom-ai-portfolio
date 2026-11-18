@@ -6,7 +6,9 @@
     "about": "About",
     "testimonials": "Testimonials",
     "contact": "Contact",
-    "blog": "Blog"
+    "blog": "Blog",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
   },
   "home": {
     "chapters": {

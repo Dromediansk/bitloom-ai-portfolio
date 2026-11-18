@@ -151,6 +151,23 @@
 .loom-pages a { font-size: 0.92rem; text-decoration: none; color: var(--ink-soft); }
 .loom-pages a:hover { color: var(--ink); text-decoration: underline; }
 .loom-pages a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+.loom-bar .loom-pages { background: transparent; } /* paper ground only matters once it floats (phones) */
+
+/* menu button: phones only */
+.loom-menu-toggle {
+  display: none; align-items: center; gap: 10px; cursor: pointer;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+  padding: 9px 12px; border: 1px solid var(--hair); border-radius: 7px; background: color-mix(in srgb, var(--canvas) 80%, white);
+}
+.loom-menu-toggle__icon { position: relative; width: 16px; height: 10px; }
+.loom-menu-toggle__icon::before, .loom-menu-toggle__icon::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 1.5px; background: currentColor; border-radius: 1px;
+  transition: transform 200ms var(--ease-out), top 200ms var(--ease-out);
+}
+.loom-menu-toggle__icon::before { top: 1px; }
+.loom-menu-toggle__icon::after { top: 7.5px; }
+.loom-menu-toggle[aria-expanded="true"] .loom-menu-toggle__icon::before { top: 4.25px; transform: rotate(45deg); }
+.loom-menu-toggle[aria-expanded="true"] .loom-menu-toggle__icon::after { top: 4.25px; transform: rotate(-45deg); }
 .loom-site-header { position: relative; z-index: 3; padding: clamp(20px, 4vh, 36px) var(--gutter) 0; }
 
 .loom-locale { display: inline-flex; border: 1px solid var(--hair); border-radius: 7px; padding: 2px; background: color-mix(in srgb, var(--canvas) 80%, white); }
@@ -323,6 +340,8 @@
 .loom-cookie__cats li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 14px; border: 1px solid var(--hair); border-radius: 6px; }
 .loom-cookie__cats input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 2px; }
 
+@keyframes loom-menu-in { from { opacity: 0; transform: translateY(-6px); } }
+
 /* -------------------------------------------------------------- phones -- */
 @media (max-width: 860px) {
   .loom { --selv-gap: 0px; }
@@ -331,8 +350,24 @@
   .loom-site-header { padding-top: 26px; }
   .loom-masthead { padding: 48px 0 56px; }
   .loom-masthead--compact { padding: 36px 0 28px; }
-  .loom-pages ul { gap: 6px 14px; }
-  .loom-pages a { font-size: 0.88rem; }
+  /* the bar folds to wordmark + menu button; links drop down as a panel */
+  .loom-bar { position: relative; flex-wrap: nowrap; }
+  .loom-menu-toggle { display: inline-flex; }
+  .loom-bar .loom-pages {
+    display: none; position: absolute; z-index: 5; top: calc(100% + 12px); left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 18px; padding: 8px 20px 20px;
+    background: var(--canvas); border: 1px solid var(--hair); border-radius: 10px; box-shadow: var(--shadow-raised);
+  }
+  .loom-bar .loom-pages[data-open] { display: flex; animation: loom-menu-in 180ms var(--ease-out); }
+  .loom-pages ul { flex-direction: column; flex-wrap: nowrap; gap: 0; }
+  .loom-pages li + li { border-top: 1px solid var(--hair); }
+  .loom-pages a {
+    display: block; padding: 14px 0; font-family: var(--display); font-variation-settings: "wdth" 104;
+    font-weight: 600; font-size: 1.15rem; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .loom-pages a:hover { text-decoration: none; color: var(--accent); }
+  .loom-pages a[aria-current="page"] { text-underline-offset: 6px; }
+  .loom-pages .loom-locale { align-self: flex-start; }
   .loom-split { grid-template-columns: 1fr; }
   .loom-split > :first-child { position: static; }
   .loom-portrait { max-width: 420px; }
@@ -348,6 +383,8 @@
   .loom-cookie { left: 12px; right: 12px; bottom: 12px; width: auto; padding: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .loom-bar .loom-pages[data-open] { animation: none; }
+  .loom-menu-toggle__icon::before, .loom-menu-toggle__icon::after { transition: none; }
   .loom [data-reveal] { clip-path: none !important; }
   .loom-modal__scrim, .loom-modal__panel { animation: none; }
 }
