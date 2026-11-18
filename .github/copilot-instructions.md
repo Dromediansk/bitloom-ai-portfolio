@@ -1,49 +1,69 @@
+<!-- Mirror of CLAUDE.md. Edit CLAUDE.md first, then copy it here. -->
+
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and AI development with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for AI coding assistants (Claude Code, GitHub Copilot) to assist in developing a **modern company website for Bitloom**, a single-person product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and AI development with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 
-- **Next.js** (App Router)
+- **Next.js 16** (App Router, Turbopack dev)
+- **React 19**
 - **TypeScript**
-- **Tailwind CSS**
-- **@next/font** or custom fonts for typography
-- **next-intl** (for internationalization - English and Slovak)
+- **Tailwind CSS v4**: only its base reset (preflight) is used; there are no utility classes and no `@theme` tokens. Styling is plain CSS on the loom design system (see Style Guide)
+- **next-intl** (i18n — English and Slovak)
+- **mailtrap** (contact form email delivery)
+
+## Dev Commands
+
+- `npm run dev` — start dev server (Turbopack)
+- `npm run build` — production build
+- `npm run lint` — ESLint + design-token check (`npm run lint:tokens` runs the token check alone)
 
 ## Project Structure Guidelines
 
-/app # App Router entry point
-/components # Reusable UI components
-/sections # Page sections (Intro, Projects, References, Contact)
-/lib # Utilities (SEO config, email utils, etc.)
-/public # Static assets (images, icons, etc.)
-/messages # i18n translation files (en.json, sk.json)
-/i18n # Internationalization configuration (routing, middleware)
+src/app # App Router (locale-scoped pages under src/app/[locale])
+src/components # Reusable UI components (loom/ = shared shell: header, selvedge, label, footer; contact/, projects/, testimonial/)
+src/sections # Page sections (loom/ = home page; Services, Projects, About, Testimonials, Contact)
+src/lib # Utilities (analytics, config, consent, utils; loom/ = scroll runtime + weave helpers)
+src/styles # Design system CSS (tokens.css = single source of truth; loom-shell.css shared components, loom-pages.css inner pages)
+src/i18n # next-intl routing + request config
+src/proxy.ts # next-intl middleware (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
+src/app/api # Route handlers (contact form)
+public # Static assets
+messages # i18n translation files (en.json, sk.json)
 
 ## Internationalization (i18n)
 
-- **Supported Languages**: English (default) and Slovak
-- **URL Structure**: `/en/page` and `/sk/page` with automatic locale detection
+- **Supported Languages**: Slovak (default) and English
+- **URL Structure**: `/page` for Slovak (default) and `/en/page` for English — `localePrefix: "as-needed"` hides the prefix for the default locale
 - **Translation Files**:
   - `messages/en.json` - English translations
   - `messages/sk.json` - Slovak translations
 - **Components**: All user-facing text uses `useTranslations()` hook from next-intl
 - **Language Switcher**: Available in navigation for seamless language switching
-- **Middleware**: Automatic locale detection and routing via `src/middleware.ts`
+- **Middleware**: Automatic locale detection and routing via `src/proxy.ts` (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
 
 ## Pages / Routes
 
-- `/` or `/en` → Company Intro (hero section with company mission and values)
-- `/sk` → Slovak version of homepage
-- `/en/services` or `/sk/services` → Service offerings (web development, AI development, mobile apps)
-- `/en/projects` or `/sk/projects` → Featured client work and case studies
-- `/en/about` or `/sk/about` → Company story, team, and founder Miroslav's background
-- `/en/contact` or `/sk/contact` → Contact form and business inquiry details
-- `/en/references` or `/sk/references` → Client testimonials and success stories
+- `/` (Slovak) or `/en` → Company Intro (hero section with company mission and values)
+- `/services` or `/en/services` → Service offerings (web development, AI development, mobile apps)
+- `/projects` or `/en/projects` → Featured client work and case studies
+- `/about` or `/en/about` → Company story, team, and founder Miroslav's background
+- `/contact` or `/en/contact` → Contact form and business inquiry details
+- `/testimonials` or `/en/testimonials` → Client testimonials and success stories
+- `/imprint` or `/en/imprint` → Imprint / legal information
+- `/privacy` or `/en/privacy` → Privacy policy (GDPR)
+- Unknown paths fall through `src/app/[locale]/[...rest]` to the localized `not-found` page
 - `blog.bitloom.sk` → External blog link (opens in new tab)
 
 ## Style Guide
 
+- **Design system "the loom"**: paper (`#edf0f3`) and navy (`#0a1122`) sections with hard cuts, one cobalt accent, Archivo (display, width axis) + Geist + Geist Mono. No dark-mode toggle: the pages alternate light and dark grounds themselves. A fixed woven strip (selvedge) is woven by the visitor's scroll on every page; sections with `data-chapter` become its bands and nav links.
+- **Design tokens live only in `src/styles/tokens.css`**, in three layers: palette (`--color-*`, raw values), semantic (`--ink`, `--accent`, `--panel`, `--shadow-*`, type/space/motion) and grounds (`.loom-g-paper` / `.loom-g-navy` re-point the semantic colors). Canvas colors are `--thread-*`, `--cloth-*`, `--title-*` and `--turn-*`.
+  - Components use semantic tokens only. Never write a hex/rgb value anywhere else; `npm run lint` fails on it (`scripts/check-tokens.mjs`).
+  - A light surface inside a dark section (label, form, modal) gets `loom-g-paper`; a dark floating one gets `loom-g-navy`. Don't re-declare token values on a component.
+  - Canvas runtimes read colors with `readTokens()` / `threadColor()` from `src/lib/loom/tokens.ts`. `data-weft` / `data-warp` and `chapter()` take thread names (`"cobalt"`, `"navy"`…), not hex. Add a new thread to both `tokens.css` and `THREADS`.
+  - The contact email (`src/app/api/contact/route.ts`) is the one exception: email clients can't read CSS variables, so it mirrors token values, and the lint check verifies they match.
 - **Design**: Clean, minimalist, professional with enterprise appeal
 - **Color Palette**: Modern sophisticated tones; excellent contrast for business credibility
 - **Typography**: Clear headings, professional font choices, responsive and accessible
@@ -60,7 +80,7 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 ### Founder & Leadership
 
 - **Founder**: Miroslav - Self-taught professional developer with 6 years of experience
-- **Industry Focus**: Specialized experience in healthcare and financial sector projects where precision, security, and reliability are essential
+- **Industry Focus**: Fintech and banking (regulated, high-stakes work) and enterprise software, alongside websites and apps for small businesses and entrepreneurs
 - **Market Advantage**: Experience in high-stakes industries has shaped his approach to building dependable software solutions
 - **Professional Journey**: Demonstrates commitment to continuous learning and mastery of modern technologies
 
@@ -86,10 +106,11 @@ Bitloom's core technical expertise includes:
 
 ## SEO Guidelines
 
-- Title and meta description per page (use **next-seo**)
+- Title and meta description per page via Next.js Metadata API (`export const metadata` / `generateMetadata`)
 - Open Graph / Twitter Card meta tags for link previews
 - Headings (`<h1>` → `<h6>`) structured hierarchically
 - Use `next/image` for optimized images
+- `src/app/sitemap.ts` and `src/app/robots.ts` generate sitemap.xml and robots.txt
 
 ## Features to Implement
 
@@ -124,7 +145,7 @@ Bitloom's core technical expertise includes:
 - Team philosophy and approach
 - Why choose Bitloom
 
-### References Section
+### Testimonials Section
 
 - Client testimonials and success stories
 - Company/contact name and role
@@ -133,10 +154,11 @@ Bitloom's core technical expertise includes:
 
 ### Contact Section
 
-- Business inquiry form (Company, Contact, Project Details, Budget Range)
-- Form validation and professional handling
+- Business inquiry form (name, email, company, message) with a hidden honeypot field against spam; there is no budget field
+- Form validation and professional handling; `src/app/api/contact/route.ts` sends it via Mailtrap
+- GDPR consent notice linking to the privacy policy
 - Alternative contact methods
-- Business hours and response expectations
+- Response expectations (reply usually within 24 hours)
 
 ### Footer
 
@@ -156,8 +178,8 @@ Bitloom's core technical expertise includes:
 
 ### Component Implementation
 
-- Use `"use client"` directive for components using `useTranslations()`
-- Import: `import { useTranslations } from "next-intl"`
+- Server components (pages, layouts) can call `useTranslations()` directly, or `await getTranslations()` when async; add `"use client"` only when the component needs client-side interactivity
+- Import: `import { useTranslations } from "next-intl"` (or `getTranslations` from `next-intl/server`)
 - Usage: `const t = useTranslations("sectionName"); t("keyName")`
 - Nest translation keys logically by component/section
 
@@ -168,21 +190,10 @@ Bitloom's core technical expertise includes:
 - Use professional, business-appropriate tone for both languages
 - Slovak translations should sound natural, not machine-translated
 
-## Optional Enhancements
+## Custom Agents
 
-- **Dark Mode** with Tailwind theming
-- **Framer Motion** for transitions
-- **Sitemap.xml** and **robots.txt** for SEO completeness
-- **RSS feed** if a blog is added later
-
-## Example Copilot Prompts
-
-// Create a responsive company hero section with value proposition and CTA using Tailwind CSS
-
-// Generate enterprise-focused SEO config for a Next.js business website
-
-// Build a professional contact form for business inquiries with validation
+- **Marketing Specialist** (`.claude/agents/marketing-specialist.md`) — When implementing changes to website copy, CTAs, page structure, SEO, or anything that affects marketing and sales effectiveness, consult this agent first for best-practice recommendations before writing code.
 
 ---
 
-**Goal**: Assist in building a **modern, accessible, SEO-optimized company website** for Bitloom using Next.js, TypeScript, and Tailwind.
+**Goal**: Assist in building a **modern, accessible, SEO-optimized company website** for Bitloom using Next.js, TypeScript, and the loom design system.

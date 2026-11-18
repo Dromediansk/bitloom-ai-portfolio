@@ -5,7 +5,7 @@ description: Add a new project to the Bitloom portfolio from a GitHub repository
 
 # Add Project to Portfolio
 
-You are adding a new project to the Bitloom portfolio website. The user provides a GitHub repository URL. Your job is to analyze the repo, generate a preview image, and add a complete project entry with translations.
+You are adding a new project to the Bitloom portfolio website. The user provides a GitHub repository URL. Your job is to analyze the repo, add a project entry keyed by a stable `ProjectKey`, write both translations, and give it a preview (a screenshot, or a woven swatch when there is none).
 
 ## Input
 
@@ -13,133 +13,117 @@ The user provides: `$ARGUMENTS` — a GitHub repository URL (e.g., `https://gith
 
 ## Step 1: Analyze the Repository
 
-Use the GitHub CLI to gather information:
-
 ```bash
 gh repo view <repo-url> --json name,description,url,homepageUrl,repositoryTopics,languages
-```
-
-Also fetch the README:
-
-```bash
 gh repo view <repo-url> --json readme --jq '.readme'
 ```
 
-From this, extract:
-- **Project name** — a clear, human-friendly title
-- **Description** — 2-3 sentences summarizing what the project does, its key features, and what makes it interesting. Write it to showcase the project to potential clients visiting the portfolio.
-- **Technologies** — 4-6 main technologies/frameworks. Use proper casing (e.g., "TypeScript" not "typescript", "Next.js" not "nextjs"). Check `package.json`, `requirements.txt`, or similar files if the languages field isn't detailed enough.
-- **Category** — auto-detect one of: `aiMl`, `mobileApp`, `webApp`, `creative`
-- **Live URL** — use `homepageUrl` from the repo if available
+Extract:
+
+- **Key** — a camelCase identifier, e.g. `researchAgent`, `holaEspanol`. It names the project everywhere (data, translations, image file).
+- **Title** — a clear, human-friendly name
+- **Description** — 2-3 sentences for potential clients: what it does, who it is for, what Bitloom did, where it stands (live, pre-launch…). Match the tone of the existing `projects.items` entries.
+- **Technologies** — 4-6 main technologies with proper casing ("TypeScript", "Next.js"). Check `package.json`, `requirements.txt` etc. if `languages` isn't enough.
+- **Category** — one of `aiMl`, `mobileApp`, `webApp` (see heuristics below). These are the only values `ProjectData.categoryKey` accepts.
+- **Live URL** — `homepageUrl` if set
 
 ## Step 2: Read Current State
 
-Read these files to understand the current project count and structure:
-- `src/components/projects/data.ts` — current project entries
-- `messages/en.json` — English translations (`projects.items` array)
-- `messages/sk.json` — Slovak translations (`projects.items` array)
+- `src/components/projects/types.ts` — the `ProjectKey` union
+- `src/components/projects/data.ts` — `projectsData` (order = order on the projects page, the first is the lead) and `HOME_PROJECTS`
+- `messages/en.json` / `messages/sk.json` — `projects.items.<key>` and, for home-page projects, `home.work.items.<key>`
 
-Note the current number of projects (N). The new project will be at index 0 (first position), and its id will be N + 1.
+Ask the user where the project should go in the list (default: last) and whether it should also appear on the home page's "work" rail.
 
-Since translations and images are mapped by array index (not by id), inserting at the front means all existing items shift down by one. You'll handle this in the following steps.
+## Step 3: Preview Image
 
-## Step 3: Generate Project Preview Image
+The projects page shows `image` when set; otherwise it renders the project's woven `swatch`, which is on-brand on its own.
 
-The portfolio displays project screenshots as card images. Generate an appropriate preview image and save it to `public/images/projects/project_<N+1>.png`.
+- **Live URL**: take a screenshot, save it as `public/images/projects/project_<key-in-snake_case>.jpg` (e.g. `project_research_agent.jpg`), and keep it small (other images are compressed JPEGs, a few hundred KB at most):
 
-**First, shift existing images** so the new project can take position 1. Rename them in reverse order to avoid overwriting:
+  ```bash
+  npx playwright screenshot --viewport-size="1280,720" --wait-for-timeout=3000 "<demo-url>" /tmp/shot.png
+  sips -s format jpeg -s formatOptions 75 /tmp/shot.png --out public/images/projects/project_<key>.jpg
+  ```
 
-```bash
-# Shift existing images: project_N.png → project_N+1.png, ..., project_1.png → project_2.png
-for i in $(seq N -1 1); do
-  mv "public/images/projects/project_${i}.png" "public/images/projects/project_$((i+1)).png"
-done
-```
+- **No live URL**: leave `image` out and rely on the swatch. Ask the user if they have a screenshot or mockup to use instead. (`scripts/generate-project-banner.mjs` exists but predates the loom design and its gradients don't match the site; don't use it unless the user asks.)
 
-**Then generate the new project's image** as `public/images/projects/project_1.png`.
+Existing images are never renamed.
 
-**If the project has a live demo URL**, take a screenshot using Playwright:
+## Step 4: Update types.ts and data.ts
 
-```bash
-npx playwright screenshot --viewport-size="1280,720" --wait-for-timeout=3000 "<demo-url>" public/images/projects/project_1.png
-```
+Add the key to the `ProjectKey` union in `src/components/projects/types.ts`.
 
-**If there is no live URL**, generate a styled banner image using the banner generator script. The script creates a professional banner with a creative tagline and a category-themed icon — styled with colors that match the category (purple for AI/ML, blue for Web App, etc.).
-
-First, craft a short, punchy tagline (5-8 words) that captures the essence of what the project does. The tagline should NOT repeat the project title — it should describe the project's purpose or value in a creative way. Think of it as a motto or elevator pitch.
-
-Examples:
-- For a research agent: "Orchestrating AI Agents to Unlock Research Insights"
-- For a note-taking app: "Capture Your Thoughts, Powered by AI"
-- For a 3D portfolio: "Where Code Meets Creative Expression"
-
-```bash
-node scripts/generate-project-banner.mjs \
-  --tagline "<creative tagline about what the project does>" \
-  --category "<display category name, e.g. 'AI / ML', 'Web App', 'Mobile App', '3D / Creative'>" \
-  --output "public/images/projects/project_1.png"
-```
-
-The `--category` value must match one of: `AI / ML`, `Mobile App`, `Web App`, `3D / Creative` (these are the display names, not the categoryKey values).
-
-## Step 4: Update data.ts
-
-Add a new entry as the **first item** in the `projectsData` array in `src/components/projects/data.ts`:
+Add an entry to `projectsData` in `src/components/projects/data.ts` at the chosen position:
 
 ```typescript
 {
-  id: <N + 1>,
-  categoryKey: "<detected-category>",
-  technologies: ["Tech1", "Tech2", ...],
-  githubRepo: "<repo-name>",
-  // only include demoUrl if a live URL was found
-  demoUrl: "https://...",
+  key: "<key>",
+  categoryKey: "<aiMl | mobileApp | webApp>",
+  technologies: ["Tech1", "Tech2"],
+  swatch: { weave: "<plain | twill | basket | herring | satin>", weft: "<thread>", warp: "<thread>" },
+  image: "/images/projects/project_<key>.jpg", // only if an image was added
+  githubRepo: "<repo-name>", // only if the repo is public and should be linked
+  demoUrl: "https://...", // only if live
 },
-// ... existing entries follow
 ```
 
-The `githubRepo` field is just the repo name (not the full URL) — it gets prefixed with `https://github.com/Dromediansk/` by the `getProjects` function. The `codeUrl` is generated automatically from this.
+- **Swatch**: pick a weave not used by its neighbours and two thread names from `THREADS` in `src/lib/loom/tokens.ts` (`cobalt`, `sky`, `pale`, `bone`, `mist`, `ivory`, `frost`, `navy`, `indigo`). Thread names only, never hex values.
+- `githubRepo` is just the repo name; `getProjects` prefixes `https://github.com/Dromediansk/`.
+- If the project should be on the home page, add its key to `HOME_PROJECTS`.
 
-## Step 5: Update Translation Files
+## Step 5: Update Translations
 
-Add a new item as the **first entry** in the `projects.items` array in both translation files. This keeps translations aligned with the `projectsData` array order (index 0 = first project).
+Add the project to both `messages/en.json` and `messages/sk.json` under `projects.items`, keyed by the project key (the order inside the object doesn't matter):
 
-**messages/en.json**:
 ```json
-{
-  "title": "<English project title>",
-  "description": "<English project description>"
+"<key>": {
+  "title": "<title>",
+  "description": "<description>"
 }
 ```
 
-**messages/sk.json**:
+If it is in `HOME_PROJECTS`, also add `home.work.items.<key>` in both files, following the existing entries:
+
 ```json
-{
-  "title": "<Slovak project title>",
-  "description": "<Slovak project description>"
+"<key>": {
+  "name": "<title>",
+  "for": "<who it is for>",
+  "did": "<what Bitloom did>",
+  "fibre": "<technologies, comma-separated>",
+  "state": "<where it stands; wrap a live link as <link>domain</link>>"
 }
 ```
 
-The Slovak translation should sound natural — written as a native speaker would, not machine-translated. Use professional, business-appropriate tone in both languages.
+Slovak must read as natural, native Slovak (not Czech-influenced, not machine-translated); mirror the style of the existing `sk.json` entries.
 
 ## Step 6: Verify
 
-Check if the category key you used already exists in `projects.categories` in both translation files. If it's a new category, add it to both `en.json` and `sk.json`.
+```bash
+npm run lint
+npm run build
+```
+
+The type check fails on a key that isn't in `ProjectKey`. A missing translation does **not** fail the build: next-intl logs a `MISSING_MESSAGE` error during prerendering and renders the key path instead. Scan the build output for `MISSING_MESSAGE`, and confirm the new key exists in both files:
+
+```bash
+node -e 'for (const l of ["en","sk"]) { const m = require(`./messages/${l}.json`); console.log(l, !!m.projects.items["<key>"], !!m.home.work.items["<key>"]) }'
+```
 
 ## Category Detection Heuristics
 
-- `aiMl`: AI/ML libraries — CrewAI, TensorFlow, PyTorch, OpenAI, LangChain, scikit-learn, etc.
+- `aiMl`: AI/ML libraries — LangChain, LangGraph, OpenAI, Anthropic, CrewAI, PyTorch, etc.
 - `mobileApp`: React Native, Expo, Flutter, Swift, Kotlin, mobile-focused projects
-- `webApp`: Next.js, React, Vue, Angular, Django, Rails, Express, and other web frameworks
-- `creative`: Three.js, React Three Fiber, WebGL, canvas-heavy, 3D, or generative art projects
+- `webApp`: Next.js, React, Vue, Django, Express, and other web frameworks
 
-When ambiguous (e.g., a Next.js app using AI), prefer the category that best describes the project's primary purpose rather than a secondary technology it uses.
+When ambiguous (e.g., a Next.js app using AI), choose by the project's primary purpose rather than a secondary technology.
 
 ## Summary
 
 After completing all steps, show the user:
-- Project title (EN and SK)
-- Detected category
-- Technologies list
-- Whether a live URL was included
-- Whether a preview image was generated or needs manual addition
+
+- Key and title (EN and SK)
+- Category, technologies, swatch
+- Position in the list and whether it's on the home page
+- Whether a live URL and an image were included
+- Lint/build result

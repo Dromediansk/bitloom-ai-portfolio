@@ -1,5 +1,7 @@
 # Marketing Specialist Agent — Website Audit for Bitloom
 
+> **Historical (May 2026).** This audit reviewed the site before the loom redesign. The copy, sections and positioning it quotes (e.g. the "Digital Solutions from Bold Ideas" hero, the healthcare focus) are gone. Use it as background only and verify each point against the current site.
+
 ---
 
 ## 1. Hero Section & First Impressions

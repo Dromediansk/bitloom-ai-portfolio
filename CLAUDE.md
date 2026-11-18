@@ -1,6 +1,6 @@
 ## Purpose
 
-This document provides instructions and guidelines for GitHub Copilot to assist in developing a **modern company website for Bitloom**, a single-person product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and AI development with an emphasis on high-quality, scalable solutions that drive business growth.
+This document provides instructions and guidelines for AI coding assistants (Claude Code, GitHub Copilot) to assist in developing a **modern company website for Bitloom**, a single-person product-oriented software engineering company founded by Miroslav. Bitloom specializes in web development, mobile development, and AI development with an emphasis on high-quality, scalable solutions that drive business growth.
 
 ## Tech Stack
 
@@ -50,6 +50,8 @@ messages # i18n translation files (en.json, sk.json)
 - `/contact` or `/en/contact` → Contact form and business inquiry details
 - `/testimonials` or `/en/testimonials` → Client testimonials and success stories
 - `/imprint` or `/en/imprint` → Imprint / legal information
+- `/privacy` or `/en/privacy` → Privacy policy (GDPR)
+- Unknown paths fall through `src/app/[locale]/[...rest]` to the localized `not-found` page
 - `blog.bitloom.sk` → External blog link (opens in new tab)
 
 ## Style Guide
@@ -150,10 +152,11 @@ Bitloom's core technical expertise includes:
 
 ### Contact Section
 
-- Business inquiry form (Company, Contact, Project Details, Budget Range)
-- Form validation and professional handling
+- Business inquiry form (name, email, company, message) with a hidden honeypot field against spam; there is no budget field
+- Form validation and professional handling; `src/app/api/contact/route.ts` sends it via Mailtrap
+- GDPR consent notice linking to the privacy policy
 - Alternative contact methods
-- Business hours and response expectations
+- Response expectations (reply usually within 24 hours)
 
 ### Footer
 
@@ -173,8 +176,8 @@ Bitloom's core technical expertise includes:
 
 ### Component Implementation
 
-- Use `"use client"` directive for components using `useTranslations()`
-- Import: `import { useTranslations } from "next-intl"`
+- Server components (pages, layouts) can call `useTranslations()` directly, or `await getTranslations()` when async; add `"use client"` only when the component needs client-side interactivity
+- Import: `import { useTranslations } from "next-intl"` (or `getTranslations` from `next-intl/server`)
 - Usage: `const t = useTranslations("sectionName"); t("keyName")`
 - Nest translation keys logically by component/section
 

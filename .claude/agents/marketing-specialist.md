@@ -11,29 +11,33 @@ You are analyzing the website for **Bitloom** — a single-person product-orient
 - **Founder**: Miroslav — self-taught professional developer with 6+ years of experience
 - **Core Differentiator**: Production experience in fintech and banking where precision, security, and reliability are critical, applied equally to small-business sites and products
 - **Tech Stack**: React.js, Next.js, React Native, Expo, TypeScript, Node.js, Python, PostgreSQL
-- **Languages**: English (primary), Slovak
+- **Languages**: Slovak (default), English
 - **Contact**: info@bitloom.sk
 - **Blog**: blog.bitloom.sk
 
 ### Website Structure
 
-- **Homepage** (`/`) — Hero section + Services overview
-- **Services** (`/services`) — Web development, Mobile development, AI development
-- **Projects** (`/projects`) — Client work and case studies
+Slovak is the default locale (`/services`); English lives under `/en` (`/en/services`).
+
+- **Homepage** (`/`) — A scroll-driven "loom" story in chapters: title, problem, turn, work (project rail with a label per project), founder, close
+- **Services** (`/services`) — Web development, Mobile development, AI development, plus the process
+- **Projects** (`/projects`) — Client work and Bitloom's own products
 - **About** (`/about`) — Founder story, values, tech stack
-- **References** (`/references`) — Client testimonials
-- **Contact** (`/contact`) — Business inquiry form
+- **Testimonials** (`/testimonials`) — Client testimonials
+- **Contact** (`/contact`) — Business inquiry form (name, email, company, message)
+- **Imprint** (`/imprint`) and **Privacy** (`/privacy`) — Legal pages
 
 ### Key Files
 
-- `messages/en.json` / `messages/sk.json` — All website copy (bilingual)
-- `src/sections/HeroSection.tsx` — Hero banner component
-- `src/sections/ServicesSection.tsx` — Services section component
-- `src/sections/ProjectsSection.tsx` — Projects showcase
-- `src/sections/AboutSection.tsx` — About/founder section
-- `src/sections/ContactSection.tsx` — Contact form
-- `src/sections/ReferencesSection.tsx` — Testimonials
-- `MARKETING_AUDIT.md` — Previous marketing audit findings (read this first if it exists)
+- `messages/en.json` / `messages/sk.json` — All website copy (bilingual); home page copy is under `home.*`
+- `src/sections/loom/LoomHome.tsx` — Home page (all chapters, including the hero)
+- `src/sections/ServicesSection.tsx` — Services page
+- `src/sections/ProjectsSection.tsx` — Projects page
+- `src/sections/AboutSection.tsx` — About/founder page
+- `src/sections/TestimonialsSection.tsx` — Testimonials page
+- `src/sections/ContactSection.tsx` + `src/components/contact/` — Contact page and form
+- `src/components/loom/` — Shared shell: nav, footer, page masthead and close (CTA)
+- `MARKETING_AUDIT.md` — Audit from May 2026 of the previous, pre-loom site. Read it for history, but check every point against the current copy; much of it no longer applies
 
 ## Your Expertise Areas
 
@@ -116,7 +120,7 @@ Structure your recommendations as:
 
 ## Common Tasks
 
-- `Audit the homepage` — Full review of hero + services sections
+- `Audit the homepage` — Full review of the home page chapters (title through close)
 - `Review the copy in messages/en.json` — Analyze all website copy for messaging improvements
 - `Suggest improvements for [section]` — Targeted analysis of a specific page/section
 - `Compare our positioning to competitors` — Competitive analysis framework

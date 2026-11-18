@@ -1,184 +1,126 @@
-# Bitloom Portfolio Website
+# Bitloom Website
 
-A modern, professional company website for **Bitloom** - a product-oriented software engineering company specializing in web development, mobile development, and AI development with high-quality, scalable solutions.
+The company website for **Bitloom**, a one-person software engineering company based in Košice, Slovakia, building web, mobile and AI products. Live at [bitloom.sk](https://bitloom.sk).
 
-## 🤖 AI-Powered Development
+## Design: "the loom"
 
-This project showcases the power of **AI-driven development** and **prompt engineering expertise**. The entire website was primarily created using GitHub Copilot and advanced AI assistance, demonstrating how modern AI tools can accelerate high-quality software development while maintaining professional standards.
+The site is built on its own design system, "the loom":
 
-### AI Development Approach
+- Paper (light) and navy (dark) sections with hard cuts and a single cobalt accent. There is no theme toggle; pages alternate light and dark grounds themselves.
+- Archivo (display, width axis), Geist (text) and Geist Mono (labels), loaded via `next/font`.
+- A fixed woven strip, the **selvedge**, is woven by the visitor's scroll on every page. Sections marked with `data-chapter` become its bands and nav links.
+- The home page is a scroll-driven story in chapters (title, problem, turn, work, founder, close), with the weaving drawn on canvas.
+- Projects are represented by woven swatches (weave + two threads) when there is no screenshot.
 
-- **Prompt Engineering**: Sophisticated prompts designed for optimal AI code generation
-- **AI-First Architecture**: Project structure and components designed with AI assistance
-- **Intelligent Code Generation**: Leveraging GitHub Copilot for efficient, consistent code creation
-- **AI-Guided Best Practices**: Following modern development standards through AI recommendations
+All design tokens live in `src/styles/tokens.css`. Components use semantic tokens only; `npm run lint` fails on any hex/rgb value written elsewhere (`scripts/check-tokens.mjs`).
 
-## 🚀 Features
+## Tech Stack
 
-### Company Sections
+- [Next.js 16](https://nextjs.org/) (App Router, Turbopack in dev) and [React 19](https://react.dev/)
+- TypeScript
+- Plain CSS on the loom design system; Tailwind CSS v4 is used only for its base reset (preflight)
+- [next-intl](https://next-intl.dev/): Slovak (default) and English
+- [Mailtrap](https://mailtrap.io/): contact form delivery
+- Google Analytics 4, loaded only after cookie consent
 
-- **Hero Section** - Compelling value proposition and mission statement
-- **Services** - Core offerings including web development, mobile apps, and AI development
-- **Projects** - Featured client work and case studies
-- **About** - Company story and founder Miroslav's background
-- **Testimonials** - Client testimonials and success stories
-- **Contact** - Professional inquiry form with Mailtrap email integration
+## Pages
 
-### Technical Features
+Slovak is served without a prefix, English under `/en`.
 
-- **Dark Mode Support** - Seamless theme switching with light, dark, and system modes
-- **Responsive Design** - Mobile-first, accessible across all devices
-- **SEO Optimized** - Meta tags, sitemap, and structured data
-- **Performance First** - Optimized images, lazy loading, and fast loading times
-- **Accessibility** - WCAG compliant with semantic HTML and ARIA labels
-- **Type Safety** - Full TypeScript implementation
-- **Modern Architecture** - Clean, maintainable code structure
+| Route           | Content                                      |
+| --------------- | -------------------------------------------- |
+| `/`             | Home: the loom story                         |
+| `/services`     | Web, mobile and AI development; process      |
+| `/projects`     | Client work and Bitloom's own products       |
+| `/about`        | Founder, values, tech stack                  |
+| `/testimonials` | Client testimonials                          |
+| `/contact`      | Inquiry form (name, email, company, message) |
+| `/imprint`      | Legal / company details                      |
+| `/privacy`      | Privacy policy (GDPR)                        |
 
-## 🛠️ Tech Stack
+The blog lives at [blog.bitloom.sk](https://blog.bitloom.sk) (external link in the nav and footer).
 
-- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
-- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[next-themes](https://github.com/pacocoursey/next-themes)** - Perfect dark mode support
-- **[Mailtrap](https://mailtrap.io/)** - Professional email delivery service
-- **[React 19](https://react.dev/)** - Latest React features
-- **Modern Tooling** - ESLint, PostCSS, Turbopack
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # Root layout component
-│   ├── page.tsx           # Homepage
-│   ├── about/             # About page
-│   ├── contact/           # Contact page
-│   ├── projects/          # Projects showcase
-│   ├── testimonials/      # Client testimonials
-│   └── services/          # Service offerings
-├── components/            # Reusable UI components
-│   ├── Navigation.tsx     # Main navigation with theme toggle
-│   ├── ThemeToggle.tsx    # Dark mode theme switcher
-│   ├── Button.tsx         # Button components
-│   └── projects/          # Project-specific components
-├── sections/              # Page sections
-│   ├── HeroSection.tsx    # Homepage hero
-│   ├── ServicesSection.tsx # Services overview
-│   └── ContactSection.tsx # Contact form
-└── lib/                   # Utilities and configurations
-    ├── config.ts          # App configuration
-    ├── utils.ts           # Utility functions
-    └── hooks.ts           # Custom React hooks
-├── providers/             # React context providers
-│   └── ThemeProvider.tsx  # Dark mode theme provider
+├── app/
+│   ├── layout.tsx            # Root layout, fonts
+│   ├── [locale]/             # Locale-scoped pages (see table above), not-found, [...rest] catch-all
+│   ├── api/contact/route.ts  # Contact form → Mailtrap
+│   ├── sitemap.ts, robots.ts
+│   └── globals.css
+├── components/
+│   ├── loom/                 # Shared shell: SiteNav, SiteFooter, LoomShell (selvedge), PageMasthead, PageClose, WovenLabel, LocaleSwitch
+│   ├── contact/              # ContactForm, ContactInfo
+│   ├── projects/             # Project data (data.ts) and types
+│   ├── testimonial/          # Testimonial modal, author header, badge
+│   └── CookieConsent, AnalyticsLoader, Modal, Button, FeaturedTestimonial
+├── sections/
+│   ├── loom/                 # Home page (LoomHome.tsx, homeRuntime.ts, loom.css)
+│   └── Services, Projects, About, Testimonials, Contact sections
+├── lib/
+│   ├── loom/                 # Scroll runtime, weave helpers, chapters, token readers
+│   └── analytics.ts, config.ts, consent.ts, utils.ts
+├── styles/                   # tokens.css (single source of truth), loom-shell.css, loom-pages.css
+├── i18n/                     # next-intl routing + request config
+└── proxy.ts                  # next-intl middleware (Next.js 16's name for middleware.ts)
+messages/                     # en.json, sk.json
+scripts/                      # check-tokens.mjs (lint), generate-project-banner.mjs
+public/                       # Icons, logo, project and about images
 ```
 
-## 🚦 Getting Started
+## Getting Started
 
-### Prerequisites
+Requires Node.js 20.9+ (Next.js 16).
 
-- Node.js 18+
-- npm or yarn
+```bash
+npm install
+```
 
-### Installation
+Create `.env.local`:
 
-1. **Clone the repository**
+```bash
+MAILTRAP_API_TOKEN=your_mailtrap_api_token        # required for the contact form
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX        # optional, enables Google Analytics after consent
+# Optional overrides (defaults: portfolio@bitloom.sk → info@bitloom.sk)
+# CONTACT_SENDER_EMAIL=
+# CONTACT_RECIPIENT_EMAIL=
+```
 
-   ```bash
-   git clone <repository-url>
-   cd bitloom_portfolio_2
-   ```
+The Mailtrap token needs **Send Email** permission (Mailtrap dashboard → API Tokens).
 
-2. **Install dependencies**
+```bash
+npm run dev
+```
 
-   ```bash
-   npm install
-   ```
+Open [http://localhost:3000](http://localhost:3000) (Slovak) or [http://localhost:3000/en](http://localhost:3000/en) (English).
 
-3. **Set up environment variables**
+### Scripts
 
-   ```bash
-   cp .env.example .env.local
-   ```
+- `npm run dev` — dev server (Turbopack)
+- `npm run build` — production build
+- `npm run start` — serve the production build
+- `npm run lint` — ESLint + design-token check
+- `npm run lint:tokens` — design-token check only
 
-   Edit `.env.local` and add your Mailtrap API token:
+## Contributing Notes
 
-   ```bash
-   MAILTRAP_API_TOKEN=your_mailtrap_api_token_here
-   ```
+- All user-facing text goes in both `messages/en.json` and `messages/sk.json`. Slovak should read as natural Slovak.
+- Use semantic tokens from `tokens.css`; never hard-code colors. Canvas code reads colors via `readTokens()` / `threadColor()` from `src/lib/loom/tokens.ts`.
+- To add a portfolio project, use the `/add-project` command in Claude Code (`.claude/commands/add-project.md`).
+- `CLAUDE.md` holds the full guidelines for AI assistants (mirrored in `.github/copilot-instructions.md`).
 
-   To get your Mailtrap API token:
+## Deployment
 
-   - Sign up at [mailtrap.io](https://mailtrap.io)
-   - Go to **API Tokens** in your dashboard
-   - Create a new token with **Send Email** permission
-   - Copy the token to your `.env.local` file
+A standard Next.js app; deploy it to [Vercel](https://vercel.com) or any Node host that runs `next start`. Set the environment variables above in the host.
 
-4. **Run the development server**
+## Contact
 
-   ```bash
-   npm run dev
-   ```
+- Email: info@bitloom.sk
+- Blog: [blog.bitloom.sk](https://blog.bitloom.sk)
+- Website: [bitloom.sk](https://bitloom.sk)
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
+## License
 
-### Available Scripts
-
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build production application
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint for code quality
-
-## 🎨 Design Philosophy
-
-The website follows a **clean, minimalist, and professional** design approach:
-
-- **Modern Sophistication** - Contemporary design with enterprise appeal
-- **Dark Mode Excellence** - Seamless theme switching with system preference support
-- **Excellent Contrast** - High readability and business credibility in both themes
-- **Responsive Typography** - Clear headings and professional font choices
-- **Brand Voice** - Confident, expert, and solution-focused messaging
-
-## 🌟 Company Values
-
-**Bitloom** is built on core values of:
-
-- **Transparent Communication** - Open and honest client relationships
-- **Remote-First Cooperation** - Flexible, global collaboration
-- **Open-Mindedness** - Embracing new technologies and approaches
-- **Growth-Oriented** - Focus on scalable, business-driving solutions
-
-## 🚀 Deployment
-
-The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com):
-
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically with each push
-
-## � Contact
-
-- **Email**: info@bitloom.sk
-- **Blog**: [blog.bitloom.sk](https://blog.bitloom.sk)
-- **Website**: [bitloom.sk](https://bitloom.sk)
-
-## 🤝 Contributing
-
-This project demonstrates AI-assisted development practices. When contributing:
-
-1. Follow the established prompt engineering patterns
-2. Maintain TypeScript strict mode compliance
-3. Use Tailwind CSS for styling consistency
-4. Ensure accessibility standards (WCAG 2.1)
-5. Write semantic HTML with proper heading hierarchy
-
-## 📄 License
-
-This project is proprietary and belongs to Bitloom. All rights reserved.
-
----
-
-**Built with AI Excellence** 🤖 | **Powered by Next.js** ⚡ | **Crafted for Growth** 🚀
-
-_This README itself was generated using AI assistance, showcasing the comprehensive capabilities of AI-driven development workflows._
+Proprietary. © Bitloom. All rights reserved.
