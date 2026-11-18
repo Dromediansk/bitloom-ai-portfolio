@@ -40,7 +40,7 @@ const projectsData: ProjectData[] = [
     categoryKey: "webApp",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "React", "Mailtrap"],
     swatch: { weave: "basket", weft: "cobalt", warp: "frost" },
-    image: "/images/projects/project_hola_espanol.png",
+    image: "/images/projects/project_hola_espanol.jpg",
     demoUrl: "https://holaespanol.sk",
   },
   {
