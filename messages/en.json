@@ -74,8 +74,8 @@
         "holaEspanol": {
           "name": "Hola Español",
           "for": "An online Spanish teacher.",
-          "did": "Design and build of a bilingual site with lesson inquiries.",
-          "fibre": "Next.js, TypeScript, next-intl",
+          "did": "Design and build, then an editorial redesign in which the page turns into Spanish as you scroll.",
+          "fibre": "Next.js, TypeScript, Tailwind CSS, next-intl",
           "state": "Live at <link>holaespanol.sk</link>"
         }
       },
@@ -233,7 +233,7 @@
       },
       "holaEspanol": {
         "title": "Hola Español",
-        "description": "A modern, bilingual website for online Spanish lessons — featuring a clean landing page with service offerings, teacher profile, and an integrated contact form for lesson inquiries. Built with Next.js 16, internationalization support, and dark mode."
+        "description": "A single-page app for online Spanish lessons that teaches while you read: Spanish words and phrases appear right on the page as you scroll. Modern, editorial design, created with the help of Claude skills."
       },
       "researchAgent": {
         "title": "AI Research Agent CLI",

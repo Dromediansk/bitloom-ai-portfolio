@@ -74,8 +74,8 @@
         "holaEspanol": {
           "name": "Hola Español",
           "for": "Online výučba španielčiny.",
-          "did": "Návrh a vývoj dvojjazyčného webu s formulárom na objednanie lekcií.",
-          "fibre": "Next.js, TypeScript, next-intl",
+          "did": "Návrh a vývoj, potom redakčný redizajn, v ktorom sa stránka pri posúvaní mení na španielčinu.",
+          "fibre": "Next.js, TypeScript, Tailwind CSS, next-intl",
           "state": "V prevádzke na <link>holaespanol.sk</link>"
         }
       },
@@ -233,7 +233,7 @@
       },
       "holaEspanol": {
         "title": "Hola Español",
-        "description": "Moderná, dvojjazyčná webová stránka pre online hodiny španielčiny — s prehľadnou úvodnou stránkou, ponukou služieb, profilom lektorky a integrovaným kontaktným formulárom. Postavená na Next.js 16 s podporou internacionalizácie a tmavého režimu."
+        "description": "Jednostránková aplikácia pre online hodiny španielčiny, ktorá učí už pri čítaní: španielske slová a frázy sa pri posúvaní objavujú priamo na stránke. Moderný, redakčne ladený dizajn vznikol kreatívne s pomocou Claude skills."
       },
       "researchAgent": {
         "title": "AI Research Agent CLI",
