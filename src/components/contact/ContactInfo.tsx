@@ -1,209 +1,60 @@
 "use client";
 
-import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
-import SocialLinks from "../SocialLinks";
 import { siteConfig } from "@/lib/config";
-import { trackCTAClick } from "@/lib/analytics";
+import { trackCTAClick, trackSocialClick } from "@/lib/analytics";
 
 const ContactInfo = () => {
-  const { hasIntersected, elementRef } = useIntersectionObserver();
   const t = useTranslations("contact");
 
   return (
-    <div
-      className={`space-y-8 py-8 transition-all duration-1000 ${
-        hasIntersected ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-      ref={elementRef as React.RefObject<HTMLDivElement>}
-    >
-      <div
-        className={`transition-all duration-700 delay-200 ${
-          hasIntersected
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
-        }`}
-      >
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-          {t("info.title")}
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-          {t("info.description")}
-        </p>
-      </div>
+    <div className="ct-info" data-in="">
+      <h2 className="loom-display ct-info__h">{t("info.title")}</h2>
+      <p className="loom-soft ct-info__p">{t("info.description")}</p>
 
-      {/* Contact Methods */}
-      <div
-        className={`space-y-6 transition-all duration-700 delay-400 ${
-          hasIntersected
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
-        }`}
-      >
-        <div
-          className={`flex items-start space-x-4 transition-all duration-500 delay-500 ${
-            hasIntersected
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-4"
-          }`}
-        >
-          <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 8l7.89 4.26c.3.16.67.16.97 0L20 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">
-              {t("methods.email.title")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                onClick={() => trackCTAClick("email_link", "contact_info")}
-                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              >
-                {siteConfig.contact.email}
-              </a>
-            </p>
-          </div>
+      <dl className="loom-ledger loom-ledger--quiet">
+        <div>
+          <dt>{t("methods.email.title")}</dt>
+          <dd>
+            <a href={`mailto:${siteConfig.contact.email}`} onClick={() => trackCTAClick("email_link", "contact_info")}>
+              {siteConfig.contact.email}
+            </a>
+          </dd>
         </div>
-
-        <div
-          className={`flex items-start space-x-4 transition-all duration-500 delay-600 ${
-            hasIntersected
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-4"
-          }`}
-        >
-          <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <div>
+          <dt>{t("methods.phone.title")}</dt>
+          <dd>
+            <a
+              href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+              onClick={() => trackCTAClick("phone_link", "contact_info")}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">
-              {t("methods.phone.title")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
-                onClick={() => trackCTAClick("phone_link", "contact_info")}
-                className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              >
-                {siteConfig.contact.phone}
-              </a>
-            </p>
-          </div>
+              {siteConfig.contact.phone}
+            </a>
+          </dd>
         </div>
-
-        <div
-          className={`flex items-start space-x-4 transition-all duration-500 delay-700 ${
-            hasIntersected
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-4"
-          }`}
-        >
-          <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">
-              {t("methods.location.title")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              {t("methods.location.value")}
-            </p>
-          </div>
+        <div>
+          <dt>{t("methods.location.title")}</dt>
+          <dd>{t("methods.location.value")}</dd>
         </div>
-
-        <div
-          className={`flex items-start space-x-4 transition-all duration-500 delay-800 ${
-            hasIntersected
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-4"
-          }`}
-        >
-          <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">
-              {t("methods.responseTime.title")}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              {t("methods.responseTime.value")}
-            </p>
-          </div>
+        <div>
+          <dt>{t("methods.responseTime.title")}</dt>
+          <dd>{t("methods.responseTime.value")}</dd>
         </div>
-      </div>
-
-      {/* Social Links */}
-      <div
-        className={`transition-all duration-700 delay-800 ${
-          hasIntersected
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
-        }`}
-      >
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-4">
-          {t("social.title")}
-        </h3>
-        <SocialLinks
-          iconSize="lg"
-          showLabels={false}
-          className="justify-start"
-        />
-      </div>
+        <div>
+          <dt>{t("social.title")}</dt>
+          <dd className="ct-info__social">
+            <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" onClick={() => trackSocialClick("linkedin")}>
+              LinkedIn
+            </a>
+            <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" onClick={() => trackSocialClick("github")}>
+              GitHub
+            </a>
+            <a href={siteConfig.social.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => trackSocialClick("whatsapp")}>
+              WhatsApp
+            </a>
+          </dd>
+        </div>
+      </dl>
     </div>
   );
 };

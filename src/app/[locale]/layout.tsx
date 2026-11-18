@@ -3,10 +3,9 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages, getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsentLazy";
 import { siteConfig } from "@/lib/config";
+import LoomShell from "@/components/loom/LoomShell";
 
 export async function generateMetadata({
   params,
@@ -80,10 +79,8 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navigation />
-      {children}
+      <LoomShell>{children}</LoomShell>
       <CookieConsent />
-      <Footer />
     </NextIntlClientProvider>
   );
 }

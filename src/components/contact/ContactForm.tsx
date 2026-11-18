@@ -1,8 +1,6 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
-import { Button } from "@/components";
-import { useIntersectionObserver } from "@/lib/hooks";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
@@ -21,7 +19,6 @@ interface ContactFormData {
 }
 
 const ContactForm = () => {
-  const { hasIntersected, elementRef } = useIntersectionObserver();
   const t = useTranslations("contact.form");
 
   const [formData, setFormData] = useState<ContactFormData>({
@@ -103,154 +100,101 @@ const ContactForm = () => {
   };
 
   return (
-    <div
-      ref={elementRef as React.RefObject<HTMLDivElement>}
-      className={`bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-lg p-8 transition-all duration-1000 ease-out ${
-        hasIntersected ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-      }`}
-    >
-      <h2
-        className={`text-2xl font-semibold text-gray-900 dark:text-white mb-6 transition-all duration-700 delay-200 ${
-          hasIntersected
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-4"
-        }`}
-      >
-        {t("title")}
-      </h2>
-      <form
-        onSubmit={handleSubmit}
-        onFocus={handleFormStart}
-        className={`space-y-6 transition-all duration-800 delay-400 ${
-          hasIntersected
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
-        }`}
-      >
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
+    <div className="ct-form" data-in="">
+      <div className="loom-g-paper loom-sewn ct-form__panel">
+        <h2 className="loom-display ct-form__h">{t("title")}</h2>
+        <form onSubmit={handleSubmit} onFocus={handleFormStart} className="ct-form__grid" noValidate={false}>
+          <div className="loom-field">
+            <label htmlFor="name">
               {t("yourName")} {t("required")}
             </label>
             <input
               type="text"
               id="name"
               name="name"
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              placeholder={t("placeholders.name")}
             />
           </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
+          <div className="loom-field">
+            <label htmlFor="email">
               {t("email")} {t("required")}
             </label>
             <input
               type="email"
               id="email"
               name="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              placeholder={t("placeholders.email")}
             />
           </div>
-        </div>
 
-        <div>
-          <label
-            htmlFor="company"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
-            {t("company")}
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-          >
-            {t("textMessage")} {t("required")}
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
-            placeholder={t("placeholders.message")}
-          />
-        </div>
-
-        {/* Honeypot — bots fill in visible-to-them fields; humans don't see this */}
-        <div aria-hidden="true" className="hidden" style={{ display: "none" }}>
-          <label htmlFor="website">Website</label>
-          <input
-            type="text"
-            id="website"
-            name="website"
-            tabIndex={-1}
-            autoComplete="off"
-            value={formData.website}
-            onChange={handleChange}
-          />
-        </div>
-
-        {/* GDPR Art. 13 — privacy notice at point of collection */}
-        <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-          {t("privacyNotice.text")}{" "}
-          <Link
-            href="/privacy"
-            className="text-primary-600 dark:text-primary-400 underline hover:no-underline"
-          >
-            {t("privacyNotice.linkText")}
-          </Link>
-          .
-        </p>
-
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          disabled={isSubmitting || !isFormValid}
-          variant="primary"
-          size="lg"
-          className="w-full"
-        >
-          {isSubmitting ? t("sending") : t("sendMessage")}
-        </Button>
-
-        {/* Status Messages */}
-        {submitStatus === "success" && (
-          <div className="p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg">
-            {t("success")}
+          <div className="loom-field ct-form__wide">
+            <label htmlFor="company">{t("company")}</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              autoComplete="organization"
+              value={formData.company}
+              onChange={handleChange}
+              placeholder={t("placeholders.company")}
+            />
           </div>
-        )}
 
-        {submitStatus === "error" && (
-          <div className="p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg">
-            {t("error")}
+          <div className="loom-field ct-form__wide">
+            <label htmlFor="message">
+              {t("textMessage")} {t("required")}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={6}
+              value={formData.message}
+              onChange={handleChange}
+              required
+              placeholder={t("placeholders.message")}
+            />
           </div>
-        )}
-      </form>
+
+          {/* Honeypot: bots fill in visible-to-them fields; humans don't see this */}
+          <div aria-hidden="true" hidden>
+            <label htmlFor="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* GDPR Art. 13: privacy notice at point of collection */}
+          <p className="ct-form__wide ct-form__notice">
+            {t("privacyNotice.text")} <Link href="/privacy">{t("privacyNotice.linkText")}</Link>.
+          </p>
+
+          <div className="ct-form__wide">
+            <button type="submit" className="loom-btn" disabled={isSubmitting || !isFormValid}>
+              {isSubmitting ? t("sending") : t("sendMessage")}
+            </button>
+          </div>
+
+          <div className="ct-form__wide" aria-live="polite">
+            {submitStatus === "success" && <p className="loom-status loom-status--ok">{t("success")}</p>}
+            {submitStatus === "error" && <p className="loom-status loom-status--err">{t("error")}</p>}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

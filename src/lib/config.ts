@@ -12,15 +12,5 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/bitloomsk",
     whatsapp: "https://wa.me/421910563644",
   },
+  blogUrl: "https://blog.bitloom.sk",
 };
-
-// Navigation links
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" },
-  { href: "https://blog.bitloom.sk", label: "Blog", external: true },
-];

@@ -7,16 +7,119 @@
     "testimonials": "Referencie",
     "contact": "Kontakt",
     "blog": "Blog",
-    "toggleMenu": "Prepnúť mobilné menu"
+    "menu": "Menu",
+    "closeMenu": "Zavrieť menu"
   },
-  "hero": {
-    "companyName": "Bitloom",
-    "tagline": "Digitálne riešenia z odvážnych nápadov",
-    "description": "Vývoj webu, mobilných appiek a AI riešenia prispôsobené vašim konkrétnym potrebám.",
-    "exploreServices": "Preskúmať služby",
-    "contactUs": "Bezplatná konzultácia",
-    "scrollToExplore": "Posúvajte pre preskúmanie",
-    "scrollToServicesAriaLabel": "Posunúť sa na sekciu služieb"
+  "home": {
+    "chapters": {
+      "title": "Úvod",
+      "problem": "Problém",
+      "turn": "Prístup",
+      "work": "Práca",
+      "founder": "Zakladateľ",
+      "close": "Začať projekt"
+    },
+    "chaptersLabel": "Kapitoly stránky",
+    "pagesLabel": "Stránky",
+    "title": {
+      "line1": "Softvér,",
+      "line2": "ktorý vydrží.",
+      "sub": "Weby, mobilné aplikácie a AI systémy z Košíc pre fintech aj pre drobných podnikateľov.",
+      "cta": "Začať projekt"
+    },
+    "problem": {
+      "heading": "Väčšina AI vám ponúka len dve zlé možnosti.",
+      "assistantLabel": "Asistent",
+      "assistant": "Pri každom kroku čaká, kým mu niečo zadáte. Dlhšiu prácu s mnohými krokmi preto nikdy nedotiahne do konca.",
+      "agentLabel": "Autonómny agent",
+      "agent": "Koná sám a nikto ho nekontroluje. Na ukážku to stačí, no nie na rozhodnutia, za ktoré zodpovedá banka alebo majiteľ firmy.",
+      "close": "Keď ide o skutočné peniaze alebo o vašu vlastnú firmu, nie je prijateľná ani jedna z nich."
+    },
+    "turn": {
+      "line1": "Bitloom ponúka tretiu cestu.",
+      "line2": "Agenti zbierajú podklady, pripravujú návrhy a sami si ich kontrolujú.",
+      "line3": "Pri každom dôležitom rozhodnutí má posledné slovo človek.",
+      "heading": "Človek pri kormidle, nie autopilot.",
+      "body": "Každá zmena, ktorú agent urobí, je verzovaná, dá sa dohľadať aj vrátiť späť. Takto dnes Bitloom vyvíja agentickú AI pre prácu, ktorá musí obstáť."
+    },
+    "work": {
+      "heading": "Výber z práce.",
+      "intro": "Projekty pre klientov aj vlastné produkty Bitloomu. Pri každom nájdete to isté: pre koho je, čo na ňom Bitloom robil, aké technológie používa a v akom je stave.",
+      "labels": {
+        "for": "Pre",
+        "did": "Bitloom",
+        "fibre": "Technológie",
+        "state": "Stav"
+      },
+      "items": {
+        "agenticPlatform": {
+          "name": "Agentická AI platforma",
+          "for": "Dodávateľ softvéru pre fintech. Spracovanie veľkého množstva dokumentov v regulovanom odvetví.",
+          "did": "Seniorný AI vývoj: backend agentov, streamovanie výstupu agenta do UI, generatívne UI, schvaľovanie človekom.",
+          "fibre": "TypeScript, LangGraph, React, PostgreSQL",
+          "state": "V produkcii, priebežne od februára 2026."
+        },
+        "wishlist": {
+          "name": "Wishlist",
+          "for": "Rodiny, priatelia a kolegovia, ktorí si v skupinách zdieľajú priania.",
+          "did": "Návrh produktu a full-stack vývoj. Prvá verzia vznikla s pomocou AI za dve hodiny.",
+          "fibre": "Next.js, TypeScript, Supabase, prihlásenie cez Google",
+          "state": "V prevádzke na <link>wishlist.bitloom.sk</link>, používajú ho prví zákazníci."
+        },
+        "readnest": {
+          "name": "ReadNest",
+          "for": "Čitatelia, ktorí si chcú viesť prehľad o knihách a zapisovať si myšlienky.",
+          "did": "Návrh produktu a full-stack vývoj. Všetky dáta zostávajú v telefóne, nič sa neodosiela.",
+          "fibre": "React Native, Expo, TypeScript",
+          "state": "Pred spustením."
+        },
+        "holaEspanol": {
+          "name": "Hola Español",
+          "for": "Online výučba španielčiny.",
+          "did": "Návrh a vývoj, potom redakčný redizajn, v ktorom sa stránka pri posúvaní mení na španielčinu.",
+          "fibre": "Next.js, TypeScript, Tailwind CSS, next-intl",
+          "state": "V prevádzke na <link>holaespanol.sk</link>"
+        }
+      },
+      "end": "Ešte pred Bitloomom: frontend bankových aplikácií v Senacor Technologies, potom knižnica grafov v Reacte a služby v Node.js v GlobalLogic.",
+      "more": "Všetky projekty"
+    },
+    "founder": {
+      "heading": "Jeden človek, celý projekt.",
+      "p1": "Bitloom je Miroslav Pillár, vývojár samouk, ktorý od roku 2019 píše softvér pre ostrú prevádzku. Najprv ako seniorný frontend vývojár na bankových produktoch v Senacor Technologies, potom na knižnici grafov v Reacte a službách v Node.js v GlobalLogic. Bitloom založil v roku 2024 v Košiciach a dnes vyvíja agentické AI systémy.",
+      "p2": "Má vyštudovanú regionálnu ekonomiku, preto s vami už od prvého hovoru rieši nielen techniku, ale aj rozpočet, termíny a obchodný prínos.",
+      "photoAlt": "Miroslav Pillár, zakladateľ Bitloomu, na kamienkovej pláži pri mori.",
+      "caption": "Ing. Miroslav Pillár, zakladateľ",
+      "processLabel": "Ako prebieha projekt",
+      "steps": [
+        {
+          "name": "Konzultácia",
+          "text": "Najprv sa zhodneme na tom, čo riešime, až potom sa píše kód."
+        },
+        {
+          "name": "Analýza",
+          "text": "Rozsah, riziká a plán, ktorý Bitloom dodrží."
+        },
+        {
+          "name": "Vývoj",
+          "text": "Postup po malých krokoch, ktoré si môžete priebežne pozrieť a vyskúšať."
+        },
+        {
+          "name": "Dodanie",
+          "text": "Nasadenie do produkcie, odovzdanie a podpora aj po spustení."
+        }
+      ],
+      "values": "Transparentná komunikácia. Spolupráca na diaľku. Otvorený prístup. Slovenčina, angličtina a nemčina.",
+      "more": "Viac o Bitloome"
+    },
+    "close": {
+      "maker": "Bitloom s.r.o. · Košice, Slovensko · Od roku 2024",
+      "heading": "Potrebujete softvér, na ktorý sa dá spoľahnúť?",
+      "body": "Napíšte mi, na čom pracujete. Dostanete úprimnú odpoveď, či je Bitloom pre vás tá správna voľba.",
+      "note": "Vzor na tomto štítku vznikol z toho, ako ste si prezerali túto stránku.",
+      "registration": "IČO 56397631 · DIČ 2122301907 · IČ DPH SK2122301907"
+    },
+    "language": "Jazyk"
   },
   "notFound": {
     "code": "404",
@@ -28,7 +131,7 @@
   "services": {
     "title": "Naše služby",
     "subtitle": "Pomáhame firmám rýchlejšie spustiť produkt, osloviť viac používateľov a rásť s istotou",
-    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI. Jeden vývojár, nulová réžia, plná zodpovednosť.",
+    "differentiator": "7+ rokov dodávania produkčného softvéru vo fintechu, bankovníctve a vývoji AI, dnes pre veľké firmy aj pre drobných podnikateľov. Jeden vývojár, nulová réžia, plná zodpovednosť.",
     "modernWebCraft": {
       "title": "Webové riešenia",
       "description": "Rýchle a responzívne weby a webové aplikácie — od databázy až po rozhranie.",
@@ -57,15 +160,15 @@
       ]
     },
     "industries": {
-      "label": "Dôvera v odvetviach, kde záleží na presnosti",
-      "healthcare": "Zdravotníctvo",
+      "label": "Pre koho Bitloom pracuje",
       "fintech": "Fintech a bankovníctvo",
-      "enterprise": "Enterprise softvér"
+      "enterprise": "Enterprise softvér",
+      "smallBusiness": "Drobní podnikatelia"
     },
     "socialProof": {
       "projectsCompleted": "Dokončených projektov",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškaných termínov",
+      "replyTime": "Čas odpovede",
       "seeAll": "Pozrieť všetky referencie"
     },
     "cta": {
@@ -80,7 +183,7 @@
     "subtitle": "Ako prebieha každý projekt — od prvého hovoru až po spustenie",
     "discovery": {
       "step": "01",
-      "title": "Objavenie",
+      "title": "Konzultácia",
       "description": "Spoznáme vaše podnikanie, používateľov a ciele. Získate jasný projektový brief predtým, než napíšeme jediný riadok kódu."
     },
     "analysis": {
@@ -117,28 +220,28 @@
       "description": "Porozprávajte nám o vašom nápade a zistíme, či sa k sebe hodíme.",
       "startProject": "Začať váš projekt"
     },
-    "items": [
-      {
-        "title": "Hola Español",
-        "description": "Moderná, dvojjazyčná webová stránka pre online hodiny španielčiny — s prehľadnou úvodnou stránkou, ponukou služieb, profilom lektorky a integrovaným kontaktným formulárom. Postavená na Next.js 16 s podporou internacionalizácie a tmavého režimu."
+    "items": {
+      "agenticPlatform": {
+        "title": "Agentická AI platforma",
+        "description": "Seniorný AI vývoj pre dodávateľa softvéru vo fintechu, zameraný na spracovanie veľkého množstva dokumentov v regulovanom odvetví. Bitloom stavia backend agentov, streamuje výstup agenta do UI, vykresľuje generatívne UI a navrhuje schvaľovanie človekom, vďaka ktorému má posledné slovo vždy človek. V produkcii od februára 2026."
       },
-      {
+      "wishlist": {
+        "title": "Wishlist",
+        "description": "Webová aplikácia, v ktorej si rodiny, priatelia a kolegovia zdieľajú priania v skupinách. Bitloom navrhol produkt a postavil ho od začiatku do konca; prvá verzia vznikla s pomocou AI za dve hodiny. V prevádzke, používajú ho prví zákazníci."
+      },
+      "readnest": {
+        "title": "ReadNest",
+        "description": "Mobilná aplikácia pre čitateľov, ktorí si chcú viesť prehľad o knihách a zapisovať si myšlienky, ktoré stoja za zapamätanie. Všetky dáta zostávajú v telefóne: bez účtu, bez servera, nič sa neodosiela. Návrh produktu a full-stack vývoj od Bitloomu, momentálne pred spustením."
+      },
+      "holaEspanol": {
+        "title": "Hola Español",
+        "description": "Jednostránková aplikácia pre online hodiny španielčiny, ktorá učí už pri čítaní: španielske slová a frázy sa pri posúvaní objavujú priamo na stránke. Moderný, redakčne ladený dizajn vznikol kreatívne s pomocou Claude skills."
+      },
+      "researchAgent": {
         "title": "AI Research Agent CLI",
         "description": "Autonómny výskumný agent, ktorý odpovedá na zložité otázky orchestráciou viacerých informačných zdrojov — akademických článkov z ArXiv, webového vyhľadávania a RAG znalostnej bázy. Postavený na LangGraph.js a Pinecone, využíva Oracle LLM na inteligentné smerovanie dopytov a zostavovanie štruktúrovaných výskumných správ."
-      },
-      {
-        "title": "AI Crew analýza obsahu obrázkov",
-        "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované user stories. Poháňané pomocou GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové požiadavky. Výsledky sú následne uložené v dokumente v Markdown jazyku."
-      },
-      {
-        "title": "Mindtaker - Denník myšlienok poháňaný AI",
-        "description": "React Native mobilná aplikácia, ktorá pomáha používateľom zachytiť a organizovať denné myšlienky. Myšlienky je možné rozširovať a sumarizovať pomocou AI. Obsahuje organizáciu cez kalendár a OAuth autentifikáciu."
-      },
-      {
-        "title": "Next Notes - Denné úlohy",
-        "description": "Jednoduchá appka na zapisovanie denných afirmácií a sebareflexie. Zaznamenajte si, čo vás inšpiruje, sledujte svoj osobný rast a vybudujte si návyk pravidelného písania."
       }
-    ]
+    }
   },
   "about": {
     "title": "O spoločnosti Bitloom",
@@ -214,7 +317,7 @@
     "stats": {
       "yearsExperience": "Rokov skúseností",
       "projectsCompleted": "Dokončených projektov",
-      "industries": "Kľúčové odvetvia"
+      "pointOfContact": "Kontaktná osoba"
     },
     "ctaSection": {
       "title": "Páči sa vám, čo vidíte?",
@@ -234,7 +337,7 @@
     "stats": {
       "projectsCompleted": "Dokončené projekty",
       "yearsExperience": "Rokov skúseností",
-      "missedDeadlines": "Zmeškaných termínov"
+      "replyTime": "Čas odpovede"
     },
     "items": [
       {
@@ -430,7 +533,7 @@
           "items": [
             "Nevyhnutné cookies: Vždy aktívne - Požadované pre funkčnosť webovej stránky, bezpečnosť a preferencie súhlasu",
             "Analytické cookies: Iba s vaším súhlasom - Google Analytics na analýzu výkonu webovej stránky",
-            "Preferenčné cookies: Zapamätajú si vaše nastavenia (téma, jazykové preferencie, voľba súhlasu s cookies)"
+            "Preferenčné cookies: Zapamätajú si vaše nastavenia (jazyková preferencia, voľba súhlasu s cookies)"
           ],
           "choice": "Môžete prijať alebo odmietnuť cookies pri prvej návšteve našej webovej stránky. Svoju voľbu môžete kedykoľvek zmeniť v nastaveniach prehliadača.",
           "choiceLabel": "Vaša voľba:"
@@ -601,11 +704,6 @@
     }
   },
   "common": {
-    "readMore": "Čítať viac",
-    "learnMore": "Dozvedieť sa viac",
-    "getStarted": "Začať",
-    "contactUs": "Kontaktujte nás",
-    "viewAll": "Zobraziť všetko",
     "close": "Zavrieť"
   },
   "cookieConsent": {
@@ -627,7 +725,7 @@
     "categories": {
       "essential": {
         "label": "Nevyhnutné",
-        "description": "Potrebné na základné fungovanie — uchovanie vašej voľby cookies, nastavenia vzhľadu a zabezpečenie. Tieto cookies nie je možné vypnúť."
+        "description": "Potrebné na základné fungovanie — uchovanie vašej voľby cookies a zabezpečenie. Tieto cookies nie je možné vypnúť."
       },
       "analytics": {
         "label": "Analytika",

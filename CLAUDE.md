@@ -7,24 +7,23 @@ This document provides instructions and guidelines for GitHub Copilot to assist 
 - **Next.js 16** (App Router, Turbopack dev)
 - **React 19**
 - **TypeScript**
-- **Tailwind CSS v4** (CSS-first config via `@theme` in `src/app/globals.css`; the legacy `tailwind.config.js` is unused)
+- **Tailwind CSS v4**: only its base reset (preflight) is used; there are no utility classes and no `@theme` tokens. Styling is plain CSS on the loom design system (see Style Guide)
 - **next-intl** (i18n — English and Slovak)
-- **next-themes** (dark mode, via `src/providers/ThemeProvider.tsx`)
 - **mailtrap** (contact form email delivery)
 
 ## Dev Commands
 
 - `npm run dev` — start dev server (Turbopack)
 - `npm run build` — production build
-- `npm run lint` — ESLint
+- `npm run lint` — ESLint + design-token check (`npm run lint:tokens` runs the token check alone)
 
 ## Project Structure Guidelines
 
 src/app # App Router (locale-scoped pages under src/app/[locale])
-src/components # Reusable UI components (incl. about/, contact/, process/, projects/, testimonial/)
-src/sections # Page sections (Hero, Services, Projects, About, Testimonials, Contact)
-src/lib # Utilities (analytics, config, consent, hooks, utils)
-src/providers # React providers (ThemeProvider)
+src/components # Reusable UI components (loom/ = shared shell: header, selvedge, label, footer; contact/, projects/, testimonial/)
+src/sections # Page sections (loom/ = home page; Services, Projects, About, Testimonials, Contact)
+src/lib # Utilities (analytics, config, consent, utils; loom/ = scroll runtime + weave helpers)
+src/styles # Design system CSS (tokens.css = single source of truth; loom-shell.css shared components, loom-pages.css inner pages)
 src/i18n # next-intl routing + request config
 src/proxy.ts # next-intl middleware (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
 src/app/api # Route handlers (contact form)
@@ -55,6 +54,12 @@ messages # i18n translation files (en.json, sk.json)
 
 ## Style Guide
 
+- **Design system "the loom"**: paper (`#edf0f3`) and navy (`#0a1122`) sections with hard cuts, one cobalt accent, Archivo (display, width axis) + Geist + Geist Mono. No dark-mode toggle: the pages alternate light and dark grounds themselves. A fixed woven strip (selvedge) is woven by the visitor's scroll on every page; sections with `data-chapter` become its bands and nav links.
+- **Design tokens live only in `src/styles/tokens.css`**, in three layers: palette (`--color-*`, raw values), semantic (`--ink`, `--accent`, `--panel`, `--shadow-*`, type/space/motion) and grounds (`.loom-g-paper` / `.loom-g-navy` re-point the semantic colors). Canvas colors are `--thread-*`, `--cloth-*`, `--title-*` and `--turn-*`.
+  - Components use semantic tokens only. Never write a hex/rgb value anywhere else; `npm run lint` fails on it (`scripts/check-tokens.mjs`).
+  - A light surface inside a dark section (label, form, modal) gets `loom-g-paper`; a dark floating one gets `loom-g-navy`. Don't re-declare token values on a component.
+  - Canvas runtimes read colors with `readTokens()` / `threadColor()` from `src/lib/loom/tokens.ts`. `data-weft` / `data-warp` and `chapter()` take thread names (`"cobalt"`, `"navy"`…), not hex. Add a new thread to both `tokens.css` and `THREADS`.
+  - The contact email (`src/app/api/contact/route.ts`) is the one exception: email clients can't read CSS variables, so it mirrors token values, and the lint check verifies they match.
 - **Design**: Clean, minimalist, professional with enterprise appeal
 - **Color Palette**: Modern sophisticated tones; excellent contrast for business credibility
 - **Typography**: Clear headings, professional font choices, responsive and accessible
@@ -71,7 +76,7 @@ messages # i18n translation files (en.json, sk.json)
 ### Founder & Leadership
 
 - **Founder**: Miroslav - Self-taught professional developer with 6 years of experience
-- **Industry Focus**: Specialized experience in healthcare and financial sector projects where precision, security, and reliability are essential
+- **Industry Focus**: Fintech and banking (regulated, high-stakes work) and enterprise software, alongside websites and apps for small businesses and entrepreneurs
 - **Market Advantage**: Experience in high-stakes industries has shaped his approach to building dependable software solutions
 - **Professional Journey**: Demonstrates commitment to continuous learning and mastery of modern technologies
 
@@ -186,4 +191,4 @@ Bitloom's core technical expertise includes:
 
 ---
 
-**Goal**: Assist in building a **modern, accessible, SEO-optimized company website** for Bitloom using Next.js, TypeScript, and Tailwind.
+**Goal**: Assist in building a **modern, accessible, SEO-optimized company website** for Bitloom using Next.js, TypeScript, and the loom design system.

@@ -2,7 +2,6 @@
 
 import Modal from "../Modal";
 import AuthorHeader from "./AuthorHeader";
-import DecorativeQuote from "./DecorativeQuote";
 import { Testimonial } from "./types";
 import VerifiedBadge from "./VerifiedBadge";
 
@@ -12,21 +11,13 @@ interface Props {
 }
 
 const TestimonialModal = ({ testimonial, onClose }: Props) => (
-  <Modal isOpen={testimonial !== null} onClose={onClose}>
+  <Modal isOpen={testimonial !== null} onClose={onClose} labelledBy="testimonial-modal-author">
     {testimonial && (
-      <div className="relative">
-        <DecorativeQuote />
-        <AuthorHeader testimonial={testimonial} />
-        <blockquote className="mt-4 text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed whitespace-pre-line">
-          &ldquo;{testimonial.testimonial}&rdquo;
-        </blockquote>
-        <div className="mt-5">
-          <VerifiedBadge
-            recommendationDate={testimonial.recommendationDate}
-            authorName={testimonial.name}
-          />
-        </div>
-      </div>
+      <figure className="loom-quote tst-modal">
+        <AuthorHeader testimonial={testimonial} id="testimonial-modal-author" />
+        <blockquote>&ldquo;{testimonial.testimonial}&rdquo;</blockquote>
+        <VerifiedBadge recommendationDate={testimonial.recommendationDate} authorName={testimonial.name} />
+      </figure>
     )}
   </Modal>
 );

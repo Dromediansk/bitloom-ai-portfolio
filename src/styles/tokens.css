@@ -1,0 +1,182 @@
+/*
+ * The loom: design tokens. The single source of truth for every color, font,
+ * type step, space, motion curve and shadow on the site.
+ *
+ * This is the only file allowed to hold raw color values (`npm run lint`
+ * enforces it). Everything else references these custom properties:
+ *   - CSS                 var(--ink), var(--accent), var(--shadow-raised) …
+ *   - canvas runtimes     readTokens() in src/lib/loom/tokens.ts reads them at runtime
+ *   - weave markup        data-weft / data-warp take a thread name ("cobalt"), not a hex
+ *
+ * Three layers, each built only from the one above it:
+ *   1. palette   raw values, named for what they are         (--color-*)
+ *   2. semantic  what a value is for; components use these   (--ink, --accent, --shadow-* …)
+ *   3. grounds   .loom-g-paper / .loom-g-navy re-point the semantic colors for a dark or light section
+ * Plus the thread palette (--thread-*, --cloth-*, --title-*, --turn-*): colors the
+ * canvases weave with. They are drawn, never applied to text, so they sit apart.
+ */
+
+:root {
+  /* ========================================================= 1 · palette == */
+  /* paper: the light ground and its lights */
+  --color-paper: #edf0f3;
+  --color-paper-shade: #e1e6ec;
+  --color-paper-light: #f7f8fa;
+  --color-paper-white: #fbfcfd;
+  --color-snow: #f5f7fa;          /* light ink set on cobalt or navy */
+
+  /* navy: the dark ground */
+  --color-navy: #0a1122;
+  --color-navy-deep: #0d1526;     /* the loom's own frame: selvedge, cloth ground */
+  --color-navy-raised: #121a2e;
+
+  /* ink */
+  --color-ink: #0c1424;
+  --color-ink-soft: #45506a;
+  --color-ink-faint: #7b859a;
+  --color-bone: #e9edf4;          /* ink on navy */
+  --color-bone-soft: #a3afc5;
+
+  /* the one accent */
+  --color-cobalt: #0b5bd1;
+  --color-cobalt-light: #7db1ff;  /* cobalt on navy */
+
+  /* status */
+  --color-ok: #1f6b38;
+  --color-ok-ink: #1d4d2b;
+  --color-ok-wash: #e3efe6;
+  --color-err: #a3281c;
+  --color-err-ink: #7a2018;
+  --color-err-wash: #f6e3e1;
+
+  /* shadow bases */
+  --color-shadow: #040a18;
+  --color-scrim: #060a16;
+  --color-glow: #0b286e;          /* the cobalt button's cast shadow */
+
+  /* =================================================== thread palette == */
+  /* weft and warp for chapters, swatches and mastheads (data-weft / data-warp) */
+  --thread-cobalt: #2f6fe4;
+  --thread-sky: #6ea8ff;
+  --thread-pale: #9cc2ff;
+  --thread-bone: var(--color-bone);
+  --thread-mist: #c9d3e3;
+  --thread-ivory: #e8edf5;
+  --thread-frost: #dce3ee;
+  --thread-navy: #0e1a33;
+  --thread-indigo: #14203a;
+
+  /* woven cloth: the selvedge and the sewn label */
+  --cloth-ground: var(--color-navy-deep);
+  --cloth-warp: #33456e;          /* warp showing between weft floats */
+  --cloth-warp-open: #2a3756;     /* unwoven warp */
+  --cloth-fell: var(--color-snow);/* the line where the next pick lands */
+  --cloth-sheen: rgba(255, 255, 255, 0.1);
+  --cloth-shade: rgba(0, 0, 0, 0.14);
+
+  /* home title: the slate band bound under the headline */
+  --title-weft: #9aa9c4;
+  --title-weft-under: #7486a8;
+  --title-comb: rgba(14, 26, 51, 0.28);
+  --title-end: var(--color-cobalt);
+  --title-shuttle: var(--thread-cobalt);
+
+  /* home turn: loose bits woven into cloth with the Bitloom mark */
+  --turn-bit: #2a3b62;
+  --turn-gathered: #2e4170;
+  --turn-over: #3a5088;
+  --turn-under: #22315a;
+  --turn-mark-a: #3d84ff;         /* first square, over (under is --thread-cobalt) */
+  --turn-mark-b: #86b2f5;         /* second square, under (over is --thread-pale) */
+  --turn-knot: var(--color-snow);    /* the mark's centre */
+  --turn-shuttle: var(--color-snow);
+
+  /* ======================================================== 2 · semantic == */
+  /* type */
+  --display: var(--font-archivo), system-ui, sans-serif;
+  --text: var(--font-geist), system-ui, sans-serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
+  --t-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.95rem);
+  --t-base: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+  --t-lg: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --t-xl: clamp(1.6rem, 1.35rem + 1.2vw, 2.25rem);
+  --t-2xl: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+  --t-3xl: clamp(2.6rem, 1.8rem + 3.8vw, 4.75rem);
+
+  /* space and frame */
+  --gutter: clamp(20px, 6vw, 96px);
+  --section: clamp(88px, 13vh, 150px);
+  --selv: 30px;
+  --selv-gap: 44px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* surfaces that sit outside the grounds */
+  --chrome: var(--color-navy-deep);        /* selvedge, its tooltips, the cookie banner */
+  --chrome-ink: var(--color-bone);
+  --field: var(--color-paper-white);
+  --field-ink: var(--color-ink);
+  --field-placeholder: var(--color-ink-faint);
+  --scrim: color-mix(in srgb, var(--color-scrim) 62%, transparent);
+  --ok: var(--color-ok);
+  --ok-ink: var(--color-ok-ink);
+  --ok-wash: var(--color-ok-wash);
+  --err: var(--color-err);
+  --err-ink: var(--color-err-ink);
+  --err-wash: var(--color-err-wash);
+  --selection: var(--color-cobalt);
+  --selection-ink: var(--color-snow);
+
+  /* elevation, lowest to highest */
+  --shadow-button:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 6px 18px -8px color-mix(in srgb, var(--color-glow) 55%, transparent);
+  --shadow-tip: 0 6px 16px -8px color-mix(in srgb, var(--color-shadow) 60%, transparent);
+  --shadow-selvedge:
+    1px 0 0 rgba(255, 255, 255, 0.06),
+    6px 0 18px -10px color-mix(in srgb, var(--color-shadow) 60%, transparent);
+  --shadow-cloth:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 28px -18px color-mix(in srgb, var(--color-ink) 55%, transparent),
+    0 2px 6px -2px color-mix(in srgb, var(--color-ink) 25%, transparent);
+  --shadow-media:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 24px 44px -28px color-mix(in srgb, var(--color-ink) 55%, transparent),
+    0 2px 6px -2px color-mix(in srgb, var(--color-ink) 20%, transparent);
+  --shadow-raised:
+    0 1px 0 #fff inset,
+    0 30px 60px -36px color-mix(in srgb, var(--color-ink) 55%, transparent),
+    0 4px 12px -6px color-mix(in srgb, var(--color-ink) 25%, transparent);
+  --shadow-floating:
+    0 30px 60px -30px color-mix(in srgb, var(--color-shadow) 80%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-bone) 8%, transparent);
+  --shadow-overlay: 0 40px 80px -40px color-mix(in srgb, var(--color-shadow) 70%, transparent);
+}
+
+/* ========================================================== 3 · grounds == */
+/* Paper is the default ground, so anything outside a section still reads right.
+   Component rules apply them (background: var(--canvas); color: var(--ink)). */
+:root,
+.loom-g-paper {
+  --canvas: var(--color-paper);
+  --surface: var(--color-paper-shade);
+  --panel: var(--color-paper-light);
+  --ink: var(--color-ink);
+  --ink-soft: var(--color-ink-soft);
+  --accent: var(--color-cobalt);
+  --accent-ink: var(--color-snow);
+  --hair: color-mix(in srgb, var(--color-ink) 14%, transparent);
+  --hair-strong: color-mix(in srgb, var(--color-ink) 28%, transparent);
+}
+.loom-g-navy {
+  --canvas: var(--color-navy);
+  --surface: var(--color-navy-raised);
+  --panel: var(--color-navy-raised);
+  --ink: var(--color-bone);
+  --ink-soft: var(--color-bone-soft);
+  --accent: var(--color-cobalt-light);
+  --accent-ink: var(--color-navy);
+  --hair: color-mix(in srgb, var(--color-bone) 16%, transparent);
+  --hair-strong: color-mix(in srgb, var(--color-bone) 32%, transparent);
+}

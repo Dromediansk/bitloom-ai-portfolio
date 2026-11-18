@@ -7,16 +7,119 @@
     "testimonials": "Testimonials",
     "contact": "Contact",
     "blog": "Blog",
-    "toggleMenu": "Toggle mobile menu"
+    "menu": "Menu",
+    "closeMenu": "Close menu"
   },
-  "hero": {
-    "companyName": "Bitloom",
-    "tagline": "Digital Solutions from Bold Ideas",
-    "description": "Web, mobile apps and AI solutions tailored to your specific needs.",
-    "exploreServices": "Explore Services",
-    "contactUs": "Book a Free Consultation",
-    "scrollToExplore": "Scroll to explore",
-    "scrollToServicesAriaLabel": "Scroll to services section"
+  "home": {
+    "chapters": {
+      "title": "Intro",
+      "problem": "The problem",
+      "turn": "Augmented",
+      "work": "Work",
+      "founder": "Founder",
+      "close": "Start a project"
+    },
+    "chaptersLabel": "Page chapters",
+    "pagesLabel": "Site",
+    "title": {
+      "line1": "Software,",
+      "line2": "woven to hold.",
+      "sub": "Web, mobile and AI systems from Košice, for fintech teams and small businesses alike.",
+      "cta": "Start a project"
+    },
+    "problem": {
+      "heading": "Most AI makes you choose how it fails.",
+      "assistantLabel": "The assistant",
+      "assistant": "Waits for a prompt at every step. Long, multi-step work never gets finished.",
+      "agentLabel": "The autonomous agent",
+      "agent": "Acts on its own with nobody watching. Fine for a demo. Not for decisions a bank or a business owner has to answer for.",
+      "close": "When real money or your own business is on the line, neither is acceptable."
+    },
+    "turn": {
+      "line1": "Bitloom builds the third option.",
+      "line2": "Agents do the research, the drafting and the self-review.",
+      "line3": "People keep authority at every decision that matters.",
+      "heading": "Augmented, not autonomous.",
+      "body": "Every change an agent makes is versioned, attributable and reversible. That is how Bitloom builds agentic AI for work that has to hold up."
+    },
+    "work": {
+      "heading": "Off the loom.",
+      "intro": "Client work and Bitloom's own products. Same label for each: who it is for, what Bitloom did, what it is made of, where it stands.",
+      "labels": {
+        "for": "For",
+        "did": "Bitloom",
+        "fibre": "Fibre",
+        "state": "State"
+      },
+      "items": {
+        "agenticPlatform": {
+          "name": "Agentic AI platform",
+          "for": "A fintech software vendor. Document-heavy work in a regulated industry.",
+          "did": "Senior AI engineering: agent backend, agent-to-UI streaming, generative UI, human review flows.",
+          "fibre": "TypeScript, LangGraph, React, PostgreSQL",
+          "state": "In production use. Ongoing since February 2026."
+        },
+        "wishlist": {
+          "name": "Wishlist",
+          "for": "Families, friends and colleagues sharing wishes in groups.",
+          "did": "Product and full-stack. First version built in two hours with AI-assisted development.",
+          "fibre": "Next.js, TypeScript, Supabase, Google sign-in",
+          "state": "Live at <link>wishlist.bitloom.sk</link>, in use by its first customers."
+        },
+        "readnest": {
+          "name": "ReadNest",
+          "for": "Readers who track books and keep notes on ideas.",
+          "did": "Product and full-stack. Local-only by design: nothing leaves the phone.",
+          "fibre": "React Native, Expo, TypeScript",
+          "state": "Pre-launch."
+        },
+        "holaEspanol": {
+          "name": "Hola Español",
+          "for": "An online Spanish teacher.",
+          "did": "Design and build, then an editorial redesign in which the page turns into Spanish as you scroll.",
+          "fibre": "Next.js, TypeScript, Tailwind CSS, next-intl",
+          "state": "Live at <link>holaespanol.sk</link>"
+        }
+      },
+      "end": "Before Bitloom: banking front-ends at Senacor Technologies, then a React chart library and Node services at GlobalLogic.",
+      "more": "All projects"
+    },
+    "founder": {
+      "heading": "One engineer at the loom.",
+      "p1": "Bitloom is Miroslav Pillár. A self-taught engineer writing production software since 2019: senior front-end work on banking products at Senacor, then a React chart library and Node services at GlobalLogic. He founded Bitloom in Košice in 2024 and now builds agentic AI systems.",
+      "p2": "A master's degree in regional economics means budget, timeline and the business case are part of the engineering conversation from the first call.",
+      "photoAlt": "Miroslav Pillár, founder of Bitloom, on a pebble beach by the sea.",
+      "caption": "Ing. Miroslav Pillár, founder",
+      "processLabel": "How a project runs",
+      "steps": [
+        {
+          "name": "Discovery",
+          "text": "Agree on the problem before anyone writes code."
+        },
+        {
+          "name": "Analysis",
+          "text": "Scope, risks and a plan you can hold Bitloom to."
+        },
+        {
+          "name": "Development",
+          "text": "Small, reviewable steps you can see running."
+        },
+        {
+          "name": "Delivery",
+          "text": "Production release, handover, and support after it."
+        }
+      ],
+      "values": "Transparent communication. Remote-first. Open-minded. Slovak, English and German.",
+      "more": "More about Bitloom"
+    },
+    "close": {
+      "maker": "Bitloom s.r.o. · Košice, Slovakia · Est. 2024",
+      "heading": "Have something that has to hold?",
+      "body": "Tell me what you are building. You get a straight answer on whether Bitloom is the right fit.",
+      "note": "The cloth on this label was woven by your scroll through this page.",
+      "registration": "Business ID 56397631 · Tax ID 2122301907 · VAT ID SK2122301907"
+    },
+    "language": "Language"
   },
   "notFound": {
     "code": "404",
@@ -28,7 +131,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "We help businesses launch faster, reach more users, and scale with confidence",
-    "differentiator": "7+ years shipping production software in fintech, banking, and AI engineering. One developer, zero overhead, full accountability.",
+    "differentiator": "7+ years shipping production software in fintech, banking, and AI engineering, now for enterprise teams and small businesses alike. One developer, zero overhead, full accountability.",
     "modernWebCraft": {
       "title": "Web Solutions",
       "description": "Fast, responsive websites and web apps — built from database to UI.",
@@ -57,15 +160,15 @@
       ]
     },
     "industries": {
-      "label": "Trusted in industries where precision matters",
-      "healthcare": "Healthcare",
+      "label": "Who Bitloom builds for",
       "fintech": "Fintech & Banking",
-      "enterprise": "Enterprise Software"
+      "enterprise": "Enterprise Software",
+      "smallBusiness": "Small Businesses & Entrepreneurs"
     },
     "socialProof": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
-      "missedDeadlines": "Missed Deadlines",
+      "replyTime": "Reply Time",
       "seeAll": "See all testimonials"
     },
     "cta": {
@@ -117,28 +220,28 @@
       "description": "Let's talk about your idea and see if we're the right fit.",
       "startProject": "Start Your Project"
     },
-    "items": [
-      {
-        "title": "Hola Español",
-        "description": "A modern, bilingual website for online Spanish lessons — featuring a clean landing page with service offerings, teacher profile, and an integrated contact form for lesson inquiries. Built with Next.js 16, internationalization support, and dark mode."
+    "items": {
+      "agenticPlatform": {
+        "title": "Agentic AI platform",
+        "description": "Senior AI engineering for a fintech software vendor, on document-heavy work in a regulated industry. Bitloom builds the agent backend, streams agent output into the UI, renders generative UI and designs the human review flows that keep people in control of every decision. In production use since February 2026."
       },
-      {
+      "wishlist": {
+        "title": "Wishlist",
+        "description": "A web app where families, friends and colleagues share wishes in groups. Bitloom shaped the product and built it end to end; the first version was ready in two hours thanks to AI-assisted development. Live and used by its first customers."
+      },
+      "readnest": {
+        "title": "ReadNest",
+        "description": "A mobile app for readers who track their books and keep notes on the ideas worth remembering. Local-only by design: no account, no server, nothing leaves the phone. Product and full-stack development by Bitloom, now preparing for launch."
+      },
+      "holaEspanol": {
+        "title": "Hola Español",
+        "description": "A single-page app for online Spanish lessons that teaches while you read: Spanish words and phrases appear right on the page as you scroll. Modern, editorial design, created with the help of Claude skills."
+      },
+      "researchAgent": {
         "title": "AI Research Agent CLI",
         "description": "An autonomous research agent that answers complex questions by orchestrating multiple information sources — ArXiv papers, Google web search, and a RAG knowledge base. Built with LangGraph.js and Pinecone, it uses an Oracle LLM to intelligently route queries and compile structured research reports."
-      },
-      {
-        "title": "AI Crew Image Content Analysis",
-        "description": "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights. The results are then saved in a Markdown document."
-      },
-      {
-        "title": "Mindtaker - AI-Powered Thought Journal",
-        "description": "A React Native mobile app that helps users capture and organize daily thoughts with AI-powered insights. Features calendar-based organization and OAuth authentication."
-      },
-      {
-        "title": "Next Notes - Daily Tasks",
-        "description": "A clean note-taking app for daily affirmations and self-reflection. Write down what inspires you, track your personal growth, and build a habit of journaling."
       }
-    ]
+    }
   },
   "about": {
     "title": "About Bitloom company",
@@ -214,7 +317,7 @@
     "stats": {
       "yearsExperience": "Years Experience",
       "projectsCompleted": "Projects Completed",
-      "industries": "Key Industries"
+      "pointOfContact": "Point of Contact"
     },
     "ctaSection": {
       "title": "Like What You See?",
@@ -234,7 +337,7 @@
     "stats": {
       "projectsCompleted": "Projects Completed",
       "yearsExperience": "Years Experience",
-      "missedDeadlines": "Missed Deadlines"
+      "replyTime": "Reply Time"
     },
     "items": [
       {
@@ -430,7 +533,7 @@
           "items": [
             "Essential Cookies: Always active - Required for website functionality, security, and consent preferences",
             "Analytics Cookies: Only with your consent - Google Analytics for website performance analysis",
-            "Preference Cookies: Remember your settings (theme, language preferences, cookie consent choice)"
+            "Preference Cookies: Remember your settings (language preference, cookie consent choice)"
           ],
           "choice": "You can accept or decline cookies when you first visit our website. You can change your choice at any time through your browser settings.",
           "choiceLabel": "Your Choice:"
@@ -601,11 +704,6 @@
     }
   },
   "common": {
-    "readMore": "Read More",
-    "learnMore": "Learn More",
-    "getStarted": "Get Started",
-    "contactUs": "Contact Us",
-    "viewAll": "View All",
     "close": "Close"
   },
   "cookieConsent": {
@@ -627,7 +725,7 @@
     "categories": {
       "essential": {
         "label": "Essential",
-        "description": "Required for core functionality such as storing your cookie preference itself, theme selection, and security. These cannot be disabled."
+        "description": "Required for core functionality such as storing your cookie preference itself and security. These cannot be disabled."
       },
       "analytics": {
         "label": "Analytics",
