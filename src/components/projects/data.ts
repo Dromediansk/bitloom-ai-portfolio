@@ -18,7 +18,7 @@ const projectsData: ProjectData[] = [
     categoryKey: "aiMl",
     technologies: ["TypeScript", "LangGraph", "React", "PostgreSQL"],
     swatch: { weave: "herring", weft: "cobalt", warp: "navy" },
-    image: "/images/projects/project_agentic.png",
+    image: "/images/projects/project_agentic.jpg",
   },
   {
     key: "wishlist",
@@ -33,7 +33,7 @@ const projectsData: ProjectData[] = [
     categoryKey: "mobileApp",
     technologies: ["React Native", "Expo", "TypeScript"],
     swatch: { weave: "satin", weft: "pale", warp: "indigo" },
-    image: "/images/projects/project_readnest.png",
+    image: "/images/projects/project_readnest.jpg",
   },
   {
     key: "holaEspanol",
