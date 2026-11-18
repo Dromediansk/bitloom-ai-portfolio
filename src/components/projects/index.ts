@@ -1,2 +1,2 @@
-export { getProjects } from "./data";
-export type { Project } from "./types";
+export { getProjects, getProjectSwatch, getProjectDemoUrl, HOME_PROJECTS } from "./data";
+export type { Project, ProjectKey, ProjectSwatch } from "./types";

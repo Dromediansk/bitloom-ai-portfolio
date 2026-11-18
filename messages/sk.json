@@ -49,36 +49,36 @@
         "fibre": "Technológie",
         "state": "Stav"
       },
-      "items": [
-        {
+      "items": {
+        "agenticPlatform": {
           "name": "Agentická AI platforma",
           "for": "Dodávateľ softvéru pre fintech. Spracovanie veľkého množstva dokumentov v regulovanom odvetví.",
           "did": "Seniorný AI vývoj: backend agentov, streamovanie výstupu agenta do UI, generatívne UI, schvaľovanie človekom.",
           "fibre": "TypeScript, LangGraph, React, PostgreSQL",
           "state": "V produkcii, priebežne od februára 2026."
         },
-        {
+        "wishlist": {
           "name": "Wishlist",
           "for": "Rodiny, priatelia a kolegovia, ktorí si v skupinách zdieľajú priania.",
           "did": "Návrh produktu a full-stack vývoj. Prvá verzia vznikla s pomocou AI za dve hodiny.",
           "fibre": "Next.js, TypeScript, Supabase, prihlásenie cez Google",
-          "state": "V prevádzke, používajú ho prví zákazníci."
+          "state": "V prevádzke na <link>wishlist.bitloom.sk</link>, používajú ho prví zákazníci."
         },
-        {
+        "readnest": {
           "name": "ReadNest",
           "for": "Čitatelia, ktorí si chcú viesť prehľad o knihách a zapisovať si myšlienky.",
           "did": "Návrh produktu a full-stack vývoj. Všetky dáta zostávajú v telefóne, nič sa neodosiela.",
           "fibre": "React Native, Expo, TypeScript",
           "state": "Pred spustením."
         },
-        {
+        "holaEspanol": {
           "name": "Hola Español",
           "for": "Online výučba španielčiny.",
           "did": "Návrh a vývoj dvojjazyčného webu s formulárom na objednanie lekcií.",
           "fibre": "Next.js, TypeScript, next-intl",
           "state": "V prevádzke na <link>holaespanol.sk</link>"
         }
-      ],
+      },
       "end": "Ešte pred Bitloomom: frontend bankových aplikácií v Senacor Technologies, potom knižnica grafov v Reacte a služby v Node.js v GlobalLogic.",
       "more": "Všetky projekty"
     },
@@ -218,28 +218,28 @@
       "description": "Porozprávajte nám o vašom nápade a zistíme, či sa k sebe hodíme.",
       "startProject": "Začať váš projekt"
     },
-    "items": [
-      {
+    "items": {
+      "agenticPlatform": {
+        "title": "Agentická AI platforma",
+        "description": "Seniorný AI vývoj pre dodávateľa softvéru vo fintechu, zameraný na spracovanie veľkého množstva dokumentov v regulovanom odvetví. Bitloom stavia backend agentov, streamuje výstup agenta do UI, vykresľuje generatívne UI a navrhuje schvaľovanie človekom, vďaka ktorému má posledné slovo vždy človek. V produkcii od februára 2026."
+      },
+      "wishlist": {
+        "title": "Wishlist",
+        "description": "Webová aplikácia, v ktorej si rodiny, priatelia a kolegovia zdieľajú priania v skupinách. Bitloom navrhol produkt a postavil ho od začiatku do konca; prvá verzia vznikla s pomocou AI za dve hodiny. V prevádzke, používajú ho prví zákazníci."
+      },
+      "readnest": {
+        "title": "ReadNest",
+        "description": "Mobilná aplikácia pre čitateľov, ktorí si chcú viesť prehľad o knihách a zapisovať si myšlienky, ktoré stoja za zapamätanie. Všetky dáta zostávajú v telefóne: bez účtu, bez servera, nič sa neodosiela. Návrh produktu a full-stack vývoj od Bitloomu, momentálne pred spustením."
+      },
+      "holaEspanol": {
         "title": "Hola Español",
         "description": "Moderná, dvojjazyčná webová stránka pre online hodiny španielčiny — s prehľadnou úvodnou stránkou, ponukou služieb, profilom lektorky a integrovaným kontaktným formulárom. Postavená na Next.js 16 s podporou internacionalizácie a tmavého režimu."
       },
-      {
+      "researchAgent": {
         "title": "AI Research Agent CLI",
         "description": "Autonómny výskumný agent, ktorý odpovedá na zložité otázky orchestráciou viacerých informačných zdrojov — akademických článkov z ArXiv, webového vyhľadávania a RAG znalostnej bázy. Postavený na LangGraph.js a Pinecone, využíva Oracle LLM na inteligentné smerovanie dopytov a zostavovanie štruktúrovaných výskumných správ."
-      },
-      {
-        "title": "AI Crew analýza obsahu obrázkov",
-        "description": "Použitie CrewAI na koordináciu tímu AI agentov, ktorí analyzujú obrázok, navrhujú vylepšenia dizajnu a generujú prioritizované user stories. Poháňané pomocou GPT-4o a VisionTool, systém automatizuje workflow od vizuálnej analýzy po praktické produktové požiadavky. Výsledky sú následne uložené v dokumente v Markdown jazyku."
-      },
-      {
-        "title": "Mindtaker - Denník myšlienok poháňaný AI",
-        "description": "React Native mobilná aplikácia, ktorá pomáha používateľom zachytiť a organizovať denné myšlienky. Myšlienky je možné rozširovať a sumarizovať pomocou AI. Obsahuje organizáciu cez kalendár a OAuth autentifikáciu."
-      },
-      {
-        "title": "Next Notes - Denné úlohy",
-        "description": "Jednoduchá appka na zapisovanie denných afirmácií a sebareflexie. Zaznamenajte si, čo vás inšpiruje, sledujte svoj osobný rast a vybudujte si návyk pravidelného písania."
       }
-    ]
+    }
   },
   "about": {
     "title": "O spoločnosti Bitloom",

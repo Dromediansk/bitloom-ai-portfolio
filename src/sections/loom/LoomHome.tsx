@@ -8,17 +8,10 @@ import { siteConfig } from "@/lib/config";
 import { trackCTAClick } from "@/lib/analytics";
 import SiteNav from "@/components/loom/SiteNav";
 import WovenLabel from "@/components/loom/WovenLabel";
-import { chapter, type WeaveName } from "@/lib/loom/chapters";
-import type { Thread } from "@/lib/loom/tokens";
+import { chapter } from "@/lib/loom/chapters";
+import { HOME_PROJECTS, getProjectDemoUrl, getProjectSwatch } from "@/components/projects";
 import { startHome } from "./homeRuntime";
 import "./loom.css";
-
-const SWATCHES: { weave: WeaveName; weft: Thread; warp: Thread }[] = [
-  { weave: "herring", weft: "cobalt", warp: "navy" },
-  { weave: "twill", weft: "ivory", warp: "cobalt" },
-  { weave: "satin", weft: "pale", warp: "indigo" },
-  { weave: "basket", weft: "cobalt", warp: "frost" },
-];
 
 export default function LoomHome() {
   const t = useTranslations("home");
@@ -127,40 +120,42 @@ export default function LoomHome() {
               <h2 className="loom-display loom-work__h">{t("work.heading")}</h2>
               <p>{t("work.intro")}</p>
             </div>
-            {SWATCHES.map((s, i) => (
-              <article
-                key={i}
-                className="loom-swatch"
-                style={{ "--k": i + 1 } as React.CSSProperties}
-              >
-                <canvas
-                  className="loom-swatch__cloth"
-                  data-weave={s.weave}
-                  data-weft={s.weft}
-                  data-warp={s.warp}
-                  aria-hidden="true"
-                />
-                <h3>{t(`work.items.${i}.name`)}</h3>
-                <dl>
-                  {workLabels.map((k) => (
-                    <div key={k}>
-                      <dt>{t(`work.labels.${k}`)}</dt>
-                      <dd>
-                        {k === "state"
-                          ? t.rich(`work.items.${i}.state`, {
-                              link: (chunks) => (
-                                <a href="https://holaespanol.sk" target="_blank" rel="noopener noreferrer">
-                                  {chunks}
-                                </a>
-                              ),
-                            })
-                          : t(`work.items.${i}.${k}`)}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </article>
-            ))}
+            {HOME_PROJECTS.map((key, i) => {
+              const s = getProjectSwatch(key);
+              const demoUrl = getProjectDemoUrl(key);
+              return (
+                <article
+                  key={key}
+                  className="loom-swatch"
+                  style={{ "--k": i + 1 } as React.CSSProperties}
+                >
+                  <canvas
+                    className="loom-swatch__cloth"
+                    data-weave={s.weave}
+                    data-weft={s.weft}
+                    data-warp={s.warp}
+                    aria-hidden="true"
+                  />
+                  <h3>{t(`work.items.${key}.name`)}</h3>
+                  <dl>
+                    {workLabels.map((k) => (
+                      <div key={k}>
+                        <dt>{t(`work.labels.${k}`)}</dt>
+                        <dd>
+                          {t.rich(`work.items.${key}.${k}`, {
+                            link: (chunks) => (
+                              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+                                {chunks}
+                              </a>
+                            ),
+                          })}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </article>
+              );
+            })}
             <div className="loom-rail__end">
               <p>{t("work.end")}</p>
               <Link className="loom-arrow-link" href="/projects">

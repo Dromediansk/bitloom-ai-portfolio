@@ -14,12 +14,21 @@ function ProjectObject({ project, lead = false }: { project: Project; lead?: boo
   return (
     <article className={`prj-object${lead ? " prj-object--lead" : ""}`}>
       <div className="prj-object__media">
-        {project.imageUrl && (
+        {project.imageUrl ? (
           <Image
             src={project.imageUrl}
             alt=""
             fill
             sizes={lead ? "(max-width: 860px) 100vw, 60vw" : "(max-width: 860px) 100vw, 45vw"}
+          />
+        ) : (
+          <canvas
+            className="loom-swatch__cloth prj-object__cloth"
+            data-weave={project.swatch.weave}
+            data-weft={project.swatch.weft}
+            data-warp={project.swatch.warp}
+            data-cell="8"
+            aria-hidden="true"
           />
         )}
       </div>
@@ -72,7 +81,7 @@ const ProjectsSection = () => {
           )}
           <div className="prj-grid">
             {rest.map((p) => (
-              <div key={p.id} data-in="">
+              <div key={p.key} data-in="">
                 <ProjectObject project={p} />
               </div>
             ))}

@@ -49,36 +49,36 @@
         "fibre": "Fibre",
         "state": "State"
       },
-      "items": [
-        {
+      "items": {
+        "agenticPlatform": {
           "name": "Agentic AI platform",
           "for": "A fintech software vendor. Document-heavy work in a regulated industry.",
           "did": "Senior AI engineering: agent backend, agent-to-UI streaming, generative UI, human review flows.",
           "fibre": "TypeScript, LangGraph, React, PostgreSQL",
           "state": "In production use. Ongoing since February 2026."
         },
-        {
+        "wishlist": {
           "name": "Wishlist",
           "for": "Families, friends and colleagues sharing wishes in groups.",
           "did": "Product and full-stack. First version built in two hours with AI-assisted development.",
           "fibre": "Next.js, TypeScript, Supabase, Google sign-in",
-          "state": "Live, in use by its first customers."
+          "state": "Live at <link>wishlist.bitloom.sk</link>, in use by its first customers."
         },
-        {
+        "readnest": {
           "name": "ReadNest",
           "for": "Readers who track books and keep notes on ideas.",
           "did": "Product and full-stack. Local-only by design: nothing leaves the phone.",
           "fibre": "React Native, Expo, TypeScript",
           "state": "Pre-launch."
         },
-        {
+        "holaEspanol": {
           "name": "Hola Español",
           "for": "An online Spanish teacher.",
           "did": "Design and build of a bilingual site with lesson inquiries.",
           "fibre": "Next.js, TypeScript, next-intl",
           "state": "Live at <link>holaespanol.sk</link>"
         }
-      ],
+      },
       "end": "Before Bitloom: banking front-ends at Senacor Technologies, then a React chart library and Node services at GlobalLogic.",
       "more": "All projects"
     },
@@ -218,28 +218,28 @@
       "description": "Let's talk about your idea and see if we're the right fit.",
       "startProject": "Start Your Project"
     },
-    "items": [
-      {
+    "items": {
+      "agenticPlatform": {
+        "title": "Agentic AI platform",
+        "description": "Senior AI engineering for a fintech software vendor, on document-heavy work in a regulated industry. Bitloom builds the agent backend, streams agent output into the UI, renders generative UI and designs the human review flows that keep people in control of every decision. In production use since February 2026."
+      },
+      "wishlist": {
+        "title": "Wishlist",
+        "description": "A web app where families, friends and colleagues share wishes in groups. Bitloom shaped the product and built it end to end; the first version was ready in two hours thanks to AI-assisted development. Live and used by its first customers."
+      },
+      "readnest": {
+        "title": "ReadNest",
+        "description": "A mobile app for readers who track their books and keep notes on the ideas worth remembering. Local-only by design: no account, no server, nothing leaves the phone. Product and full-stack development by Bitloom, now preparing for launch."
+      },
+      "holaEspanol": {
         "title": "Hola Español",
         "description": "A modern, bilingual website for online Spanish lessons — featuring a clean landing page with service offerings, teacher profile, and an integrated contact form for lesson inquiries. Built with Next.js 16, internationalization support, and dark mode."
       },
-      {
+      "researchAgent": {
         "title": "AI Research Agent CLI",
         "description": "An autonomous research agent that answers complex questions by orchestrating multiple information sources — ArXiv papers, Google web search, and a RAG knowledge base. Built with LangGraph.js and Pinecone, it uses an Oracle LLM to intelligently route queries and compile structured research reports."
-      },
-      {
-        "title": "AI Crew Image Content Analysis",
-        "description": "Using CrewAI to coordinate a team of AI agents that analyze an image, suggest design improvements, and generate prioritized user stories. Powered by GPT-4o and VisionTool, the system automates the workflow from visual analysis to actionable product insights. The results are then saved in a Markdown document."
-      },
-      {
-        "title": "Mindtaker - AI-Powered Thought Journal",
-        "description": "A React Native mobile app that helps users capture and organize daily thoughts with AI-powered insights. Features calendar-based organization and OAuth authentication."
-      },
-      {
-        "title": "Next Notes - Daily Tasks",
-        "description": "A clean note-taking app for daily affirmations and self-reflection. Write down what inspires you, track your personal growth, and build a habit of journaling."
       }
-    ]
+    }
   },
   "about": {
     "title": "About Bitloom company",
